@@ -1,7 +1,7 @@
 
 %define		_state		snapshots
 %define		_ver		3.2
-%define		_snap		030602
+%define		_snap		030613
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
@@ -12,8 +12,8 @@ Epoch:		7
 License:	GPL
 Group:		X11/Applications/Science
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	db8b4a5a69e1ae382e5768b5a04cd430
 Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
+# Source0-md5:	48e7e0a9fc592f31bc3043f64a12912f
 Patch0:		%{name}-vcategories.patch
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel = %{version}
@@ -24,6 +24,7 @@ BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_htmldir	%{_docdir}/kde/HTML
+%define		_icondir	%{_datadir}/icons
 
 %define		no_install_post_chrpath		1
 
@@ -46,7 +47,7 @@ Header Files
 Pliki nag³ówkowe
 
 %package flashkard
-Summary:	Flash card learning tool for KDE  
+Summary:	Flash card learning tool for KDE
 Summary(pl):    Narzêdzie do nauki za pomoc± liczmanów
 Group:          X11/Applications/Science
 Requires:	kdebase-core >= %{version}
@@ -244,26 +245,26 @@ Program do æwiczenia s³ownictwa.
 %patch0 -p1
 
 %build
-kde_appsdir="%{_applnkdir}"; export kde_appsdir
-kde_htmldir="%{_htmldir}"; export kde_htmldir
-kde_icondir="%{_pixmapsdir}"; export kde_icondir
 
 for plik in `find ./ -name *.desktop` ; do
-
-if [ -d $plik ]; then
-	echo $plik
-	sed -ie 's/\[nb\]/\[no\]/g' $plik
+	if [ -d $plik ]; then
+		echo $plik
+		sed -ie 's/\[nb\]/\[no\]/g' $plik
 	fi
 done
 
-%configure
+%configure \
+	--enable-final
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT \
+	kde_appsdir=%{_applnkdir} \
+	kde_htmldir=%{_htmldir}
 
 install -d $RPM_BUILD_ROOT%{_desktopdir}
 
@@ -282,17 +283,17 @@ mv $RPM_BUILD_ROOT%{_applnkdir}/Edutainment/Science/*.desktop \
 mv $RPM_BUILD_ROOT%{_applnkdir}/Edutainment/Tools/*.desktop \
 	$RPM_BUILD_ROOT%{_desktopdir}
 
-cd $RPM_BUILD_ROOT%{_pixmapsdir}
+cd $RPM_BUILD_ROOT%{_icondir}
 mv locolor/16x16/actions/*.png crystalsvg/16x16/actions
 cd -
 
 # Bleh.. really don't wanna "make -f Makefile.cvs"
-mv $RPM_BUILD_ROOT%{_pixmapsdir}/ktouch/hi16-app-ktouch.png \
-	$RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/16x16/apps/ktouch.png
+mv $RPM_BUILD_ROOT%{_icondir}/ktouch/hi16-app-ktouch.png \
+	$RPM_BUILD_ROOT%{_icondir}/hicolor/16x16/apps/ktouch.png
 
-mv $RPM_BUILD_ROOT%{_pixmapsdir}/ktouch/hi32-app-ktouch.png \
-	$RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/32x32/apps/ktouch.png
-	
+mv $RPM_BUILD_ROOT%{_icondir}/ktouch/hi32-app-ktouch.png \
+	$RPM_BUILD_ROOT%{_icondir}/hicolor/32x32/apps/ktouch.png
+
 %find_lang flashkard	--with-kde
 %find_lang kalzium	--with-kde
 %find_lang keduca	--with-kde
@@ -328,21 +329,21 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkdeeducore.so.*.*.*
 %{_datadir}/apps/flashkard
 %{_desktopdir}/flashkard.desktop
-%{_pixmapsdir}/*/*/apps/flashkard.png
+%{_icondir}/*/*/apps/flashkard.png
 
 %files kalzium -f kalzium.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kalzium
 %{_datadir}/apps/kalzium
 %{_desktopdir}/kalzium.desktop
-%{_pixmapsdir}/[!l]*/*/apps/kalzium.png
+%{_icondir}/[!l]*/*/apps/kalzium.png
 
 %files kbruch
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kbruch
 %{_datadir}/apps/kbruch
 %{_desktopdir}/kbruch.desktop
-%{_pixmapsdir}/[!l]*/*/apps/kbruch.png
+%{_icondir}/[!l]*/*/apps/kbruch.png
 
 %files keduca -f keduca.lang
 %defattr(644,root,root,755)
@@ -352,14 +353,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mimelnk/application/x-edu.desktop
 %{_datadir}/mimelnk/application/x-edugallery.desktop
 %{_desktopdir}/keduca*.desktop
-%{_pixmapsdir}/*/*/apps/keduca.png
+%{_icondir}/*/*/apps/keduca.png
 
 %files khangman -f khangman.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/khangman
 %{_datadir}/apps/khangman
 %{_desktopdir}/khangman.desktop
-%{_pixmapsdir}/[!l]*/*/apps/khangman.png
+%{_icondir}/[!l]*/*/apps/khangman.png
 
 %files kig -f kig.lang
 %defattr(644,root,root,755)
@@ -372,7 +373,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mimelnk/application/x-kseg.desktop
 %{_datadir}/services/kig_part.desktop
 %{_desktopdir}/kig.desktop
-%{_pixmapsdir}/*/*/apps/kig.png
+%{_icondir}/[!l]*/*/apps/kig.png
 
 %files kiten -f kiten.lang
 %defattr(644,root,root,755)
@@ -382,65 +383,66 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kiten.so
 %{_datadir}/apps/kiten
 %{_desktopdir}/kiten.desktop
-%{_pixmapsdir}/*/*/actions/kanjidic.png
-%{_pixmapsdir}/*/*/actions/edit_*.png
-%{_pixmapsdir}/*/*/apps/kiten.png
+%{_icondir}/*/*/actions/kanjidic.png
+%{_icondir}/*/*/actions/edit_*.png
+%{_icondir}/*/*/apps/kiten.png
 
 %files klettres -f klettres.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/klettres
 %{_datadir}/apps/klettres
 %{_desktopdir}/klettres.desktop
-%{_pixmapsdir}/[!l]*/*/*/klettres*
-%{_pixmapsdir}/*/*/apps/grownup.png
-%{_pixmapsdir}/*/*/apps/kids.png
-%{_pixmapsdir}/*/*/apps/menubar.png
+%{_icondir}/[!l]*/*/*/klettres*
+%{_icondir}/*/*/apps/grownup.png
+%{_icondir}/*/*/apps/kids.png
+%{_icondir}/*/*/apps/menubar.png
 
 %files kmessedwords -f kmessedwords.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kmessedwords
 %{_datadir}/apps/kmessedwords
 %{_desktopdir}/kmessedwords.desktop
-%{_pixmapsdir}/[!l]*/*/apps/kmessedwords.png
+%{_icondir}/[!l]*/*/apps/kmessedwords.png
 
 %files kmplot -f kmplot.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kmplot
 %{_datadir}/apps/kmplot
 %{_desktopdir}/kmplot.desktop
-%{_pixmapsdir}/[!l]*/*/apps/kmplot.png
+%{_icondir}/[!l]*/*/apps/kmplot.png
 
 %files kpercentage -f kpercentage.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kpercentage
 %{_datadir}/apps/kpercentage
 %{_desktopdir}/kpercentage.desktop
-%{_pixmapsdir}/[!l]*/*/apps/kpercentage.png
+%{_icondir}/[!l]*/*/apps/kpercentage.png
 
 %files kstars -f kstars.lang
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/celestrongps
 %attr(755,root,root) %{_bindir}/indiserver
 %attr(755,root,root) %{_bindir}/kstars
 %attr(755,root,root) %{_bindir}/lx200generic
 %attr(755,root,root) %{_bindir}/wx
 %{_datadir}/apps/kstars
 %{_desktopdir}/kstars.desktop
-%{_pixmapsdir}/[!l]*/*/apps/kstars.png
+%{_icondir}/[!l]*/*/apps/kstars.png
 
 %files ktouch -f ktouch.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/ktouch
 %{_datadir}/apps/ktouch
 %{_desktopdir}/ktouch.desktop
-%{_pixmapsdir}/*/*/apps/ktouch.png
+%{_icondir}/*/*/apps/ktouch.png
 
 %files kverbos -f kverbos.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kverbos
 %{_datadir}/apps/kverbos
 %{_desktopdir}/kverbos.desktop
-%{_pixmapsdir}/*/*/actions/kverbosuser.png
-%{_pixmapsdir}/*/*/apps/kverbos.png
+%{_icondir}/*/*/actions/kverbosuser.png
+%{_icondir}/*/*/apps/kverbos.png
 
 %files kvoctrain -f kvoctrain.lang
 %defattr(644,root,root,755)
@@ -449,3 +451,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/spotlight2kvtml
 %{_datadir}/apps/kvoctrain
 %{_desktopdir}/kvoctrain.desktop
+%{_icondir}/*/*/apps/kvoctrain.png

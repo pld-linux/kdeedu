@@ -10,7 +10,7 @@ Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	%{_ver}
-Release:	2
+Release:	3
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
@@ -540,6 +540,10 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir}
 
+# Debian manpages
+install -d $RPM_BUILD_ROOT%{_mandir}/man1
+install debian/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
+
 %if %{with i18n}
 if [ -f "%{SOURCE1}" ] ; then
         bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
@@ -652,6 +656,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/flashkard
 %{_desktopdir}/kde/flashkard.desktop
 %{_iconsdir}/*/*/apps/flashkard.png
+%{_mandir}/man1/flashkard.1*
 
 %files kalzium -f kalzium_en.lang
 %defattr(644,root,root,755)
@@ -659,6 +664,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kalzium
 %{_desktopdir}/kde/kalzium.desktop
 %{_iconsdir}/[!l]*/*/apps/kalzium.png
+%{_mandir}/man1/kalzium.1*
 
 %files kbruch -f kbruch_en.lang
 %defattr(644,root,root,755)
@@ -676,6 +682,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mimelnk/application/x-edugallery.desktop
 %{_desktopdir}/kde/keduca*.desktop
 %{_iconsdir}/*/*/apps/keduca.png
+%{_mandir}/man1/keduca.1*
 
 %files khangman -f khangman_en.lang
 %defattr(644,root,root,755)
@@ -683,6 +690,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/khangman
 %{_desktopdir}/kde/khangman.desktop
 %{_iconsdir}/[!l]*/*/apps/khangman.png
+%{_mandir}/man1/khangman.1*
 
 #%%{_iconsdir}/hicolor/48x48/apps/a_acute.png
 #%%{_iconsdir}/hicolor/48x48/apps/a_circle.png
@@ -729,6 +737,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/actions/kanjidic.png
 %{_iconsdir}/*/*/actions/edit_*.png
 %{_iconsdir}/*/*/apps/kiten.png
+%{_mandir}/man1/kiten.1*
+%{_mandir}/man1/kitengen.1*
 
 %files klettres -f klettres_en.lang
 %defattr(644,root,root,755)
@@ -740,6 +750,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/apps/grownup.png
 %{_iconsdir}/*/*/apps/kids.png
 %{_iconsdir}/*/*/apps/menubar.png
+%{_mandir}/man1/klettres.1*
 
 %files kmessedwords -f kmessedwords_en.lang
 %defattr(644,root,root,755)
@@ -747,6 +758,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kmessedwords
 %{_desktopdir}/kde/kmessedwords.desktop
 %{_iconsdir}/[!l]*/*/apps/kmessedwords.png
+%{_mandir}/man1/kmessedwords.1*
 
 %files kmplot -f kmplot_en.lang
 %defattr(644,root,root,755)
@@ -754,6 +766,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kmplot
 %{_desktopdir}/kde/kmplot.desktop
 %{_iconsdir}/[!l]*/*/apps/kmplot.png
+%{_mandir}/man1/kmplot.1*
 
 %files kpercentage -f kpercentage_en.lang
 %defattr(644,root,root,755)
@@ -761,6 +774,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kpercentage
 %{_desktopdir}/kde/kpercentage.desktop
 %{_iconsdir}/[!l]*/*/apps/kpercentage.png
+%{_mandir}/man1/kpercentage.1*
 
 %files kstars -f kstars_en.lang
 %defattr(644,root,root,755)
@@ -771,6 +785,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kstars
 %{_desktopdir}/kde/kstars.desktop
 %{_iconsdir}/[!l]*/*/apps/kstars.png
+%{_mandir}/man1/kstars.1*
 
 %files ktouch -f ktouch_en.lang
 %defattr(644,root,root,755)
@@ -778,6 +793,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/ktouch
 %{_desktopdir}/kde/ktouch.desktop
 %{_iconsdir}/*/*/apps/ktouch.png
+%{_mandir}/man1/ktouch.1*
 
 %files kverbos -f kverbos_en.lang
 %defattr(644,root,root,755)
@@ -786,6 +802,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/kverbos.desktop
 %{_iconsdir}/*/*/actions/kverbosuser.png
 %{_iconsdir}/*/*/apps/kverbos.png
+%{_mandir}/man1/kverbos.1*
 
 %files kvoctrain -f kvoctrain_en.lang
 %defattr(644,root,root,755)
@@ -795,6 +812,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kvoctrain
 %{_desktopdir}/kde/kvoctrain.desktop
 %{_iconsdir}/*/*/apps/kvoctrain.png
+%{_mandir}/man1/kvoctrain.1*
+%{_mandir}/man1/langen2kvtml.1*
+%{_mandir}/man1/spotlight2kvtml.1*
 
 %files libkdeeducore
 %defattr(644,root,root,755)

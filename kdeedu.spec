@@ -1,25 +1,25 @@
 
 %define		_state		stable
-%define		_ver		3.1.3
+%define		_ver		3.1.4
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	%{_ver}
-Release:	1.2
+Release:	0.1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	02996b08a1c2a2aa044406480c0eb8a7
+# Source0-md5:	e710e5840b2f33e9c96b9b49d3914d5b
 # generated from kde-i18n
 Source1:	ftp://blysk.ds.pg.gda.pl/linux/kde-i18n-package/%{version}/kde-i18n-%{name}-%{version}.tar.bz2
-# Source1-md5:	353707e9afc973200101a2ddb789374a
+# Source1-md5:	aec4b56099e3cf364731fb83eca9c98f
+BuildRequires:	ed
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel = %{epoch}:%{version}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
-BuildRequires:	sed >= 4.0
 BuildRequires:	zlib-devel
 Requires:	kdebase-core >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -233,9 +233,9 @@ kde_appsdir="%{_applnkdir}"; export kde_appsdir
 kde_htmldir="%{_htmldir}"; export kde_htmldir
 kde_icondir="%{_pixmapsdir}"; export kde_icondir
 
-for plik in `find ./ -name *.desktop` ; do
+for plik in `find ./ -name *.desktop | grep -l '\[nb\]'` ; do
 	echo $plik
-	sed -i -e 's/\[nb\]/\[no\]/g' $plik
+	echo -e ',s/\[nb\]/[no]/\n,w' | ed $plik
 done
 
 %configure \

@@ -7,7 +7,7 @@ Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	%{_ver}.%{_snap}
-Release:	1
+Release:	2
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
@@ -15,6 +15,7 @@ Group:		X11/Applications/Science
 Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
 # Source0-md5:	e3b52b5c939fd5d1050853749dff4d85
 Patch0:		%{name}-vcategories.patch
+Patch1:		%{name}-termios.patch
 BuildRequires:	ed
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel >= 9:%{version}
@@ -31,18 +32,18 @@ K Desktop Environment - edutainment.
 K Desktop Environment - edukacja i rozrywka.
 
 %package devel
-Summary:	Header Files
-Summary(pl):	Pliki nag³ówkowe
+Summary:	Header files for kdeedu libraries
+Summary(pl):	Pliki nag³ówkowe bibliotek kdeedu
 Group:		X11/Development/Libraries
 Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
 Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
 Requires:	%{name}-libkdeeduui = %{epoch}:%{version}-%{release}
 
 %description devel
-Header Files
+Header files for kdeedu libraries.
 
 %description devel -l pl
-Pliki nag³ówkowe
+Pliki nag³ówkowe bibliotek kdeedu.
 
 %package flashkard
 Summary:	Flash card learning tool for KDE
@@ -50,7 +51,7 @@ Summary(pl):	Narzêdzie do nauki za pomoc± liczmanów
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
 Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
-Obsoletes:	%{name}
+Obsoletes:	kdeedu
 
 %description flashkard
 Flash card learning tool for KDE.
@@ -64,7 +65,7 @@ Summary(pl):	Baza danych Uk³adu Okresowego Pierwiastków
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
 Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
-Obsoletes:	%{name}
+Obsoletes:	kdeedu
 
 %description kalzium
 A Periodic System of Elements database.
@@ -77,7 +78,7 @@ Summary:	Task generator for calculations with fractions
 Summary(pl):	Generator zadañ z obliczeniami na u³amkach
 Group:		X11/Applications
 Requires:	kdebase-core >= 9:%{version}
-Obsoletes:	%{name}
+Obsoletes:	kdeedu
 
 %description kbruch
 Task generator for calculations with fractions.
@@ -90,7 +91,7 @@ Summary:	Creation and revision of form-based tests and exams
 Summary(pl):	Tworzenie i sprawdzanie testów i egzaminów
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
-Obsoletes:	%{name}
+Obsoletes:	kdeedu
 
 %description keduca
 Creation and revision of form-based tests and exams.
@@ -104,18 +105,18 @@ Summary(pl):	Gra w wisielca
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
 Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
-Obsoletes:	%{name}
+Obsoletes:	kdeedu
 
 %description khangman
 KHangMan is a game based on the well known hangman game. A word is
 picked in random, the letters are hidden, you must guess the word by
-trying a letter afteranother. Each time you guess a wrong letter, a
+trying a letter after another. Each time you guess a wrong letter, a
 picture of a hangman is drawn. You must guess the word before getting
 hanged! It is aimed for children aged 6+.
 
 %description khangman -l pl
 KHangMan jest gr± opart± na popularnej grze w wisielca. Wybierane
-jest losowe s³owo, którego litery s± ukryte. Trzeba zgadnaæ to s³owo
+jest losowe s³owo, którego litery s± ukryte. Trzeba zgadn±æ to s³owo
 podaj±c kolejno litery. Za ka¿dym razem, gdy podana litera nie
 wystêpuje w s³owie, rysowany jest obrazek wisielca. Trzeba odgadn±æ
 s³owo przed powieszeniem! Gra jest przeznaczona dla dzieci w wieku 6
@@ -126,7 +127,7 @@ Summary:	Interactive Geometry
 Summary(pl):	Interaktywna geometria
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
-Obsoletes:	%{name}
+Obsoletes:	kdeedu
 
 %description kig
 Interactive Geometry.
@@ -139,7 +140,7 @@ Summary:	A Japanese reference tool
 Summary(pl):	S³ownik angielsko-japoñski
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
-Obsoletes:	%{name}
+Obsoletes:	kdeedu
 
 %description kiten
 A Japanese reference tool.
@@ -152,7 +153,7 @@ Summary:	Helps child to learn French alphabet and to read some syllables
 Summary(pl):	Pomoc w nauce francuskiego alfabetu i sylab dla dzieci
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
-Obsoletes:	%{name}
+Obsoletes:	kdeedu
 
 %description klettres
 Helps child to learn French alphabet and to read some syllables.
@@ -165,7 +166,7 @@ Summary:	Mathematical function plotter
 Summary(pl):	Koordynograf
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
-Obsoletes:	%{name}
+Obsoletes:	kdeedu
 
 %description kmplot
 Mathematical function plotter.
@@ -178,7 +179,7 @@ Summary:	Simple mind-training game
 Summary(pl):	Prosta ³amig³ówka
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
-Obsoletes:	%{name}
+Obsoletes:	kdeedu
 
 %description kmessedwords
 Simple mind-training game.
@@ -191,7 +192,7 @@ Summary:	A percentage tutor
 Summary(pl):	Program do nauki procentów
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
-Obsoletes:	%{name}
+Obsoletes:	kdeedu
 
 %description kpercentage
 A percentage tutor.
@@ -205,7 +206,7 @@ Summary(pl):	Planetarium
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
 Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
-Obsoletes:	%{name}
+Obsoletes:	kdeedu
 
 %description kstars
 Desktop planetarium.
@@ -218,8 +219,7 @@ Summary:	Program for learning touch typing
 Summary(pl):	Program do nauki maszynopisania
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
-Obsoletes:	%{name}
-
+Obsoletes:	kdeedu
 
 %description ktouch
 Program for learning touch typing.
@@ -232,7 +232,7 @@ Summary:	Spanish verb form study application for KDE
 Summary(pl):	Program do nauki form czasowników w jêzyku hiszpañskim
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
-Obsoletes:	%{name}
+Obsoletes:	kdeedu
 
 %description kverbos
 Spanish verb form study application for KDE.
@@ -245,7 +245,7 @@ Summary:	Vocabulary trainer
 Summary(pl):	Program do æwiczenia s³ownictwa
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
-Obsoletes:	%{name}
+Obsoletes:	kdeedu
 
 %description kvoctrain
 Vocabulary trainer.
@@ -258,7 +258,7 @@ Summary:	kdeeducore library
 Summary(pl):	Biblioteka kdeeducore
 Group:		X11/Libraries
 Requires:	kdelibs >= 9:%{version}
-Obsoletes:	%{name}-flashkard < 8:3.1.93.031105-1
+Obsoletes:	kdeedu-flashkard < 8:3.1.93.031105-1
 
 %description libkdeeducore
 kdeeducore shared library.
@@ -293,6 +293,7 @@ Biblioteka wspó³dzielona kdeeduui.
 %prep
 %setup -q -n %{name}-%{_snap}
 %patch0 -p1
+%patch1 -p1
 
 %build
 for f in `find . -name \*.desktop | xargs grep -l '\[nb\]'` ; do

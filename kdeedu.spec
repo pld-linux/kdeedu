@@ -1,7 +1,7 @@
 
 %define		_state		snapshots
 %define		_ver		3.2
-%define		_snap		030406
+%define		_snap		030423
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
@@ -354,9 +354,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/kde3/libkigpart.la
 %attr(755,root,root) %{_libdir}/kde3/libkigpart.so
 %{_datadir}/apps/kig*
-%{_datadir}/mimelnk/application/x-cabri.desktop
 %{_datadir}/mimelnk/application/x-kgeo.desktop
 %{_datadir}/mimelnk/application/x-kig.desktop
+%{_datadir}/mimelnk/application/x-kseg.desktop
 %{_datadir}/services/kig_part.desktop
 %{_desktopdir}/kig.desktop
 %{_pixmapsdir}/*/*/*/kig*

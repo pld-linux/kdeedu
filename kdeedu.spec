@@ -12,7 +12,7 @@ Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
-Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
+Source0:	http://ep09.pld-linux.org/~adgor/kde/%{name}-%{_snap}.tar.bz2
 # Source0-md5:	e3b52b5c939fd5d1050853749dff4d85
 Patch0:		%{name}-vcategories.patch
 Patch1:		%{name}-termios.patch

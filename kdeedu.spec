@@ -1,5 +1,7 @@
-%bcond_without  i18n    # dont build i18n subpackage
-
+#
+# Conditional build:
+%bcond_without  i18n    # don't build i18n subpackages
+#
 %define		_state		stable
 %define		_ver		3.2.0
 ##%define		_snap		040110
@@ -294,10 +296,22 @@ kdeeduui shared library.
 %description libkdeeduui -l pl
 Biblioteka wspó³dzielona kdeeduui.
 
+%package i18n
+Summary:	Common internationalization and localization files for kdeedu
+Summary(pl):	Wspó³dzielone pliki umiêdzynarodawiaj±ce dla kdeedu
+Group:		X11/Applications
+Requires:	kdelibs-i18n >= 9:%{version}
+
+%description i18n
+Common internationalization and localization files for kdeedu.
+
+%description i18n -l pl
+Wspó³dzielone pliki umiêdzynarodawiaj±ce dla kdeedu.
+
 %package flashkard-i18n
 Summary:	Internationalization and localization files for flashkard
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla flashkard
-Group:	X11/Applications
+Summary(pl):	Pliki umiêdzynarodawiaj±ce dla flashkarda
+Group:		X11/Applications
 Requires:	%{name}-flashkard = %{epoch}:%{version}-%{release}
 Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core-i18n >= 9:%{version}
@@ -305,13 +319,13 @@ Requires:	kdebase-core-i18n >= 9:%{version}
 %description flashkard-i18n
 Internationalization and localization files for flashkard.
 
-%description -l pl flashkard-i18n
-Pliki umiêdzynarodawiaj±ce dla flashkard.
+%description flashkard-i18n -l pl
+Pliki umiêdzynarodawiaj±ce dla flashkarda.
 
 %package kalzium-i18n
 Summary:	Internationalization and localization files for kalzium
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kalzium
-Group:	X11/Applications
+Group:		X11/Applications
 Requires:	%{name}-kalzium = %{epoch}:%{version}-%{release}
 Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core-i18n >= 9:%{version}
@@ -319,13 +333,13 @@ Requires:	kdebase-core-i18n >= 9:%{version}
 %description kalzium-i18n
 Internationalization and localization files for kalzium.
 
-%description -l pl kalzium-i18n
+%description kalzium-i18n -l pl
 Pliki umiêdzynarodawiaj±ce dla kalzium.
 
 %package kbruch-i18n
 Summary:	Internationalization and localization files for kbruch
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kbruch
-Group:	X11/Applications
+Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kbrucha
+Group:		X11/Applications
 Requires:	%{name}-kbruch = %{epoch}:%{version}-%{release}
 Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core-i18n >= 9:%{version}
@@ -333,13 +347,13 @@ Requires:	kdebase-core-i18n >= 9:%{version}
 %description kbruch-i18n
 Internationalization and localization files for kbruch.
 
-%description -l pl kbruch-i18n
-Pliki umiêdzynarodawiaj±ce dla kbruch.
+%description kbruch-i18n -l pl
+Pliki umiêdzynarodawiaj±ce dla kbrucha.
 
 %package keduca-i18n
 Summary:	Internationalization and localization files for keduca
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla keduca
-Group:	X11/Applications
+Group:		X11/Applications
 Requires:	%{name}-keduca = %{epoch}:%{version}-%{release}
 Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core-i18n >= 9:%{version}
@@ -347,13 +361,13 @@ Requires:	kdebase-core-i18n >= 9:%{version}
 %description keduca-i18n
 Internationalization and localization files for keduca.
 
-%description -l pl keduca-i18n
+%description keduca-i18n -l pl
 Pliki umiêdzynarodawiaj±ce dla keduca.
 
 %package khangman-i18n
 Summary:	Internationalization and localization files for khangman
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla khangman
-Group:	X11/Applications
+Summary(pl):	Pliki umiêdzynarodawiaj±ce dla khangmana
+Group:		X11/Applications
 Requires:	%{name}-khangman = %{epoch}:%{version}-%{release}
 Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core-i18n >= 9:%{version}
@@ -361,13 +375,13 @@ Requires:	kdebase-core-i18n >= 9:%{version}
 %description khangman-i18n
 Internationalization and localization files for khangman.
 
-%description -l pl khangman-i18n
-Pliki umiêdzynarodawiaj±ce dla khangman.
+%description khangman-i18n -l pl
+Pliki umiêdzynarodawiaj±ce dla khangmana.
 
 %package kig-i18n
 Summary:	Internationalization and localization files for kig
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kig
-Group:	X11/Applications
+Group:		X11/Applications
 Requires:	%{name}-kig = %{epoch}:%{version}-%{release}
 Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core-i18n >= 9:%{version}
@@ -375,13 +389,13 @@ Requires:	kdebase-core-i18n >= 9:%{version}
 %description kig-i18n
 Internationalization and localization files for kig.
 
-%description -l pl kig-i18n
+%description kig-i18n -l pl
 Pliki umiêdzynarodawiaj±ce dla kig.
 
 %package kiten-i18n
 Summary:	Internationalization and localization files for kiten
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kiten
-Group:	X11/Applications
+Group:		X11/Applications
 Requires:	%{name}-kiten = %{epoch}:%{version}-%{release}
 Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core-i18n >= 9:%{version}
@@ -389,13 +403,13 @@ Requires:	kdebase-core-i18n >= 9:%{version}
 %description kiten-i18n
 Internationalization and localization files for kiten.
 
-%description -l pl kiten-i18n
+%description kiten-i18n -l pl
 Pliki umiêdzynarodawiaj±ce dla kiten.
 
 %package klettres-i18n
 Summary:	Internationalization and localization files for klettres
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla klettres
-Group:	X11/Applications
+Group:		X11/Applications
 Requires:	%{name}-klettres = %{epoch}:%{version}-%{release}
 Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core-i18n >= 9:%{version}
@@ -403,13 +417,13 @@ Requires:	kdebase-core-i18n >= 9:%{version}
 %description klettres-i18n
 Internationalization and localization files for klettres.
 
-%description -l pl klettres-i18n
+%description klettres-i18n -l pl
 Pliki umiêdzynarodawiaj±ce dla klettres.
 
 %package kmessedwords-i18n
 Summary:	Internationalization and localization files for kmessedwords
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kmessedwords
-Group:	X11/Applications
+Group:		X11/Applications
 Requires:	%{name}-kmessedwords = %{epoch}:%{version}-%{release}
 Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core-i18n >= 9:%{version}
@@ -417,13 +431,13 @@ Requires:	kdebase-core-i18n >= 9:%{version}
 %description kmessedwords-i18n
 Internationalization and localization files for kmessedwords.
 
-%description -l pl kmessedwords-i18n
+%description kmessedwords-i18n -l pl
 Pliki umiêdzynarodawiaj±ce dla kmessedwords.
 
 %package kmplot-i18n
 Summary:	Internationalization and localization files for kmplot
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kmplot
-Group:	X11/Applications
+Group:		X11/Applications
 Requires:	%{name}-kmplot = %{epoch}:%{version}-%{release}
 Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core-i18n >= 9:%{version}
@@ -431,13 +445,13 @@ Requires:	kdebase-core-i18n >= 9:%{version}
 %description kmplot-i18n
 Internationalization and localization files for kmplot.
 
-%description -l pl kmplot-i18n
+%description kmplot-i18n -l pl
 Pliki umiêdzynarodawiaj±ce dla kmplot.
 
 %package kpercentage-i18n
 Summary:	Internationalization and localization files for kpercentage
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kpercentage
-Group:	X11/Applications
+Group:		X11/Applications
 Requires:	%{name}-kpercentage = %{epoch}:%{version}-%{release}
 Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core-i18n >= 9:%{version}
@@ -445,13 +459,13 @@ Requires:	kdebase-core-i18n >= 9:%{version}
 %description kpercentage-i18n
 Internationalization and localization files for kpercentage.
 
-%description -l pl kpercentage-i18n
+%description kpercentage-i18n -l pl
 Pliki umiêdzynarodawiaj±ce dla kpercentage.
 
 %package kstars-i18n
 Summary:	Internationalization and localization files for kstars
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kstars
-Group:	X11/Applications
+Group:		X11/Applications
 Requires:	%{name}-kstars = %{epoch}:%{version}-%{release}
 Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core-i18n >= 9:%{version}
@@ -459,13 +473,13 @@ Requires:	kdebase-core-i18n >= 9:%{version}
 %description kstars-i18n
 Internationalization and localization files for kstars.
 
-%description -l pl kstars-i18n
+%description kstars-i18n -l pl
 Pliki umiêdzynarodawiaj±ce dla kstars.
 
 %package ktouch-i18n
 Summary:	Internationalization and localization files for ktouch
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla ktouch
-Group:	X11/Applications
+Group:		X11/Applications
 Requires:	%{name}-ktouch = %{epoch}:%{version}-%{release}
 Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core-i18n >= 9:%{version}
@@ -473,13 +487,13 @@ Requires:	kdebase-core-i18n >= 9:%{version}
 %description ktouch-i18n
 Internationalization and localization files for ktouch.
 
-%description -l pl ktouch-i18n
+%description ktouch-i18n -l pl
 Pliki umiêdzynarodawiaj±ce dla ktouch.
 
 %package kverbos-i18n
 Summary:	Internationalization and localization files for kverbos
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kverbos
-Group:	X11/Applications
+Group:		X11/Applications
 Requires:	%{name}-kverbos = %{epoch}:%{version}-%{release}
 Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core-i18n >= 9:%{version}
@@ -487,13 +501,13 @@ Requires:	kdebase-core-i18n >= 9:%{version}
 %description kverbos-i18n
 Internationalization and localization files for kverbos.
 
-%description -l pl kverbos-i18n
+%description kverbos-i18n -l pl
 Pliki umiêdzynarodawiaj±ce dla kverbos.
 
 %package kvoctrain-i18n
 Summary:	Internationalization and localization files for kvoctrain
 Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kvoctrain
-Group:	X11/Applications
+Group:		X11/Applications
 Requires:	%{name}-kvoctrain = %{epoch}:%{version}-%{release}
 Requires:	%{name}-i18n = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core-i18n >= 9:%{version}
@@ -501,20 +515,8 @@ Requires:	kdebase-core-i18n >= 9:%{version}
 %description kvoctrain-i18n
 Internationalization and localization files for kvoctrain.
 
-%description -l pl kvoctrain-i18n
+%description kvoctrain-i18n -l pl
 Pliki umiêdzynarodawiaj±ce dla kvoctrain.
-
-%package i18n
-Summary:	Common internationalization and localization files for kdeedu
-Summary(pl):	Wspó³dzielone pliki umiêdzynarodawiaj±ce dla kdeedu
-Group:	X11/Applications
-Requires:	kdelibs-i18n >= 9:%{version}
-
-%description i18n
-Common internationalization and localization files for kdeedu.
-
-%description -l pl i18n
-Wspó³dzielone pliki umiêdzynarodawiaj±ce dla kdeedu.
 
 %prep
 %setup -q
@@ -618,6 +620,7 @@ rm -rf $RPM_BUILD_ROOT
 %postun	libkdeeduui	-p /sbin/ldconfig
 
 %if %{with i18n}
+%files i18n -f desktop_kdeedu.lang
 %files flashkard-i18n -f flashkard.lang
 %files kalzium-i18n -f kalzium.lang
 %files kbruch-i18n -f kbruch.lang
@@ -633,16 +636,15 @@ rm -rf $RPM_BUILD_ROOT
 %files ktouch-i18n -f ktouch.lang
 %files kverbos-i18n -f kverbos.lang
 %files kvoctrain-i18n -f kvoctrain.lang
-%files i18n -f desktop_kdeedu.lang
 %endif
 
 %files devel
 %defattr(644,root,root,755)
 %doc README
-%{_includedir}/*
-%{_libdir}/libkdeeducore.so
-%{_libdir}/libkdeeduplot.so
-%{_libdir}/libkdeeduui.so
+%attr(755,root,root) %{_libdir}/libkdeeducore.so
+%attr(755,root,root) %{_libdir}/libkdeeduplot.so
+%attr(755,root,root) %{_libdir}/libkdeeduui.so
+%{_includedir}/*.h
 
 %files flashkard -f flashkard_en.lang
 %defattr(644,root,root,755)

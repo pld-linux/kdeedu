@@ -1,15 +1,8 @@
---- kdeedu-030602/kalzium/src/kalzium.desktop~	2003-05-28 00:58:28.000000000 +0200
-+++ kdeedu-030602/kalzium/src/kalzium.desktop	2003-06-04 11:54:35.000000000 +0200
-@@ -11,4 +11,4 @@
- Name[fo]=Kalsium
+--- kdeedu-030914/kalzium/src/kalzium.desktop~	2003-09-03 07:25:24.000000000 +0200
++++ kdeedu-030914/kalzium/src/kalzium.desktop	2003-09-16 18:20:46.000000000 +0200
+@@ -14,4 +14,4 @@
  Name[lv]=Kalcium
  Name[mn]=Кальци
+ Name[xx]=xxKalziumxx
 -Categories=Qt;KDE;Education;Science
 +Categories=Qt;KDE;Education;Science;Chemistry
---- kdeedu-030504/kbruch/src/kbruch.desktop~	2003-05-03 00:59:56.000000000 +0200
-+++ kdeedu-030504/kbruch/src/kbruch.desktop	2003-05-05 01:42:16.000000000 +0200
-@@ -13,3 +13,4 @@
- Terminal=0
- Name=KBruch
- Name[sv]=Kbruch
-+Categories=Qt;KDE;Education

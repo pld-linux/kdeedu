@@ -1,7 +1,7 @@
 
 %define		_state		snapshots
 %define		_ver		3.2
-%define		_snap		030509
+%define		_snap		030518
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
@@ -285,6 +285,13 @@ cd $RPM_BUILD_ROOT%{_pixmapsdir}
 mv locolor/16x16/actions/*.png crystalsvg/16x16/actions
 cd -
 
+# Bleh.. really don't wanna "make -f Makefile.cvs"
+mv $RPM_BUILD_ROOT%{_pixmapsdir}/ktouch/hi16-app-ktouch.png \
+	$RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/16x16/apps/ktouch.png
+
+mv $RPM_BUILD_ROOT%{_pixmapsdir}/ktouch/hi32-app-ktouch.png \
+	$RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/32x32/apps/ktouch.png
+	
 %find_lang flashkard	--with-kde
 %find_lang kalzium	--with-kde
 %find_lang keduca	--with-kde
@@ -320,14 +327,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkdeeducore.so.*.*.*
 %{_datadir}/apps/flashkard
 %{_desktopdir}/flashkard.desktop
-%{_pixmapsdir}/*/*/*/flashkard*
+%{_pixmapsdir}/*/*/apps/flashkard.png
 
 %files kalzium -f kalzium.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kalzium
 %{_datadir}/apps/kalzium
 %{_desktopdir}/kalzium.desktop
-%{_pixmapsdir}/[!l]*/*/*/kalzium*
+%{_pixmapsdir}/[!l]*/*/apps/kalzium.png
 
 %files kbruch
 %defattr(644,root,root,755)
@@ -339,18 +346,19 @@ rm -rf $RPM_BUILD_ROOT
 %files keduca -f keduca.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/keduca
+%attr(755,root,root) %{_bindir}/keducabuilder
 %{_datadir}/apps/keduca
 %{_datadir}/mimelnk/application/x-edu.desktop
 %{_datadir}/mimelnk/application/x-edugallery.desktop
 %{_desktopdir}/keduca*.desktop
-%{_pixmapsdir}/*/*/*/keduca*
+%{_pixmapsdir}/*/*/apps/keduca.png
 
 %files khangman -f khangman.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/khangman
 %{_datadir}/apps/khangman
 %{_desktopdir}/khangman.desktop
-%{_pixmapsdir}/[!l]*/*/*/khangman*
+%{_pixmapsdir}/[!l]*/*/apps/khangman.png
 
 %files kig -f kig.lang
 %defattr(644,root,root,755)
@@ -363,18 +371,19 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mimelnk/application/x-kseg.desktop
 %{_datadir}/services/kig_part.desktop
 %{_desktopdir}/kig.desktop
-%{_pixmapsdir}/*/*/*/kig*
+%{_pixmapsdir}/*/*/apps/kig.png
 
 %files kiten -f kiten.lang
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/kiten*
+%attr(755,root,root) %{_bindir}/kiten
+%attr(755,root,root) %{_bindir}/kitengen
 %{_libdir}/kiten.la
 %attr(755,root,root) %{_libdir}/kiten.so
 %{_datadir}/apps/kiten
 %{_desktopdir}/kiten.desktop
 %{_pixmapsdir}/*/*/actions/kanjidic.png
 %{_pixmapsdir}/*/*/actions/edit_*.png
-%{_pixmapsdir}/*/*/apps/kiten*
+%{_pixmapsdir}/*/*/apps/kiten.png
 
 %files klettres -f klettres.lang
 %defattr(644,root,root,755)
@@ -391,42 +400,46 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kmessedwords
 %{_datadir}/apps/kmessedwords
 %{_desktopdir}/kmessedwords.desktop
-%{_pixmapsdir}/[!l]*/*/*/kmessedwords*
+%{_pixmapsdir}/[!l]*/*/apps/kmessedwords.png
 
 %files kmplot -f kmplot.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kmplot
 %{_datadir}/apps/kmplot
 %{_desktopdir}/kmplot.desktop
-%{_pixmapsdir}/[!l]*/*/*/kmplot*
+%{_pixmapsdir}/[!l]*/*/apps/kmplot.png
 
 %files kpercentage -f kpercentage.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kpercentage
 %{_datadir}/apps/kpercentage
 %{_desktopdir}/kpercentage.desktop
-%{_pixmapsdir}/[!l]*/*/*/kpercentage*
+%{_pixmapsdir}/[!l]*/*/apps/kpercentage.png
 
 %files kstars -f kstars.lang
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/indiserver
 %attr(755,root,root) %{_bindir}/kstars
+%attr(755,root,root) %{_bindir}/lx200generic
+%attr(755,root,root) %{_bindir}/wx
 %{_datadir}/apps/kstars
 %{_desktopdir}/kstars.desktop
-%{_pixmapsdir}/[!l]*/*/*/kstars*
+%{_pixmapsdir}/[!l]*/*/apps/kstars.png
 
 %files ktouch -f ktouch.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/ktouch
 %{_datadir}/apps/ktouch
 %{_desktopdir}/ktouch.desktop
-%{_pixmapsdir}/*/*/*/ktouch*
+%{_pixmapsdir}/*/*/apps/ktouch.png
 
 %files kverbos -f kverbos.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kverbos
 %{_datadir}/apps/kverbos
 %{_desktopdir}/kverbos.desktop
-%{_pixmapsdir}/*/*/*/kverbos*
+%{_pixmapsdir}/*/*/actions/kverbosuser.png
+%{_pixmapsdir}/*/*/apps/kverbos.png
 
 %files kvoctrain -f kvoctrain.lang
 %defattr(644,root,root,755)

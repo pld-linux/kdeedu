@@ -779,7 +779,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/klatin.desktop
 %{_kdedocdir}/en/klatin
 %{_iconsdir}/*/*/apps/klatin*
-
+%{_mandir}/man1/klatin.1*
 
 %files klettres
 %defattr(644,root,root,755)
@@ -840,12 +840,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/[!l]*/*/apps/kstars*
 %{_mandir}/man1/kstars.1*
 %{_mandir}/man1/celestrongps.1*
+%{_mandir}/man1/fliccd.1*
 %{_mandir}/man1/indiserver.1*
 %{_mandir}/man1/lx200_16.1*
 %{_mandir}/man1/lx200autostar.1*
 %{_mandir}/man1/lx200classic.1*
 %{_mandir}/man1/lx200generic.1*
 %{_mandir}/man1/lx200gps.1*
+%{_mandir}/man1/v4l*.1*
 %{_kdedocdir}/en/kstars
 
 %files ktouch
@@ -863,10 +865,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kturtle
 %{_datadir}/apps/katepart/syntax/logohighlightstyle*
 %{_datadir}/config.kcfg/kturtle.kcfg
-
 %{_desktopdir}/kde/kturtle.desktop
 %{_kdedocdir}/en/kturtle
 %{_iconsdir}/*/*/apps/kturtle*
+%{_mandir}/man1/kturtle.1*
 
 %files kverbos
 %defattr(644,root,root,755)
@@ -901,6 +903,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_kdedocdir}/en/kwordquiz
 %{_iconsdir}/[!l]*/*/*/kwordquiz*
 %{_datadir}/mimelnk/application/x-kwordquiz.desktop
+%{_mandir}/man1/kwordquiz.1*
 
 %files libkdeeducore
 %defattr(644,root,root,755)
@@ -924,3 +927,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/test_extdatepicker
 %attr(755,root,root) %{_libdir}/libextdate.so.1.2.0
 %{_libdir}/libextdate.la
+%{_mandir}/man1/test_extdate*.1*

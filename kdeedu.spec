@@ -18,6 +18,7 @@ BuildRequires:	kdelibs-devel = %{version}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	zlib-devel
+BuildRequires:	perl
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -44,7 +45,7 @@ Header Files
 Pliki nag³ówkowe
 
 %package flashkard
-Summary:	Flash card learning tool for KDE  
+Summary:	Flash card learning tool for KDE
 Summary(pl):    Narzêdzie do nauki za pomoc± liczmanów
 Group:          X11/Applications/Science
 Requires:       %{name} = %{version}
@@ -231,11 +232,8 @@ kde_htmldir="%{_htmldir}"; export kde_htmldir
 kde_icondir="%{_pixmapsdir}"; export kde_icondir
 
 for plik in `find ./ -name \*.desktop` ; do
-	if [ -d $plik ]; then
 		echo $plik
-		sed -e "s/[nb]/[no]/g" > $plik.1
-		mv -f $plik.1 $plik
-	fi
+		perl -pi -e "s/\[nb\]/\[no\]/g" $plik
 done
 
 %configure \

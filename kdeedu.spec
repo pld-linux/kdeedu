@@ -1,7 +1,7 @@
 
 %define		_state		snapshots
 %define		_ver		3.1.93
-%define		_snap		031105
+%define		_snap		031114
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
@@ -13,7 +13,7 @@ License:	GPL
 Group:		X11/Applications/Science
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
 Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	c4c162c76e402a99b5fd6039a7d69692
+# Source0-md5:	96b001454daeeb64de5dbd2f036e4082
 Patch0:		%{name}-vcategories.patch
 BuildRequires:	ed
 BuildRequires:	gettext-devel

@@ -485,12 +485,12 @@ aplikacje edukacyjne w KDE.
 
 %package libextdate
 Summary:	Extensive date support library in KDE
-Summary(pl):	Biblioteka rozszerzonego wsparcia dla dat w KDE
+Summary(pl):	Biblioteka rozszerzonej obs³ugi dat w KDE
 Group:		X11/Libraries
 Requires:	kdelibs >= 9:%{version}
 
 %description libextdate
-This libray consists of a group of classes which allow KDE
+This library consists of a group of classes which allow KDE
 applications to access calendar dates outside of the limited range of
 years imposed by QDate.
 
@@ -499,7 +499,14 @@ recognize dates prior to 14 Oct 1752 (when the Gregorian calendar was
 adopted by England), nor dates after 31 Dec 8000. Both of these limits
 are arbitrary.
 
-#description libextdate -l pl
+%description libextdate -l pl
+Ta biblioteka zawiera grupê klas pozwalaj±cych aplikacjom KDE na
+dostêp do dat spoza zakresu lat narzuconego przez QDate.
+
+Klasa QDate ma ograniczony zakres dopuszczalnych dat. Nie rozpoznaje
+dat wcze¶niejszych ni¿ 14 pa¼dziernika 1752 (kiedy w Anglii
+zaadoptowano kalendarz gregoriañski) ani pó¼niejszych ni¿ 31 grudnia
+8000. Oba te limity s± samowolne.
 
 %package libkdeeduui
 Summary:	A userf interface library for KDE educational module
@@ -788,13 +795,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/kstars.desktop
 %{_iconsdir}/[!l]*/*/apps/kstars*
 %{_mandir}/man1/kstars.1*
-%{_mandir}/man1/celestrongps.1.gz
-%{_mandir}/man1/indiserver.1.gz
-%{_mandir}/man1/lx200_16.1.gz
-%{_mandir}/man1/lx200autostar.1.gz
-%{_mandir}/man1/lx200classic.1.gz
-%{_mandir}/man1/lx200generic.1.gz
-%{_mandir}/man1/lx200gps.1.gz
+%{_mandir}/man1/celestrongps.1*
+%{_mandir}/man1/indiserver.1*
+%{_mandir}/man1/lx200_16.1*
+%{_mandir}/man1/lx200autostar.1*
+%{_mandir}/man1/lx200classic.1*
+%{_mandir}/man1/lx200generic.1*
+%{_mandir}/man1/lx200gps.1*
 %{_kdedocdir}/en/kstars
 
 %files ktouch

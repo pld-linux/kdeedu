@@ -1,5 +1,3 @@
-#
-# TODO: %%files
 
 %define		_state		unstable
 %define		_ver		3.3.92
@@ -44,9 +42,11 @@ K Desktop Environment - edukacja i rozrywka.
 Summary:	Header files for kdeedu libraries
 Summary(pl):	Pliki nag³ówkowe bibliotek kdeedu
 Group:		X11/Development/Libraries
+Requires:	%{name}-libextdate = %{epoch}:%{version}-%{release}
 Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
 Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
 Requires:	%{name}-libkdeeduui = %{epoch}:%{version}-%{release}
+Requires:	%{name}-libkiten = %{epoch}:%{version}-%{release}
 
 %description devel
 Header files for kdeedu libraries.
@@ -198,6 +198,7 @@ Summary:	A Japanese reference tool
 Summary(pl):	S³ownik angielsko-japoñski
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
+Requires:	%{name}-libkiten = %{epoch}:%{version}-%{release}
 Obsoletes:	kdeedu
 
 %description kiten
@@ -476,6 +477,31 @@ KWordQuiz zawiera tak¿e funkcje Flashcard (pokazywania kart), testu
 wielokrotnego wyboru oraz pytañ i odpowiedzi. Pytania i odpowiedzi
 maj± tak¿e specjalny tryb wype³niania luk.
 
+%package libextdate
+Summary:	Extensive date support library in KDE
+Summary(pl):	Biblioteka rozszerzonej obs³ugi dat w KDE
+Group:		X11/Libraries
+Requires:	kdelibs >= 9:%{version}
+
+%description libextdate
+This library consists of a group of classes which allow KDE
+applications to access calendar dates outside of the limited range of
+years imposed by QDate.
+
+The QDate class has a limited range of valid dates. It does not
+recognize dates prior to 14 Oct 1752 (when the Gregorian calendar was
+adopted by England), nor dates after 31 Dec 8000. Both of these limits
+are arbitrary.
+
+%description libextdate -l pl
+Ta biblioteka zawiera grupê klas pozwalaj±cych aplikacjom KDE na
+dostêp do dat spoza zakresu lat narzuconego przez QDate.
+
+Klasa QDate ma ograniczony zakres dopuszczalnych dat. Nie rozpoznaje
+dat wcze¶niejszych ni¿ 14 pa¼dziernika 1752 (kiedy w Anglii
+zaadoptowano kalendarz gregoriañski) ani pó¼niejszych ni¿ 31 grudnia
+8000. Oba te limity s± samowolne.
+
 %package libkdeeducore
 Summary:	KDE educational module core library
 Summary(pl):	Podstawowa biblioteka modu³u edukacyjnego KDE
@@ -503,31 +529,6 @@ Library with plotting functions for KDE educational applications.
 Biblioteka z funkcjami do rysowania wykresów, wykorzystywanymi przez
 aplikacje edukacyjne w KDE.
 
-%package libextdate
-Summary:	Extensive date support library in KDE
-Summary(pl):	Biblioteka rozszerzonej obs³ugi dat w KDE
-Group:		X11/Libraries
-Requires:	kdelibs >= 9:%{version}
-
-%description libextdate
-This library consists of a group of classes which allow KDE
-applications to access calendar dates outside of the limited range of
-years imposed by QDate.
-
-The QDate class has a limited range of valid dates. It does not
-recognize dates prior to 14 Oct 1752 (when the Gregorian calendar was
-adopted by England), nor dates after 31 Dec 8000. Both of these limits
-are arbitrary.
-
-%description libextdate -l pl
-Ta biblioteka zawiera grupê klas pozwalaj±cych aplikacjom KDE na
-dostêp do dat spoza zakresu lat narzuconego przez QDate.
-
-Klasa QDate ma ograniczony zakres dopuszczalnych dat. Nie rozpoznaje
-dat wcze¶niejszych ni¿ 14 pa¼dziernika 1752 (kiedy w Anglii
-zaadoptowano kalendarz gregoriañski) ani pó¼niejszych ni¿ 31 grudnia
-8000. Oba te limity s± samowolne.
-
 %package libkdeeduui
 Summary:	A userf interface library for KDE educational module
 Summary(pl):	Biblioteka interfejsu u¿ytkownika dla modu³u edukacyjnego KDE
@@ -541,6 +542,18 @@ applications.
 %description libkdeeduui -l pl
 Biblioteka z funkcjami interfejsu u¿ytkownika, wykorzystywanymi przez
 aplikacje edukacyjne w KDE.
+
+%package libkiten
+Summary:	TODO
+Summary(pl):	TODO
+Group:		X11/Libraries
+Requires:	kdelibs >= 9:%{version}
+
+%description libkiten
+TODO.
+
+%description libkiten -l pl
+TODO.
 
 %prep
 %setup -q -n %{name}-%{_snap}
@@ -629,6 +642,9 @@ mv $RPM_BUILD_ROOT%{_datadir}/applnk/Edutainment/Miscellaneous/kwordquiz.desktop
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post   libextdate	-p /sbin/ldconfig
+%postun libextdate	-p /sbin/ldconfig
+
 %post	libkdeeducore 	-p /sbin/ldconfig
 %postun	libkdeeducore	-p /sbin/ldconfig
 
@@ -638,16 +654,18 @@ rm -rf $RPM_BUILD_ROOT
 %post	libkdeeduui	-p /sbin/ldconfig
 %postun	libkdeeduui	-p /sbin/ldconfig
 
-%post   libextdate	-p /sbin/ldconfig
-%postun libextdate	-p /sbin/ldconfig
-
+%post	libkiten	-p /sbin/ldconfig
+%postun	libkiten	-p /sbin/ldconfig
 
 %files devel
 %defattr(644,root,root,755)
 %doc README
-%attr(755,root,root) %{_libdir}/libkdeeducore.so
-%attr(755,root,root) %{_libdir}/libkdeeduplot.so
-%attr(755,root,root) %{_libdir}/libkdeeduui.so
+%{_libdir}/libextdate.so
+%{_libdir}/libkdeeducore.so
+%{_libdir}/libkdeeduplot.so
+%{_libdir}/libkdeeduui.so
+%{_libdir}/libkiten.so
+%{_includedir}/libkiten
 %{_includedir}/*.h
 
 %files kalzium
@@ -674,9 +692,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/keduca
 %attr(755,root,root) %{_bindir}/keducabuilder
+%{_libdir}/kde3/libkeducapart.la
+%attr(755,root,root) %{_libdir}/kde3/libkeducapart.so
 %{_datadir}/apps/keduca
+%{_datadir}/config.kcfg/keduca.kcfg
 %{_datadir}/mimelnk/application/x-edu.desktop
 %{_datadir}/mimelnk/application/x-edugallery.desktop
+%{_datadir}/services/keduca_part.desktop
 %{_desktopdir}/kde/keduca*.desktop
 %{_iconsdir}/*/*/apps/keduca.png
 %{_mandir}/man1/keduca*.1*
@@ -715,6 +737,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/services/kfile_kig.desktop
 %{_desktopdir}/kde/kig.desktop
 %{_iconsdir}/[!l]*/*/apps/kig*
+%{_iconsdir}/crystalsvg/*/mimetypes/kig_doc.*
 %{_kdedocdir}/en/kig
 %{_mandir}/man1/kig.1*
 
@@ -723,6 +746,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kiten
 %attr(755,root,root) %{_bindir}/kitengen
 %{_datadir}/apps/kiten
+%{_datadir}/config.kcfg/kiten.kcfg
 %{_desktopdir}/kde/kiten.desktop
 %{_iconsdir}/*/*/actions/kanjidic.png
 %{_iconsdir}/*/*/actions/edit_*.png
@@ -739,7 +763,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/klatin.desktop
 %{_kdedocdir}/en/klatin
 %{_iconsdir}/*/*/apps/klatin*
-#%{_mandir}/man1/klatin.1*
 
 %files klettres
 %defattr(644,root,root,755)
@@ -756,6 +779,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kmessedwords
 %{_datadir}/apps/kmessedwords
+%{_datadir}/config.kcfg/kmessedwords.kcfg
 %{_desktopdir}/kde/kmessedwords.desktop
 %{_iconsdir}/[!l]*/*/apps/kmessedwords*
 %{_mandir}/man1/kmessedwords.1*
@@ -764,10 +788,13 @@ rm -rf $RPM_BUILD_ROOT
 %files kmplot
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kmplot
+%{_libdir}/kde3/libkmplotpart.la
+%attr(755,root,root) %{_libdir}/kde3/libkmplotpart.so
 %{_datadir}/apps/kmplot
 %{_datadir}/config.kcfg/kmplot.kcfg
 %{_desktopdir}/kde/kmplot.desktop
 %{_datadir}/mimelnk/application/x-kmplot.desktop
+%{_datadir}/services/kmplot_part.desktop
 %{_iconsdir}/[!l]*/*/apps/kmplot*
 %{_mandir}/man1/kmplot.1*
 %{_kdedocdir}/en/kmplot
@@ -790,6 +817,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/indiserver
 %attr(755,root,root) %{_bindir}/kstars
 %attr(755,root,root) %{_bindir}/lx200generic
+%attr(755,root,root) %{_bindir}/temma
 %{_datadir}/apps/kstars
 %{_datadir}/config/kstarsrc
 %{_datadir}/config.kcfg/kstars.kcfg
@@ -809,6 +837,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/ktouch
 %{_datadir}/apps/ktouch
+%{_datadir}/config.kcfg/ktouch.kcfg
 %{_desktopdir}/kde/ktouch.desktop
 %{_iconsdir}/*/*/apps/ktouch*
 %{_mandir}/man1/ktouch.1*
@@ -853,10 +882,18 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kwordquiz
 %{_datadir}/apps/kwordquiz
+%{_datadir}/config.kcfg/kwordquiz.kcfg
 %{_desktopdir}/kde/kwordquiz.desktop
 %{_kdedocdir}/en/kwordquiz
 %{_iconsdir}/[!l]*/*/*/kwordquiz*
 %{_datadir}/mimelnk/application/x-kwordquiz.desktop
+
+%files libextdate
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/test_extdate
+%attr(755,root,root) %{_bindir}/test_extdatepicker
+%{_libdir}/libextdate.la
+%attr(755,root,root) %{_libdir}/libextdate.so.1.2.0
 
 %files libkdeeducore
 %defattr(644,root,root,755)
@@ -873,9 +910,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libkdeeduui.la
 %attr(755,root,root) %{_libdir}/libkdeeduui.so.*.*.*
 
-%files libextdate
+%files libkiten
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/test_extdate
-%attr(755,root,root) %{_bindir}/test_extdatepicker
-%attr(755,root,root) %{_libdir}/libextdate.so.1.2.0
-%{_libdir}/libextdate.la
+%{_libdir}/libkiten.la
+%attr(755,root,root) %{_libdir}/libkiten.so.*.*.*

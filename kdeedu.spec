@@ -1,7 +1,7 @@
 
 %define		_state		snapshots
 %define		_ver		3.1.90
-%define		_snap		030618
+%define		_snap		030623
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
@@ -13,7 +13,7 @@ License:	GPL
 Group:		X11/Applications/Science
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
 Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	6b8367712c633f588ab11f6eb269e9de
+# Source0-md5:	53ef82d076a8557d9af22f06189f226e
 Patch0:		%{name}-vcategories.patch
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel = %{version}
@@ -52,6 +52,7 @@ Summary(pl):    Narzêdzie do nauki za pomoc± liczmanów
 Group:          X11/Applications/Science
 Requires:	kdebase-core >= %{version}
 Obsoletes:	%{name}
+Obsoletes:	%{name}-kgeo
 
 %description flashkard
 Flash card learning tool for KDE.
@@ -64,6 +65,7 @@ Summary:        A Periodic System of Elements database
 Summary(pl):    Baza danych Uk³adu Okresowego Pierwiastków
 Group:          X11/Applications/Science
 Requires:	kdebase-core >= %{version}
+Obsoletes:      %{name}-kgeo
 
 %description kalzium
 A Periodic System of Elements database.
@@ -76,6 +78,8 @@ Summary:	Task generator for calculations with fractions
 Summary(pl):	Generator zadañ z obliczeniami na u³amkach
 Group:		X11/Applications
 Requires:	kdebase-core >= %{version}
+Obsoletes:      %{name}-kgeo
+Obsoletes:      %{name}
 
 %description kbruch
 Task generator for calculations with fractions.
@@ -89,6 +93,7 @@ Summary(pl):	Tworzenie i sprawdzanie testów i egzaminów
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{version}
 Obsoletes:	%{name}
+Obsoletes:      %{name}-kgeo
 
 %description keduca
 Creation and revision of form-based tests and exams.
@@ -101,6 +106,8 @@ Summary:	A hangman game
 Summary(pl):	Gra w wisielca
 Group:          X11/Applications/Science
 Requires:	kdebase-core >= %{version}
+Obsoletes:      %{name}-kgeo
+Obsoletes:      %{name}
 
 %description khangman
 KHangMan is a game based on the well known hangman game. A word is
@@ -122,6 +129,8 @@ Summary:        Interactive Geometry
 Summary(pl):    Interaktywna geometria
 Group:          X11/Applications/Science
 Requires:	kdebase-core >= %{version}
+Obsoletes:      %{name}-kgeo
+Obsoletes:      %{name}
 
 %description kig
 Interactive Geometry.
@@ -135,6 +144,7 @@ Summary(pl):    S³ownik angielsko-japoñski
 Group:          X11/Applications/Science
 Obsoletes:	%{name}
 Requires:	kdebase-core >= %{version}
+Obsoletes:      %{name}-kgeo
 
 %description kiten
 A Japanese reference tool.
@@ -148,6 +158,7 @@ Summary(pl):	Pomoc w nauce francuskiego alfabetu i sylab dla dzieci
 Group:		X11/Applications/Science
 Obsoletes:	%{name}
 Requires:	kdebase-core >= %{version}
+Obsoletes:      %{name}-kgeo
 
 %description klettres
 Helps child to learn French alphabet and to read some syllables.
@@ -160,6 +171,8 @@ Summary:        Mathematical function plotter
 Summary(pl):    Koordynograf
 Group:          X11/Applications/Science
 Requires:	kdebase-core >= %{version}
+Obsoletes:      %{name}-kgeo
+Obsoletes:      %{name}
 
 %description kmplot
 Mathematical function plotter.
@@ -172,6 +185,8 @@ Summary:	Simple mind-training game
 Summary(pl):	Prosta ³amig³ówka
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{version}
+Obsoletes:      %{name}-kgeo
+Obsoletes:      %{name}
 
 %description kmessedwords
 Simple mind-training game.
@@ -184,6 +199,8 @@ Summary:        A percentage tutor
 Summary(pl):    Program do nauki procentów
 Group:          X11/Applications/Science
 Requires:	kdebase-core >= %{version}
+Obsoletes:      %{name}-kgeo
+Obsoletes:      %{name}
 
 %description kpercentage
 A percentage tutor.
@@ -196,6 +213,8 @@ Summary:	Desktop planetarium
 Summary(pl):	Planetarium
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{version}
+Obsoletes:      %{name}-kgeo
+Obsoletes:      %{name}
 
 %description kstars
 Desktop planetarium.
@@ -208,6 +227,9 @@ Summary:	Program for learning touch typing
 Summary(pl):	Program do nauki maszynopisania
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{version}
+Obsoletes:      %{name}
+Obsoletes:      %{name}-kgeo
+
 
 %description ktouch
 Program for learning touch typing.
@@ -221,6 +243,7 @@ Summary(pl):	Program do nauki form czasowników w jêzyku hiszpañskim
 Group:          X11/Applications/Science
 Obsoletes:	%{name}
 Requires:	kdebase-core >= %{version}
+Obsoletes:      %{name}-kgeo
 
 %description kverbos
 Spanish verb form study application for KDE.
@@ -233,6 +256,8 @@ Summary:	Vocabulary trainer
 Summary(pl):	Program do æwiczenia s³ownictwa
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{version}
+Obsoletes:      %{name}-kgeo
+Obsoletes:      %{name}
 
 %description kvoctrain
 Vocabulary trainer.

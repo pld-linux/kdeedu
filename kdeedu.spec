@@ -104,6 +104,8 @@ Summary:	Program for learning touch typing
 Summary(pl):	Program do nauki maszynopisania
 Group:		X11/Applications
 Requires:	%{name} = %{version}
+Provides:	ktouch
+Obsoletes:	ktouch
 
 %description ktouch
 Program for learning touch typing.

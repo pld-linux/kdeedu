@@ -6,7 +6,7 @@ Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	%{_ver}
-Release:	0.3
+Release:	0.4
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
@@ -15,6 +15,7 @@ Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.
 # generated from kde-i18n
 Source1:	ftp://blysk.ds.pg.gda.pl/linux/kde-i18n-package/%{version}/kde-i18n-%{name}-%{version}.tar.bz2
 # Source1-md5:	aec4b56099e3cf364731fb83eca9c98f
+Source2:	%{name}-extra_icons.tar.bz2
 BuildRequires:	ed
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel = %{epoch}:%{version}
@@ -260,6 +261,11 @@ mv locolor/16x16/actions/*.png crystalsvg/16x16/actions
 mv {locolor,crystalsvg}/16x16/apps/kvoctrain.xpm
 cd -
 
+bzip2 -dc %{SOURCE2} | tar xf - -C $RPM_BUILD_ROOT%{_pixmapsdir}
+for i in {flashkard,keduca,kstars}.png; do
+	ln -s crystalsvg/48x48/apps/$i $RPM_BUILD_ROOT%{_pixmapsdir}/$i
+done
+
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 
 mv -f $RPM_BUILD_ROOT%{_datadir}/locale/zh_TW/LC_MESSAGES/{K,k}iten.mo
@@ -310,7 +316,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/flashkard
 %{_datadir}/apps/flashkard
 %{_applnkdir}/Edutainment/flashkard.desktop
-%{_pixmapsdir}/*/*/*/flashkard*
+%{_pixmapsdir}/*/*/*/flashkard.png
+%{_pixmapsdir}/flashkard.png
 %{_mandir}/man1/flashkard.*
 
 %files kalzium -f kalzium.lang
@@ -318,7 +325,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kalzium
 %{_datadir}/apps/kalzium
 %{_applnkdir}/Edutainment/kalzium.desktop
-%{_pixmapsdir}/[!l]*/*/*/kalzium*
+%{_pixmapsdir}/[!l]*/*/*/kalzium.png
+%{_pixmapsdir}/kalzium.png
 %{_mandir}/man1/kalzium.*
 
 %files keduca -f keduca.lang
@@ -326,7 +334,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/keduca
 %{_datadir}/apps/keduca
 %{_applnkdir}/Edutainment/keduca*.desktop
-%{_pixmapsdir}/*/*/*/keduca*
+%{_pixmapsdir}/*/*/*/keduca.png
+%{_pixmapsdir}/keduca.png
 %{_mandir}/man1/keduca.*
 
 %files kgeo -f kgeo.lang
@@ -334,7 +343,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kgeo
 %{_datadir}/apps/kgeo
 %{_applnkdir}/Edutainment/kgeo.desktop
-%{_pixmapsdir}/[!l]*/*/*/kgeo*
+%{_pixmapsdir}/[!l]*/*/*/kgeo.png
+%{_pixmapsdir}/kgeo.png
 %{_mandir}/man1/kgeo.*
 
 %files khangman -f khangman.lang
@@ -342,7 +352,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/khangman
 %{_datadir}/apps/khangman
 %{_applnkdir}/Edutainment/khangman.desktop
-%{_pixmapsdir}/[!l]*/*/*/khangman*
+%{_pixmapsdir}/[!l]*/*/*/khangman.png
+%{_pixmapsdir}/khangman.png
 %{_mandir}/man1/khangman.*
 
 %files kiten -f kiten.lang
@@ -352,7 +363,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kiten.so
 %{_datadir}/apps/kiten
 %{_applnkdir}/Edutainment/kiten.desktop
-%{_pixmapsdir}/*/*/*/kiten*
+%{_pixmapsdir}/*/*/*/kiten.png
+%{_pixmapsdir}/kiten.png
 %{_mandir}/man1/kiten*
 
 %files klettres -f klettres.lang
@@ -360,7 +372,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/klettres
 %{_datadir}/apps/klettres
 %{_applnkdir}/Edutainment/klettres.desktop
-%{_pixmapsdir}/[!l]*/*/*/klettres*
+%{_pixmapsdir}/[!l]*/*/*/klettres.png
+%{_pixmapsdir}/klettres.png
 %{_mandir}/man1/klettres.*
 
 %files kmessedwords -f kmessedwords.lang
@@ -368,7 +381,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kmessedwords
 %{_datadir}/apps/kmessedwords
 %{_applnkdir}/Edutainment/kmessedwords.desktop
-%{_pixmapsdir}/[!l]*/*/*/kmessedwords*
+%{_pixmapsdir}/[!l]*/*/*/kmessedwords.png
+%{_pixmapsdir}/kmessedwords.png
 %{_mandir}/man1/kmessedwords.*
 
 %files kmplot -f kmplot.lang
@@ -376,7 +390,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kmplot
 %{_datadir}/apps/kmplot
 %{_applnkdir}/Edutainment/kmplot.desktop
-%{_pixmapsdir}/[!l]*/*/*/kmplot*
+%{_pixmapsdir}/[!l]*/*/*/kmplot.png
+%{_pixmapsdir}/kmplot.png
 %{_mandir}/man1/kmplot.*
 
 %files kpercentage -f kpercentage.lang
@@ -384,7 +399,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kpercentage
 %{_datadir}/apps/kpercentage
 %{_applnkdir}/Edutainment/kpercentage.desktop
-%{_pixmapsdir}/[!l]*/*/*/kpercentage*
+%{_pixmapsdir}/[!l]*/*/*/kpercentage.png
+%{_pixmapsdir}/kpercentage.png
 %{_mandir}/man1/kpercentage.*
 
 %files kstars -f kstars.lang
@@ -392,7 +408,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kstars
 %{_datadir}/apps/kstars
 %{_applnkdir}/Edutainment/kstars.desktop
-%{_pixmapsdir}/[!l]*/*/*/kstars*
+%{_pixmapsdir}/[!l]*/*/*/kstars.png
+%{_pixmapsdir}/kstars.png
 %{_mandir}/man1/kstars.*
 
 %files ktouch -f ktouch.lang
@@ -400,7 +417,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ktouch
 %{_datadir}/apps/ktouch
 %{_applnkdir}/Edutainment/ktouch.desktop
-%{_pixmapsdir}/*/*/*/ktouch*
+%{_pixmapsdir}/*/*/*/ktouch.png
+%{_pixmapsdir}/ktouch.png
 %{_mandir}/man1/ktouch.*
 
 %files kverbos -f kverbos.lang
@@ -408,7 +426,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kverbos
 %{_datadir}/apps/kverbos
 %{_applnkdir}/Edutainment/kverbos.desktop
-%{_pixmapsdir}/*/*/*/kverbos*
+%{_pixmapsdir}/*/*/*/kverbos*.png
+%{_pixmapsdir}/kverbos.png
 %{_mandir}/man1/kverbos.*
 
 %files kvoctrain -f kvoctrain.lang
@@ -419,6 +438,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kvoctrain
 %{_applnkdir}/Edutainment/kvoctrain.desktop
 %{_pixmapsdir}/[!l]*/*/*/kvoctrain*
+%{_pixmapsdir}/kvoctrain.png
 %{_mandir}/man1/kvoctrain.*
 %{_mandir}/man1/langen2kvtml.*
 %{_mandir}/man1/spotlight2kvtml.*

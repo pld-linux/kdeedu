@@ -1,16 +1,25 @@
-%define		_state		stable
-%define		_ver		3.3.2
+#
+# TODO: %%files
+
+%define		_state		unstable
+%define		_ver		3.3.92
+%define		_snap		050217
+
+%define         _minlibsevr     9:3.3.92.050217                                 
+%define         _minbaseevr     9:3.3.92.050217
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
-Version:	%{_ver}
-Release:	1
+Version:        %{_ver}.%{_snap}
+#Version:	%{_ver}
+Release:	0.1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	2ea54bb7aee669582eb0877d3c6f0b3d
+Source0:        http://ftp.pld-linux.org/software/kde/%{name}-%{_snap}.tar.bz2
+#Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
+#%% Source0-md5:	2ea54bb7aee669582eb0877d3c6f0b3d
 Icon:		kde-edu.xpm
 Patch0:		%{name}-pport.patch
 #Patch100:	%{name}-branch.diff
@@ -21,7 +30,7 @@ BuildRequires:	kdelibs-devel >= 9:%{version}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
-BuildRequires:	unsermake >= 040805
+#BuildRequires:	unsermake >= 040805
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -44,33 +53,6 @@ Header files for kdeedu libraries.
 
 %description devel -l pl
 Pliki nag³ówkowe bibliotek kdeedu.
-
-#%package flashkard
-#Summary:	Flash card learning tool for KDE
-#Summary(pl):	Narzêdzie do nauki za pomoc± pokazywania kart
-#Group:		X11/Applications/Science
-#Requires:	kdebase-core >= 9:%{version}
-#Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
-#Obsoletes:	kdeedu
-#
-#%description flashkard
-#Flash card learning tool for KDE. FlashKard is based on a rather old
-#learning method used to teach children facts. The teacher presented a
-#number of cards with questions on them, and the pupil wrote the
-#answers on the back of the cards. These cards were then checked at the
-#end of the round by the teacher. The cards with the correct answers
-#were then removed from the pile and the incorrectly-answered questions
-#were repeated over and over again, until the answer was "drilled" into
-#the pupils memory.
-#
-#%description flashkard -l pl
-#Narzêdzie dla KDE do nauki za pomoc± pokazywania kart. FlashKard jest
-#oparty na raczej starej metodzie nauczania dzieci faktów. Nauczyciel
-#pokazywa³ zestaw kart z pytaniami, a uczeñ pisa³ odpowiedzi na
-#odwrocie tych kart. Karty by³y potem sprawdzane na koñcu rundy przez
-#nauczyciela. Karty z poprawnymi odpowiedziami by³y usuwane z puli, a
-#pytania, na które pad³y z³e odpowiedzi, by³y powtarzane a¿ do
-#wt³oczenia odpowiedzi do pamiêci uczniów.
 
 %package kalzium
 Summary:	A Periodic System of Elements database
@@ -561,7 +543,8 @@ Biblioteka z funkcjami interfejsu u¿ytkownika, wykorzystywanymi przez
 aplikacje edukacyjne w KDE.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{_snap}
+#%setup -q
 #%%patch100 -p1
 %patch0 -p1
 
@@ -596,8 +579,6 @@ done
 ./keduca/resources/keduca.desktop \
 ./keduca/resources/keducabuilder.desktop
 
-%{__sed} -i -e 's,appsdir =,#,g' \
-	-e "s,apps_DATA,xdg_apps_DATA,g"  Makefile.am
 for f in `find . -name \*.desktop`; do
 	if grep -q '^Categories=.*[^;]$' $f; then
 		sed -i -e 's/\(^Categories=.*$\)/\1;/' $f
@@ -606,7 +587,8 @@ done
 
 %build
 cp %{_datadir}/automake/config.sub admin
-export UNSERMAKE=%{_datadir}/unsermake/unsermake
+
+#export UNSERMAKE=%{_datadir}/unsermake/unsermake
 
 %{__make} -f admin/Makefile.common cvs
 
@@ -668,15 +650,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkdeeduui.so
 %{_includedir}/*.h
 
-#files flashkard
-#defattr(644,root,root,755)
-#attr(755,root,root) %{_bindir}/flashkard
-#{_datadir}/apps/flashkard
-#{_desktopdir}/kde/flashkard.desktop
-#{_iconsdir}/*/*/apps/flashkard.png
-#{_mandir}/man1/flashkard.1*
-#{_kdedocdir}/en/flashkard
-
 %files kalzium
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kalzium
@@ -719,28 +692,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/[!l]*/*/apps/khangman*
 %{_mandir}/man1/khangman.1*
 %{_kdedocdir}/en/khangman
-#%%{_iconsdir}/hicolor/48x48/apps/a_acute.png
-#%%{_iconsdir}/hicolor/48x48/apps/a_circle.png
-#%%{_iconsdir}/hicolor/48x48/apps/a_grave.png
-#%%{_iconsdir}/hicolor/48x48/apps/a_tilde.png
-#%%{_iconsdir}/hicolor/48x48/apps/a_umlaut.png
-#%%{_iconsdir}/hicolor/48x48/apps/a_withe.png
-#%%{_iconsdir}/hicolor/48x48/apps/c_cedil.png
-#%%{_iconsdir}/hicolor/48x48/apps/e_acute.png
-#%%{_iconsdir}/hicolor/48x48/apps/e_circ.png
-#%%{_iconsdir}/hicolor/48x48/apps/e_grave.png
-#%%{_iconsdir}/hicolor/48x48/apps/i_acute.png
-#%%{_iconsdir}/hicolor/48x48/apps/i_grave.png
-#%%{_iconsdir}/hicolor/48x48/apps/n_tilde.png
-#%%{_iconsdir}/hicolor/48x48/apps/o_acute.png
-#%%{_iconsdir}/hicolor/48x48/apps/o_circ.png
-#%%{_iconsdir}/hicolor/48x48/apps/o_cross.png
-#%%{_iconsdir}/hicolor/48x48/apps/o_grave.png
-#%%{_iconsdir}/hicolor/48x48/apps/o_tilde.png
-#%%{_iconsdir}/hicolor/48x48/apps/o_umlaut.png
-#%%{_iconsdir}/hicolor/48x48/apps/sz_lig.png
-#%%{_iconsdir}/hicolor/48x48/apps/u_acute.png
-#%%{_iconsdir}/hicolor/48x48/apps/u_umlaut.png
 
 %files kig
 %defattr(644,root,root,755)
@@ -788,7 +739,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/klatin.desktop
 %{_kdedocdir}/en/klatin
 %{_iconsdir}/*/*/apps/klatin*
-%{_mandir}/man1/klatin.1*
+#%{_mandir}/man1/klatin.1*
 
 %files klettres
 %defattr(644,root,root,755)
@@ -798,9 +749,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config.kcfg/klettres.kcfg
 %{_desktopdir}/kde/klettres.desktop
 %{_iconsdir}/[!l]*/*/*/klettres*
-%{_iconsdir}/*/*/apps/grownup.png
-%{_iconsdir}/*/*/apps/kids.png
-%{_iconsdir}/*/*/apps/menubar.png
 %{_mandir}/man1/klettres.1*
 %{_kdedocdir}/en/klettres
 
@@ -849,14 +797,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/[!l]*/*/apps/kstars*
 %{_mandir}/man1/kstars.1*
 %{_mandir}/man1/celestrongps.1*
-%{_mandir}/man1/fliccd.1*
 %{_mandir}/man1/indiserver.1*
 %{_mandir}/man1/lx200_16.1*
 %{_mandir}/man1/lx200autostar.1*
 %{_mandir}/man1/lx200classic.1*
 %{_mandir}/man1/lx200generic.1*
 %{_mandir}/man1/lx200gps.1*
-%{_mandir}/man1/v4l*.1*
 %{_kdedocdir}/en/kstars
 
 %files ktouch
@@ -877,7 +823,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/kturtle.desktop
 %{_kdedocdir}/en/kturtle
 %{_iconsdir}/*/*/apps/kturtle*
-%{_mandir}/man1/kturtle.1*
 
 %files kverbos
 %defattr(644,root,root,755)
@@ -912,7 +857,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_kdedocdir}/en/kwordquiz
 %{_iconsdir}/[!l]*/*/*/kwordquiz*
 %{_datadir}/mimelnk/application/x-kwordquiz.desktop
-%{_mandir}/man1/kwordquiz.1*
 
 %files libkdeeducore
 %defattr(644,root,root,755)
@@ -928,7 +872,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_libdir}/libkdeeduui.la
 %attr(755,root,root) %{_libdir}/libkdeeduui.so.*.*.*
-%{_iconsdir}/*/*/apps/edu_*.*
 
 %files libextdate
 %defattr(644,root,root,755)
@@ -936,4 +879,3 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/test_extdatepicker
 %attr(755,root,root) %{_libdir}/libextdate.so.1.2.0
 %{_libdir}/libextdate.la
-%{_mandir}/man1/test_extdate*.1*

@@ -1,16 +1,16 @@
 
-%define		_state		unstable
-%define		_kdever		kde-3.1-rc7
+%define		_state		stable
+%define		_ver		3.1
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
-Version:	3.1
-Release:	3
+Version:	%{_ver}
+Release:	4
 Epoch:		7
 License:	GPL
 Group:		X11/Applications/Science
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_kdever}/src/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
 # generated from kde-i18n
 #Source1:	kde-i18n-%{name}-%{version}.tar.bz2
 BuildRequires:	gettext-devel

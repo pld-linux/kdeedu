@@ -46,10 +46,10 @@ Header Files
 Pliki nag³ówkowe
 
 %package flashkard
-Summary:	Flash card learning tool for KDE  
-Summary(pl):    Narzêdzie do nauki za pomoc± liczmanów
-Group:          X11/Applications/Science
-Requires:       %{name} = %{epoch}:%{version}
+Summary:	Flash card learning tool for KDE
+Summary(pl):	Narzêdzie do nauki za pomoc± liczmanów
+Group:		X11/Applications/Science
+Requires:	%{name} = %{epoch}:%{version}
 
 %description flashkard
 Flash card learning tool for KDE.
@@ -70,10 +70,10 @@ Creation and revision of form-based tests and exams.
 Tworzenie i sprawdzanie testów i egzaminów.
 
 %package kalzium
-Summary:        A Periodic System of Elements database
-Summary(pl):    Baza danych Uk³adu Okresowego Pierwiastków
-Group:          X11/Applications/Science
-Requires:       %{name} = %{epoch}:%{version}
+Summary:	A Periodic System of Elements database
+Summary(pl):	Baza danych Uk³adu Okresowego Pierwiastków
+Group:		X11/Applications/Science
+Requires:	%{name} = %{epoch}:%{version}
 
 %description kalzium
 A Periodic System of Elements database.
@@ -96,8 +96,8 @@ Interaktywna geometria.
 %package khangman
 Summary:	A hangman game
 Summary(pl):	Gra w wisielca
-Group:          X11/Applications/Science
-Requires:       %{name} = %{epoch}:%{version}
+Group:		X11/Applications/Science
+Requires:	%{name} = %{epoch}:%{version}
 
 %description khangman
 KHangMan is a game based on the well known hangman game. A word is
@@ -115,10 +115,10 @@ s³owo przed powieszeniem! Gra jest przeznaczona dla dzieci w wieku 6
 lat lub wiêcej.
 
 %package kiten
-Summary:        A Japanese reference tool
-Summary(pl):    S³ownik angielsko-japoñski
-Group:          X11/Applications/Science
-Requires:       %{name} = %{epoch}:%{version}
+Summary:	A Japanese reference tool
+Summary(pl):	S³ownik angielsko-japoñski
+Group:		X11/Applications/Science
+Requires:	%{name} = %{epoch}:%{version}
 
 %description kiten
 A Japanese reference tool.
@@ -139,10 +139,10 @@ Helps child to learn French alphabet and to read some syllables.
 Pomoc w nauce francuskiego alfabetu i sylab dla dzieci.
 
 %package kmplot
-Summary:        Mathematical function plotter
-Summary(pl):    Koordynograf
-Group:          X11/Applications/Science
-Requires:       %{name} = %{epoch}:%{version}
+Summary:	Mathematical function plotter
+Summary(pl):	Koordynograf
+Group:		X11/Applications/Science
+Requires:	%{name} = %{epoch}:%{version}
 
 %description kmplot
 Mathematical function plotter.
@@ -163,10 +163,10 @@ Simple mind-training game.
 Prosta ³amig³ówka.
 
 %package kpercentage
-Summary:        A percentage tutor
-Summary(pl):    Program do nauki procentów
-Group:          X11/Applications/Science
-Requires:       %{name} = %{epoch}:%{version}
+Summary:	A percentage tutor
+Summary(pl):	Program do nauki procentów
+Group:		X11/Applications/Science
+Requires:	%{name} = %{epoch}:%{version}
 
 %description kpercentage
 A percentage tutor.
@@ -203,8 +203,8 @@ Program do nauki maszynopisania.
 %package kverbos
 Summary:	Spanish verb form study application for KDE
 Summary(pl):	Program do nauki form czasowników w jêzyku hiszpañskim
-Group:          X11/Applications/Science
-Requires:       %{name} = %{epoch}:%{version}
+Group:		X11/Applications/Science
+Requires:	%{name} = %{epoch}:%{version}
 
 %description kverbos
 Spanish verb form study application for KDE.

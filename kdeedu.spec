@@ -1,15 +1,19 @@
+
+%define		_state		unstable
+%define		_kdever		kde-3.1-rc2
+
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
-Version:	3.0.4
-Release:	1
+Version:	3.0.98
+Release:	0.1
 Epoch:		7
 License:	GPL
 Group:		X11/Applications
-Source0:	ftp://ftp.kde.org/pub/kde/stable/%{version}/src/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_kdever}/src/%{name}-%{version}.tar.bz2
 # generated from kde-i18n
-Source1:	kde-i18n-%{name}-%{version}.tar.bz2
-Patch0:		%{name}-DESTDIR.patch
+#Source1:	kde-i18n-%{name}-%{version}.tar.bz2
+#Patch0:		%{name}-DESTDIR.patch
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel = %{version}
 BuildRequires:	libjpeg-devel
@@ -114,13 +118,12 @@ Program do æwiczenia s³ownictwa.
 
 %prep
 %setup -q
-%patch0 -p1
+#%patch0 -p1
 
 %build
 kde_htmldir="%{_htmldir}"; export kde_htmldir
 kde_icondir="%{_pixmapsdir}"; export kde_icondir
 
-#%{__make} -f Makefile.cvs
 %configure \
 	--enable-final
 
@@ -131,7 +134,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR="$RPM_BUILD_ROOT"
 
-bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
+#bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 
 %find_lang kgeo --with-kde
 %find_lang klettres --with-kde
@@ -149,9 +152,6 @@ cat klatin.lang >> khangman.lang
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-%post	-p /sbin/ldconfig
-%postun	-p /sbin/ldconfig
 
 %files -f khangman.lang
 %defattr(644,root,root,755)

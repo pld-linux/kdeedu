@@ -262,7 +262,7 @@ cd -
 
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 
-mv -f $RPM_BUILD_ROOT%{_datadir}/locale/zh_TW/LC_MESSAGES/[Kk]iten.mo
+mv -f $RPM_BUILD_ROOT%{_datadir}/locale/zh_TW/LC_MESSAGES/{K,k}iten.mo
 
 %find_lang	flashkard	--with-kde
 %find_lang	kalzium		--with-kde

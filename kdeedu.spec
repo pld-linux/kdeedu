@@ -16,7 +16,7 @@ Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
 # Source0-md5:	fefe2fef3443afca62ad458121bf802d
 Patch0:		%{name}-vcategories.patch
 BuildRequires:	gettext-devel
-BuildRequires:	kdelibs-devel >= %{version}
+BuildRequires:	kdelibs-devel >= 9:%{version}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	sed >= 4.0

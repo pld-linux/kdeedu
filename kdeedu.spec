@@ -1,5 +1,3 @@
-# TODO:
-# - fix lang *.mo files.
 
 %define		_state		stable
 %define		_ver		3.1.1
@@ -8,7 +6,7 @@ Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	%{_ver}
-Release:	1.2
+Release:	2
 Epoch:		7
 License:	GPL
 Group:		X11/Applications/Science
@@ -260,6 +258,9 @@ cd -
 
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 
+
+
+
 %find_lang flashkard	--with-kde
 %find_lang kalzium	--with-kde
 %find_lang keduca	--with-kde
@@ -268,12 +269,18 @@ bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 %find_lang kiten	--with-kde
 %find_lang klettres	--with-kde
 %find_lang kmathtool	--with-kde
+%find_lang desktop_kdeedu --with-kde
+cat desktop_kdeedu.lang >> kmathtool.lang
+
 %find_lang kmessedwords	--with-kde
 %find_lang kmplot	--with-kde
 %find_lang kpercentage	--with-kde
 %find_lang kstars	--with-kde
 %find_lang ktouch	--with-kde
 %find_lang kverbos	--with-kde
+%find_lang knorskverbs	--with-kde
+cat knorskverbs.lang >> kverbos.lang
+
 %find_lang kvoctrain	--with-kde
 
 %clean

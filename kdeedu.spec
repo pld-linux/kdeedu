@@ -19,8 +19,8 @@ BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel >= %{version}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
-BuildRequires:	zlib-devel
 BuildRequires:	perl
+BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -246,7 +246,8 @@ done
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR="$RPM_BUILD_ROOT"
+%{__make} install \
+	DESTDIR="$RPM_BUILD_ROOT"
 
 ALD=$RPM_BUILD_ROOT%{_applnkdir}/Edutainment
 mv $ALD/{{Languages,Mathematics,Miscellanous,Science,Tools}/*.desktop,.}
@@ -258,8 +259,13 @@ cd -
 
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 
+%find_lang kmathtool	--with-kde
+%find_lang desktop_kdeedu --with-kde
+cat desktop_kdeedu.lang >> kmathtool.lang
 
-
+%find_lang kverbos	--with-kde
+%find_lang knorskverbs	--with-kde
+cat knorskverbs.lang >> kverbos.lang
 
 %find_lang flashkard	--with-kde
 %find_lang kalzium	--with-kde
@@ -268,19 +274,11 @@ bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 %find_lang khangman	--with-kde
 %find_lang kiten	--with-kde
 %find_lang klettres	--with-kde
-%find_lang kmathtool	--with-kde
-%find_lang desktop_kdeedu --with-kde
-cat desktop_kdeedu.lang >> kmathtool.lang
-
 %find_lang kmessedwords	--with-kde
 %find_lang kmplot	--with-kde
 %find_lang kpercentage	--with-kde
 %find_lang kstars	--with-kde
 %find_lang ktouch	--with-kde
-%find_lang kverbos	--with-kde
-%find_lang knorskverbs	--with-kde
-cat knorskverbs.lang >> kverbos.lang
-
 %find_lang kvoctrain	--with-kde
 
 %clean
@@ -289,8 +287,8 @@ rm -rf $RPM_BUILD_ROOT
 %files -f kmathtool.lang
 %defattr(644,root,root,755)
 %doc README*
-%{_libdir}/libkdeeducore.la
 %attr(755,root,root) %{_libdir}/libkdeeducore.so.*
+%{_libdir}/libkdeeducore.la
 %{_datadir}/mimelnk/application/x-edu.desktop
 %{_pixmapsdir}/*/*/actions/*
 %{_pixmapsdir}/*/*/apps/edu_*

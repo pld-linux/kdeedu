@@ -6,7 +6,7 @@ Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	%{_ver}
-Release:	1.1
+Release:	1.2
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
@@ -14,7 +14,7 @@ Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.
 # Source0-md5:	02996b08a1c2a2aa044406480c0eb8a7
 # generated from kde-i18n
 Source1:	ftp://blysk.ds.pg.gda.pl/linux/kde-i18n-package/%{version}/kde-i18n-%{name}-%{version}.tar.bz2
-# Source1-md5:	3adf1c98a4b422527e6dcd7fb4b9e99d
+# Source1-md5:	353707e9afc973200101a2ddb789374a
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel = %{epoch}:%{version}
 BuildRequires:	libjpeg-devel
@@ -246,7 +246,8 @@ done
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR="$RPM_BUILD_ROOT"
+%{__make} install \
+	DESTDIR="$RPM_BUILD_ROOT"
 
 ALD=$RPM_BUILD_ROOT%{_applnkdir}/Edutainment
 mv $ALD/{{Languages,Mathematics,Miscellanous,Science,Tools}/*.desktop,.}
@@ -256,7 +257,7 @@ mv locolor/16x16/actions/*.png crystalsvg/16x16/actions
 mv {locolor,crystalsvg}/16x16/apps/kvoctrain.xpm
 cd -
 
-#bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
+bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 
 %find_lang flashkard	--with-kde
 %find_lang kalzium	--with-kde

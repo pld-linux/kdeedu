@@ -1,0 +1,105 @@
+diff -urN -x CVS kdeedu.orig/kbruch/src/mainqtwidget.cpp kdeedu/kbruch/src/mainqtwidget.cpp
+--- kdeedu.orig/kbruch/src/mainqtwidget.cpp	Sun May 30 17:56:21 2004
++++ kdeedu/kbruch/src/mainqtwidget.cpp	Sat Jun  5 06:50:46 2004
+@@ -92,7 +92,7 @@
+ 	m_maxMainDenominator = m_config->readNumEntry("max_main_denominator", 10);
+ 
+    /* make sure that we can load config files with corrupted values */
+-   if (m_mulDiv == true and pow(2, m_nrRatios) > m_maxMainDenominator)
++   if (m_mulDiv == true && pow(2, m_nrRatios) > m_maxMainDenominator)
+    {
+       m_nrRatios = 2;
+       m_maxMainDenominator = 10;
+diff -urN -x CVS kdeedu.orig/kstars/kstars/indi/README kdeedu/kstars/kstars/indi/README
+--- kdeedu.orig/kstars/kstars/indi/README	Mon Feb  2 00:33:04 2004
++++ kdeedu/kstars/kstars/indi/README	Mon Feb  2 00:33:04 2004
+@@ -100,4 +100,4 @@
+ 	more stuff
+ 
+ ! For RCS Only -- Do Not Edit
+-! @(#) $RCSfile$ $Date$ $Revision$ $Name$
++! @(#) $RCSfile$ $Date$ $Revision$ $Name$
+diff -urN -x CVS kdeedu.orig/kstars/kstars/indi/eventloop.c kdeedu/kstars/kstars/indi/eventloop.c
+--- kdeedu.orig/kstars/kstars/indi/eventloop.c	Mon Feb  2 00:33:04 2004
++++ kdeedu/kstars/kstars/indi/eventloop.c	Mon Feb  2 00:33:04 2004
+@@ -421,4 +421,4 @@
+ #endif
+ 
+ /* For RCS Only -- Do Not Edit */
+-static char *rcsid[2] = {(char *)rcsid, "@(#) $RCSfile$ $Date$ $Revision$ $Name$"};
++static char *rcsid[2] = {(char *)rcsid, "@(#) $RCSfile$ $Date$ $Revision$ $Name$"};
+diff -urN -x CVS kdeedu.orig/kstars/kstars/indi/eventloop.h kdeedu/kstars/kstars/indi/eventloop.h
+--- kdeedu.orig/kstars/kstars/indi/eventloop.h	Mon Feb  2 00:33:04 2004
++++ kdeedu/kstars/kstars/indi/eventloop.h	Mon Feb  2 00:33:04 2004
+@@ -45,5 +45,5 @@
+ #endif
+ 
+ /* For RCS Only -- Do Not Edit
+- * @(#) $RCSfile$ $Date$ $Revision$ $Name$
++ * @(#) $RCSfile$ $Date$ $Revision$ $Name$
+  */
+diff -urN -x CVS kdeedu.orig/kstars/kstars/indi/indidevapi.h kdeedu/kstars/kstars/indi/indidevapi.h
+--- kdeedu.orig/kstars/kstars/indi/indidevapi.h	Sat Apr 10 14:38:18 2004
++++ kdeedu/kstars/kstars/indi/indidevapi.h	Sat Apr 10 14:38:18 2004
+@@ -202,5 +202,5 @@
+ #endif
+ 
+ /* For RCS Only -- Do Not Edit
+- * @(#) $RCSfile$ $Date$ $Revision$ $Name$
++ * @(#) $RCSfile$ $Date$ $Revision$ $Name$
+  */
+diff -urN -x CVS kdeedu.orig/kstars/kstars/indi/indidrivermain.c kdeedu/kstars/kstars/indi/indidrivermain.c
+--- kdeedu.orig/kstars/kstars/indi/indidrivermain.c	Sat Apr 10 14:38:18 2004
++++ kdeedu/kstars/kstars/indi/indidrivermain.c	Sat Apr 10 14:38:18 2004
+@@ -926,4 +926,4 @@
+ }
+ 
+ /* For RCS Only -- Do Not Edit */
+-static char *rcsid[2] = {(char *)rcsid, "@(#) $RCSfile$ $Date$ $Revision$ $Name$"};
++static char *rcsid[2] = {(char *)rcsid, "@(#) $RCSfile$ $Date$ $Revision$ $Name$"};
+diff -urN -x CVS kdeedu.orig/kstars/kstars/indi/indiserver.c kdeedu/kstars/kstars/indi/indiserver.c
+--- kdeedu.orig/kstars/kstars/indi/indiserver.c	Mon Feb  2 00:33:04 2004
++++ kdeedu/kstars/kstars/indi/indiserver.c	Mon Feb  2 00:33:04 2004
+@@ -590,4 +590,4 @@
+ }
+ 
+ /* For RCS Only -- Do Not Edit */
+-static char *rcsid[2] = {(char *)rcsid, "@(#) $RCSfile$ $Date$ $Revision$ $Name$"};
++static char *rcsid[2] = {(char *)rcsid, "@(#) $RCSfile$ $Date$ $Revision$ $Name$"};
+diff -urN -x CVS kdeedu.orig/kstars/kstars/indi/lilxml.c kdeedu/kstars/kstars/indi/lilxml.c
+--- kdeedu.orig/kstars/kstars/indi/lilxml.c	Mon Feb  2 00:33:04 2004
++++ kdeedu/kstars/kstars/indi/lilxml.c	Mon Feb  2 00:33:04 2004
+@@ -742,4 +742,4 @@
+ #endif
+ 
+ /* For RCS Only -- Do Not Edit */
+-static char *rcsid[2] = {(char *)rcsid, "@(#) $RCSfile$ $Date$ $Revision$ $Name$"};
++static char *rcsid[2] = {(char *)rcsid, "@(#) $RCSfile$ $Date$ $Revision$ $Name$"};
+diff -urN -x CVS kdeedu.orig/kstars/kstars/indi/lilxml.h kdeedu/kstars/kstars/indi/lilxml.h
+--- kdeedu.orig/kstars/kstars/indi/lilxml.h	Mon Feb  2 00:33:04 2004
++++ kdeedu/kstars/kstars/indi/lilxml.h	Mon Feb  2 00:33:04 2004
+@@ -105,7 +105,7 @@
+  */
+ 
+ /* For RCS Only -- Do Not Edit
+- * @(#) $RCSfile$ $Date$ $Revision$ $Name$
++ * @(#) $RCSfile$ $Date$ $Revision$ $Name$
+  */
+ 
+ #endif	/* LILXML_H */
+diff -urN -x CVS kdeedu.orig/kstars/kstars/indi/tags kdeedu/kstars/kstars/indi/tags
+--- kdeedu.orig/kstars/kstars/indi/tags	Wed Apr 23 18:05:46 2003
++++ kdeedu/kstars/kstars/indi/tags	Wed Apr 23 18:05:46 2003
+@@ -67,9 +67,9 @@
+ powSw	mount.c	/^static ISwitches powSw = {mydev, "Power", powS, NARRAY(powS), ILS_IDLE, 0};$/;"	v	file:
+ power	mount.c	/^static int power;		\/* power button *\/$/;"	v	file:
+ raNum	mount.c	/^static INumber raNum = {mydev, "RA", "  0:00:00.0", ILS_IDLE, 2*PI\/SLEWRATE};$/;"	v	file:
+-rcsid	indimain.c	/^static char *rcsid[2] = {(char *)rcsid, "@(#) $RCSfile$ $Date$ $Revision$ $Name$"};$/;"	v	file:
+-rcsid	indiserver.c	/^static char *rcsid[2] = {(char *)rcsid, "@(#) $RCSfile$ $Date$ $Revision$ $Name$"};$/;"	v	file:
+-rcsid	mount.c	/^static char *rcsid[2] = {(char *)rcsid, "@(#) $RCSfile$ $Date$ $Revision$ $Name$"};$/;"	v	file:
++rcsid	indimain.c	/^static char *rcsid[2] = {(char *)rcsid, "@(#) $RCSfile$ $Date$ $Revision$ $Name$"};$/;"	v	file:
++rcsid	indiserver.c	/^static char *rcsid[2] = {(char *)rcsid, "@(#) $RCSfile$ $Date$ $Revision$ $Name$"};$/;"	v	file:
++rcsid	mount.c	/^static char *rcsid[2] = {(char *)rcsid, "@(#) $RCSfile$ $Date$ $Revision$ $Name$"};$/;"	v	file:
+ restartDvr	indiserver.c	/^restartDvr (int i)$/;"	f	file:
+ restarts	indiserver.c	/^    int restarts;			\/* times process has been restarted *\/$/;"	m	struct:	file:
+ rfd	indiserver.c	/^    int wfd, rfd;			\/* write and read pipe fd *\/$/;"	m	struct:	file:

@@ -1,7 +1,7 @@
 
 %define		_state		snapshots
 %define		_ver		3.1.90
-%define		_snap		030623
+%define		_snap		030726
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
@@ -13,10 +13,10 @@ License:	GPL
 Group:		X11/Applications/Science
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
 Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	53ef82d076a8557d9af22f06189f226e
+# Source0-md5:	fefe2fef3443afca62ad458121bf802d
 Patch0:		%{name}-vcategories.patch
 BuildRequires:	gettext-devel
-BuildRequires:	kdelibs-devel = %{version}
+BuildRequires:	kdelibs-devel >= %{version}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	sed >= 4.0
@@ -39,6 +39,8 @@ Summary:	Header Files
 Summary(pl):	Pliki nag³ówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name}-flashkard = %{epoch}:%{version}-%{release}
+Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
+Requires:	%{name}-libkdeeduui = %{epoch}:%{version}-%{release}
 
 %description devel
 Header Files
@@ -52,7 +54,6 @@ Summary(pl):    Narzêdzie do nauki za pomoc± liczmanów
 Group:          X11/Applications/Science
 Requires:	kdebase-core >= %{version}
 Obsoletes:	%{name}
-Obsoletes:	%{name}-kgeo
 
 %description flashkard
 Flash card learning tool for KDE.
@@ -65,7 +66,8 @@ Summary:        A Periodic System of Elements database
 Summary(pl):    Baza danych Uk³adu Okresowego Pierwiastków
 Group:          X11/Applications/Science
 Requires:	kdebase-core >= %{version}
-Obsoletes:      %{name}-kgeo
+Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
+Obsoletes:      %{name}
 
 %description kalzium
 A Periodic System of Elements database.
@@ -78,7 +80,6 @@ Summary:	Task generator for calculations with fractions
 Summary(pl):	Generator zadañ z obliczeniami na u³amkach
 Group:		X11/Applications
 Requires:	kdebase-core >= %{version}
-Obsoletes:      %{name}-kgeo
 Obsoletes:      %{name}
 
 %description kbruch
@@ -93,7 +94,6 @@ Summary(pl):	Tworzenie i sprawdzanie testów i egzaminów
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{version}
 Obsoletes:	%{name}
-Obsoletes:      %{name}-kgeo
 
 %description keduca
 Creation and revision of form-based tests and exams.
@@ -106,7 +106,6 @@ Summary:	A hangman game
 Summary(pl):	Gra w wisielca
 Group:          X11/Applications/Science
 Requires:	kdebase-core >= %{version}
-Obsoletes:      %{name}-kgeo
 Obsoletes:      %{name}
 
 %description khangman
@@ -129,7 +128,6 @@ Summary:        Interactive Geometry
 Summary(pl):    Interaktywna geometria
 Group:          X11/Applications/Science
 Requires:	kdebase-core >= %{version}
-Obsoletes:      %{name}-kgeo
 Obsoletes:      %{name}
 
 %description kig
@@ -142,9 +140,8 @@ Interaktywna geometria.
 Summary:        A Japanese reference tool
 Summary(pl):    S³ownik angielsko-japoñski
 Group:          X11/Applications/Science
-Obsoletes:	%{name}
 Requires:	kdebase-core >= %{version}
-Obsoletes:      %{name}-kgeo
+Obsoletes:	%{name}
 
 %description kiten
 A Japanese reference tool.
@@ -156,9 +153,8 @@ S³ownik angielsko-japoñski.
 Summary:	Helps child to learn French alphabet and to read some syllables
 Summary(pl):	Pomoc w nauce francuskiego alfabetu i sylab dla dzieci
 Group:		X11/Applications/Science
-Obsoletes:	%{name}
 Requires:	kdebase-core >= %{version}
-Obsoletes:      %{name}-kgeo
+Obsoletes:	%{name}
 
 %description klettres
 Helps child to learn French alphabet and to read some syllables.
@@ -171,7 +167,6 @@ Summary:        Mathematical function plotter
 Summary(pl):    Koordynograf
 Group:          X11/Applications/Science
 Requires:	kdebase-core >= %{version}
-Obsoletes:      %{name}-kgeo
 Obsoletes:      %{name}
 
 %description kmplot
@@ -185,7 +180,6 @@ Summary:	Simple mind-training game
 Summary(pl):	Prosta ³amig³ówka
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{version}
-Obsoletes:      %{name}-kgeo
 Obsoletes:      %{name}
 
 %description kmessedwords
@@ -199,7 +193,6 @@ Summary:        A percentage tutor
 Summary(pl):    Program do nauki procentów
 Group:          X11/Applications/Science
 Requires:	kdebase-core >= %{version}
-Obsoletes:      %{name}-kgeo
 Obsoletes:      %{name}
 
 %description kpercentage
@@ -213,7 +206,7 @@ Summary:	Desktop planetarium
 Summary(pl):	Planetarium
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{version}
-Obsoletes:      %{name}-kgeo
+Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
 Obsoletes:      %{name}
 
 %description kstars
@@ -228,7 +221,6 @@ Summary(pl):	Program do nauki maszynopisania
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{version}
 Obsoletes:      %{name}
-Obsoletes:      %{name}-kgeo
 
 
 %description ktouch
@@ -241,9 +233,8 @@ Program do nauki maszynopisania.
 Summary:	Spanish verb form study application for KDE
 Summary(pl):	Program do nauki form czasowników w jêzyku hiszpañskim
 Group:          X11/Applications/Science
-Obsoletes:	%{name}
 Requires:	kdebase-core >= %{version}
-Obsoletes:      %{name}-kgeo
+Obsoletes:	%{name}
 
 %description kverbos
 Spanish verb form study application for KDE.
@@ -256,7 +247,6 @@ Summary:	Vocabulary trainer
 Summary(pl):	Program do æwiczenia s³ownictwa
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{version}
-Obsoletes:      %{name}-kgeo
 Obsoletes:      %{name}
 
 %description kvoctrain
@@ -264,6 +254,30 @@ Vocabulary trainer.
 
 %description kvoctrain -l pl
 Program do æwiczenia s³ownictwa.
+
+%package libkdeeduplot
+Summary:	TODO
+Summary(pl):	TODO
+Group:		X11/Libraries
+Requires:	kdelibs >= %{version}
+
+%description libkdeeduplot
+TODO.
+
+%description libkdeeduplot -l pl
+TODO.
+
+%package libkdeeduui
+Summary:	TODO
+Summary(pl):	TODO
+Group:		X11/Libraries
+Requires:	kdelibs >= %{version}
+
+%description libkdeeduui
+TODO.
+
+%description libkdeeduui -l pl
+TODO.
 
 %prep
 %setup -q -n %{name}-%{_snap}
@@ -277,6 +291,8 @@ for plik in `find ./ -name *.desktop` ; do
 		sed -ie 's/\[nb\]/\[no\]/g' $plik
 	fi
 done
+
+#%%{__make} -f Makefile.cvs
 
 %configure \
 	--enable-final
@@ -321,6 +337,7 @@ mv $RPM_BUILD_ROOT%{_icondir}/ktouch/hi32-app-ktouch.png \
 
 %find_lang flashkard	--with-kde
 %find_lang kalzium	--with-kde
+%find_lang kbruch	--with-kde
 %find_lang keduca	--with-kde
 %find_lang khangman	--with-kde
 %find_lang kig		--with-kde
@@ -338,14 +355,31 @@ mv $RPM_BUILD_ROOT%{_icondir}/ktouch/hi32-app-ktouch.png \
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	flashkard	-p /sbin/ldconfig
-%postun	flashkard	-p /sbin/ldconfig
+%post	flashkard
+/sbin/ldconfig
+
+%postun	flashkard
+/sbin/ldconfig
+
+%post	libkdeeduplot
+/sbin/ldconfig
+
+%postun	libkdeeduplot
+/sbin/ldconfig
+
+%post	libkdeeduui
+/sbin/ldconfig
+
+%postun	libkdeeduui
+/sbin/ldconfig
 
 %files devel
 %defattr(644,root,root,755)
 %doc README
 %{_includedir}/*
 %{_libdir}/libkdeeducore.so
+%{_libdir}/libkdeeduplot.so
+%{_libdir}/libkdeeduui.so
 
 %files flashkard -f flashkard.lang
 %defattr(644,root,root,755)
@@ -363,7 +397,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kalzium.desktop
 %{_icondir}/[!l]*/*/apps/kalzium.png
 
-%files kbruch
+%files kbruch -f kbruch.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kbruch
 %{_datadir}/apps/kbruch
@@ -404,8 +438,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kiten
 %attr(755,root,root) %{_bindir}/kitengen
-%{_libdir}/kiten.la
-%attr(755,root,root) %{_libdir}/kiten.so
+#%{_libdir}/kde3/kiten.la
+#%attr(755,root,root) %{_libdir}/kde3/kiten.so
 %{_datadir}/apps/kiten
 %{_desktopdir}/kiten.desktop
 %{_icondir}/*/*/actions/kanjidic.png
@@ -477,3 +511,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kvoctrain
 %{_desktopdir}/kvoctrain.desktop
 %{_icondir}/*/*/apps/kvoctrain.png
+
+%files libkdeeduplot
+%defattr(644,root,root,755)
+%{_libdir}/libkdeeduplot.la
+%attr(755,root,root) %{_libdir}/libkdeeduplot.so.*.*.*
+
+%files libkdeeduui
+%defattr(644,root,root,755)
+%{_libdir}/libkdeeduui.la
+%attr(755,root,root) %{_libdir}/libkdeeduui.so.*.*.*

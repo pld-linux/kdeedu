@@ -533,7 +533,7 @@ done
 ./keduca/resources/keducabuilder.desktop
 
 %{__sed} -i -e 's,appsdir =,#,g' \
-	"-e "s,apps_DATA,xdg_apps_DATA,g"  Makefile.am
+	-e "s,apps_DATA,xdg_apps_DATA,g"  Makefile.am
 
 %build
 cp %{_datadir}/automake/config.sub admin

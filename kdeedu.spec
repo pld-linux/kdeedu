@@ -87,7 +87,7 @@ visualizations to show them.
 
 %description kalzium -l pl
 Baza danych Uk³adu Okresowego Pierwiastków. Kalzium dostarcza wszelkie
-informacje dotycz±ce UOP, iformacje o pierwiastkach oraz ich
+informacje dotycz±ce UOP, informacje o pierwiastkach oraz ich
 wizualizacje.
 
 %package kbruch
@@ -109,7 +109,7 @@ and/or multiplication/division.
 Generator zadañ z obliczeniami na u³amkach. KBruch to ma³y program do
 generowania zadañ z u³amkami. U¿ytkownik ma rozwi±zaæ zadanie poprzez
 wpisanie poprawnej warto¶ci dla licznika i mianownika. Nastêpnie
-program sprwdza poprawno¶æ danych. Generowanie zadañ mo¿na
+program sprawdza poprawno¶æ danych. Generowanie zadañ mo¿na
 dostosowywaæ przy pomocy ró¿nych parametrów. U¿ytkownik mo¿e
 decydowaæ, czy chce rozwi±zywaæ zadania z dodawaniem/odejmowaniem
 i/lub mno¿eniem/dzieleniem.
@@ -195,7 +195,20 @@ In the grammar and verb sections KLatin asks for a particular part of
 a noun or a verb, such as the "ablative singular", or the "1st person
 indicative passive plural", and is not multiple choice.
 
-#need polish #%description klatin -l pl
+%description klatin -l pl
+KLatin to program pomagaj±cy przy powtarzaniu ³aciny. S± w nim trzy
+"sekcje", w których mo¿na æwiczyæ ró¿ne aspekty jêzyka. S± to:
+s³ownictwo, gramatyka i sprawdzanie czasowników. Ponadto jest zbiór
+uwag przydatnych przy samodzielnym powtarzaniu.
+
+W sekcji s³ownictwa wczytywany jest plik XML zawieraj±cy ró¿ne s³owa i
+ich t³umaczenia na jêzyk lokalny. KLatin zadaje pytania o znaczenie
+ka¿dego z tych s³ów z odpowiedzi± w formie wielokrotnego wyboru.
+
+W sekcjach gramatyki i czasowników KLatin pyta o konkretn± formê
+rzeczownika lub czasownika, tak± jak "narzêdnik liczby pojedynczej"
+czy "pierwsza osoba liczby mnogiej trybu oznajmuj±cego w stronie
+biernej" i odpowiada siê bez wielokrotnego wyboru.
 
 %package kiten
 Summary:	A Japanese reference tool
@@ -417,7 +430,7 @@ Program do æwiczenia s³ownictwa.
 
 %package kwordquiz
 Summary:	A flashcard and vocabulary learning program
-Summary(pl):	Program do æwiczenia s³ownictwa za pomoc± liczmanów
+Summary(pl):	Program do æwiczenia s³ownictwa za pomoc± pokazywania kart
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
 Obsoletes:	kdeedu
@@ -436,7 +449,7 @@ things, as long as there is a pair-wise relation. Examples are medical
 or legal terminology. If you look at the screenshots there is an
 example with the different US states and their capitals.
 
-KWordQuiz alsofeatures Flashcard, Multiple Choice and Question &
+KWordQuiz also features Flashcard, Multiple Choice and Question &
 Answer functions. Question & Answer also has a special
 Fill-in-the-blank mode.
 

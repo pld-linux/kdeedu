@@ -6,13 +6,13 @@ Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	%{_ver}
-Release:	1
+Release:	1.1
 Epoch:		7
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
 # generated from kde-i18n
-#Source1:	kde-i18n-%{name}-%{version}.tar.bz2
+Source1:	kde-i18n-%{name}-%{version}.tar.bz2
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel >= %{version}
 BuildRequires:	libjpeg-devel
@@ -254,7 +254,7 @@ mv locolor/16x16/actions/*.png crystalsvg/16x16/actions
 mv {locolor,crystalsvg}/16x16/apps/kvoctrain.xpm
 cd -
 
-#bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
+bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 
 %find_lang flashkard	--with-kde
 %find_lang kalzium	--with-kde

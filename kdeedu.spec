@@ -1,21 +1,20 @@
 
 %define		_state		snapshots
 %define		_ver		3.1.94
-%define		_snap		031204
+%define		_snap		040110
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	%{_ver}.%{_snap}
-Release:	2
+Release:	1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
-Source0:	http://ep09.pld-linux.org/~adgor/kde/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	e3b52b5c939fd5d1050853749dff4d85
+Source0:	http://ep09.pld-linux.org/~djurban/kde/%{name}-%{_snap}.tar.bz2
+# Source0-md5:	81501491da5f0d259c6675f04fd52c9f	
 Patch0:		%{name}-vcategories.patch
-Patch1:		%{name}-termios.patch
 BuildRequires:	ed
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel >= 9:%{version}
@@ -293,7 +292,6 @@ Biblioteka wspó³dzielona kdeeduui.
 %prep
 %setup -q -n %{name}-%{_snap}
 %patch0 -p1
-%patch1 -p1
 
 %build
 for f in `find . -name \*.desktop | xargs grep -l '\[nb\]'` ; do
@@ -322,12 +320,6 @@ install -d \
 
 mv $RPM_BUILD_ROOT%{_iconsdir}/locolor/16x16/actions/edit_{add,remove}.png \
 	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/actions
-
-mv $RPM_BUILD_ROOT%{_iconsdir}/ktouch/hi16-app-ktouch.png \
-	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/apps/ktouch.png
-
-mv $RPM_BUILD_ROOT%{_iconsdir}/ktouch/hi32-app-ktouch.png \
-	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/32x32/apps/ktouch.png
 
 %find_lang flashkard	--with-kde
 %find_lang kalzium	--with-kde
@@ -403,28 +395,29 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/khangman
 %{_desktopdir}/kde/khangman.desktop
 %{_iconsdir}/[!l]*/*/apps/khangman.png
-%{_iconsdir}/hicolor/48x48/apps/a_acute.png
-%{_iconsdir}/hicolor/48x48/apps/a_circle.png
-%{_iconsdir}/hicolor/48x48/apps/a_grave.png
-%{_iconsdir}/hicolor/48x48/apps/a_tilde.png
-%{_iconsdir}/hicolor/48x48/apps/a_umlaut.png
-%{_iconsdir}/hicolor/48x48/apps/a_withe.png
-%{_iconsdir}/hicolor/48x48/apps/c_cedil.png
-%{_iconsdir}/hicolor/48x48/apps/e_acute.png
-%{_iconsdir}/hicolor/48x48/apps/e_circ.png
-%{_iconsdir}/hicolor/48x48/apps/e_grave.png
-%{_iconsdir}/hicolor/48x48/apps/i_acute.png
-%{_iconsdir}/hicolor/48x48/apps/i_grave.png
-%{_iconsdir}/hicolor/48x48/apps/n_tilde.png
-%{_iconsdir}/hicolor/48x48/apps/o_acute.png
-%{_iconsdir}/hicolor/48x48/apps/o_circ.png
-%{_iconsdir}/hicolor/48x48/apps/o_cross.png
-%{_iconsdir}/hicolor/48x48/apps/o_grave.png
-%{_iconsdir}/hicolor/48x48/apps/o_tilde.png
-%{_iconsdir}/hicolor/48x48/apps/o_umlaut.png
-%{_iconsdir}/hicolor/48x48/apps/sz_lig.png
-%{_iconsdir}/hicolor/48x48/apps/u_acute.png
-%{_iconsdir}/hicolor/48x48/apps/u_umlaut.png
+
+#%%{_iconsdir}/hicolor/48x48/apps/a_acute.png
+#%%{_iconsdir}/hicolor/48x48/apps/a_circle.png
+#%%{_iconsdir}/hicolor/48x48/apps/a_grave.png
+#%%{_iconsdir}/hicolor/48x48/apps/a_tilde.png
+#%%{_iconsdir}/hicolor/48x48/apps/a_umlaut.png
+#%%{_iconsdir}/hicolor/48x48/apps/a_withe.png
+#%%{_iconsdir}/hicolor/48x48/apps/c_cedil.png
+#%%{_iconsdir}/hicolor/48x48/apps/e_acute.png
+#%%{_iconsdir}/hicolor/48x48/apps/e_circ.png
+#%%{_iconsdir}/hicolor/48x48/apps/e_grave.png
+#%%{_iconsdir}/hicolor/48x48/apps/i_acute.png
+#%%{_iconsdir}/hicolor/48x48/apps/i_grave.png
+#%%{_iconsdir}/hicolor/48x48/apps/n_tilde.png
+#%%{_iconsdir}/hicolor/48x48/apps/o_acute.png
+#%%{_iconsdir}/hicolor/48x48/apps/o_circ.png
+#%%{_iconsdir}/hicolor/48x48/apps/o_cross.png
+#%%{_iconsdir}/hicolor/48x48/apps/o_grave.png
+#%%{_iconsdir}/hicolor/48x48/apps/o_tilde.png
+#%%{_iconsdir}/hicolor/48x48/apps/o_umlaut.png
+#%%{_iconsdir}/hicolor/48x48/apps/sz_lig.png
+#%%{_iconsdir}/hicolor/48x48/apps/u_acute.png
+#%%{_iconsdir}/hicolor/48x48/apps/u_umlaut.png
 
 %files kig -f kig.lang
 %defattr(644,root,root,755)

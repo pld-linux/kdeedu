@@ -18,7 +18,6 @@ Icon:		kde-edu.xpm
 Patch0:		%{name}-vcategories.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	ed
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel >= 9:%{version}
 BuildRequires:	libjpeg-devel

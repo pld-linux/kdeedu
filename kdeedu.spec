@@ -543,16 +543,16 @@ Biblioteka z funkcjami interfejsu u¿ytkownika, wykorzystywanymi przez
 aplikacje edukacyjne w KDE.
 
 %package libkiten
-Summary:	TODO
-Summary(pl):	TODO
+Summary:	Kiten library
+Summary(pl):	Biblioteka Kiten
 Group:		X11/Libraries
 Requires:	kdelibs >= 9:%{version}
 
 %description libkiten
-TODO.
+Kiten library.
 
 %description libkiten -l pl
-TODO.
+Biblioteka Kiten.
 
 %prep
 %setup -q

@@ -1,16 +1,16 @@
 %define		_state		stable
-%define		_ver		3.3.0
+%define		_ver		3.3.1
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	%{_ver}
-Release:	3
+Release:	0.1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/3.3/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	da972b3d4090290b6852dd50a32a2eee
+Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
+# Source0-md5:	757e51db2b7c6cf831b59ef7f1304a2c
 Icon:		kde-edu.xpm
 Patch0:		%{name}-pport.patch
 Patch100:	%{name}-branch.diff
@@ -562,7 +562,7 @@ aplikacje edukacyjne w KDE.
 
 %prep
 %setup -q
-%patch100 -p1
+#%patch100 -p1
 %patch0 -p1
 
 for f in `find . -name *.desktop | xargs grep -l '^Terminal=0'`; do

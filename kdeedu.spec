@@ -11,6 +11,7 @@ Epoch:		7
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
+# Source0-md5:	ba2a96454b7d2a7d92c991b08d932242
 # generated from kde-i18n
 #Source1:	kde-i18n-%{name}-%{version}.tar.bz2
 BuildRequires:	gettext-devel

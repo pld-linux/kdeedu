@@ -1,21 +1,21 @@
 
 %define		_state		stable
-%define		_ver		3.1.2
+%define		_ver		3.1.3
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	%{_ver}
-Release:	1
-Epoch:		7
+Release:	0.1
+Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	ba2a96454b7d2a7d92c991b08d932242
+# Source0-md5:	02996b08a1c2a2aa044406480c0eb8a7
 # generated from kde-i18n
 #Source1:	kde-i18n-%{name}-%{version}.tar.bz2
 BuildRequires:	gettext-devel
-BuildRequires:	kdelibs-devel = %{version}
+BuildRequires:	kdelibs-devel = %{epoch}:%{version}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	sed >= 4.0

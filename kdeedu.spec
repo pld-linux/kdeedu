@@ -35,7 +35,7 @@ K Desktop Environment - edukacja i rozrywka.
 
 %package keduca
 Summary:	Creation and revision of form-based tests and exams
-Summary(pl):	Tworzenie i sprawdzanie testów i egzaminów.
+Summary(pl):	Tworzenie i sprawdzanie testów i egzaminów
 Group:		X11/Applications
 Requires:	%{name} = %{version}
 
@@ -108,7 +108,7 @@ Pomoc w nauce francuskiego alfabetu i sylab dla dzieci.
 
 %package kmessedwords
 Summary:	Simple mind-training game
-Summary(pl):	Prosta ³amig³ówka.
+Summary(pl):	Prosta ³amig³ówka
 Group:		X11/Applications
 Requires:	%{name} = %{version}
 
@@ -120,7 +120,7 @@ Prosta ³amig³ówka.
 
 %package kstars
 Summary:	Desktop planetarium
-Summary(pl):	Planetarium.
+Summary(pl):	Planetarium
 Group:		X11/Applications
 Requires:	%{name} = %{version}
 

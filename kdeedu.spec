@@ -379,6 +379,7 @@ Summary(pl):	Interpreter jêzyka Logo dla KDE
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
 Obsoletes:	kdeedu
+Obsoletes:	klogoturtle
 
 %description kturtle
 KTurtle is a Logo programming language interpreter for KDE. The Logo
@@ -455,6 +456,7 @@ Summary(pl):	Program do æwiczenia s³ownictwa za pomoc± pokazywania kart
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
 Obsoletes:	kdeedu
+Obsoletes:	kwordquiz
 
 %description kwordquiz
 KWordQuiz is the KDE version of the flashcard and vocabulary learning

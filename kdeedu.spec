@@ -1,23 +1,23 @@
 
-%define		_state		unstable
-%define		_ver		3.3.92
-%define		_snap		050217
+%define		_state		stable
+%define		_ver		3.4.0
+#%define		_snap		050217
 
-%define         _minlibsevr     9:3.3.92.050217                                 
-%define         _minbaseevr     9:3.3.92.050217
+%define         _minlibsevr     9:3.4.0
+%define         _minbaseevr     9:3.4.0
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
-Version:        %{_ver}.%{_snap}
-#Version:	%{_ver}
+#Version:        %{_ver}.%{_snap}
+Version:	%{_ver}
 Release:	0.1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
-Source0:        http://ftp.pld-linux.org/software/kde/%{name}-%{_snap}.tar.bz2
-#Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
-#%% Source0-md5:	2ea54bb7aee669582eb0877d3c6f0b3d
+#Source0:        http://ftp.pld-linux.org/software/kde/%{name}-%{_snap}.tar.bz2
+Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
+# Source0-md5:	c2aab0c4f6439abb6c0eb09413b6532c
 Icon:		kde-edu.xpm
 Patch0:		%{name}-pport.patch
 #Patch100:	%{name}-branch.diff
@@ -557,8 +557,8 @@ TODO.
 TODO.
 
 %prep
-%setup -q -n %{name}-%{_snap}
-#%setup -q
+#%setup -q -n %{name}-%{_snap}
+%setup -q
 #%%patch100 -p1
 %patch0 -p1
 
@@ -668,6 +668,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libkiten.so
 %{_includedir}/libkiten
 %{_includedir}/*.h
+%{_mandir}/man1/flashkard.1*
 
 %files kalzium
 %defattr(644,root,root,755)

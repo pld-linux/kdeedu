@@ -1,7 +1,7 @@
 
 %define		_state		snapshots
 %define		_ver		3.2
-%define		_snap		030423
+%define		_snap		030504
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
@@ -80,17 +80,17 @@ A Periodic System of Elements database.
 %description kalzium -l pl
 Baza danych Uk³adu Okresowego Pierwiastków.
 
-%package kgeo
-Summary:	Interactive geometry
-Summary(pl):	Interaktywna geometria
-Group:		X11/Applications/Science
+%package kbruch
+Summary:	TODO
+Summary(pl):	TODO
+Group:		X11/Applications
 Requires:	%{name} = %{version}
 
-%description kgeo
-Interactive geometry.
+%description kbruch
+TODO
 
-%description kgeo -l pl
-Interaktywna geometria.
+%description kbruch -l pl
+TODO
 
 %package khangman
 Summary:	A hangman game
@@ -263,25 +263,23 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_desktopdir}
 
-mv -f $RPM_BUILD_ROOT%{_applnkdir}/Edutainment/Languages/*.desktop \
-    $RPM_BUILD_ROOT%{_desktopdir}
+mv $RPM_BUILD_ROOT%{_applnkdir}/Edutainment/Languages/*.desktop \
+	$RPM_BUILD_ROOT%{_desktopdir}
 
-mv -f $RPM_BUILD_ROOT%{_applnkdir}/Edutainment/Mathematics/*.desktop \
-    $RPM_BUILD_ROOT%{_desktopdir}
+mv $RPM_BUILD_ROOT%{_applnkdir}/Edutainment/Mathematics/*.desktop \
+	$RPM_BUILD_ROOT%{_desktopdir}
 
-mv -f $RPM_BUILD_ROOT%{_applnkdir}/Edutainment/Miscellanous/*.desktop \
-    $RPM_BUILD_ROOT%{_desktopdir}
+mv $RPM_BUILD_ROOT%{_applnkdir}/Edutainment/Miscellanous/*.desktop \
+	$RPM_BUILD_ROOT%{_desktopdir}
 
-mv -f $RPM_BUILD_ROOT%{_applnkdir}/Edutainment/Science/*.desktop \
-    $RPM_BUILD_ROOT%{_desktopdir}
+mv $RPM_BUILD_ROOT%{_applnkdir}/Edutainment/Science/*.desktop \
+	$RPM_BUILD_ROOT%{_desktopdir}
 
-mv -f $RPM_BUILD_ROOT%{_applnkdir}/Edutainment/Tools/*.desktop \
-    $RPM_BUILD_ROOT%{_desktopdir}
+mv $RPM_BUILD_ROOT%{_applnkdir}/Edutainment/Tools/*.desktop \
+	$RPM_BUILD_ROOT%{_desktopdir}
 
 cd $RPM_BUILD_ROOT%{_pixmapsdir}
 mv locolor/16x16/actions/*.png crystalsvg/16x16/actions
-mv {locolor,crystalsvg}/16x16/apps/kig.png
-mv {locolor,crystalsvg}/16x16/apps/kvoctrain.xpm
 cd -
 
 %find_lang flashkard	--with-kde
@@ -333,6 +331,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kalzium
 %{_desktopdir}/kalzium.desktop
 %{_pixmapsdir}/[!l]*/*/*/kalzium*
+
+%files kbruch
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/kbruch
+%{_datadir}/apps/kbruch
+%{_desktopdir}/kbruch.desktop
+%{_pixmapsdir}/[!l]*/*/apps/kbruch.png
 
 %files keduca -f keduca.lang
 %defattr(644,root,root,755)
@@ -426,4 +431,3 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/spotlight2kvtml
 %{_datadir}/apps/kvoctrain
 %{_desktopdir}/kvoctrain.desktop
-%{_pixmapsdir}/[!l]*/*/*/kvoctrain*

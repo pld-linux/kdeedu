@@ -173,6 +173,30 @@ Kig to aplikacja do interaktywnej geometrii. Ma s³u¿yæ dwóm celom:
 - s³u¿yæ jako narzêdzie WISIWYG do rysowania figur matematycznych i
   w³±czania ich do innych dokumentów.
 
+%package klatin
+Summary:	KLatin is a program to help revise latin
+Summary(pl):	Klatin s³u¿y do powtarzania ³aciny
+Group:		X11/Applications/Science
+Requires:	kdebase-core >= 9:%{version}
+Obsoletes:	kdeedu
+
+%description klatin
+KLatin is a program to help revise latin. There are three "sections"
+in which different aspects of the language can be revised. These are
+the vocabulary, grammar and verb testing sections. In addition there
+is a set of revision notes that can be used for self-guided revision.
+
+In the vocabulary section an XML file is loaded containing various
+words and their local language translations. KLatin asks you what each
+of these words translate into. The questions take place in a
+multiple-choice environment.
+
+In the grammar and verb sections KLatin asks for a particular part of
+a noun or a verb, such as the "ablative singular", or the "1st person
+indicative passive plural", and is not multiple choice.
+
+#need polish #%description klatin -l pl
+
 %package kiten
 Summary:	A Japanese reference tool
 Summary(pl):	S³ownik angielsko-japoñski
@@ -335,6 +359,36 @@ wszystkimi palcami bez patrzenia na klawisze, krok po kroku. Jest
 wygodny w ka¿dym wieku, jest ¶wietny dla szkó³, uniwersytetów i
 jednostek.
 
+%package kturtle
+Summary:	A Logo interpreter for KDE
+Summary(pl):	Interpreter jêzyka Logo dla KDE
+Group:		X11/Applications/Science
+Requires:	kdebase-core >= 9:%{version}
+Obsoletes:	kdeedu
+
+%description kturtle
+KTurtle is a Logo programming language interpreter for KDE. The Logo
+programming language is very easy and thus it can be used by young
+children. A unique quality of Logo is that the commands or
+instructions can be translated (please see the tranlation how to if
+you want to help in your own language), so the 'programmer' can
+program in his or her native language. This makes Logo ideal for
+teaching kids the basics of programming, mathematics and geometry. One
+of the reasons many children like Logo is because of the turtle, a
+programmable icon which can be moved around the screen with simple
+commands and can be programmed to draw objects.
+
+KTurtle features:
+- integrated Logo interpreter, no need to download any other program
+- powerful editor for the Logo commands with syntax highlighting, line
+  numbering and more
+- nice "playground" for the turtle where your commands visualized
+- translation of the Logo commands (among others in : Dutch, French
+  German, Latin and Swedish)
+- context help for each Logo command
+
+#description kturtle -l pl #likewise
+
 %package kverbos
 Summary:	Spanish verb form study application for KDE
 Summary(pl):	Program do nauki form czasowników w jêzyku hiszpañskim
@@ -361,9 +415,37 @@ Vocabulary trainer.
 %description kvoctrain -l pl
 Program do æwiczenia s³ownictwa.
 
+%package kwordquiz
+Summary:	A flashcard and vocabulary learning program
+Summary(pl):	Program do æwiczenia s³ownictwa za pomoc± liczmanów
+Group:		X11/Applications/Science
+Requires:	kdebase-core >= 9:%{version}
+Obsoletes:	kdeedu
+
+%description kwordquiz
+KWordQuiz is the KDE version of the flashcard and vocabulary learning
+program WordQuiz. It is a tool for learning the vocabulary of a new
+language. Now you can start to use its power for easy vocabulary
+learning.
+
+You build vocabularies in a two-column table (or load them from
+kvoctrain's .kvtml). In one column you enter the words or expressions
+in one language, and in the other column the corresponding word or
+expression in another language. You can also use it to practice other
+things, as long as there is a pair-wise relation. Examples are medical
+or legal terminology. If you look at the screenshots there is an
+example with the different US states and their capitals.
+
+KWordQuiz alsofeatures Flashcard, Multiple Choice and Question &
+Answer functions. Question & Answer also has a special
+Fill-in-the-blank mode.
+
+#description kvoctrain -l pl
+
+
 %package libkdeeducore
-Summary:	kdeeducore library
-Summary(pl):	Biblioteka kdeeducore
+Summary:	KDE educational module core library
+Summary(pl):	Podstawowa biblioteka modu³u edukacyjnego KDE
 Group:		X11/Libraries
 Requires:	kdelibs >= 9:%{version}
 Obsoletes:	kdeedu-flashkard < 8:3.1.93.031105-1
@@ -376,8 +458,8 @@ Podstawowa biblioteka z funkcjami wykorzystywanymi przez aplikacje
 edukacyjne w KDE.
 
 %package libkdeeduplot
-Summary:	kdeeduplot library
-Summary(pl):	Biblioteka kdeeduplot
+Summary:	A KDE library for plotting
+Summary(pl):	Biblioteka KDE do rysowania wykresów
 Group:		X11/Libraries
 Requires:	kdelibs >= 9:%{version}
 
@@ -385,12 +467,30 @@ Requires:	kdelibs >= 9:%{version}
 Library with plotting functions for KDE educational applications.
 
 %description libkdeeduplot -l pl
-Biblioteka z funkcjami do kre¶lenia rysunków, wykorzystywanymi przez
+Biblioteka z funkcjami do rysowania wykresów, wykorzystywanymi przez
 aplikacje edukacyjne w KDE.
 
+%package libextdate
+Summary:	Extensive date support library in KDE
+Summary(pl):	Biblioteka rozszerzonego wsparcia dla dat w KDE
+Group:		X11/Libraries
+Requires:	kdelibs >= 9:%{version}
+
+%description libextdate
+This libray consists of a group of classes which allow KDE
+applications to access calendar dates outside of the limited range of
+years imposed by QDate.
+
+The QDate class has a limited range of valid dates. It does not
+recognize dates prior to 14 Oct 1752 (when the Gregorian calendar was
+adopted by England), nor dates after 31 Dec 8000. Both of these limits
+are arbitrary.
+
+#description libextdate -l pl
+
 %package libkdeeduui
-Summary:	kdeeduui library
-Summary(pl):	Biblioteka kdeeduui
+Summary:	A userf interface library for KDE educational module
+Summary(pl):	Biblioteka interfejsu u¿ytkownika dla modu³u edukacyjnego KDE
 Group:		X11/Libraries
 Requires:	kdelibs >= 9:%{version}
 
@@ -425,11 +525,15 @@ done
 ./klettres/klettres/klettres.desktop \
 ./klatin/klatin/klatin.desktop \
 ./kmessedwords/kmessedwords/kmessedwords.desktop \
-./khangman/khangman/khangman.desktop
+./khangman/khangman/khangman.desktop \
+./kwordquiz/src/kwordquiz.desktop
 
 %{__sed} -i -e 's/Categories=.*/Categories=Qt;KDE;Education;Teaching;/' \
 ./keduca/resources/keduca.desktop \
 ./keduca/resources/keducabuilder.desktop
+
+%{__sed} -i -e 's,appsdir =,#,g' \
+	"-e "s,apps_DATA,xdg_apps_DATA,g"  Makefile.am
 
 %build
 cp %{_datadir}/automake/config.sub admin
@@ -464,6 +568,9 @@ install -d \
 mv $RPM_BUILD_ROOT%{_iconsdir}/locolor/16x16/actions/edit_{add,remove}.png \
 	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/actions
 
+mv $RPM_BUILD_ROOT%{_datadir}/applnk/Edutainment/Miscellaneous/kwordquiz.desktop \
+	$RPM_BUILD_ROOT%{_desktopdir}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -497,8 +604,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kalzium
 %{_datadir}/apps/kalzium
+%{_datadir}/config.kcfg/kalzium.kcfg
 %{_desktopdir}/kde/kalzium.desktop
-%{_iconsdir}/[!l]*/*/apps/kalzium.png
+%{_iconsdir}/[!l]*/*/apps/kalzium*
 %{_mandir}/man1/kalzium.1*
 %{_kdedocdir}/en/kalzium
 
@@ -506,8 +614,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kbruch
 %{_datadir}/apps/kbruch
+%{_datadir}/config.kcfg/kbruch.kcfg
 %{_desktopdir}/kde/kbruch.desktop
-%{_iconsdir}/[!l]*/*/apps/kbruch.png
+%{_iconsdir}/[!l]*/*/apps/kbruch*
 %{_kdedocdir}/en/kbruch
 %{_mandir}/man1/kbruch.1*
 
@@ -527,8 +636,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/khangman
 %{_datadir}/apps/khangman
+%{_datadir}/config/khangmanrc
+%{_datadir}/config.kcfg/khangman.kcfg
 %{_desktopdir}/kde/khangman.desktop
-%{_iconsdir}/[!l]*/*/apps/khangman.png
+%{_iconsdir}/[!l]*/*/apps/khangman*
 %{_mandir}/man1/khangman.1*
 %{_kdedocdir}/en/khangman
 #%%{_iconsdir}/hicolor/48x48/apps/a_acute.png
@@ -559,13 +670,23 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kig
 %{_libdir}/kde3/libkigpart.la
 %attr(755,root,root) %{_libdir}/kde3/libkigpart.so
+%{_libdir}/kde3/kfile_drgeo.la
+%attr(755,root,root) %{_libdir}/kde3/kfile_drgeo.so
+%{_libdir}/kde3/kfile_kig.la
+%attr(755,root,root) %{_libdir}/kde3/kfile_kig.so
 %{_datadir}/apps/kig*
+%{_datadir}/config/magic/cabri.magic
+%{_datadir}/config/magic/drgeo.magic
 %{_datadir}/mimelnk/application/x-kgeo.desktop
 %{_datadir}/mimelnk/application/x-kig.desktop
 %{_datadir}/mimelnk/application/x-kseg.desktop
+%{_datadir}/mimelnk/application/x-cabri.desktop
+%{_datadir}/mimelnk/application/x-drgeo.desktop
 %{_datadir}/services/kig_part.desktop
+%{_datadir}/services/kfile_drgeo.desktop
+%{_datadir}/services/kfile_kig.desktop
 %{_desktopdir}/kde/kig.desktop
-%{_iconsdir}/[!l]*/*/apps/kig.png
+%{_iconsdir}/[!l]*/*/apps/kig*
 %{_kdedocdir}/en/kig
 %{_mandir}/man1/kig.1*
 
@@ -577,15 +698,26 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/kiten.desktop
 %{_iconsdir}/*/*/actions/kanjidic.png
 %{_iconsdir}/*/*/actions/edit_*.png
-%{_iconsdir}/*/*/apps/kiten.png
+%{_iconsdir}/*/*/apps/kiten*
 %{_mandir}/man1/kiten.1*
 %{_mandir}/man1/kitengen.1*
 %{_kdedocdir}/en/kiten
+
+%files klatin
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/klatin
+%{_datadir}/config.kcfg/klatin.kcfg
+%{_datadir}/apps/klatin
+%{_desktopdir}/kde/klatin.desktop
+%{_kdedocdir}/en/klatin
+%{_iconsdir}/*/*/apps/klatin*
+
 
 %files klettres
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/klettres
 %{_datadir}/apps/klettres
+%{_datadir}/config/klettresrc
 %{_datadir}/config.kcfg/klettres.kcfg
 %{_desktopdir}/kde/klettres.desktop
 %{_iconsdir}/[!l]*/*/*/klettres*
@@ -600,7 +732,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kmessedwords
 %{_datadir}/apps/kmessedwords
 %{_desktopdir}/kde/kmessedwords.desktop
-%{_iconsdir}/[!l]*/*/apps/kmessedwords.png
+%{_iconsdir}/[!l]*/*/apps/kmessedwords*
 %{_mandir}/man1/kmessedwords.1*
 %{_kdedocdir}/en/kmessedwords
 
@@ -608,8 +740,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kmplot
 %{_datadir}/apps/kmplot
+%{_datadir}/config.kcfg/kmplot.kcfg
 %{_desktopdir}/kde/kmplot.desktop
-%{_iconsdir}/[!l]*/*/apps/kmplot.png
+%{_datadir}/mimelnk/application/x-kmplot.desktop
+%{_iconsdir}/[!l]*/*/apps/kmplot*
 %{_mandir}/man1/kmplot.1*
 %{_kdedocdir}/en/kmplot
 
@@ -618,20 +752,32 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kpercentage
 %{_datadir}/apps/kpercentage
 %{_desktopdir}/kde/kpercentage.desktop
-%{_iconsdir}/[!l]*/*/apps/kpercentage.png
+%{_iconsdir}/[!l]*/*/apps/kpercentage*
 %{_mandir}/man1/kpercentage.1*
 %{_kdedocdir}/en/kpercentage
 
 %files kstars
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/fliccd
+%attr(755,root,root) %{_bindir}/v4ldriver
+%attr(755,root,root) %{_bindir}/v4lphilips
 %attr(755,root,root) %{_bindir}/celestrongps
 %attr(755,root,root) %{_bindir}/indiserver
 %attr(755,root,root) %{_bindir}/kstars
 %attr(755,root,root) %{_bindir}/lx200generic
 %{_datadir}/apps/kstars
+%{_datadir}/config/kstarsrc
+%{_datadir}/config.kcfg/kstars.kcfg
 %{_desktopdir}/kde/kstars.desktop
-%{_iconsdir}/[!l]*/*/apps/kstars.png
+%{_iconsdir}/[!l]*/*/apps/kstars*
 %{_mandir}/man1/kstars.1*
+%{_manddir}/man1/celestrongps.1.gz
+%{_manddir}/man1/indiserver.1.gz
+%{_manddir}/man1/lx200_16.1.gz
+%{_manddir}/man1/lx200autostar.1.gz
+%{_manddir}/man1/lx200classic.1.gz
+%{_manddir}/man1/lx200generic.1.gz
+%{_manddir}/man1/lx200gps.1.gz
 %{_kdedocdir}/en/kstars
 
 %files ktouch
@@ -643,13 +789,23 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/ktouch.1*
 %{_kdedocdir}/en/ktouch
 
+%files kturtle
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/kturtle
+%{_datadir}/apps/kturtle
+%{_datadir}/apps/katepart/syntax/logohighlightstyle*
+%{_desktopdir}/kde/kturtle.desktop
+%{_kdedocdir}/en/kturtle
+%{_iconsdir}/*/*/apps/kturtle*
+
 %files kverbos
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kverbos
 %{_datadir}/apps/kverbos
+%{_datadir}/config.kcfg/kverbos.kcfg
 %{_desktopdir}/kde/kverbos.desktop
 %{_iconsdir}/*/*/actions/kverbosuser.png
-%{_iconsdir}/*/*/apps/kverbos.png
+%{_iconsdir}/*/*/apps/kverbos*
 %{_mandir}/man1/kverbos.1*
 %{_kdedocdir}/en/kverbos
 
@@ -659,12 +815,23 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/langen2kvtml
 %attr(755,root,root) %{_bindir}/spotlight2kvtml
 %{_datadir}/apps/kvoctrain
+%{_datadir}/config.kcfg/kvoctrain.kcfg
 %{_desktopdir}/kde/kvoctrain.desktop
-%{_iconsdir}/*/*/apps/kvoctrain.png
+%{_iconsdir}/*/*/apps/kvoctrain*
 %{_mandir}/man1/kvoctrain.1*
 %{_mandir}/man1/langen2kvtml.1*
 %{_mandir}/man1/spotlight2kvtml.1*
 %{_kdedocdir}/en/kvoctrain
+
+%files kwordquiz
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/kwordquiz
+%{_datadir}/config.kcfg/klatin.kcfg
+%{_datadir}/apps/kwordquiz
+%{_desktopdir}/kde/kturtle.desktop
+%{_kdedocdir}/en/kwordquiz
+%{_iconsdir}/*/*/apps/kwordquiz*
+%{_datadir}/mimelnk/application/x-kwordquiz.desktop
 
 %files libkdeeducore
 %defattr(644,root,root,755)
@@ -681,3 +848,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libkdeeduui.la
 %attr(755,root,root) %{_libdir}/libkdeeduui.so.*.*.*
 %{_iconsdir}/*/*/apps/edu_*.*
+
+%files libextdate
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/test_extdate
+%attr(755,root,root) %{_bindir}/test_extdatepicker
+%attr(755,root,root) %{_libdir}/libextdate.so.1.2.0

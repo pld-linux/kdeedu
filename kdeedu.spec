@@ -309,7 +309,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libkdeeducore.la
 %attr(755,root,root) %{_libdir}/libkdeeducore.so.*
 %{_datadir}/mimelnk/application/x-edu.desktop
-%{_pixmapsdir}/*/*/actions/*
+%{_pixmapsdir}/*/*/actions/[!k]*
+%{_pixmapsdir}/*/*/actions/k[!v]*
 %{_pixmapsdir}/*/*/apps/edu_*
 %{_pixmapsdir}/hicolor/48x48/apps/[!k]*
 %{_pixmapsdir}/hicolor/48x48/apps/k[!v]*

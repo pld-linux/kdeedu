@@ -1,18 +1,18 @@
 
-%define		_state		stable
-%define		_ver		3.1.1
+%define		_state		snapshots
+%define		_ver		3.2
+%define		_snap		030329
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	%{_ver}
-Release:	1
+Release:	0.%{_snap}.1
 Epoch:		7
 License:	GPL
 Group:		X11/Applications/Science
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
-# generated from kde-i18n
-#Source1:	kde-i18n-%{name}-%{version}.tar.bz2
+#Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
+Source0:	http://team.pld.org.pl/~djurban/kde/%{name}-%{_snap}.tar.bz2
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel = %{version}
 BuildRequires:	libjpeg-devel
@@ -21,7 +21,7 @@ BuildRequires:	sed >= 4.0
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_htmldir	/usr/share/doc/kde/HTML
+%define		_htmldir	%{_docdir}/kde/HTML
 
 %define		no_install_post_chrpath		1
 
@@ -111,6 +111,18 @@ podaj帷 kolejno litery. Za ka盥ym razem, gdy podana litera nie
 wyst瘼uje w s這wie, rysowany jest obrazek wisielca. Trzeba odgadn望
 s這wo przed powieszeniem! Gra jest przeznaczona dla dzieci w wieku 6
 lat lub wi璚ej.
+
+%package kig
+Summary:        Interactive Geometry
+Summary(pl):    Interaktywna geometria
+Group:          X11/Applications/Science
+Requires:       %{name} = %{version}
+
+%description kig
+Interactive Geometry.
+
+%description kig -l pl
+Interaktywna geometria.
 
 %package kiten
 Summary:        A Japanese reference tool
@@ -223,7 +235,7 @@ Vocabulary trainer.
 Program do 獞iczenia s這wnictwa.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{_snap}
 
 %build
 kde_appsdir="%{_applnkdir}"; export kde_appsdir
@@ -238,31 +250,43 @@ if [ -d $plik ]; then
 	fi
 done
 
-%configure \
-	--enable-final
+%configure --enable-final
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR="$RPM_BUILD_ROOT"
+%{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-ALD=$RPM_BUILD_ROOT%{_applnkdir}/Edutainment
-mv $ALD/{{Languages,Mathematics,Miscellanous,Science,Tools}/*.desktop,.}
+install -d $RPM_BUILD_ROOT%{_desktopdir}
+
+mv -f $RPM_BUILD_ROOT%{_applnkdir}/Edutainment/Languages/*.desktop \
+    $RPM_BUILD_ROOT%{_desktopdir}
+
+mv -f $RPM_BUILD_ROOT%{_applnkdir}/Edutainment/Mathematics/*.desktop \
+    $RPM_BUILD_ROOT%{_desktopdir}
+
+mv -f $RPM_BUILD_ROOT%{_applnkdir}/Edutainment/Miscellanous/*.desktop \
+    $RPM_BUILD_ROOT%{_desktopdir}
+
+mv -f $RPM_BUILD_ROOT%{_applnkdir}/Edutainment/Science/*.desktop \
+    $RPM_BUILD_ROOT%{_desktopdir}
+
+mv -f $RPM_BUILD_ROOT%{_applnkdir}/Edutainment/Tools/*.desktop \
+    $RPM_BUILD_ROOT%{_desktopdir}
 
 cd $RPM_BUILD_ROOT%{_pixmapsdir}
 mv locolor/16x16/actions/*.png crystalsvg/16x16/actions
+mv {locolor,crystalsvg}/16x16/apps/kig.png
 mv {locolor,crystalsvg}/16x16/apps/kvoctrain.xpm
 cd -
-
-#bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 
 %find_lang flashkard	--with-kde
 %find_lang kalzium	--with-kde
 %find_lang keduca	--with-kde
-%find_lang kgeo		--with-kde
 %find_lang khangman	--with-kde
+%find_lang kig		--with-kde
 %find_lang kiten	--with-kde
 %find_lang klettres	--with-kde
 %find_lang kmathtool	--with-kde
@@ -297,36 +321,42 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/flashkard
 %{_datadir}/apps/flashkard
-%{_applnkdir}/Edutainment/flashkard.desktop
+%{_desktopdir}/flashkard.desktop
 %{_pixmapsdir}/*/*/*/flashkard*
 
 %files kalzium -f kalzium.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kalzium
 %{_datadir}/apps/kalzium
-%{_applnkdir}/Edutainment/kalzium.desktop
+%{_desktopdir}/kalzium.desktop
 %{_pixmapsdir}/[!l]*/*/*/kalzium*
 
 %files keduca -f keduca.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/keduca
 %{_datadir}/apps/keduca
-%{_applnkdir}/Edutainment/keduca*.desktop
+%{_desktopdir}/keduca*.desktop
 %{_pixmapsdir}/*/*/*/keduca*
-
-%files kgeo -f kgeo.lang
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/kgeo
-%{_datadir}/apps/kgeo
-%{_applnkdir}/Edutainment/kgeo.desktop
-%{_pixmapsdir}/[!l]*/*/*/kgeo*
 
 %files khangman -f khangman.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/khangman
 %{_datadir}/apps/khangman
-%{_applnkdir}/Edutainment/khangman.desktop
+%{_desktopdir}/khangman.desktop
 %{_pixmapsdir}/[!l]*/*/*/khangman*
+
+%files kig -f kig.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/kig
+%{_libdir}/kde3/libkigpart.la
+%attr(755,root,root) %{_libdir}/kde3/libkigpart.so
+%{_datadir}/apps/kig*
+%{_datadir}/mimelnk/application/x-cabri.desktop
+%{_datadir}/mimelnk/application/x-kgeo.desktop
+%{_datadir}/mimelnk/application/x-kig.desktop
+%{_datadir}/services/kig_part.desktop
+%{_desktopdir}/kig.desktop
+%{_pixmapsdir}/*/*/*/kig*
 
 %files kiten -f kiten.lang
 %defattr(644,root,root,755)
@@ -334,56 +364,56 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/kiten.la
 %attr(755,root,root) %{_libdir}/kiten.so
 %{_datadir}/apps/kiten
-%{_applnkdir}/Edutainment/kiten.desktop
+%{_desktopdir}/kiten.desktop
 %{_pixmapsdir}/*/*/*/kiten*
 
 %files klettres -f klettres.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/klettres
 %{_datadir}/apps/klettres
-%{_applnkdir}/Edutainment/klettres.desktop
+%{_desktopdir}/klettres.desktop
 %{_pixmapsdir}/[!l]*/*/*/klettres*
 
 %files kmessedwords -f kmessedwords.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kmessedwords
 %{_datadir}/apps/kmessedwords
-%{_applnkdir}/Edutainment/kmessedwords.desktop
+%{_desktopdir}/kmessedwords.desktop
 %{_pixmapsdir}/[!l]*/*/*/kmessedwords*
 
 %files kmplot -f kmplot.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kmplot
 %{_datadir}/apps/kmplot
-%{_applnkdir}/Edutainment/kmplot.desktop
+%{_desktopdir}/kmplot.desktop
 %{_pixmapsdir}/[!l]*/*/*/kmplot*
 
 %files kpercentage -f kpercentage.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kpercentage
 %{_datadir}/apps/kpercentage
-%{_applnkdir}/Edutainment/kpercentage.desktop
+%{_desktopdir}/kpercentage.desktop
 %{_pixmapsdir}/[!l]*/*/*/kpercentage*
 
 %files kstars -f kstars.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kstars
 %{_datadir}/apps/kstars
-%{_applnkdir}/Edutainment/kstars.desktop
+%{_desktopdir}/kstars.desktop
 %{_pixmapsdir}/[!l]*/*/*/kstars*
 
 %files ktouch -f ktouch.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/ktouch
 %{_datadir}/apps/ktouch
-%{_applnkdir}/Edutainment/ktouch.desktop
+%{_desktopdir}/ktouch.desktop
 %{_pixmapsdir}/*/*/*/ktouch*
 
 %files kverbos -f kverbos.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kverbos
 %{_datadir}/apps/kverbos
-%{_applnkdir}/Edutainment/kverbos.desktop
+%{_desktopdir}/kverbos.desktop
 %{_pixmapsdir}/*/*/*/kverbos*
 
 %files kvoctrain -f kvoctrain.lang
@@ -392,5 +422,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/langen2kvtml
 %attr(755,root,root) %{_bindir}/spotlight2kvtml
 %{_datadir}/apps/kvoctrain
-%{_applnkdir}/Edutainment/kvoctrain.desktop
+%{_desktopdir}/kvoctrain.desktop
 %{_pixmapsdir}/[!l]*/*/*/kvoctrain*

@@ -1,12 +1,14 @@
 #
 # Conditional build:
-# _with_klatin - build kdebase-klatin package
+# _with_klatin        - build kdebase-klatin package
+# _with_pixmapsubdirs - leave different depth/resolution icons
 #
+%define		_with_pixmapsubdirs	1
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	3.0.5a
-Release:	0.1
+Release:	0.2
 Epoch:		7
 License:	GPL
 Group:		X11/Applications
@@ -180,15 +182,20 @@ install -d $RPM_BUILD_ROOT%{_mandir}/man1
 
 install debian/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
-cp -af $RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/48x48/apps/k{educa,stars}.png \
-	$RPM_BUILD_ROOT%{_pixmapsdir}
+for i in $RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/48x48/apps/*
+do
+%if %{?_with_pixmapsubdirs:1}%{!?_with_pixmapsubdirs:0}
+	ln -sf `echo $i | sed "s:^$RPM_BUILD_ROOT%{_pixmapsdir}/::"` $RPM_BUILD_ROOT%{_pixmapsdir}
+%else
+	cp -af $i $RPM_BUILD_ROOT%{_pixmapsdir}
+%endif
+done
+
 bzip2 -dc %{SOURCE2} | tar xf - -C $RPM_BUILD_ROOT%{_pixmapsdir}
 
-rm -f $RPM_BUILD_ROOT%{_pixmapsdir}/*color/??x??/*/k{educa,stars}.png
-rm -f $RPM_BUILD_ROOT%{_pixmapsdir}/*color/??x??/*/k{geo,lettres,messedwords,touch}.png
-rm -f $RPM_BUILD_ROOT%{_pixmapsdir}/*color/??x??/*/kvoctrain.xpm
-
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
+
+rm -f $RPM_BUILD_ROOT%{_pixmapsdir}/*color/??x??/*/kvoctrain.xpm
 
 cat > $RPM_BUILD_ROOT%{_applnkdir}/Edutainment/French/.directory << EOF
 [Desktop Entry]
@@ -229,7 +236,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/keduca
 %{_datadir}/apps/keduca
-#%{_pixmapsdir}/*/*/*/keduca*
+%{?_with_pixmapsubdirs:%{_pixmapsdir}/hicolor/*x*/apps/keduca.png}
 %{_pixmapsdir}/keduca.png
 %{_applnkdir}/Edutainment/keduca.desktop
 %{_mandir}/man1/keduca.1
@@ -238,7 +245,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kgeo
 %{_datadir}/apps/kgeo
-#%{_pixmapsdir}/*/*/*/kgeo*
+%{?_with_pixmapsubdirs:%{_pixmapsdir}/*color/*x*/apps/kgeo.png}
 %{_pixmapsdir}/kgeo.png
 %{_applnkdir}/Edutainment/kgeo.desktop
 %{_mandir}/man1/kgeo.1
@@ -247,7 +254,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/khangman
 %{_datadir}/apps/khangman
-#%{_pixmapsdir}/*/*/*/khangman*
+%{?_with_pixmapsubdirs:%{_pixmapsdir}/locolor/*x*/apps/khangman.png}
 %{_pixmapsdir}/khangman.png
 %{_applnkdir}/Edutainment/khangman.desktop
 
@@ -256,7 +263,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/klatin
 %{_datadir}/apps/klatin
-%{_pixmapsdir}/*/*/*/klatin*
+%{?_with_pixmapsubdirs:%{_pixmapsdir}/locolor/*x*/apps/klatin.png}
 #%{_pixmapsdir}/klatin.png
 %{_applnkdir}/Edutainment/klatin.desktop
 %endif
@@ -265,7 +272,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/klettres
 %{_datadir}/apps/klettres
-#%{_pixmapsdir}/*/*/*/klettres*
+%{?_with_pixmapsubdirs:%{_pixmapsdir}/*color/*x*/apps/klettres*.png}
 %{_pixmapsdir}/klettres.png
 %{_pixmapsdir}/package_french.png
 %{_applnkdir}/Edutainment/French
@@ -275,7 +282,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kmessedwords
 %{_datadir}/apps/kmessedwords
-#%{_pixmapsdir}/*/*/*/kmessedwords*
+%{?_with_pixmapsubdirs:%{_pixmapsdir}/*color/*x*/apps/kmessedwords.png}
 %{_pixmapsdir}/kmessedwords.png
 %{_applnkdir}/Edutainment/kmessedwords.desktop
 %{_mandir}/man1/kmessedwords.1
@@ -284,7 +291,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kstars
 %{_datadir}/apps/kstars
-#%{_pixmapsdir}/*/*/*/kstars*
+%{?_with_pixmapsubdirs:%{_pixmapsdir}/*color/*x*/apps/kstars.png}
 %{_pixmapsdir}/kstars.png
 %{_applnkdir}/Edutainment/kstars.desktop
 %{_mandir}/man1/kstars.1
@@ -293,7 +300,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/ktouch
 %{_datadir}/apps/ktouch
-#%{_pixmapsdir}/*/*/*/ktouch*
+%{?_with_pixmapsubdirs:%{_pixmapsdir}/hicolor/*x*/apps/ktouch.png}
 %{_pixmapsdir}/ktouch.png
 %{_applnkdir}/Edutainment/ktouch.desktop
 %{_mandir}/man1/ktouch.1

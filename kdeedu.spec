@@ -3,22 +3,23 @@
 %bcond_without  i18n    # don't build i18n subpackages
 #
 %define		_state		stable
-%define		_ver		3.2.1
+%define		_ver		3.2.2
 ##%define		_snap		040110
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	%{_ver}
-Release:	4
+Release:	1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
+# Source0-md5:	97174178360396ea50e69097979b8319
 #Source0:	http://ep09.pld-linux.org/~djurban/kde/%{name}-%{version}.tar.bz2
 %if %{with i18n}
 Source1:	kde-i18n-%{name}-%{version}.tar.bz2
-# Source1-md5:	442761ddb334d07a0230072bddc35085
+# Source1-md5:	de96569433fd754133b873d15b61626d
 %endif
 Patch0:		%{name}-vcategories.patch
 BuildRequires:	ed

@@ -1,26 +1,24 @@
 #
 # Conditional build:
-%bcond_without  i18n    # don't build i18n subpackages
+%bcond_with  i18n    # don't build i18n subpackages
 #
-%define		_state		stable
-%define		_ver		3.2.0
-##%define		_snap		040110
+%define		_state		snapshots
+%define		_ver		3.2.90
+%define		_snap		040220
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
-Version:	%{_ver}
-Release:	4
+Version:	%{_ver}.%{_snap}
+Release:	1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
-#Source0:	http://ep09.pld-linux.org/~djurban/kde/%{name}-%{version}.tar.bz2
-# Source0-md5:	a0a59713a19fb01dd62b13b92f222d08
-%if %{with i18n}
-Source1:        http://ep09.pld-linux.org/~djurban/kde/i18n/kde-i18n-%{name}-%{version}.tar.bz2
-# Source1-md5:	df911c323c20896db68a4bfc38ca8821
-%endif
+#Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
+Source0:	http://ep09.pld-linux.org/~adgor/kde/%{name}.tar.bz2
+##%% Source0-md5:	a0a59713a19fb01dd62b13b92f222d08
+#Source1:        http://ep09.pld-linux.org/~djurban/kde/i18n/kde-i18n-%{name}-%{version}.tar.bz2
+##%% Source1-md5:	df911c323c20896db68a4bfc38ca8821
 Patch0:		%{name}-vcategories.patch
 BuildRequires:	ed
 BuildRequires:	gettext-devel
@@ -519,17 +517,20 @@ Internationalization and localization files for kvoctrain.
 Pliki umiêdzynarodawiaj±ce dla kvoctrain.
 
 %prep
-%setup -q
+%setup -q -n %{name}
 %patch0 -p1
 
 %build
 cp -f /usr/share/automake/config.sub admin
+
+export UNSERMAKE=/usr/share/unsermake/unsermake
+
 %{__make} -f admin/Makefile.common cvs
 
 %configure \
-	--with-qt-libraries=%{_libdir} \
 	--disable-rpath \
-	--enable-final
+	--enable-final \
+	--with-qt-libraries=%{_libdir}
 
 %{__make}
 

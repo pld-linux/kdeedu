@@ -1,8 +1,8 @@
---- kdeedu-030914/kalzium/src/kalzium.desktop~	2003-09-03 07:25:24.000000000 +0200
-+++ kdeedu-030914/kalzium/src/kalzium.desktop	2003-09-16 18:20:46.000000000 +0200
-@@ -14,4 +14,4 @@
- Name[lv]=Kalcium
- Name[mn]=Кальци
- Name[xx]=xxKalziumxx
+--- kdeedu-040110/kalzium/src/kalzium.desktop.orig	2004-01-10 08:11:53.000000000 +0100
++++ kdeedu-040110/kalzium/src/kalzium.desktop	2004-01-11 15:06:23.845614352 +0100
+@@ -34,4 +34,4 @@
+ GenericName[sl]=Periodična tabela elementov
+ GenericName[sr]=Периодни систем елемената
+ GenericName[sv]=Periodiska systemet
 -Categories=Qt;KDE;Education;Science
 +Categories=Qt;KDE;Education;Science;Chemistry

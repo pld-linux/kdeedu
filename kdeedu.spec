@@ -1,18 +1,18 @@
 
 %define		_state		snapshots
 %define		_ver		3.2
-%define		_snap		030329
+%define		_snap		030403
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	%{_ver}
-Release:	0.%{_snap}.2
+Release:	0.%{_snap}.1
 Epoch:		7
 License:	GPL
 Group:		X11/Applications/Science
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
-Source0:	http://team.pld.org.pl/~djurban/kde/%{name}-%{_snap}.tar.bz2
+Source0:	http://team.pld.org.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
 Patch0:		%{name}-vcategories.patch
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel = %{version}
@@ -252,7 +252,7 @@ if [ -d $plik ]; then
 	fi
 done
 
-%configure --enable-final
+%configure
 
 %{__make}
 

@@ -16,6 +16,7 @@ Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.
 Source1:	ftp://blysk.ds.pg.gda.pl/linux/kde-i18n-package/%{version}/kde-i18n-%{name}-%{version}.tar.bz2
 # Source1-md5:	aec4b56099e3cf364731fb83eca9c98f
 Source2:	%{name}-extra_icons.tar.bz2
+# Source2-md5:	26cab4490d7800c69a6a224b949a8369
 BuildRequires:	ed
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel = %{epoch}:%{version}

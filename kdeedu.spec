@@ -368,8 +368,8 @@ rm -rf $RPM_BUILD_ROOT
 %files kiten -f kiten.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kiten*
-%{_libdir}/kiten.la
-%attr(755,root,root) %{_libdir}/kiten.so
+#%{_libdir}/kiten.la
+#%attr(755,root,root) %{_libdir}/kiten.so
 %{_datadir}/apps/kiten
 %{_applnkdir}/Edutainment/kiten.desktop
 %{_pixmapsdir}/*/*/*/kiten.png

@@ -620,7 +620,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kbruch
 %{_datadir}/config.kcfg/kbruch.kcfg
 %{_desktopdir}/kde/kbruch.desktop
-%{_iconsdir}/[!l]*/*/apps/kbruch*
+%{_iconsdir}/[!l]*/*/*/kbruch*
 %{_kdedocdir}/en/kbruch
 %{_mandir}/man1/kbruch.1*
 
@@ -789,7 +789,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ktouch
 %{_datadir}/apps/ktouch
 %{_desktopdir}/kde/ktouch.desktop
-%{_iconsdir}/*/*/apps/ktouch.png
+%{_iconsdir}/*/*/apps/ktouch*
 %{_mandir}/man1/ktouch.1*
 %{_kdedocdir}/en/ktouch
 
@@ -798,6 +798,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kturtle
 %{_datadir}/apps/kturtle
 %{_datadir}/apps/katepart/syntax/logohighlightstyle*
+%{_datadir}/config.kcfg/kturtle.kcfg
+
 %{_desktopdir}/kde/kturtle.desktop
 %{_kdedocdir}/en/kturtle
 %{_iconsdir}/*/*/apps/kturtle*
@@ -830,11 +832,10 @@ rm -rf $RPM_BUILD_ROOT
 %files kwordquiz
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kwordquiz
-%{_datadir}/config.kcfg/klatin.kcfg
 %{_datadir}/apps/kwordquiz
-%{_desktopdir}/kde/kturtle.desktop
+%{_desktopdir}/kde/kwordquiz.desktop
 %{_kdedocdir}/en/kwordquiz
-%{_iconsdir}/*/*/apps/kwordquiz*
+%{_iconsdir}/[!l]*/*/*/kwordquiz*
 %{_datadir}/mimelnk/application/x-kwordquiz.desktop
 
 %files libkdeeducore
@@ -858,3 +859,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/test_extdate
 %attr(755,root,root) %{_bindir}/test_extdatepicker
 %attr(755,root,root) %{_libdir}/libextdate.so.1.2.0
+%{_libdir}/libextdate.la

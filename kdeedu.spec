@@ -1,7 +1,7 @@
 
 %define		_state		snapshots
 %define		_ver		3.2
-%define		_snap		030403
+%define		_snap		030406
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
@@ -309,6 +309,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libkdeeducore.la
 %attr(755,root,root) %{_libdir}/libkdeeducore.so.*
 %{_datadir}/mimelnk/application/x-edu.desktop
+%{_datadir}/mimelnk/application/x-edugallery.desktop
 %{_pixmapsdir}/*/*/actions/*
 %{_pixmapsdir}/*/*/apps/edu_*
 %{_pixmapsdir}/hicolor/48x48/apps/*

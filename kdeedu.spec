@@ -1,12 +1,12 @@
 
 %define		_state		unstable
-%define		_kdever		kde-3.1-rc5
+%define		_kdever		kde-3.1-rc7
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	3.1
-Release:	2
+Release:	3
 Epoch:		7
 License:	GPL
 Group:		X11/Applications/Science
@@ -20,8 +20,9 @@ BuildRequires:	libpng-devel
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix 	/usr/X11R6
 %define		_htmldir	/usr/share/doc/kde/HTML
+
+%define		no_install_post_chrpath		1
 
 %description
 K Desktop Environment - edutainment.
@@ -215,6 +216,7 @@ Program do æwiczenia s³ownictwa.
 %setup -q
 
 %build
+kde_appsdir="%{_applnkdir}"; export kde_appsdir
 kde_htmldir="%{_htmldir}"; export kde_htmldir
 kde_icondir="%{_pixmapsdir}"; export kde_icondir
 

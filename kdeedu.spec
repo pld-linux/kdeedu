@@ -1,19 +1,19 @@
 
 %define		_state		snapshots
-%define		_ver		3.2
-%define		_snap		030613
+%define		_ver		3.1.90
+%define		_snap		030618
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
-Version:	%{_ver}
-Release:	0.%{_snap}.1
-Epoch:		7
+Version:	%{_ver}.%{_snap}
+Release:	1
+Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
 Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	48e7e0a9fc592f31bc3043f64a12912f
+# Source0-md5:	6b8367712c633f588ab11f6eb269e9de
 Patch0:		%{name}-vcategories.patch
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel = %{version}
@@ -38,7 +38,7 @@ K Desktop Environment - edukacja i rozrywka.
 Summary:	Header Files
 Summary(pl):	Pliki nag³ówkowe
 Group:		X11/Development/Libraries
-Requires:	%{name}-flashkard = %{version}-%{release}
+Requires:	%{name}-flashkard = %{epoch}:%{version}-%{release}
 
 %description devel
 Header Files
@@ -274,7 +274,7 @@ mv $RPM_BUILD_ROOT%{_applnkdir}/Edutainment/Languages/*.desktop \
 mv $RPM_BUILD_ROOT%{_applnkdir}/Edutainment/Mathematics/*.desktop \
 	$RPM_BUILD_ROOT%{_desktopdir}
 
-mv $RPM_BUILD_ROOT%{_applnkdir}/Edutainment/Miscellanous/*.desktop \
+mv $RPM_BUILD_ROOT%{_applnkdir}/Edutainment/Miscellaneous/*.desktop \
 	$RPM_BUILD_ROOT%{_desktopdir}
 
 mv $RPM_BUILD_ROOT%{_applnkdir}/Edutainment/Science/*.desktop \

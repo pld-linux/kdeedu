@@ -1,11 +1,15 @@
---- kdeedu-3.3.0/kstars/kstars/indi/webcam/PPort.cpp.orig	2004-03-31 10:07:19.000000000 +0000
-+++ kdeedu-3.3.0/kstars/kstars/indi/webcam/PPort.cpp	2004-08-24 20:45:52.000000000 +0000
-@@ -1,3 +1,4 @@
+--- kdeedu-050217/kstars/kstars/indi/webcam/PPort.cpp.orig	2005-02-11 22:44:47.000000000 +0100
++++ kdeedu-050217/kstars/kstars/indi/webcam/PPort.cpp	2005-02-20 15:38:28.641966104 +0100
+@@ -16,7 +16,7 @@
+     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ 
+ */
+-
 +#ifdef __i386__
  #include "PPort.h"
  #include "port.h"
  
-@@ -86,3 +87,4 @@
+@@ -105,3 +105,4 @@
     TEST_VALIDITY;
     return (assignedBit[bit] == ID);
  }

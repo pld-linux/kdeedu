@@ -18,6 +18,8 @@ Epoch:		7
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_ftpdir}/%{version}/src/%{name}-%{version}.tar.bz2
+# generated from kde-i18n
+Source1:	kde-i18n-%{name}-%{version}.tar.bz2
 Patch0:		%{name}-DESTDIR.patch
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel = %{version}
@@ -139,6 +141,8 @@ kde_icondir="%{_pixmapsdir}"; export kde_icondir
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR="$RPM_BUILD_ROOT"
+
+bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%
 
 gzip README*
 

@@ -13,6 +13,7 @@ License:	GPL
 Group:		X11/Applications/Science
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
 Source0:	http://team.pld.org.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
+# Source0-md5:	d4072d61b05f9fbbd43d5286a1d70eb9
 Patch0:		%{name}-vcategories.patch
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel = %{version}

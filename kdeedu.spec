@@ -6,13 +6,13 @@ Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	%{_ver}
-Release:	0.1
+Release:	1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
+# Source0-md5:	1c41b731f26269fdb39f2c097a95dd9a
 #Source0:	http://ep09.pld-linux.org/~djurban/kde/%{name}-%{version}.tar.bz2
-# Source0-md5:	97174178360396ea50e69097979b8319
 Icon:		kde-edu.xpm
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-vcategories.patch

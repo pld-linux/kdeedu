@@ -1,7 +1,7 @@
 
 %define		_state		snapshots
-%define		_ver		3.1.93
-%define		_snap		031114
+%define		_ver		3.1.94
+%define		_snap		031204
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
@@ -13,7 +13,7 @@ License:	GPL
 Group:		X11/Applications/Science
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
 Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	96b001454daeeb64de5dbd2f036e4082
+# Source0-md5:	e3b52b5c939fd5d1050853749dff4d85
 Patch0:		%{name}-vcategories.patch
 BuildRequires:	ed
 BuildRequires:	gettext-devel
@@ -314,9 +314,12 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir}
 
-install -d $RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/actions
+install -d \
+	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/actions \
+	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/apps \
+	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/32x32/apps
 
-mv $RPM_BUILD_ROOT%{_iconsdir}/locolor/16x16/actions/*.png \
+mv $RPM_BUILD_ROOT%{_iconsdir}/locolor/16x16/actions/edit_{add,remove}.png \
 	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/actions
 
 mv $RPM_BUILD_ROOT%{_iconsdir}/ktouch/hi16-app-ktouch.png \
@@ -449,6 +452,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/klettres
 %{_datadir}/apps/klettres
+%{_datadir}/config.kcfg/klettres.kcfg
 %{_desktopdir}/kde/klettres.desktop
 %{_iconsdir}/[!l]*/*/*/klettres*
 %{_iconsdir}/*/*/apps/grownup.png

@@ -1,6 +1,6 @@
 %define		_ver		3.0.2
 #define		_sub_ver
-%define		_rel		1
+%define		_rel		1.1
 
 %{?_sub_ver:	%define	_version	%{_ver}%{_sub_ver}}
 %{!?_sub_ver:	%define	_version	%{_ver}}
@@ -171,51 +171,51 @@ rm -rf $RPM_BUILD_ROOT
 
 %files keduca -f keduca.lang
 %defattr(644,root,root,755)
-%{_bindir}/keduca
+%attr(755,root,root) %{_bindir}/keduca
 %{_datadir}/apps/keduca
 %{_pixmapsdir}/*/*/*/keduca*
 %{_applnkdir}/Edutainment/keduca.desktop
 
 %files kgeo -f kgeo.lang
 %defattr(644,root,root,755)
-%{_bindir}/kgeo
+%attr(755,root,root) %{_bindir}/kgeo
 %{_datadir}/apps/kgeo
 %{_pixmapsdir}/*/*/*/kgeo*
 %{_applnkdir}/Edutainment/kgeo.desktop
 
 %files klettres -f klettres.lang
 %defattr(644,root,root,755)
-%{_bindir}/klettres
+%attr(755,root,root) %{_bindir}/klettres
 %{_datadir}/apps/klettres
 %{_pixmapsdir}/*/*/*/klettres*
 %{_applnkdir}/Edutainment/French/klettres.desktop
 
 %files kmessedwords -f kmessedwords.lang
 %defattr(644,root,root,755)
-%{_bindir}/kmessedwords
+%attr(755,root,root) %{_bindir}/kmessedwords
 %{_datadir}/apps/kmessedwords
 %{_pixmapsdir}/*/*/*/kmessedwords*
 %{_applnkdir}/Edutainment/kmessedwords.desktop
 
 %files kstars -f kstars.lang
 %defattr(644,root,root,755)
-%{_bindir}/kstars
+%attr(755,root,root) %{_bindir}/kstars
 %{_datadir}/apps/kstars
 %{_pixmapsdir}/*/*/*/kstars*
 %{_applnkdir}/Edutainment/kstars.desktop
 
 %files ktouch -f ktouch.lang
 %defattr(644,root,root,755)
-%{_bindir}/ktouch
+%attr(755,root,root) %{_bindir}/ktouch
 %{_datadir}/apps/ktouch
 %{_pixmapsdir}/*/*/*/ktouch*
 %{_applnkdir}/Edutainment/ktouch.desktop
 
 %files kvoctrain -f kvoctrain.lang
 %defattr(644,root,root,755)
-%{_bindir}/kvoctrain
-%{_bindir}/langen2kvtml
-%{_bindir}/spotlight2kvtml
+%attr(755,root,root) %{_bindir}/kvoctrain
+%attr(755,root,root) %{_bindir}/langen2kvtml
+%attr(755,root,root) %{_bindir}/spotlight2kvtml
 %{_datadir}/apps/kvoctrain
 %{_pixmapsdir}/*/*/*/kvoctrain*
 %{_pixmapsdir}/kvoctrain*

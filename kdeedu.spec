@@ -569,7 +569,7 @@ mv $RPM_BUILD_ROOT%{_iconsdir}/locolor/16x16/actions/edit_{add,remove}.png \
 	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/actions
 
 mv $RPM_BUILD_ROOT%{_datadir}/applnk/Edutainment/Miscellaneous/kwordquiz.desktop \
-	$RPM_BUILD_ROOT%{_desktopdir}
+	$RPM_BUILD_ROOT%{_desktopdir}/kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT

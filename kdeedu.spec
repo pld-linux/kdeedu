@@ -5,7 +5,7 @@ Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	%{_ver}
-Release:	2
+Release:	3
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
@@ -571,6 +571,11 @@ done
 for f in `find . -name *.desktop | xargs grep -l '^Type=Application'`; do
 	if ! grep '^Encoding=' $f >/dev/null; then
 		%{__sed} -i -e '/\[Desktop Entry\]/aEncoding=UTF-8' $f
+	fi
+done
+for f in `find . -name *.desktop`; do
+	if grep -q '\[ven\]' $f; then
+		sed -i -e 's/\[ven\]/[ve]/' $f
 	fi
 done
 

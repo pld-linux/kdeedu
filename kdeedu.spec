@@ -171,7 +171,7 @@ two purposes:
 Kig to aplikacja do interaktywnej geometrii. Ma s³u¿yæ dwóm celom:
 - umo¿liwiæ uczniom interaktywnie przegl±danie figur i pojêæ
   matematycznych przy u¿yciu komputera
-- s³u¿yæ jako narzêdzie WISIWYG do rysowania figur matematycznych i
+- s³u¿yæ jako narzêdzie WYSIWYG do rysowania figur matematycznych i
   w³±czania ich do innych dokumentów.
 
 %package klatin
@@ -343,10 +343,10 @@ the horizon and the ecliptic.
 KStars pozwala przegl±daæ nocne niebo z wygod± krzes³a przy
 komputerze. Dostarcza dok³adn± graficzn± reprezentacjê nocnego nieba
 dla dowolnej daty, z dowolnego miejsca na Ziemi. Obraz zawiera 126000
-gwiazd do 9. wielko¶ci (znacznie poza ograniczeniem go³ego oka), 13000
-obiektów (katalogi Messiera, NGC i IC), wszystkie planety, S³oñce i
-Ksiê¿yc, setki komet i asteroid, Drogê Mleczn±, 88 konstelacji oraz
-linie prowadz±ce takie jak równik astronomiczny, horyzont i ekliptykê.
+gwiazd do 9. wielko¶ci (znacznie poza zasiêgiem nieuzbrojonego oka),
+13000 obiektów (katalogi Messiera, NGC i IC), wszystkie planety,
+S³oñce i Ksiê¿yc, setki komet i asteroid, Drogê Mleczn±, 88 konstelacji
+oraz linie prowadz±ce takie jak równik astronomiczny, horyzont i ekliptykê.
 
 %package ktouch
 Summary:	Program for learning touch typing

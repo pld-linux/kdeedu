@@ -383,7 +383,7 @@ Obsoletes:	kdeedu
 KTurtle is a Logo programming language interpreter for KDE. The Logo
 programming language is very easy and thus it can be used by young
 children. A unique quality of Logo is that the commands or
-instructions can be translated (please see the tranlation how to if
+instructions can be translated (please see the translation how to if
 you want to help in your own language), so the 'programmer' can
 program in his or her native language. This makes Logo ideal for
 teaching kids the basics of programming, mathematics and geometry. One
@@ -396,11 +396,31 @@ KTurtle features:
 - powerful editor for the Logo commands with syntax highlighting, line
   numbering and more
 - nice "playground" for the turtle where your commands visualized
-- translation of the Logo commands (among others in : Dutch, French
+- translation of the Logo commands (among others in: Dutch, French
   German, Latin and Swedish)
 - context help for each Logo command
 
-#description kturtle -l pl #likewise
+%description kturtle -l pl
+KTurtle to interpreter jêzyka programowania Logo dla KDE. Jêzyk Logo
+jest bardzo ³atwy, przez co mo¿e byæ u¿ywany przez ma³e dzieci.
+Unikalna jako¶æ Logo polega na tym, ¿e polecenia czy instrukcje mog±
+byæ t³umaczone (proszê zobaczyæ howto dla t³umaczy, aby pomóc przy
+t³umaczeniu na w³asny jêzyk), dziêki czemu "programista" mo¿e
+programowaæ w jêzyku ojczystym. To czyni Logo idealnym do nauki dzieci
+podstaw programowania, matematyki i geometrii. Jednym z powodów, dla
+których wiele dzieci lubi Logo, jest ¿ó³w - programowalna ikona, któr±
+mo¿na przesuwaæ po ekranie prostymi poleceniami i programowaæ do
+rysowania obiektów.
+
+Mo¿liwo¶ci KTurtle:
+- zintegrowany interpreter Logo, nie trzeba ¶ci±gaæ ¿adnego innego
+  programu
+- potê¿ny edytor do poleceñ Logo z pod¶wietlaniem sk³adni,
+  numerowaniem linii itp.
+- ³adne "boisko" dla ¿ó³wia, gdzie wizualizowane s± polecenia
+- t³umaczenia poleceñ Logo (m.in. na jêzyk francuski, holenderski,
+  ³aciñski, niemiecki i szwedzki)
+- pomoc kontekstowa dla ka¿dego polecenia Logo.
 
 %package kverbos
 Summary:	Spanish verb form study application for KDE
@@ -453,8 +473,7 @@ KWordQuiz also features Flashcard, Multiple Choice and Question &
 Answer functions. Question & Answer also has a special
 Fill-in-the-blank mode.
 
-#description kvoctrain -l pl
-
+#description kwordquiz -l pl
 
 %package libkdeeducore
 Summary:	KDE educational module core library

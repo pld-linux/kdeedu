@@ -6,3 +6,10 @@
  Name[lv]=Kalcium
 -Categories=Qt;KDE;Education;Science
 +Categories=Qt;KDE;Education;Science;Chemistry
+--- kdeedu-030504/kbruch/src/kbruch.desktop~	2003-05-03 00:59:56.000000000 +0200
++++ kdeedu-030504/kbruch/src/kbruch.desktop	2003-05-05 01:42:16.000000000 +0200
+@@ -13,3 +13,4 @@
+ Terminal=0
+ Name=KBruch
+ Name[sv]=Kbruch
++Categories=Qt;KDE;Education

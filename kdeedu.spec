@@ -1,26 +1,23 @@
 #
-# Conditional build:
-%bcond_without  i18n    # don't build i18n subpackages
-#
 %define		_state		stable
-%define		_ver		3.2.2
+%define		_ver		3.2.3
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	%{_ver}
-Release:	2
+Release:	0.1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	97174178360396ea50e69097979b8319
 #Source0:	http://ep09.pld-linux.org/~djurban/kde/%{name}-%{version}.tar.bz2
-%if %{with i18n}
-Source1:	kde-i18n-%{name}-%{version}.tar.bz2
-# Source1-md5:	de96569433fd754133b873d15b61626d
-%endif
+# Source0-md5:	97174178360396ea50e69097979b8319
+Icon:		kde-edu.xpm
 Patch0:		%{name}-vcategories.patch
+BuildRequires:	autoconf
+BuildRequires:	unsermake >= 040511
+BuildRequires:	automake
 BuildRequires:	ed
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel >= 9:%{version}
@@ -59,7 +56,14 @@ Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
 Obsoletes:	kdeedu
 
 %description flashkard
-Flash card learning tool for KDE.
+Flash card learning tool for KDE. FlashKard is based on a rather old
+learning method used to teach children facts. The teacher presented a
+number of cards with questions on them, and the pupil wrote the
+answers on the back of the cards. These cards were then checked at the
+end of the round by the teacher. The cards with the correct answers
+were then removed from the pile and the incorrectly-answered questions
+were repeated over and over again, until the answer was "drilled" into
+the pupils memory.
 
 %description flashkard -l pl
 Narzêdzie do nauki za pomoc± liczmanów.
@@ -73,7 +77,10 @@ Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
 Obsoletes:	kdeedu
 
 %description kalzium
-A Periodic System of Elements database.
+A Periodic System of Elements database. Kalzium provides you with all
+kind of information about the PSE (Periodic System of Elements.) You
+can lookup lots of information about the elements and also use
+visualizations to show them.
 
 %description kalzium -l pl
 Baza danych Uk³adu Okresowego Pierwiastków.
@@ -86,7 +93,13 @@ Requires:	kdebase-core >= 9:%{version}
 Obsoletes:	kdeedu
 
 %description kbruch
-Task generator for calculations with fractions.
+Task generator for calculations with fractions. KBruch is a small
+program to generate tasks with fractions. The user has to solve the
+given task by entering the right value for numerator and denominator.
+The program checks the input and gives feedback. The task generation
+can be adjusted by using different parameters. The user can decide if
+he wants to solve tasks with addition/subtraction and/or
+multiplication/division.
 
 %description kbruch -l pl
 Generator zadañ z obliczeniami na u³amkach.
@@ -99,7 +112,7 @@ Requires:	kdebase-core >= 9:%{version}
 Obsoletes:	kdeedu
 
 %description keduca
-Creation and revision of form-based tests and exams.
+Application for creating and revising of form-based tests and exams.
 
 %description keduca -l pl
 Tworzenie i sprawdzanie testów i egzaminów.
@@ -120,8 +133,8 @@ picture of a hangman is drawn. You must guess the word before getting
 hanged! It is aimed for children aged 6+.
 
 %description khangman -l pl
-KHangMan jest gr± opart± na popularnej grze w wisielca. Wybierane
-jest losowe s³owo, którego litery s± ukryte. Trzeba zgadn±æ to s³owo
+KHangMan jest gr± opart± na popularnej grze w wisielca. Wybierane jest
+losowe s³owo, którego litery s± ukryte. Trzeba zgadn±æ to s³owo
 podaj±c kolejno litery. Za ka¿dym razem, gdy podana litera nie
 wystêpuje w s³owie, rysowany jest obrazek wisielca. Trzeba odgadn±æ
 s³owo przed powieszeniem! Gra jest przeznaczona dla dzieci w wieku 6
@@ -135,7 +148,13 @@ Requires:	kdebase-core >= 9:%{version}
 Obsoletes:	kdeedu
 
 %description kig
-Interactive Geometry.
+Kig is an application for Interactive Geometry. It's intended to serve
+two purposes:
+- allow students to interactively explore mathematical figures and
+  concepts using the computer.
+- serve as a WYSIWYG tool for drawing mathematical figures and
+  including them in other documents.
+
 
 %description kig -l pl
 Interaktywna geometria.
@@ -148,20 +167,33 @@ Requires:	kdebase-core >= 9:%{version}
 Obsoletes:	kdeedu
 
 %description kiten
-A Japanese reference tool.
+Kiten is an application with multiple functions. Firstly, it is a
+convenient English to Japanese and Japanese to English dictionary;
+secondly, it is a Kanji dictionary, with multiple ways to look up
+specific characters; thirdly, it is a tool to help you learn Kanji.
 
 %description kiten -l pl
 S³ownik angielsko-japoñski.
 
 %package klettres
-Summary:	Helps child to learn French alphabet and to read some syllables
-Summary(pl):	Pomoc w nauce francuskiego alfabetu i sylab dla dzieci
+Summary:	Helps child to learn alphabet and to read some syllables
+Summary(pl):	Pomoc w nauce alfabetu i sylab dla dzieci
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
 Obsoletes:	kdeedu
 
 %description klettres
-Helps child to learn French alphabet and to read some syllables.
+KLettres is a very simple application that helps a child or an adult
+to learn the alphabet and some simple sounds in his own language or in
+another language. The program picks up a letter or a syllable in
+random, this letter/syllable is displayed and the sound is played. The
+user should then type this letter or syllable. Training is done in the
+levels where the letter/syllable is not displayed, only the sound is
+played. The user does not need to know how to use the mouse, the
+keyboard only is needed.
+
+There are five languages available at the moment: Czech, Danish,
+Dutch, French and Slovak.
 
 %description klettres -l pl
 Pomoc w nauce francuskiego alfabetu i sylab dla dzieci.
@@ -174,7 +206,9 @@ Requires:	kdebase-core >= 9:%{version}
 Obsoletes:	kdeedu
 
 %description kmplot
-Mathematical function plotter.
+KmPlot is a mathematical function plotter for the KDE Desktop. It has
+a powerful built-in parser. You can plot different functions
+simultaneously and combine them to build new functions.
 
 %description kmplot -l pl
 Koordynograf.
@@ -187,7 +221,15 @@ Requires:	kdebase-core >= 9:%{version}
 Obsoletes:	kdeedu
 
 %description kmessedwords
-Simple mind-training game.
+KMessedWords is the game, that is based on the word/letter puzzles
+that I have played as a child. It is a very simple constructed game,
+with 3 difficulty levels of play, and each level deserves it's value.
+It is fully customizable game, that allows you to write in your own
+words, and set your own "look and feel" of the game. It is aimed for
+children aged 10+, because of the difficulty, but, everyone is welcome
+to try. A word is picked in random, and displayed out in the messed
+order, with difficulty dependant on the chosen level. You have
+unlimited numbers of attempts, and the scores are kept.
 
 %description kmessedwords -l pl
 Prosta ³amig³ówka.
@@ -214,6 +256,15 @@ Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
 Obsoletes:	kdeedu
 
 %description kstars
+KStars lets you explore the night sky from the comfort of your
+computer chair. It provides an accurate graphical representation of
+the night sky for any date, from any location on Earth. The display
+includes 126,000 stars to 9th magnitude (well below the naked-eye
+limit), 13,000 deep-sky objects (Messier, NGC and IC catalogs), all
+planets, the Sun and Moon, hundreds of comets and asteroids, the Milky
+Way, 88 constellations, and guide lines such as the celestial equator,
+the horizon and the ecliptic.
+
 Desktop planetarium.
 
 %description kstars -l pl
@@ -227,7 +278,14 @@ Requires:	kdebase-core >= 9:%{version}
 Obsoletes:	kdeedu
 
 %description ktouch
-Program for learning touch typing.
+KTouch is a program for learning to touch type.
+
+KTouch provides you with text to train on, and adjust to different
+levels, depending on how good you are. It can display which key to
+press next, and the correct finger to use. It's the perfect touch
+typing tutor, you learn typing with all the fingers without looking at
+the keys, in an step by step way. It is convenient for all ages, and
+the perfect typing tutor for schools, universities and individuals.
 
 %description ktouch -l pl
 Program do nauki maszynopisania.
@@ -295,207 +353,17 @@ kdeeduui shared library.
 %description libkdeeduui -l pl
 Biblioteka wspó³dzielona kdeeduui.
 
-%package flashkard-i18n
-Summary:	Internationalization and localization files for flashkard
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla flashkarda
-Group:		X11/Applications
-Requires:	%{name}-flashkard = %{epoch}:%{version}-%{release}
-Requires:	kdebase-core-i18n >= 9:%{version}
 
-%description flashkard-i18n
-Internationalization and localization files for flashkard.
-
-%description flashkard-i18n -l pl
-Pliki umiêdzynarodawiaj±ce dla flashkarda.
-
-%package kalzium-i18n
-Summary:	Internationalization and localization files for kalzium
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kalzium
-Group:		X11/Applications
-Requires:	%{name}-kalzium = %{epoch}:%{version}-%{release}
-Requires:	kdebase-core-i18n >= 9:%{version}
-
-%description kalzium-i18n
-Internationalization and localization files for kalzium.
-
-%description kalzium-i18n -l pl
-Pliki umiêdzynarodawiaj±ce dla kalzium.
-
-%package kbruch-i18n
-Summary:	Internationalization and localization files for kbruch
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kbrucha
-Group:		X11/Applications
-Requires:	%{name}-kbruch = %{epoch}:%{version}-%{release}
-Requires:	kdebase-core-i18n >= 9:%{version}
-
-%description kbruch-i18n
-Internationalization and localization files for kbruch.
-
-%description kbruch-i18n -l pl
-Pliki umiêdzynarodawiaj±ce dla kbrucha.
-
-%package keduca-i18n
-Summary:	Internationalization and localization files for keduca
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla keduca
-Group:		X11/Applications
-Requires:	%{name}-keduca = %{epoch}:%{version}-%{release}
-Requires:	kdebase-core-i18n >= 9:%{version}
-
-%description keduca-i18n
-Internationalization and localization files for keduca.
-
-%description keduca-i18n -l pl
-Pliki umiêdzynarodawiaj±ce dla keduca.
-
-%package khangman-i18n
-Summary:	Internationalization and localization files for khangman
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla khangmana
-Group:		X11/Applications
-Requires:	%{name}-khangman = %{epoch}:%{version}-%{release}
-Requires:	kdebase-core-i18n >= 9:%{version}
-
-%description khangman-i18n
-Internationalization and localization files for khangman.
-
-%description khangman-i18n -l pl
-Pliki umiêdzynarodawiaj±ce dla khangmana.
-
-%package kig-i18n
-Summary:	Internationalization and localization files for kig
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kig
-Group:		X11/Applications
-Requires:	%{name}-kig = %{epoch}:%{version}-%{release}
-Requires:	kdebase-core-i18n >= 9:%{version}
-
-%description kig-i18n
-Internationalization and localization files for kig.
-
-%description kig-i18n -l pl
-Pliki umiêdzynarodawiaj±ce dla kig.
-
-%package kiten-i18n
-Summary:	Internationalization and localization files for kiten
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kiten
-Group:		X11/Applications
-Requires:	%{name}-kiten = %{epoch}:%{version}-%{release}
-Requires:	kdebase-core-i18n >= 9:%{version}
-
-%description kiten-i18n
-Internationalization and localization files for kiten.
-
-%description kiten-i18n -l pl
-Pliki umiêdzynarodawiaj±ce dla kiten.
-
-%package klettres-i18n
-Summary:	Internationalization and localization files for klettres
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla klettres
-Group:		X11/Applications
-Requires:	%{name}-klettres = %{epoch}:%{version}-%{release}
-Requires:	kdebase-core-i18n >= 9:%{version}
-
-%description klettres-i18n
-Internationalization and localization files for klettres.
-
-%description klettres-i18n -l pl
-Pliki umiêdzynarodawiaj±ce dla klettres.
-
-%package kmessedwords-i18n
-Summary:	Internationalization and localization files for kmessedwords
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kmessedwords
-Group:		X11/Applications
-Requires:	%{name}-kmessedwords = %{epoch}:%{version}-%{release}
-Requires:	kdebase-core-i18n >= 9:%{version}
-
-%description kmessedwords-i18n
-Internationalization and localization files for kmessedwords.
-
-%description kmessedwords-i18n -l pl
-Pliki umiêdzynarodawiaj±ce dla kmessedwords.
-
-%package kmplot-i18n
-Summary:	Internationalization and localization files for kmplot
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kmplot
-Group:		X11/Applications
-Requires:	%{name}-kmplot = %{epoch}:%{version}-%{release}
-Requires:	kdebase-core-i18n >= 9:%{version}
-
-%description kmplot-i18n
-Internationalization and localization files for kmplot.
-
-%description kmplot-i18n -l pl
-Pliki umiêdzynarodawiaj±ce dla kmplot.
-
-%package kpercentage-i18n
-Summary:	Internationalization and localization files for kpercentage
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kpercentage
-Group:		X11/Applications
-Requires:	%{name}-kpercentage = %{epoch}:%{version}-%{release}
-Requires:	kdebase-core-i18n >= 9:%{version}
-
-%description kpercentage-i18n
-Internationalization and localization files for kpercentage.
-
-%description kpercentage-i18n -l pl
-Pliki umiêdzynarodawiaj±ce dla kpercentage.
-
-%package kstars-i18n
-Summary:	Internationalization and localization files for kstars
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kstars
-Group:		X11/Applications
-Requires:	%{name}-kstars = %{epoch}:%{version}-%{release}
-Requires:	kdebase-core-i18n >= 9:%{version}
-
-%description kstars-i18n
-Internationalization and localization files for kstars.
-
-%description kstars-i18n -l pl
-Pliki umiêdzynarodawiaj±ce dla kstars.
-
-%package ktouch-i18n
-Summary:	Internationalization and localization files for ktouch
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla ktouch
-Group:		X11/Applications
-Requires:	%{name}-ktouch = %{epoch}:%{version}-%{release}
-Requires:	kdebase-core-i18n >= 9:%{version}
-
-%description ktouch-i18n
-Internationalization and localization files for ktouch.
-
-%description ktouch-i18n -l pl
-Pliki umiêdzynarodawiaj±ce dla ktouch.
-
-%package kverbos-i18n
-Summary:	Internationalization and localization files for kverbos
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kverbos
-Group:		X11/Applications
-Requires:	%{name}-kverbos = %{epoch}:%{version}-%{release}
-Requires:	kdebase-core-i18n >= 9:%{version}
-
-%description kverbos-i18n
-Internationalization and localization files for kverbos.
-
-%description kverbos-i18n -l pl
-Pliki umiêdzynarodawiaj±ce dla kverbos.
-
-%package kvoctrain-i18n
-Summary:	Internationalization and localization files for kvoctrain
-Summary(pl):	Pliki umiêdzynarodawiaj±ce dla kvoctrain
-Group:		X11/Applications
-Requires:	%{name}-kvoctrain = %{epoch}:%{version}-%{release}
-Requires:	kdebase-core-i18n >= 9:%{version}
-
-%description kvoctrain-i18n
-Internationalization and localization files for kvoctrain.
-
-%description kvoctrain-i18n -l pl
-Pliki umiêdzynarodawiaj±ce dla kvoctrain.
 
 %prep
 %setup -q
 %patch0 -p1
 
 %build
-cp -f /usr/share/automake/config.sub admin
+cp %{_datadir}/automake/config.sub admin
+export kde_htmldir=%{_kdedocdir}
+export kde_libs_htmldir=%{_kdedocdir}
+export UNSERMAKE=%{_datadir}/unsermake/unsermake
 %{__make} -f admin/Makefile.common cvs
 
 %configure \
@@ -510,25 +378,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	kde_htmldir=%{_kdedocdir}
+	kde_htmldir=%{_kdedocdir} \
+	kde_libs_htmldir=%{_kdedocdir}
 
 # Debian manpages
 install -d $RPM_BUILD_ROOT%{_mandir}/man1
 install debian/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
-
-%if %{with i18n}
-if [ -f "%{SOURCE1}" ] ; then
-        bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
-	for f in $RPM_BUILD_ROOT%{_datadir}/locale/*/LC_MESSAGES/*.mo; do
-		if [ "`file $f | sed -e 's/.*,//' -e 's/message.*//'`" -le 1 ] ; then
-		rm -f $f
-		fi
-	done
-else
-	echo "No i18n sources found and building --with i18n. FIXIT!"
-	exit 1
-fi
-%endif
 
 install -d \
 	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/actions \
@@ -537,58 +392,6 @@ install -d \
 
 mv $RPM_BUILD_ROOT%{_iconsdir}/locolor/16x16/actions/edit_{add,remove}.png \
 	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/actions
-
-%find_lang flashkard	--with-kde
-%find_lang kalzium	--with-kde
-%find_lang kbruch	--with-kde
-%find_lang keduca	--with-kde
-%find_lang khangman	--with-kde
-%find_lang kig		--with-kde
-%find_lang kiten	--with-kde
-%find_lang klettres	--with-kde
-%find_lang kmathtool	--with-kde
-%find_lang kmessedwords	--with-kde
-%find_lang kmplot	--with-kde
-%find_lang kpercentage	--with-kde
-%find_lang kstars	--with-kde
-%find_lang ktouch	--with-kde
-%find_lang kverbos	--with-kde
-%find_lang kvoctrain	--with-kde
-
-files="flashkard \
-kalzium \
-kbruch \
-keduca \
-khangman \
-kig	 \
-kiten \
-klettres \
-kmathtool \
-kmessedwords \
-kmplot \
-kpercentage \
-kstars \
-ktouch \
-kverbos \
-kvoctrain"
-
-for i in $files; do
-        echo "%defattr(644,root,root,755)" > ${i}_en.lang
-	grep en\/ ${i}.lang|grep -v apidocs >> ${i}_en.lang
-	grep -v apidocs $i.lang|grep -v en\/ > ${i}.lang.1
-	mv ${i}.lang.1 ${i}.lang
-done
-
-durne=`ls -1 *.lang|grep -v _en`
-
-for i in $durne; 
-do
-	echo $i >> control
-	grep -v en\/ $i|grep -v apidocs >> ${i}.1
-	if [ -f ${i}.1 ] ; then
-		mv ${i}.1 ${i}
-	fi
-done
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -602,24 +405,6 @@ rm -rf $RPM_BUILD_ROOT
 %post	libkdeeduui	-p /sbin/ldconfig
 %postun	libkdeeduui	-p /sbin/ldconfig
 
-%if %{with i18n}
-%files flashkard-i18n -f flashkard.lang
-%files kalzium-i18n -f kalzium.lang
-%files kbruch-i18n -f kbruch.lang
-%files keduca-i18n -f keduca.lang
-%files khangman-i18n -f khangman.lang
-%files kig-i18n -f kig.lang
-%files kiten-i18n -f kiten.lang
-%files klettres-i18n -f klettres.lang
-%files kmessedwords-i18n -f kmessedwords.lang
-%files kmplot-i18n -f kmplot.lang
-%files kpercentage-i18n -f kpercentage.lang
-%files kstars-i18n -f kstars.lang
-%files ktouch-i18n -f ktouch.lang
-%files kverbos-i18n -f kverbos.lang
-%files kvoctrain-i18n -f kvoctrain.lang
-%endif
-
 %files devel
 %defattr(644,root,root,755)
 %doc README
@@ -628,30 +413,33 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkdeeduui.so
 %{_includedir}/*.h
 
-%files flashkard -f flashkard_en.lang
+%files flashkard -f
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/flashkard
 %{_datadir}/apps/flashkard
 %{_desktopdir}/kde/flashkard.desktop
 %{_iconsdir}/*/*/apps/flashkard.png
 %{_mandir}/man1/flashkard.1*
+%{_kdedocdir}/en/flashkard
 
-%files kalzium -f kalzium_en.lang
+%files kalzium
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kalzium
 %{_datadir}/apps/kalzium
 %{_desktopdir}/kde/kalzium.desktop
 %{_iconsdir}/[!l]*/*/apps/kalzium.png
 %{_mandir}/man1/kalzium.1*
+%{_kdedocdir}/en/kalzium
 
-%files kbruch -f kbruch_en.lang
+%files kbruch
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kbruch
 %{_datadir}/apps/kbruch
 %{_desktopdir}/kde/kbruch.desktop
 %{_iconsdir}/[!l]*/*/apps/kbruch.png
+%{_kdedocdir}/en/kbruch
 
-%files keduca -f keduca_en.lang
+%files keduca
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/keduca
 %attr(755,root,root) %{_bindir}/keducabuilder
@@ -661,15 +449,16 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/keduca*.desktop
 %{_iconsdir}/*/*/apps/keduca.png
 %{_mandir}/man1/keduca.1*
+%{_kdedocdir}/en/keduca
 
-%files khangman -f khangman_en.lang
+%files khangman
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/khangman
 %{_datadir}/apps/khangman
 %{_desktopdir}/kde/khangman.desktop
 %{_iconsdir}/[!l]*/*/apps/khangman.png
 %{_mandir}/man1/khangman.1*
-
+%{_kdedocdir}/en/khangman
 #%%{_iconsdir}/hicolor/48x48/apps/a_acute.png
 #%%{_iconsdir}/hicolor/48x48/apps/a_circle.png
 #%%{_iconsdir}/hicolor/48x48/apps/a_grave.png
@@ -693,7 +482,7 @@ rm -rf $RPM_BUILD_ROOT
 #%%{_iconsdir}/hicolor/48x48/apps/u_acute.png
 #%%{_iconsdir}/hicolor/48x48/apps/u_umlaut.png
 
-%files kig -f kig_en.lang
+%files kig
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kig
 %{_libdir}/kde3/libkigpart.la
@@ -705,8 +494,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/services/kig_part.desktop
 %{_desktopdir}/kde/kig.desktop
 %{_iconsdir}/[!l]*/*/apps/kig.png
+%{_kdedocdir}/en/kig
 
-%files kiten -f kiten_en.lang
+%files kiten
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kiten
 %attr(755,root,root) %{_bindir}/kitengen
@@ -717,8 +507,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/apps/kiten.png
 %{_mandir}/man1/kiten.1*
 %{_mandir}/man1/kitengen.1*
+%{_kdedocdir}/en/kiten
 
-%files klettres -f klettres_en.lang
+%files klettres
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/klettres
 %{_datadir}/apps/klettres
@@ -729,32 +520,37 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/apps/kids.png
 %{_iconsdir}/*/*/apps/menubar.png
 %{_mandir}/man1/klettres.1*
+%{_kdedocdir}/en/klettres
 
-%files kmessedwords -f kmessedwords_en.lang
+
+%files kmessedwords
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kmessedwords
 %{_datadir}/apps/kmessedwords
 %{_desktopdir}/kde/kmessedwords.desktop
 %{_iconsdir}/[!l]*/*/apps/kmessedwords.png
 %{_mandir}/man1/kmessedwords.1*
+%{_kdedocdir}/en/kmessedwords
 
-%files kmplot -f kmplot_en.lang
+%files kmplot
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kmplot
 %{_datadir}/apps/kmplot
 %{_desktopdir}/kde/kmplot.desktop
 %{_iconsdir}/[!l]*/*/apps/kmplot.png
 %{_mandir}/man1/kmplot.1*
+%{_kdedocdir}/en/kmplot
 
-%files kpercentage -f kpercentage_en.lang
+%files kpercentage
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kpercentage
 %{_datadir}/apps/kpercentage
 %{_desktopdir}/kde/kpercentage.desktop
 %{_iconsdir}/[!l]*/*/apps/kpercentage.png
 %{_mandir}/man1/kpercentage.1*
+%{_kdedocdir}/en/kpercentage
 
-%files kstars -f kstars_en.lang
+%files kstars
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/celestrongps
 %attr(755,root,root) %{_bindir}/indiserver
@@ -764,16 +560,18 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/kstars.desktop
 %{_iconsdir}/[!l]*/*/apps/kstars.png
 %{_mandir}/man1/kstars.1*
+%{_kdedocdir}/en/kstars
 
-%files ktouch -f ktouch_en.lang
+%files ktouch
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/ktouch
 %{_datadir}/apps/ktouch
 %{_desktopdir}/kde/ktouch.desktop
 %{_iconsdir}/*/*/apps/ktouch.png
 %{_mandir}/man1/ktouch.1*
+%{_kdedocdir}/en/ktouch
 
-%files kverbos -f kverbos_en.lang
+%files kverbos
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kverbos
 %{_datadir}/apps/kverbos
@@ -781,8 +579,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/actions/kverbosuser.png
 %{_iconsdir}/*/*/apps/kverbos.png
 %{_mandir}/man1/kverbos.1*
+%{_kdedocdir}/en/kverbos
 
-%files kvoctrain -f kvoctrain_en.lang
+%files kvoctrain
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kvoctrain
 %attr(755,root,root) %{_bindir}/langen2kvtml
@@ -793,6 +592,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/kvoctrain.1*
 %{_mandir}/man1/langen2kvtml.1*
 %{_mandir}/man1/spotlight2kvtml.1*
+%{_kdedocdir}/en/kvoctrain
 
 %files libkdeeducore
 %defattr(644,root,root,755)

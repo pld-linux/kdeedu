@@ -37,7 +37,7 @@ K Desktop Environment - edukacja i rozrywka.
 Summary:	Header Files
 Summary(pl):	Pliki nag³ówkowe
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 
 %description devel
 Header Files
@@ -49,7 +49,7 @@ Pliki nag³ówkowe
 Summary:	Flash card learning tool for KDE  
 Summary(pl):    Narzêdzie do nauki za pomoc± liczmanów
 Group:          X11/Applications/Science
-Requires:       %{name} = %{version}
+Requires:       %{name} = %{epoch}:%{version}
 
 %description flashkard
 Flash card learning tool for KDE.
@@ -61,7 +61,7 @@ Narzêdzie do nauki za pomoc± liczmanów.
 Summary:	Creation and revision of form-based tests and exams
 Summary(pl):	Tworzenie i sprawdzanie testów i egzaminów
 Group:		X11/Applications/Science
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 
 %description keduca
 Creation and revision of form-based tests and exams.
@@ -73,7 +73,7 @@ Tworzenie i sprawdzanie testów i egzaminów.
 Summary:        A Periodic System of Elements database
 Summary(pl):    Baza danych Uk³adu Okresowego Pierwiastków
 Group:          X11/Applications/Science
-Requires:       %{name} = %{version}
+Requires:       %{name} = %{epoch}:%{version}
 
 %description kalzium
 A Periodic System of Elements database.
@@ -85,7 +85,7 @@ Baza danych Uk³adu Okresowego Pierwiastków.
 Summary:	Interactive geometry
 Summary(pl):	Interaktywna geometria
 Group:		X11/Applications/Science
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 
 %description kgeo
 Interactive geometry.
@@ -97,7 +97,7 @@ Interaktywna geometria.
 Summary:	A hangman game
 Summary(pl):	Gra w wisielca
 Group:          X11/Applications/Science
-Requires:       %{name} = %{version}
+Requires:       %{name} = %{epoch}:%{version}
 
 %description khangman
 KHangMan is a game based on the well known hangman game. A word is
@@ -118,7 +118,7 @@ lat lub wiêcej.
 Summary:        A Japanese reference tool
 Summary(pl):    S³ownik angielsko-japoñski
 Group:          X11/Applications/Science
-Requires:       %{name} = %{version}
+Requires:       %{name} = %{epoch}:%{version}
 
 %description kiten
 A Japanese reference tool.
@@ -130,7 +130,7 @@ S³ownik angielsko-japoñski.
 Summary:	Helps child to learn French alphabet and to read some syllables
 Summary(pl):	Pomoc w nauce francuskiego alfabetu i sylab dla dzieci
 Group:		X11/Applications/Science
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 
 %description klettres
 Helps child to learn French alphabet and to read some syllables.
@@ -142,7 +142,7 @@ Pomoc w nauce francuskiego alfabetu i sylab dla dzieci.
 Summary:        Mathematical function plotter
 Summary(pl):    Koordynograf
 Group:          X11/Applications/Science
-Requires:       %{name} = %{version}
+Requires:       %{name} = %{epoch}:%{version}
 
 %description kmplot
 Mathematical function plotter.
@@ -154,7 +154,7 @@ Koordynograf.
 Summary:	Simple mind-training game
 Summary(pl):	Prosta ³amig³ówka
 Group:		X11/Applications/Science
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 
 %description kmessedwords
 Simple mind-training game.
@@ -166,7 +166,7 @@ Prosta ³amig³ówka.
 Summary:        A percentage tutor
 Summary(pl):    Program do nauki procentów
 Group:          X11/Applications/Science
-Requires:       %{name} = %{version}
+Requires:       %{name} = %{epoch}:%{version}
 
 %description kpercentage
 A percentage tutor.
@@ -178,7 +178,7 @@ Program do nauki procentów.
 Summary:	Desktop planetarium
 Summary(pl):	Planetarium
 Group:		X11/Applications/Science
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 
 %description kstars
 Desktop planetarium.
@@ -190,7 +190,7 @@ Planetarium.
 Summary:	Program for learning touch typing
 Summary(pl):	Program do nauki maszynopisania
 Group:		X11/Applications/Science
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 Provides:	ktouch
 Obsoletes:	ktouch
 
@@ -204,7 +204,7 @@ Program do nauki maszynopisania.
 Summary:	Spanish verb form study application for KDE
 Summary(pl):	Program do nauki form czasowników w jêzyku hiszpañskim
 Group:          X11/Applications/Science
-Requires:       %{name} = %{version}
+Requires:       %{name} = %{epoch}:%{version}
 
 %description kverbos
 Spanish verb form study application for KDE.
@@ -216,7 +216,7 @@ Program do nauki form czasowników w jêzyku hiszpañskim.
 Summary:	Vocabulary trainer
 Summary(pl):	Program do æwiczenia s³ownictwa
 Group:		X11/Applications/Science
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 
 %description kvoctrain
 Vocabulary trainer.

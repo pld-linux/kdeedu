@@ -4,7 +4,6 @@
 #
 %define		_state		stable
 %define		_ver		3.2.2
-##%define		_snap		040110
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
@@ -583,10 +582,6 @@ mv $RPM_BUILD_ROOT%{_iconsdir}/locolor/16x16/actions/edit_{add,remove}.png \
 %find_lang kverbos	--with-kde
 %find_lang kvoctrain	--with-kde
 
-%if %{with i18n}
-%find_lang desktop_kdeedu	--with-kde
-%endif
-
 files="flashkard \
 kalzium \
 kbruch \
@@ -635,7 +630,6 @@ rm -rf $RPM_BUILD_ROOT
 %postun	libkdeeduui	-p /sbin/ldconfig
 
 %if %{with i18n}
-%files i18n -f desktop_kdeedu.lang
 %files flashkard-i18n -f flashkard.lang
 %files kalzium-i18n -f kalzium.lang
 %files kbruch-i18n -f kbruch.lang

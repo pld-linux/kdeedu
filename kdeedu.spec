@@ -1,4 +1,4 @@
-%define		_ver		3.0
+%define		_ver		3.0.1
 #define		_sub_ver
 %define		_rel		1
 
@@ -14,7 +14,7 @@ Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	%{_version}
 Release:	%{_release}
-Epoch:		6
+Epoch:		7
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/%{_ftpdir}/%{version}/src/%{name}-%{version}.tar.bz2

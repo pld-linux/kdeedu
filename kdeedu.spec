@@ -583,6 +583,10 @@ rm -rf $RPM_BUILD_ROOT
 %post	libkdeeduui	-p /sbin/ldconfig
 %postun	libkdeeduui	-p /sbin/ldconfig
 
+%post   libextdate	-p /sbin/ldconfig
+%postun libextdate	-p /sbin/ldconfig
+
+
 %files devel
 %defattr(644,root,root,755)
 %doc README
@@ -771,13 +775,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/kstars.desktop
 %{_iconsdir}/[!l]*/*/apps/kstars*
 %{_mandir}/man1/kstars.1*
-%{_manddir}/man1/celestrongps.1.gz
-%{_manddir}/man1/indiserver.1.gz
-%{_manddir}/man1/lx200_16.1.gz
-%{_manddir}/man1/lx200autostar.1.gz
-%{_manddir}/man1/lx200classic.1.gz
-%{_manddir}/man1/lx200generic.1.gz
-%{_manddir}/man1/lx200gps.1.gz
+%{_mandir}/man1/celestrongps.1.gz
+%{_mandir}/man1/indiserver.1.gz
+%{_mandir}/man1/lx200_16.1.gz
+%{_mandir}/man1/lx200autostar.1.gz
+%{_mandir}/man1/lx200classic.1.gz
+%{_mandir}/man1/lx200generic.1.gz
+%{_mandir}/man1/lx200gps.1.gz
 %{_kdedocdir}/en/kstars
 
 %files ktouch

@@ -1,6 +1,6 @@
 %define		_ver		3.0.2
 #define		_sub_ver
-%define		_rel		0.1
+%define		_rel		1
 
 %{?_sub_ver:	%define	_version	%{_ver}%{_sub_ver}}
 %{!?_sub_ver:	%define	_version	%{_ver}}
@@ -150,6 +150,11 @@ bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 %find_lang kstars --with-kde
 %find_lang ktouch --with-kde
 %find_lang kvoctrain --with-kde
+%find_lang keduca --with-kde
+# WTF?
+%find_lang klatin --with-kde
+# WTF?
+%find_lang khangman --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -162,7 +167,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mimelnk/application/x-edu.desktop
 %doc README*
 
-%files keduca
+%files keduca -f keduca.lang
 %defattr(644,root,root,755)
 %{_bindir}/keduca
 %{_datadir}/apps/keduca

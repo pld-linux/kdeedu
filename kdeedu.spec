@@ -3,7 +3,7 @@
 %bcond_without  i18n    # don't build i18n subpackages
 #
 %define		_state		stable
-%define		_ver		3.2.0
+%define		_ver		3.2.1
 ##%define		_snap		040110
 
 Summary:	K Desktop Environment - edutainment

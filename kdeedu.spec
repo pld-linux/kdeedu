@@ -262,8 +262,8 @@ rm -rf $RPM_BUILD_ROOT
 %files -f kmathtool.lang
 %defattr(644,root,root,755)
 %doc README*
-%attr(755,root,root) %{_libdir}/libkdeeducore.so.*
 %{_libdir}/libkdeeducore.la
+%attr(755,root,root) %{_libdir}/libkdeeducore.so.*
 %{_datadir}/mimelnk/application/x-edu.desktop
 %{_pixmapsdir}/*/*/actions/*
 %{_pixmapsdir}/*/*/apps/edu_*
@@ -313,8 +313,8 @@ rm -rf $RPM_BUILD_ROOT
 %files kiten -f kiten.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kiten*
-%attr(755,root,root) %{_libdir}/kiten.so
 %{_libdir}/kiten.la
+%attr(755,root,root) %{_libdir}/kiten.so
 %{_datadir}/apps/kiten
 %{_applnkdir}/Edutainment/kiten.desktop
 %{_pixmapsdir}/*/*/*/kiten*

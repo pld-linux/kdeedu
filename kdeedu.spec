@@ -309,6 +309,7 @@ Summary:	Desktop planetarium
 Summary(pl):	Planetarium
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
+Requires:	%{name}-libextdate = %{epoch}:%{version}-%{release}
 Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
 Obsoletes:	kdeedu
 

@@ -1,6 +1,6 @@
-%define		_ver		3.0.1
+%define		_ver		3.0.2
 #define		_sub_ver
-%define		_rel		1
+%define		_rel		0.1
 
 %{?_sub_ver:	%define	_version	%{_ver}%{_sub_ver}}
 %{!?_sub_ver:	%define	_version	%{_ver}}
@@ -131,7 +131,7 @@ Program do æwiczenia s³ownictwa.
 kde_htmldir="%{_htmldir}"; export kde_htmldir
 kde_icondir="%{_pixmapsdir}"; export kde_icondir
 
-%{__make} -f Makefile.cvs
+#%{__make} -f Makefile.cvs
 %configure \
 	--enable-final
 
@@ -143,8 +143,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install DESTDIR="$RPM_BUILD_ROOT"
 
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
-
-gzip README*
 
 %find_lang kgeo --with-kde
 %find_lang klettres --with-kde
@@ -162,7 +160,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %{_datadir}/mimelnk/application/x-edu.desktop
-%doc *gz
+%doc README*
 
 %files keduca
 %defattr(644,root,root,755)

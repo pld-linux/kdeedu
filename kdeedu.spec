@@ -1,21 +1,18 @@
-#
 %define		_state		stable
-%define		_ver		3.2.3
+%define		_ver		3.3.0
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	%{_ver}
-Release:	3
+Release:	0.1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/3.3/src/%{name}-%{version}.tar.bz2
 # Source0-md5:	1c41b731f26269fdb39f2c097a95dd9a
-#Source0:	http://ep09.pld-linux.org/~djurban/kde/%{name}-%{version}.tar.bz2
 Icon:		kde-edu.xpm
 #Patch100:	%{name}-branch.diff
-Patch0:		%{name}-vcategories.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
@@ -23,7 +20,7 @@ BuildRequires:	kdelibs-devel >= 9:%{version}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
-BuildRequires:	unsermake >= 040511
+BuildRequires:	unsermake >= 040805
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -70,8 +67,8 @@ Narzêdzie dla KDE do nauki za pomoc± pokazywania kart. FlashKard jest
 oparty na raczej starej metodzie nauczania dzieci faktów. Nauczyciel
 pokazywa³ zestaw kart z pytaniami, a uczeñ pisa³ odpowiedzi na
 odwrocie tych kart. Karty by³y potem sprawdzane na koñcu rundy przez
-nauczyciela. Karty z poprawnymi odpowiedziami by³y usuwane z puli,
-a pytania, na które pad³y z³e odpowiedzi, by³y powtarzane a¿ do
+nauczyciela. Karty z poprawnymi odpowiedziami by³y usuwane z puli, a
+pytania, na które pad³y z³e odpowiedzi, by³y powtarzane a¿ do
 wt³oczenia odpowiedzi do pamiêci uczniów.
 
 %package kalzium
@@ -90,8 +87,8 @@ visualizations to show them.
 
 %description kalzium -l pl
 Baza danych Uk³adu Okresowego Pierwiastków. Kalzium dostarcza wszelkie
-informacje dotycz±ce UOP, pozwala wyszukiwaæ informacje o
-pierwiastkach oraz wizualizowaæ je.
+informacje dotycz±ce UOP, iformacje o pierwiastkach oraz ich
+wizualizacje.
 
 %package kbruch
 Summary:	Task generator for calculations with fractions
@@ -191,9 +188,9 @@ specific characters; thirdly, it is a tool to help you learn Kanji.
 
 %description kiten -l pl
 Kiten to aplikacja o wielu funkcjach. Po pierwsze, jest wygodnym
-s³ownikiem angielsko-japoñskim i japoñsko-angielskim; po drugie,
-jest s³ownikiem Kanji z wieloma sposobami wyszukiwania okre¶lonych
-znaków; po trzecie, jest narzêdziem pomagaj±cym w nauce Kanji.
+s³ownikiem angielsko-japoñskim i japoñsko-angielskim; po drugie, jest
+s³ownikiem Kanji z wieloma sposobami wyszukiwania okre¶lonych znaków;
+po trzecie, jest narzêdziem pomagaj±cym w nauce Kanji.
 
 %package klettres
 Summary:	Helps child to learn alphabet and to read some syllables
@@ -372,10 +369,11 @@ Requires:	kdelibs >= 9:%{version}
 Obsoletes:	kdeedu-flashkard < 8:3.1.93.031105-1
 
 %description libkdeeducore
-kdeeducore shared library.
+The core library for education applications in KDE.
 
 %description libkdeeducore -l pl
-Biblioteka wspó³dzielona kdeeducore.
+Podstawowa biblioteka z funkcjami wykorzystywanymi przez aplikacje
+edukacyjne w KDE.
 
 %package libkdeeduplot
 Summary:	kdeeduplot library
@@ -384,10 +382,11 @@ Group:		X11/Libraries
 Requires:	kdelibs >= 9:%{version}
 
 %description libkdeeduplot
-kdeeduplot shared library.
+Library with plotting functions for KDE educational applications.
 
 %description libkdeeduplot -l pl
-Biblioteka wspó³dzielona kdeeduplot.
+Biblioteka z funkcjami do kre¶lenia rysunków, wykorzystywanymi przez
+aplikacje edukacyjne w KDE.
 
 %package libkdeeduui
 Summary:	kdeeduui library
@@ -396,15 +395,16 @@ Group:		X11/Libraries
 Requires:	kdelibs >= 9:%{version}
 
 %description libkdeeduui
-kdeeduui shared library.
+A library with user interface functions for KDE educational
+applications.
 
 %description libkdeeduui -l pl
-Biblioteka wspó³dzielona kdeeduui.
+Biblioteka z funkcjami interfejsu u¿ytkownika, wykorzystywanymi przez
+aplikacje edukacyjne w KDE.
 
 %prep
 %setup -q
 #patch100 -p1
-%patch0 -p1
 
 for f in `find . -name *.desktop | xargs grep -l '^Terminal=0'`; do
 	%{__sed} -i -e 's/^Terminal=0/Terminal=false/' $f
@@ -415,17 +415,32 @@ for f in `find . -name *.desktop | xargs grep -l '^Type=Application'`; do
 	fi
 done
 
+%{__sed} -i -e 's/Categories=.*/Categories=Qt;KDE;Education;Science;Chemistry;/' \
+./kalzium/src/kalzium.desktop
+
+%{__sed} -i -e 's/Categories=.*/Categories=Qt;KDE;Education;Languages;/' \
+./kvoctrain/kvoctrain/kvoctrain.desktop \
+./kverbos/kverbos/kverbos.desktop \
+./kiten/kiten.desktop \
+./klettres/klettres/klettres.desktop \
+./klatin/klatin/klatin.desktop \
+./kmessedwords/kmessedwords/kmessedwords.desktop \
+./khangman/khangman/khangman.desktop
+
+%{__sed} -i -e 's/Categories=.*/Categories=Qt;KDE;Education;Teaching;/' \
+./keduca/resources/keduca.desktop \
+./keduca/resources/keducabuilder.desktop
+
 %build
 cp %{_datadir}/automake/config.sub admin
-export kde_htmldir=%{_kdedocdir}
-export kde_libs_htmldir=%{_kdedocdir}
 export UNSERMAKE=%{_datadir}/unsermake/unsermake
+
 %{__make} -f admin/Makefile.common cvs
 
 %configure \
-	--with-qt-libraries=%{_libdir} \
 	--disable-rpath \
-	--enable-final
+	--enable-final \
+	--with-qt-libraries=%{_libdir}
 
 %{__make}
 
@@ -469,14 +484,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkdeeduui.so
 %{_includedir}/*.h
 
-%files flashkard
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/flashkard
-%{_datadir}/apps/flashkard
-%{_desktopdir}/kde/flashkard.desktop
-%{_iconsdir}/*/*/apps/flashkard.png
-%{_mandir}/man1/flashkard.1*
-%{_kdedocdir}/en/flashkard
+#files flashkard
+#defattr(644,root,root,755)
+#attr(755,root,root) %{_bindir}/flashkard
+#{_datadir}/apps/flashkard
+#{_desktopdir}/kde/flashkard.desktop
+#{_iconsdir}/*/*/apps/flashkard.png
+#{_mandir}/man1/flashkard.1*
+#{_kdedocdir}/en/flashkard
 
 %files kalzium
 %defattr(644,root,root,755)
@@ -494,6 +509,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/kbruch.desktop
 %{_iconsdir}/[!l]*/*/apps/kbruch.png
 %{_kdedocdir}/en/kbruch
+%{_mandir}/man1/kbruch.1*
 
 %files keduca
 %defattr(644,root,root,755)
@@ -504,7 +520,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mimelnk/application/x-edugallery.desktop
 %{_desktopdir}/kde/keduca*.desktop
 %{_iconsdir}/*/*/apps/keduca.png
-%{_mandir}/man1/keduca.1*
+%{_mandir}/man1/keduca*.1*
 %{_kdedocdir}/en/keduca
 
 %files khangman
@@ -551,6 +567,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/kig.desktop
 %{_iconsdir}/[!l]*/*/apps/kig.png
 %{_kdedocdir}/en/kig
+%{_mandir}/man1/kig.1*
 
 %files kiten
 %defattr(644,root,root,755)

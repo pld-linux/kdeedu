@@ -1,6 +1,6 @@
 %define		_ver		3.0.3
 #define		_sub_ver
-%define		_rel		0.1
+%define		_rel		1
 
 %{?_sub_ver:	%define	_version	%{_ver}%{_sub_ver}}
 %{!?_sub_ver:	%define	_version	%{_ver}}
@@ -166,8 +166,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f khangman.lang
 %defattr(644,root,root,755)
-%{_datadir}/mimelnk/application/x-edu.desktop
 %doc README*
+%{_datadir}/mimelnk/application/x-edu.desktop
 
 %files keduca -f keduca.lang
 %defattr(644,root,root,755)

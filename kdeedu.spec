@@ -1,7 +1,7 @@
 
 %define		_state		snapshots
-%define		_ver		3.1.91
-%define		_snap		030918
+%define		_ver		3.1.92
+%define		_snap		030930
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
@@ -13,7 +13,7 @@ License:	GPL
 Group:		X11/Applications/Science
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
 Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	8a91209a7f7f132935edfa4ac1047f0d
+# Source0-md5:	b0b0d2b4d42b2d331e9e0a4af5a657be
 Patch0:		%{name}-vcategories.patch
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel >= 9:%{version}
@@ -49,7 +49,7 @@ Pliki nag³ówkowe
 Summary:	Flash card learning tool for KDE
 Summary(pl):    Narzêdzie do nauki za pomoc± liczmanów
 Group:          X11/Applications/Science
-Requires:	kdebase-core >= %{version}
+Requires:	kdebase-core >= 9:%{version}
 Obsoletes:	%{name}
 
 %description flashkard
@@ -62,7 +62,7 @@ Narzêdzie do nauki za pomoc± liczmanów.
 Summary:        A Periodic System of Elements database
 Summary(pl):    Baza danych Uk³adu Okresowego Pierwiastków
 Group:          X11/Applications/Science
-Requires:	kdebase-core >= %{version}
+Requires:	kdebase-core >= 9:%{version}
 Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
 Obsoletes:      %{name}
 
@@ -76,7 +76,7 @@ Baza danych Uk³adu Okresowego Pierwiastków.
 Summary:	Task generator for calculations with fractions
 Summary(pl):	Generator zadañ z obliczeniami na u³amkach
 Group:		X11/Applications
-Requires:	kdebase-core >= %{version}
+Requires:	kdebase-core >= 9:%{version}
 Obsoletes:      %{name}
 
 %description kbruch
@@ -89,7 +89,7 @@ Generator zadañ z obliczeniami na u³amkach.
 Summary:	Creation and revision of form-based tests and exams
 Summary(pl):	Tworzenie i sprawdzanie testów i egzaminów
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= %{version}
+Requires:	kdebase-core >= 9:%{version}
 Obsoletes:	%{name}
 
 %description keduca
@@ -102,7 +102,7 @@ Tworzenie i sprawdzanie testów i egzaminów.
 Summary:	A hangman game
 Summary(pl):	Gra w wisielca
 Group:          X11/Applications/Science
-Requires:	kdebase-core >= %{version}
+Requires:	kdebase-core >= 9:%{version}
 Obsoletes:      %{name}
 
 %description khangman
@@ -124,7 +124,7 @@ lat lub wiêcej.
 Summary:        Interactive Geometry
 Summary(pl):    Interaktywna geometria
 Group:          X11/Applications/Science
-Requires:	kdebase-core >= %{version}
+Requires:	kdebase-core >= 9:%{version}
 Obsoletes:      %{name}
 
 %description kig
@@ -137,7 +137,7 @@ Interaktywna geometria.
 Summary:        A Japanese reference tool
 Summary(pl):    S³ownik angielsko-japoñski
 Group:          X11/Applications/Science
-Requires:	kdebase-core >= %{version}
+Requires:	kdebase-core >= 9:%{version}
 Obsoletes:	%{name}
 
 %description kiten
@@ -150,7 +150,7 @@ S³ownik angielsko-japoñski.
 Summary:	Helps child to learn French alphabet and to read some syllables
 Summary(pl):	Pomoc w nauce francuskiego alfabetu i sylab dla dzieci
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= %{version}
+Requires:	kdebase-core >= 9:%{version}
 Obsoletes:	%{name}
 
 %description klettres
@@ -163,7 +163,7 @@ Pomoc w nauce francuskiego alfabetu i sylab dla dzieci.
 Summary:        Mathematical function plotter
 Summary(pl):    Koordynograf
 Group:          X11/Applications/Science
-Requires:	kdebase-core >= %{version}
+Requires:	kdebase-core >= 9:%{version}
 Obsoletes:      %{name}
 
 %description kmplot
@@ -176,7 +176,7 @@ Koordynograf.
 Summary:	Simple mind-training game
 Summary(pl):	Prosta ³amig³ówka
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= %{version}
+Requires:	kdebase-core >= 9:%{version}
 Obsoletes:      %{name}
 
 %description kmessedwords
@@ -189,7 +189,7 @@ Prosta ³amig³ówka.
 Summary:        A percentage tutor
 Summary(pl):    Program do nauki procentów
 Group:          X11/Applications/Science
-Requires:	kdebase-core >= %{version}
+Requires:	kdebase-core >= 9:%{version}
 Obsoletes:      %{name}
 
 %description kpercentage
@@ -202,7 +202,7 @@ Program do nauki procentów.
 Summary:	Desktop planetarium
 Summary(pl):	Planetarium
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= %{version}
+Requires:	kdebase-core >= 9:%{version}
 Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
 Obsoletes:      %{name}
 
@@ -216,7 +216,7 @@ Planetarium.
 Summary:	Program for learning touch typing
 Summary(pl):	Program do nauki maszynopisania
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= %{version}
+Requires:	kdebase-core >= 9:%{version}
 Obsoletes:      %{name}
 
 
@@ -230,7 +230,7 @@ Program do nauki maszynopisania.
 Summary:	Spanish verb form study application for KDE
 Summary(pl):	Program do nauki form czasowników w jêzyku hiszpañskim
 Group:          X11/Applications/Science
-Requires:	kdebase-core >= %{version}
+Requires:	kdebase-core >= 9:%{version}
 Obsoletes:	%{name}
 
 %description kverbos
@@ -243,7 +243,7 @@ Program do nauki form czasowników w jêzyku hiszpañskim.
 Summary:	Vocabulary trainer
 Summary(pl):	Program do æwiczenia s³ownictwa
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= %{version}
+Requires:	kdebase-core >= 9:%{version}
 Obsoletes:      %{name}
 
 %description kvoctrain
@@ -256,7 +256,7 @@ Program do æwiczenia s³ownictwa.
 Summary:	TODO
 Summary(pl):	TODO
 Group:		X11/Libraries
-Requires:	kdelibs >= %{version}
+Requires:	kdelibs >= 9:%{version}
 
 %description libkdeeduplot
 TODO.
@@ -268,7 +268,7 @@ TODO.
 Summary:	TODO
 Summary(pl):	TODO
 Group:		X11/Libraries
-Requires:	kdelibs >= %{version}
+Requires:	kdelibs >= 9:%{version}
 
 %description libkdeeduui
 TODO.
@@ -419,6 +419,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/48x48/apps/o_grave.png
 %{_iconsdir}/hicolor/48x48/apps/o_tilde.png
 %{_iconsdir}/hicolor/48x48/apps/o_umlaut.png
+%{_iconsdir}/hicolor/48x48/apps/sz_lig.png
 %{_iconsdir}/hicolor/48x48/apps/u_acute.png
 %{_iconsdir}/hicolor/48x48/apps/u_umlaut.png
 

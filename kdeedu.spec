@@ -555,9 +555,7 @@ TODO.
 TODO.
 
 %prep
-#%setup -q -n %{name}-%{_snap}
 %setup -q
-#%%patch100 -p1
 %patch0 -p1
 
 for f in `find . -name *.desktop | xargs grep -l '^Terminal=0'`; do

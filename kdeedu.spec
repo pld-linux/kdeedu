@@ -562,7 +562,7 @@ aplikacje edukacyjne w KDE.
 
 %prep
 %setup -q
-#%patch100 -p1
+%patch100 -p1
 %patch0 -p1
 
 for f in `find . -name *.desktop | xargs grep -l '^Terminal=0'`; do

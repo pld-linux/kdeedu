@@ -1,6 +1,6 @@
 
 %define		_state		stable
-%define		_ver		3.1.1
+%define		_ver		3.1.2
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
@@ -19,6 +19,7 @@ BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	sed >= 4.0
 BuildRequires:	zlib-devel
+Requires:	kdebase-core >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_htmldir	/usr/share/doc/kde/HTML
@@ -234,7 +235,7 @@ for plik in `find ./ -name *.desktop` ; do
 
 if [ -d $plik ]; then
 	echo $plik
-	sed -ie 's/\[nb\]/\[no\]/g' $plik
+	sed -i -e 's/\[nb\]/\[no\]/g' $plik
 	fi
 done
 

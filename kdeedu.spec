@@ -1,15 +1,22 @@
+#
+# Conditional build:
+# _with_klatin - build kdebase-klatin package
+#
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	3.0.4
-Release:	1
+Release:	2
 Epoch:		7
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/stable/%{version}/src/%{name}-%{version}.tar.bz2
 # generated from kde-i18n
 Source1:	kde-i18n-%{name}-%{version}.tar.bz2
+Source2:	%{name}-extra_pixmaps.tar.bz2
 Patch0:		%{name}-DESTDIR.patch
+Patch1:		%{name}-desktop.patch
+Patch2:		%{name}-klatin_and_khangman.patch
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel = %{version}
 BuildRequires:	libjpeg-devel
@@ -50,14 +57,51 @@ Interactive geometry.
 %description kgeo -l pl
 Interaktywna geometria.
 
+%package khangman
+Summary:	Hangman game
+Summary(pl):	Gra w wisielca
+Group:		X11/Applications/Games
+Requires:	%{name} = %{version}
+
+%description khangman
+KHangMan is a game based on the well known hangman game. A word is
+picked in random, the letters are hidden, you must guess the word by
+trying a letter afteranother. Each time you guess a wrong letter, a
+picture of a hangman is drawn. You must guess the word before getting
+hanged! It is aimed for children aged 6+.
+
+%description khangman -l pl
+KHangMan jest gr± opart± na popularnej grze w wisielca. Wybierane
+jest losowe s³owo, którego litery s± ukryte. Trzeba zgadnaæ to s³owo
+podaj±c kolejno litery. Za ka¿dym razem, gdy podana litera nie
+wystêpuje w s³owie, rysowany jest obrazek wisielca. Trzeba odgadn±æ
+s³owo zanim rysunek zostanie ukoñczony. Musisz odgadn±æ s³owo, zanim
+ciê powiesz±! Gra jest przeznaczona dla dzieci w wieku powy¿ej 6 lat.
+
+Zgadywane s± s³owa angielskie.
+
+%if %{?_with_klatin:1}%{!?_with_klatin:0}
+%package klatin
+Summary:	Latin exercises
+Summary(pl):	Æwiczenia z ³aciny
+Group:		X11/Applications
+Requires:	%{name} = %{version}
+
+%description klatin
+Latin exercises.
+
+%description klatin -l pl
+Æwiczenia z ³aciny.
+%endif
+
 %package klettres
-Summary:	Helps child to learn french alphabet and to read some syllables
+Summary:	Helps child to learn French alphabet and to read some syllables
 Summary(pl):	Pomoc w nauce francuskiego alfabetu i sylab dla dzieci
 Group:		X11/Applications
 Requires:	%{name} = %{version}
 
 %description klettres
-Helps child to learn french alphabet and to read some syllables
+Helps child to learn French alphabet and to read some syllables.
 
 %description klettres -l pl
 Pomoc w nauce francuskiego alfabetu i sylab dla dzieci.
@@ -115,6 +159,8 @@ Program do æwiczenia s³ownictwa.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
 kde_htmldir="%{_htmldir}"; export kde_htmldir
@@ -128,10 +174,32 @@ kde_icondir="%{_pixmapsdir}"; export kde_icondir
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_mandir}/man1
 
 %{__make} install DESTDIR="$RPM_BUILD_ROOT"
 
+install debian/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
+
+cp -af $RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/48x48/apps/k{educa,stars}.png \
+	$RPM_BUILD_ROOT%{_pixmapsdir}
+bzip2 -dc %{SOURCE2} | tar xf - -C $RPM_BUILD_ROOT%{_pixmapsdir}
+
+rm -f $RPM_BUILD_ROOT%{_pixmapsdir}/*color/??x??/*/k{educa,stars}.png
+rm -f $RPM_BUILD_ROOT%{_pixmapsdir}/*color/??x??/*/k{geo,lettres,messedwords,touch}.png
+rm -f $RPM_BUILD_ROOT%{_pixmapsdir}/*color/??x??/*/kvoctrain.xpm
+
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
+
+cat > $RPM_BUILD_ROOT%{_applnkdir}/Edutainment/French/.directory << EOF
+[Desktop Entry]
+Name=French
+Name[pl]=Francuski
+Comment=Learning French
+Comment[pl]=Nauka francuskiego
+Icon=package_french.png
+Type=Directory
+# vi: encoding=utf-8
+EOF
 
 %find_lang kgeo --with-kde
 %find_lang klettres --with-kde
@@ -140,12 +208,10 @@ bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 %find_lang ktouch --with-kde
 %find_lang kvoctrain --with-kde
 %find_lang keduca --with-kde
-# WTF?
-%find_lang klatin --with-kde
-# WTF?
 %find_lang khangman --with-kde
-
-cat klatin.lang >> khangman.lang
+# NWY (not working yet)
+# the klatin program does not work with non-C locale set
+%find_lang klatin --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -153,7 +219,8 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%files -f khangman.lang
+#%files -f khangman.lang
+%files
 %defattr(644,root,root,755)
 %doc README*
 %{_datadir}/mimelnk/application/x-edu.desktop
@@ -162,43 +229,74 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/keduca
 %{_datadir}/apps/keduca
-%{_pixmapsdir}/*/*/*/keduca*
+#%{_pixmapsdir}/*/*/*/keduca*
+%{_pixmapsdir}/keduca.png
 %{_applnkdir}/Edutainment/keduca.desktop
+%{_mandir}/man1/keduca.1
 
 %files kgeo -f kgeo.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kgeo
 %{_datadir}/apps/kgeo
-%{_pixmapsdir}/*/*/*/kgeo*
+#%{_pixmapsdir}/*/*/*/kgeo*
+%{_pixmapsdir}/kgeo.png
 %{_applnkdir}/Edutainment/kgeo.desktop
+%{_mandir}/man1/kgeo.1
+
+%files khangman -f khangman.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/khangman
+%{_datadir}/apps/khangman
+#%{_pixmapsdir}/*/*/*/khangman*
+%{_pixmapsdir}/khangman.png
+%{_applnkdir}/Edutainment/khangman.desktop
+
+%if %{?_with_klatin:1}%{!?_with_klatin:0}
+%files klatin -f klatin.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/klatin
+%{_datadir}/apps/klatin
+%{_pixmapsdir}/*/*/*/klatin*
+#%{_pixmapsdir}/klatin.png
+%{_applnkdir}/Edutainment/klatin.desktop
+%endif
 
 %files klettres -f klettres.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/klettres
 %{_datadir}/apps/klettres
-%{_pixmapsdir}/*/*/*/klettres*
-%{_applnkdir}/Edutainment/French/klettres.desktop
+#%{_pixmapsdir}/*/*/*/klettres*
+%{_pixmapsdir}/klettres.png
+%{_pixmapsdir}/package_french.png
+%{_applnkdir}/Edutainment/French
+%{_mandir}/man1/klettres.1
 
 %files kmessedwords -f kmessedwords.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kmessedwords
 %{_datadir}/apps/kmessedwords
-%{_pixmapsdir}/*/*/*/kmessedwords*
+#%{_pixmapsdir}/*/*/*/kmessedwords*
+%{_pixmapsdir}/kmessedwords.png
 %{_applnkdir}/Edutainment/kmessedwords.desktop
+%{_mandir}/man1/kmessedwords.1
 
 %files kstars -f kstars.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kstars
 %{_datadir}/apps/kstars
-%{_pixmapsdir}/*/*/*/kstars*
+#%{_pixmapsdir}/*/*/*/kstars*
+%{_pixmapsdir}/kstars.png
 %{_applnkdir}/Edutainment/kstars.desktop
+%{_mandir}/man1/kstars.1
 
 %files ktouch -f ktouch.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/ktouch
 %{_datadir}/apps/ktouch
-%{_pixmapsdir}/*/*/*/ktouch*
+#%{_pixmapsdir}/*/*/*/ktouch*
+%{_pixmapsdir}/ktouch.png
 %{_applnkdir}/Edutainment/ktouch.desktop
+%{_mandir}/man1/ktouch.1
 
 %files kvoctrain -f kvoctrain.lang
 %defattr(644,root,root,755)
@@ -206,6 +304,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/langen2kvtml
 %attr(755,root,root) %{_bindir}/spotlight2kvtml
 %{_datadir}/apps/kvoctrain
-%{_pixmapsdir}/*/*/*/kvoctrain*
+#%{_pixmapsdir}/*/*/*/kvoctrain*
 %{_pixmapsdir}/kvoctrain*
 %{_applnkdir}/Edutainment/kvoctrain.desktop
+%{_mandir}/man1/kvoctrain.1

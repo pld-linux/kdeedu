@@ -15,12 +15,12 @@ Group:		X11/Applications/Science
 Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
 # Source0-md5:	c4c162c76e402a99b5fd6039a7d69692
 Patch0:		%{name}-vcategories.patch
+BuildRequires:	ed
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel >= 9:%{version}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
-BuildRequires:	sed >= 4.0
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -46,8 +46,8 @@ Pliki nag³ówkowe
 
 %package flashkard
 Summary:	Flash card learning tool for KDE
-Summary(pl):    Narzêdzie do nauki za pomoc± liczmanów
-Group:          X11/Applications/Science
+Summary(pl):	Narzêdzie do nauki za pomoc± liczmanów
+Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
 Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
 Obsoletes:	%{name}
@@ -59,12 +59,12 @@ Flash card learning tool for KDE.
 Narzêdzie do nauki za pomoc± liczmanów.
 
 %package kalzium
-Summary:        A Periodic System of Elements database
-Summary(pl):    Baza danych Uk³adu Okresowego Pierwiastków
-Group:          X11/Applications/Science
+Summary:	A Periodic System of Elements database
+Summary(pl):	Baza danych Uk³adu Okresowego Pierwiastków
+Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
 Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
-Obsoletes:      %{name}
+Obsoletes:	%{name}
 
 %description kalzium
 A Periodic System of Elements database.
@@ -77,7 +77,7 @@ Summary:	Task generator for calculations with fractions
 Summary(pl):	Generator zadañ z obliczeniami na u³amkach
 Group:		X11/Applications
 Requires:	kdebase-core >= 9:%{version}
-Obsoletes:      %{name}
+Obsoletes:	%{name}
 
 %description kbruch
 Task generator for calculations with fractions.
@@ -101,10 +101,10 @@ Tworzenie i sprawdzanie testów i egzaminów.
 %package khangman
 Summary:	A hangman game
 Summary(pl):	Gra w wisielca
-Group:          X11/Applications/Science
+Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
 Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
-Obsoletes:      %{name}
+Obsoletes:	%{name}
 
 %description khangman
 KHangMan is a game based on the well known hangman game. A word is
@@ -122,11 +122,11 @@ s³owo przed powieszeniem! Gra jest przeznaczona dla dzieci w wieku 6
 lat lub wiêcej.
 
 %package kig
-Summary:        Interactive Geometry
-Summary(pl):    Interaktywna geometria
-Group:          X11/Applications/Science
+Summary:	Interactive Geometry
+Summary(pl):	Interaktywna geometria
+Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
-Obsoletes:      %{name}
+Obsoletes:	%{name}
 
 %description kig
 Interactive Geometry.
@@ -135,9 +135,9 @@ Interactive Geometry.
 Interaktywna geometria.
 
 %package kiten
-Summary:        A Japanese reference tool
-Summary(pl):    S³ownik angielsko-japoñski
-Group:          X11/Applications/Science
+Summary:	A Japanese reference tool
+Summary(pl):	S³ownik angielsko-japoñski
+Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
 Obsoletes:	%{name}
 
@@ -161,11 +161,11 @@ Helps child to learn French alphabet and to read some syllables.
 Pomoc w nauce francuskiego alfabetu i sylab dla dzieci.
 
 %package kmplot
-Summary:        Mathematical function plotter
-Summary(pl):    Koordynograf
-Group:          X11/Applications/Science
+Summary:	Mathematical function plotter
+Summary(pl):	Koordynograf
+Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
-Obsoletes:      %{name}
+Obsoletes:	%{name}
 
 %description kmplot
 Mathematical function plotter.
@@ -178,7 +178,7 @@ Summary:	Simple mind-training game
 Summary(pl):	Prosta ³amig³ówka
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
-Obsoletes:      %{name}
+Obsoletes:	%{name}
 
 %description kmessedwords
 Simple mind-training game.
@@ -187,11 +187,11 @@ Simple mind-training game.
 Prosta ³amig³ówka.
 
 %package kpercentage
-Summary:        A percentage tutor
-Summary(pl):    Program do nauki procentów
-Group:          X11/Applications/Science
+Summary:	A percentage tutor
+Summary(pl):	Program do nauki procentów
+Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
-Obsoletes:      %{name}
+Obsoletes:	%{name}
 
 %description kpercentage
 A percentage tutor.
@@ -205,7 +205,7 @@ Summary(pl):	Planetarium
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
 Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
-Obsoletes:      %{name}
+Obsoletes:	%{name}
 
 %description kstars
 Desktop planetarium.
@@ -218,7 +218,7 @@ Summary:	Program for learning touch typing
 Summary(pl):	Program do nauki maszynopisania
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
-Obsoletes:      %{name}
+Obsoletes:	%{name}
 
 
 %description ktouch
@@ -230,7 +230,7 @@ Program do nauki maszynopisania.
 %package kverbos
 Summary:	Spanish verb form study application for KDE
 Summary(pl):	Program do nauki form czasowników w jêzyku hiszpañskim
-Group:          X11/Applications/Science
+Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
 Obsoletes:	%{name}
 
@@ -245,7 +245,7 @@ Summary:	Vocabulary trainer
 Summary(pl):	Program do æwiczenia s³ownictwa
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
-Obsoletes:      %{name}
+Obsoletes:	%{name}
 
 %description kvoctrain
 Vocabulary trainer.
@@ -254,41 +254,41 @@ Vocabulary trainer.
 Program do æwiczenia s³ownictwa.
 
 %package libkdeeducore
-Summary:	A kdeeducore library
+Summary:	kdeeducore library
 Summary(pl):	Biblioteka kdeeducore
 Group:		X11/Libraries
 Requires:	kdelibs >= 9:%{version}
 Obsoletes:	%{name}-flashkard < 8:3.1.93.031105-1
 
 %description libkdeeducore
-A kdeeducore library.
+kdeeducore shared library.
 
 %description libkdeeducore -l pl
-Biblioteka kdeeducore.
+Biblioteka wspó³dzielona kdeeducore.
 
 %package libkdeeduplot
-Summary:	A kdeeduplot library
+Summary:	kdeeduplot library
 Summary(pl):	Biblioteka kdeeduplot
 Group:		X11/Libraries
 Requires:	kdelibs >= 9:%{version}
 
 %description libkdeeduplot
-A kdeeduplot library.
+kdeeduplot shared library.
 
 %description libkdeeduplot -l pl
-Biblioteka kdeeduplot.
+Biblioteka wspó³dzielona kdeeduplot.
 
 %package libkdeeduui
-Summary:	A kdeeduui library
+Summary:	kdeeduui library
 Summary(pl):	Biblioteka kdeeduui
 Group:		X11/Libraries
 Requires:	kdelibs >= 9:%{version}
 
 %description libkdeeduui
-A kdeeduui library.
+kdeeduui shared library.
 
 %description libkdeeduui -l pl
-Biblioteka kdeeduui.
+Biblioteka wspó³dzielona kdeeduui.
 
 %prep
 %setup -q -n %{name}-%{_snap}
@@ -296,8 +296,8 @@ Biblioteka kdeeduui.
 
 %build
 
-for f in `find . -name *.desktop` ; do
-	sed -i 's/\[nb\]/\[no\]/g' $f
+for f in `find . -name *.desktop | grep -l '\[nb\]'` ; do
+	echo -e ',s/\[nb\]/[no]/\n,w' | ed $f
 done
 
 %{__make} -f admin/Makefile.common cvs

@@ -44,19 +44,19 @@ Pliki nag³ówkowe
 
 %package flashkard
 Summary:	Flash card learning tool for KDE  
-Summary(pl):    Narzêdzie do nauki za pomoc± liczmanów.
+Summary(pl):    Narzêdzie do nauki za pomoc± liczmanów
 Group:          X11/Applications/Science
 Requires:       %{name} = %{version}
 
 %description flashkard
-Flash card learning tool for KDE
+Flash card learning tool for KDE.
 
 %description flashkard -l pl
 Narzêdzie do nauki za pomoc± liczmanów.
 
 %package keduca
 Summary:	Creation and revision of form-based tests and exams
-Summary(pl):	Tworzenie i sprawdzanie testów i egzaminów.
+Summary(pl):	Tworzenie i sprawdzanie testów i egzaminów
 Group:		X11/Applications/Science
 Requires:	%{name} = %{version}
 
@@ -67,13 +67,13 @@ Creation and revision of form-based tests and exams.
 Tworzenie i sprawdzanie testów i egzaminów.
 
 %package kalzium
-Summary:        A Pieriodic System of Elements database.
-Summary(pl):    Baza danych Uk³adu Okresowego Pierwiastków.
+Summary:        A Periodic System of Elements database
+Summary(pl):    Baza danych Uk³adu Okresowego Pierwiastków
 Group:          X11/Applications/Science
 Requires:       %{name} = %{version}
 
 %description kalzium
-A Pieriodic System of Elements database.
+A Periodic System of Elements database.
 
 %description kalzium -l pl
 Baza danych Uk³adu Okresowego Pierwiastków.
@@ -91,20 +91,29 @@ Interactive geometry.
 Interaktywna geometria.
 
 %package khangman
-Summary:        A hangman name.
-Summary(pl):    Ko³o fortuny.
+Summary:	A hangman game
+Summary(pl):	Gra w wisielca
 Group:          X11/Applications/Science
 Requires:       %{name} = %{version}
 
 %description khangman
-Hangman game. The child should guess a word letter by letter.
+KHangMan is a game based on the well known hangman game. A word is
+picked in random, the letters are hidden, you must guess the word by
+trying a letter afteranother. Each time you guess a wrong letter, a
+picture of a hangman is drawn. You must guess the word before getting
+hanged! It is aimed for children aged 6+.
 
 %description khangman -l pl
-Ko³o fortuny. Zgadujemy has³a litera po literze.
+KHangMan jest gr± opart± na popularnej grze w wisielca. Wybierane
+jest losowe s³owo, którego litery s± ukryte. Trzeba zgadnaæ to s³owo
+podaj±c kolejno litery. Za ka¿dym razem, gdy podana litera nie
+wystêpuje w s³owie, rysowany jest obrazek wisielca. Trzeba odgadn±æ
+s³owo przed powieszeniem! Gra jest przeznaczona dla dzieci w wieku 6
+lat lub wiêcej.
 
 %package kiten
-Summary:        A Japanese reference tool.
-Summary(pl):    S³ownik angielsko-japoñski.
+Summary:        A Japanese reference tool
+Summary(pl):    S³ownik angielsko-japoñski
 Group:          X11/Applications/Science
 Requires:       %{name} = %{version}
 
@@ -115,13 +124,13 @@ A Japanese reference tool.
 S³ownik angielsko-japoñski.
 
 %package klettres
-Summary:	Helps child to learn french alphabet and to read some syllables
+Summary:	Helps child to learn French alphabet and to read some syllables
 Summary(pl):	Pomoc w nauce francuskiego alfabetu i sylab dla dzieci
 Group:		X11/Applications/Science
 Requires:	%{name} = %{version}
 
 %description klettres
-Helps child to learn french alphabet and to read some syllables
+Helps child to learn French alphabet and to read some syllables.
 
 %description klettres -l pl
 Pomoc w nauce francuskiego alfabetu i sylab dla dzieci.
@@ -133,14 +142,14 @@ Group:          X11/Applications/Science
 Requires:       %{name} = %{version}
 
 %description kmplot
-Mathematical function plotter
+Mathematical function plotter.
 
 %description kmplot -l pl
-Koordynograf
+Koordynograf.
 
 %package kmessedwords
 Summary:	Simple mind-training game
-Summary(pl):	Prosta ³amig³ówka.
+Summary(pl):	Prosta ³amig³ówka
 Group:		X11/Applications/Science
 Requires:	%{name} = %{version}
 
@@ -151,8 +160,8 @@ Simple mind-training game.
 Prosta ³amig³ówka.
 
 %package kpercentage
-Summary:        A percentage tutor.
-Summary(pl):    Program do nauki procentów.
+Summary:        A percentage tutor
+Summary(pl):    Program do nauki procentów
 Group:          X11/Applications/Science
 Requires:       %{name} = %{version}
 
@@ -164,7 +173,7 @@ Program do nauki procentów.
 
 %package kstars
 Summary:	Desktop planetarium
-Summary(pl):	Planetarium.
+Summary(pl):	Planetarium
 Group:		X11/Applications/Science
 Requires:	%{name} = %{version}
 
@@ -190,12 +199,12 @@ Program do nauki maszynopisania.
 
 %package kverbos
 Summary:	Spanish verb form study application for KDE
-Summary(pl):	Program do nauki form czasowników w jêzyku hiszpañskim.
+Summary(pl):	Program do nauki form czasowników w jêzyku hiszpañskim
 Group:          X11/Applications/Science
 Requires:       %{name} = %{version}
 
 %description kverbos
-Spanish verb form study application for KDE
+Spanish verb form study application for KDE.
 
 %description kverbos -l pl
 Program do nauki form czasowników w jêzyku hiszpañskim.
@@ -318,7 +327,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kiten
 %{_applnkdir}/Edutainment/kiten.desktop
 %{_pixmapsdir}/*/*/*/kiten*
-
 
 %files klettres -f klettres.lang
 %defattr(644,root,root,755)

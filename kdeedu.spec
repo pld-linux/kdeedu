@@ -70,16 +70,16 @@ A Periodic System of Elements database.
 Baza danych Uk³adu Okresowego Pierwiastków.
 
 %package kbruch
-Summary:	TODO
-Summary(pl):	TODO
+Summary:	Task generator for calculations with fractions
+Summary(pl):	Generator zadañ z obliczeniami na u³amkach
 Group:		X11/Applications
 Requires:	kdebase-core >= %{version}
 
 %description kbruch
-TODO
+Task generator for calculations with fractions.
 
 %description kbruch -l pl
-TODO
+Generator zadañ z obliczeniami na u³amkach.
 
 %package keduca
 Summary:	Creation and revision of form-based tests and exams

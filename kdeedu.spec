@@ -1,7 +1,7 @@
 
 %define		_state		snapshots
 %define		_ver		3.1.92
-%define		_snap		031006
+%define		_snap		031014
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
@@ -13,7 +13,7 @@ License:	GPL
 Group:		X11/Applications/Science
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
 Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	f7a3491246442595e6dfc0e3d4297a36
+# Source0-md5:	9238aa0857ed061c838525c5a32dbd2d
 Patch0:		%{name}-vcategories.patch
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel >= 9:%{version}
@@ -282,17 +282,15 @@ TODO.
 
 %build
 
-for plik in `find ./ -name *.desktop` ; do
-	if [ -d $plik ]; then
-		echo $plik
-		sed -ie 's/\[nb\]/\[no\]/g' $plik
-	fi
+for f in `find . -name *.desktop` ; do
+	sed -i 's/\[nb\]/\[no\]/g' $f
 done
 
 %{__make} -f admin/Makefile.common cvs
 
 %configure \
 	--enable-final
+
 %{__make}
 
 %install

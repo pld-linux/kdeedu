@@ -1,0 +1,8 @@
+--- kdeedu-030329/kalzium/src/kalzium.desktop~	Fri Jan 10 01:03:41 2003
++++ kdeedu-030329/kalzium/src/kalzium.desktop	Thu Apr  3 10:27:57 2003
+@@ -10,4 +10,4 @@
+ Name[bg]=Калций
+ Name[fo]=Kalsium
+ Name[lv]=Kalcium
+-Categories=Qt;KDE;Education;Science
++Categories=Qt;KDE;Education;Science;Chemistry

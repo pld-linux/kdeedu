@@ -5,7 +5,7 @@ Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	%{_ver}
-Release:	2
+Release:	3
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
@@ -499,7 +499,7 @@ Summary:	KDE educational module core library
 Summary(pl):	Podstawowa biblioteka modu³u edukacyjnego KDE
 Group:		X11/Libraries
 Requires:	kdelibs >= 9:%{version}
-Obsoletes:	kdeedu-flashkard < 8:3.1.93.031105-1
+Obsoletes:	kdeedu-flashkard
 
 %description libkdeeducore
 The core library for education applications in KDE.

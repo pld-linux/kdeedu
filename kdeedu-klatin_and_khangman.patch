@@ -1,0 +1,38 @@
+--- kdeedu-3.0.4/configure.in.in~	Mon Nov 11 23:10:10 2002
++++ kdeedu-3.0.4/configure.in.in	Mon Nov 11 23:10:10 2002
+@@ -2,7 +2,7 @@
+ CXXFLAGS="$CXXFLAGS -DQT_CLEAN_NAMESPACE -DQT_NO_ASCII_CAST"
+ AC_CHECK_FUNCS(setenv unsetenv)
+ 
+-DO_NOT_COMPILE="$DO_NOT_COMPILE klatin"
+-DO_NOT_COMPILE="$DO_NOT_COMPILE khangman"
++#DO_NOT_COMPILE="$DO_NOT_COMPILE klatin"
++#DO_NOT_COMPILE="$DO_NOT_COMPILE khangman"
+ 
+ 
+--- kdeedu-3.0.4/configure.in~	Mon Nov 11 23:09:56 2002
++++ kdeedu-3.0.4/configure.in	Mon Nov 11 23:09:56 2002
+@@ -59,8 +59,8 @@
+ CXXFLAGS="$CXXFLAGS -DQT_CLEAN_NAMESPACE -DQT_NO_ASCII_CAST"
+ AC_CHECK_FUNCS(setenv unsetenv)
+ 
+-DO_NOT_COMPILE="$DO_NOT_COMPILE klatin"
+-DO_NOT_COMPILE="$DO_NOT_COMPILE khangman"
++#DO_NOT_COMPILE="$DO_NOT_COMPILE klatin"
++#DO_NOT_COMPILE="$DO_NOT_COMPILE khangman"
+ 
+ 
+ KDE_CREATE_SUBDIRSLIST
+--- kdeedu-3.0.4/configure~	Mon Nov 11 23:10:04 2002
++++ kdeedu-3.0.4/configure	Mon Nov 11 23:10:04 2002
+@@ -21162,8 +21162,8 @@
+ fi
+ done
+ 
+-DO_NOT_COMPILE="$DO_NOT_COMPILE klatin"
+-DO_NOT_COMPILE="$DO_NOT_COMPILE khangman"
++#DO_NOT_COMPILE="$DO_NOT_COMPILE klatin"
++#DO_NOT_COMPILE="$DO_NOT_COMPILE khangman"
+ 
+ DO_NOT_COMPILE="$DO_NOT_COMPILE CVS debian bsd-port admin"
+ 

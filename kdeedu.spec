@@ -6,7 +6,7 @@ Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	%{_ver}
-Release:	1
+Release:	2
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
@@ -17,7 +17,6 @@ Icon:		kde-edu.xpm
 #Patch100:	%{name}-branch.diff
 Patch0:		%{name}-vcategories.patch
 BuildRequires:	autoconf
-BuildRequires:	unsermake >= 040511
 BuildRequires:	automake
 BuildRequires:	ed
 BuildRequires:	gettext-devel
@@ -25,6 +24,7 @@ BuildRequires:	kdelibs-devel >= 9:%{version}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
+BuildRequires:	unsermake >= 040511
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -50,7 +50,7 @@ Pliki nag³ówkowe bibliotek kdeedu.
 
 %package flashkard
 Summary:	Flash card learning tool for KDE
-Summary(pl):	Narzêdzie do nauki za pomoc± liczmanów
+Summary(pl):	Narzêdzie do nauki za pomoc± pokazywania kart
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
 Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
@@ -67,7 +67,13 @@ were repeated over and over again, until the answer was "drilled" into
 the pupils memory.
 
 %description flashkard -l pl
-Narzêdzie do nauki za pomoc± liczmanów.
+Narzêdzie dla KDE do nauki za pomoc± pokazywania kart. FlashKard jest
+oparty na raczej starej metodzie nauczania dzieci faktów. Nauczyciel
+pokazywa³ zestaw kart z pytaniami, a uczeñ pisa³ odpowiedzi na
+odwrocie tych kart. Karty by³y potem sprawdzane na koñcu rundy przez
+nauczyciela. Karty z poprawnymi odpowiedziami by³y usuwane z puli,
+a pytania, na które pad³y z³e odpowiedzi, by³y powtarzane a¿ do
+wt³oczenia odpowiedzi do pamiêci uczniów.
 
 %package kalzium
 Summary:	A Periodic System of Elements database
@@ -84,7 +90,9 @@ can lookup lots of information about the elements and also use
 visualizations to show them.
 
 %description kalzium -l pl
-Baza danych Uk³adu Okresowego Pierwiastków.
+Baza danych Uk³adu Okresowego Pierwiastków. Kalzium dostarcza wszelkie
+informacje dotycz±ce UOP, pozwala wyszukiwaæ informacje o
+pierwiastkach oraz wizualizowaæ je.
 
 %package kbruch
 Summary:	Task generator for calculations with fractions
@@ -94,16 +102,21 @@ Requires:	kdebase-core >= 9:%{version}
 Obsoletes:	kdeedu
 
 %description kbruch
-Task generator for calculations with fractions. KBruch is a small
-program to generate tasks with fractions. The user has to solve the
-given task by entering the right value for numerator and denominator.
-The program checks the input and gives feedback. The task generation
-can be adjusted by using different parameters. The user can decide if
-he wants to solve tasks with addition/subtraction and/or
-multiplication/division.
+KBruch is a small program to generate tasks with fractions. The user
+has to solve the given task by entering the right value for numerator
+and denominator. The program checks the input and gives feedback. The
+task generation can be adjusted by using different parameters. The
+user can decide if he wants to solve tasks with addition/subtraction
+and/or multiplication/division.
 
 %description kbruch -l pl
-Generator zadañ z obliczeniami na u³amkach.
+Generator zadañ z obliczeniami na u³amkach. KBruch to ma³y program do
+generowania zadañ z u³amkami. U¿ytkownik ma rozwi±zaæ zadanie poprzez
+wpisanie poprawnej warto¶ci dla licznika i mianownika. Nastêpnie
+program sprwdza poprawno¶æ danych. Generowanie zadañ mo¿na
+dostosowywaæ przy pomocy ró¿nych parametrów. U¿ytkownik mo¿e
+decydowaæ, czy chce rozwi±zywaæ zadania z dodawaniem/odejmowaniem
+i/lub mno¿eniem/dzieleniem.
 
 %package keduca
 Summary:	Creation and revision of form-based tests and exams
@@ -116,7 +129,8 @@ Obsoletes:	kdeedu
 Application for creating and revising of form-based tests and exams.
 
 %description keduca -l pl
-Tworzenie i sprawdzanie testów i egzaminów.
+Aplikacja do tworzenia i sprawdzania testów i egzaminów opartych na
+formularzach.
 
 %package khangman
 Summary:	A hangman game
@@ -156,9 +170,12 @@ two purposes:
 - serve as a WYSIWYG tool for drawing mathematical figures and
   including them in other documents.
 
-
 %description kig -l pl
-Interaktywna geometria.
+Kig to aplikacja do interaktywnej geometrii. Ma s³u¿yæ dwóm celom:
+- umo¿liwiæ uczniom interaktywnie przegl±danie figur i pojêæ
+  matematycznych przy u¿yciu komputera
+- s³u¿yæ jako narzêdzie WISIWYG do rysowania figur matematycznych i
+  w³±czania ich do innych dokumentów.
 
 %package kiten
 Summary:	A Japanese reference tool
@@ -174,7 +191,10 @@ secondly, it is a Kanji dictionary, with multiple ways to look up
 specific characters; thirdly, it is a tool to help you learn Kanji.
 
 %description kiten -l pl
-S³ownik angielsko-japoñski.
+Kiten to aplikacja o wielu funkcjach. Po pierwsze, jest wygodnym
+s³ownikiem angielsko-japoñskim i japoñsko-angielskim; po drugie,
+jest s³ownikiem Kanji z wieloma sposobami wyszukiwania okre¶lonych
+znaków; po trzecie, jest narzêdziem pomagaj±cym w nauce Kanji.
 
 %package klettres
 Summary:	Helps child to learn alphabet and to read some syllables
@@ -197,11 +217,20 @@ There are five languages available at the moment: Czech, Danish,
 Dutch, French and Slovak.
 
 %description klettres -l pl
-Pomoc w nauce francuskiego alfabetu i sylab dla dzieci.
+KLettres to bardzo prosta aplikacja pomagaj±ca dzieciom i doros³ym w
+nauce alfabetu i g³osek we w³asnym lub obcym jêzyku. Program losuje
+literê lub sylabê, a nastêpnie wy¶wietla j± i odgrywa d¼wiêk.
+U¿ytkownik powinien nastêpnie wpisaæ tê literê lub sylabê. Do æwiczeñ
+s³u¿± poziomy, gdzie litera/sylaba nie jest wy¶wietlana, jedynie
+d¼wiêk jest odgrywany. U¿ytkownik nie musi wiedzieæ, jak u¿ywaæ myszy,
+wymagana jest tylko klawiatura.
+
+Aktualnie dostêpne jest piêæ jêzyków: czeski, duñski, holenderski,
+francuski i s³owacki.
 
 %package kmplot
 Summary:	Mathematical function plotter
-Summary(pl):	Koordynograf
+Summary(pl):	Rysowanie wykresów funkcji matematycznych
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
 Obsoletes:	kdeedu
@@ -212,7 +241,9 @@ a powerful built-in parser. You can plot different functions
 simultaneously and combine them to build new functions.
 
 %description kmplot -l pl
-Koordynograf.
+KmPlot to narzêdzie do rysowania wykresów funkcji matematycznych dla
+¶rodowiska KDE. Ma wbudowany potê¿ny parser. Mo¿na rysowaæ ró¿ne
+funkcje jednocze¶nie i ³±czyæ je, aby stworzyæ nowe funkcje.
 
 %package kmessedwords
 Summary:	Simple mind-training game
@@ -233,7 +264,15 @@ order, with difficulty dependant on the chosen level. You have
 unlimited numbers of attempts, and the scores are kept.
 
 %description kmessedwords -l pl
-Prosta ³amig³ówka.
+KMessedWords to gra oparta na ³amig³ówce s³owno-literowej, w któr±
+autor gra³ jako dziecko. Jest to bardzo prosto skonstruowana gra z
+trzema poziomami trudno¶ci gry, a ka¿dy poziom zas³uguje na swoj±
+warto¶æ. Jest to w pe³ni dostosowywalna gra, pozwalaj±ca na wpisywanie
+w³asnych s³ów i ustawianie w³asnego "look and feel". Grup± docelow± s±
+dzieci w wieku od 10 lat ze wzglêdu na trudno¶æ, ale ka¿dy mo¿e
+spróbowaæ. S³owa s± wybierane losowo i wy¶wietlane w pomieszanej
+kolejno¶ci, z trudno¶ci± zale¿n± od wybranego poziomu. Liczba prób nie
+jest ograniczona, a wyniki s± zachowywane.
 
 %package kpercentage
 Summary:	A percentage tutor
@@ -266,10 +305,14 @@ planets, the Sun and Moon, hundreds of comets and asteroids, the Milky
 Way, 88 constellations, and guide lines such as the celestial equator,
 the horizon and the ecliptic.
 
-Desktop planetarium.
-
 %description kstars -l pl
-Planetarium.
+KStars pozwala przegl±daæ nocne niebo z wygod± krzes³a przy
+komputerze. Dostarcza dok³adn± graficzn± reprezentacjê nocnego nieba
+dla dowolnej daty, z dowolnego miejsca na Ziemi. Obraz zawiera 126000
+gwiazd do 9. wielko¶ci (znacznie poza ograniczeniem go³ego oka), 13000
+obiektów (katalogi Messiera, NGC i IC), wszystkie planety, S³oñce i
+Ksiê¿yc, setki komet i asteroid, Drogê Mleczn±, 88 konstelacji oraz
+linie prowadz±ce takie jak równik astronomiczny, horyzont i ekliptykê.
 
 %package ktouch
 Summary:	Program for learning touch typing
@@ -279,17 +322,22 @@ Requires:	kdebase-core >= 9:%{version}
 Obsoletes:	kdeedu
 
 %description ktouch
-KTouch is a program for learning to touch type.
-
-KTouch provides you with text to train on, and adjust to different
-levels, depending on how good you are. It can display which key to
-press next, and the correct finger to use. It's the perfect touch
-typing tutor, you learn typing with all the fingers without looking at
-the keys, in an step by step way. It is convenient for all ages, and
-the perfect typing tutor for schools, universities and individuals.
+KTouch is a program for learning to touch type. It provides you with
+text to train on, and adjust to different levels, depending on how
+good you are. It can display which key to press next, and the correct
+finger to use. It's the perfect touch typing tutor, you learn typing
+with all the fingers without looking at the keys, in an step by step
+way. It is convenient for all ages, and the perfect typing tutor for
+schools, universities and individuals.
 
 %description ktouch -l pl
-Program do nauki maszynopisania.
+KTouch to program do nauki maszynopisania. Dostarcza tekst do æwiczeñ,
+dostosowany do ró¿nych poziomów, zale¿nie od stopnia zaawansowania.
+Mo¿e wy¶wietlaæ, który klawisz trzeba nacisn±æ, i którego palca nale¿y
+u¿yæ. Jest ¶wietnym programem do nauki maszynopisania, uczy pisaæ
+wszystkimi palcami bez patrzenia na klawisze, krok po kroku. Jest
+wygodny w ka¿dym wieku, jest ¶wietny dla szkó³, uniwersytetów i
+jednostek.
 
 %package kverbos
 Summary:	Spanish verb form study application for KDE
@@ -353,8 +401,6 @@ kdeeduui shared library.
 
 %description libkdeeduui -l pl
 Biblioteka wspó³dzielona kdeeduui.
-
-
 
 %prep
 %setup -q
@@ -523,7 +569,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/apps/menubar.png
 %{_mandir}/man1/klettres.1*
 %{_kdedocdir}/en/klettres
-
 
 %files kmessedwords
 %defattr(644,root,root,755)

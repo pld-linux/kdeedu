@@ -473,7 +473,23 @@ KWordQuiz also features Flashcard, Multiple Choice and Question &
 Answer functions. Question & Answer also has a special
 Fill-in-the-blank mode.
 
-#description kwordquiz -l pl
+%description kwordquiz -l pl
+KWordQuiz to wersja KDE programu WordQuiz s³u¿±cego do nauki
+s³ownictwa za pomoc± pokazywania kart. Jest to narzêdzie do nauki
+s³ownictwa nowego jêzyka. Mo¿na zacz±æ u¿ywaæ jego potencja³u do
+³atwego uczenia siê s³ownictwa.
+
+S³owniki buduje siê w dwukolumnowej tabeli (lub wczytuje z plików
+.kvtml z kvoctraina). W jednej kolumnie wpisuje siê s³owa lub
+wyra¿enia w jednym jêzyku, a w drugiej kolumnie ich odpowiedniki w
+innym jêzyku. Mo¿na tak¿e u¿ywaæ programu do æwiczenia innych rzeczy,
+je¶li tylko maj± parowaln± relacjê - na przyk³ad terminologii
+medycznej czy prawniczej. Na screenshotach widaæ przyk³ad z ró¿nymi
+stanami USA i ich stolicami.
+
+KWordQuiz zawiera tak¿e funkcje Flashcard (pokazywania kart), testu
+wielokrotnego wyboru oraz pytañ i odpowiedzi. Pytania i odpowiedzi
+maj± tak¿e specjalny tryb wype³niania luk.
 
 %package libkdeeducore
 Summary:	KDE educational module core library

@@ -1,7 +1,7 @@
 
 %define		_state		snapshots
 %define		_ver		3.2
-%define		_snap		030504
+%define		_snap		030509
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
@@ -304,6 +304,9 @@ cd -
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post	flashkard	-p /sbin/ldconfig
+%postun	flashkard	-p /sbin/ldconfig
+
 %files devel
 %defattr(644,root,root,755)
 %doc README
@@ -314,7 +317,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/flashkard
 %{_libdir}/libkdeeducore.la
-%attr(755,root,root) %{_libdir}/libkdeeducore.so.*
+%attr(755,root,root) %{_libdir}/libkdeeducore.so.*.*.*
 %{_datadir}/apps/flashkard
 %{_desktopdir}/flashkard.desktop
 %{_pixmapsdir}/*/*/*/flashkard*

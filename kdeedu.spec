@@ -1,32 +1,28 @@
 
-%define		_state		stable
-%define		_ver		3.1.3
+%define		_state		snapshots
+%define		_ver		3.1.93
+%define		_snap		031105
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
-Version:	%{_ver}
-Release:	1.2
+Version:	%{_ver}.%{_snap}
+Release:	1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	02996b08a1c2a2aa044406480c0eb8a7
-# generated from kde-i18n
-Source1:	ftp://blysk.ds.pg.gda.pl/linux/kde-i18n-package/%{version}/kde-i18n-%{name}-%{version}.tar.bz2
-# Source1-md5:	353707e9afc973200101a2ddb789374a
+#Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
+Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
+# Source0-md5:	c4c162c76e402a99b5fd6039a7d69692
+Patch0:		%{name}-vcategories.patch
 BuildRequires:	gettext-devel
-BuildRequires:	kdelibs-devel = %{epoch}:%{version}
+BuildRequires:	kdelibs-devel >= 9:%{version}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
+BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	sed >= 4.0
 BuildRequires:	zlib-devel
-Requires:	kdebase-core >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_htmldir	/usr/share/doc/kde/HTML
-
-%define		no_install_post_chrpath		1
 
 %description
 K Desktop Environment - edutainment.
@@ -38,7 +34,9 @@ K Desktop Environment - edukacja i rozrywka.
 Summary:	Header Files
 Summary(pl):	Pliki nag³ówkowe
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
+Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
+Requires:	%{name}-libkdeeduui = %{epoch}:%{version}-%{release}
 
 %description devel
 Header Files
@@ -48,9 +46,11 @@ Pliki nag³ówkowe
 
 %package flashkard
 Summary:	Flash card learning tool for KDE
-Summary(pl):	Narzêdzie do nauki za pomoc± liczmanów
-Group:		X11/Applications/Science
-Requires:	%{name} = %{epoch}:%{version}
+Summary(pl):    Narzêdzie do nauki za pomoc± liczmanów
+Group:          X11/Applications/Science
+Requires:	kdebase-core >= 9:%{version}
+Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
+Obsoletes:	%{name}
 
 %description flashkard
 Flash card learning tool for KDE.
@@ -58,23 +58,13 @@ Flash card learning tool for KDE.
 %description flashkard -l pl
 Narzêdzie do nauki za pomoc± liczmanów.
 
-%package keduca
-Summary:	Creation and revision of form-based tests and exams
-Summary(pl):	Tworzenie i sprawdzanie testów i egzaminów
-Group:		X11/Applications/Science
-Requires:	%{name} = %{epoch}:%{version}
-
-%description keduca
-Creation and revision of form-based tests and exams.
-
-%description keduca -l pl
-Tworzenie i sprawdzanie testów i egzaminów.
-
 %package kalzium
-Summary:	A Periodic System of Elements database
-Summary(pl):	Baza danych Uk³adu Okresowego Pierwiastków
-Group:		X11/Applications/Science
-Requires:	%{name} = %{epoch}:%{version}
+Summary:        A Periodic System of Elements database
+Summary(pl):    Baza danych Uk³adu Okresowego Pierwiastków
+Group:          X11/Applications/Science
+Requires:	kdebase-core >= 9:%{version}
+Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
+Obsoletes:      %{name}
 
 %description kalzium
 A Periodic System of Elements database.
@@ -82,23 +72,39 @@ A Periodic System of Elements database.
 %description kalzium -l pl
 Baza danych Uk³adu Okresowego Pierwiastków.
 
-%package kgeo
-Summary:	Interactive geometry
-Summary(pl):	Interaktywna geometria
+%package kbruch
+Summary:	Task generator for calculations with fractions
+Summary(pl):	Generator zadañ z obliczeniami na u³amkach
+Group:		X11/Applications
+Requires:	kdebase-core >= 9:%{version}
+Obsoletes:      %{name}
+
+%description kbruch
+Task generator for calculations with fractions.
+
+%description kbruch -l pl
+Generator zadañ z obliczeniami na u³amkach.
+
+%package keduca
+Summary:	Creation and revision of form-based tests and exams
+Summary(pl):	Tworzenie i sprawdzanie testów i egzaminów
 Group:		X11/Applications/Science
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	kdebase-core >= 9:%{version}
+Obsoletes:	%{name}
 
-%description kgeo
-Interactive geometry.
+%description keduca
+Creation and revision of form-based tests and exams.
 
-%description kgeo -l pl
-Interaktywna geometria.
+%description keduca -l pl
+Tworzenie i sprawdzanie testów i egzaminów.
 
 %package khangman
 Summary:	A hangman game
 Summary(pl):	Gra w wisielca
-Group:		X11/Applications/Science
-Requires:	%{name} = %{epoch}:%{version}
+Group:          X11/Applications/Science
+Requires:	kdebase-core >= 9:%{version}
+Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
+Obsoletes:      %{name}
 
 %description khangman
 KHangMan is a game based on the well known hangman game. A word is
@@ -115,11 +121,25 @@ wystêpuje w s³owie, rysowany jest obrazek wisielca. Trzeba odgadn±æ
 s³owo przed powieszeniem! Gra jest przeznaczona dla dzieci w wieku 6
 lat lub wiêcej.
 
+%package kig
+Summary:        Interactive Geometry
+Summary(pl):    Interaktywna geometria
+Group:          X11/Applications/Science
+Requires:	kdebase-core >= 9:%{version}
+Obsoletes:      %{name}
+
+%description kig
+Interactive Geometry.
+
+%description kig -l pl
+Interaktywna geometria.
+
 %package kiten
-Summary:	A Japanese reference tool
-Summary(pl):	S³ownik angielsko-japoñski
-Group:		X11/Applications/Science
-Requires:	%{name} = %{epoch}:%{version}
+Summary:        A Japanese reference tool
+Summary(pl):    S³ownik angielsko-japoñski
+Group:          X11/Applications/Science
+Requires:	kdebase-core >= 9:%{version}
+Obsoletes:	%{name}
 
 %description kiten
 A Japanese reference tool.
@@ -131,7 +151,8 @@ S³ownik angielsko-japoñski.
 Summary:	Helps child to learn French alphabet and to read some syllables
 Summary(pl):	Pomoc w nauce francuskiego alfabetu i sylab dla dzieci
 Group:		X11/Applications/Science
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	kdebase-core >= 9:%{version}
+Obsoletes:	%{name}
 
 %description klettres
 Helps child to learn French alphabet and to read some syllables.
@@ -140,10 +161,11 @@ Helps child to learn French alphabet and to read some syllables.
 Pomoc w nauce francuskiego alfabetu i sylab dla dzieci.
 
 %package kmplot
-Summary:	Mathematical function plotter
-Summary(pl):	Koordynograf
-Group:		X11/Applications/Science
-Requires:	%{name} = %{epoch}:%{version}
+Summary:        Mathematical function plotter
+Summary(pl):    Koordynograf
+Group:          X11/Applications/Science
+Requires:	kdebase-core >= 9:%{version}
+Obsoletes:      %{name}
 
 %description kmplot
 Mathematical function plotter.
@@ -155,7 +177,8 @@ Koordynograf.
 Summary:	Simple mind-training game
 Summary(pl):	Prosta ³amig³ówka
 Group:		X11/Applications/Science
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	kdebase-core >= 9:%{version}
+Obsoletes:      %{name}
 
 %description kmessedwords
 Simple mind-training game.
@@ -164,10 +187,11 @@ Simple mind-training game.
 Prosta ³amig³ówka.
 
 %package kpercentage
-Summary:	A percentage tutor
-Summary(pl):	Program do nauki procentów
-Group:		X11/Applications/Science
-Requires:	%{name} = %{epoch}:%{version}
+Summary:        A percentage tutor
+Summary(pl):    Program do nauki procentów
+Group:          X11/Applications/Science
+Requires:	kdebase-core >= 9:%{version}
+Obsoletes:      %{name}
 
 %description kpercentage
 A percentage tutor.
@@ -179,7 +203,9 @@ Program do nauki procentów.
 Summary:	Desktop planetarium
 Summary(pl):	Planetarium
 Group:		X11/Applications/Science
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	kdebase-core >= 9:%{version}
+Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
+Obsoletes:      %{name}
 
 %description kstars
 Desktop planetarium.
@@ -191,9 +217,9 @@ Planetarium.
 Summary:	Program for learning touch typing
 Summary(pl):	Program do nauki maszynopisania
 Group:		X11/Applications/Science
-Requires:	%{name} = %{epoch}:%{version}
-Provides:	ktouch
-Obsoletes:	ktouch
+Requires:	kdebase-core >= 9:%{version}
+Obsoletes:      %{name}
+
 
 %description ktouch
 Program for learning touch typing.
@@ -204,8 +230,9 @@ Program do nauki maszynopisania.
 %package kverbos
 Summary:	Spanish verb form study application for KDE
 Summary(pl):	Program do nauki form czasowników w jêzyku hiszpañskim
-Group:		X11/Applications/Science
-Requires:	%{name} = %{epoch}:%{version}
+Group:          X11/Applications/Science
+Requires:	kdebase-core >= 9:%{version}
+Obsoletes:	%{name}
 
 %description kverbos
 Spanish verb form study application for KDE.
@@ -217,7 +244,8 @@ Program do nauki form czasowników w jêzyku hiszpañskim.
 Summary:	Vocabulary trainer
 Summary(pl):	Program do æwiczenia s³ownictwa
 Group:		X11/Applications/Science
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	kdebase-core >= 9:%{version}
+Obsoletes:      %{name}
 
 %description kvoctrain
 Vocabulary trainer.
@@ -225,20 +253,57 @@ Vocabulary trainer.
 %description kvoctrain -l pl
 Program do æwiczenia s³ownictwa.
 
+%package libkdeeducore
+Summary:	A kdeeducore library
+Summary(pl):	Biblioteka kdeeducore
+Group:		X11/Libraries
+Requires:	kdelibs >= 9:%{version}
+Obsoletes:	%{name}-flashkard < 8:3.1.93.031105-1
+
+%description libkdeeducore
+A kdeeducore library.
+
+%description libkdeeducore -l pl
+Biblioteka kdeeducore.
+
+%package libkdeeduplot
+Summary:	A kdeeduplot library
+Summary(pl):	Biblioteka kdeeduplot
+Group:		X11/Libraries
+Requires:	kdelibs >= 9:%{version}
+
+%description libkdeeduplot
+A kdeeduplot library.
+
+%description libkdeeduplot -l pl
+Biblioteka kdeeduplot.
+
+%package libkdeeduui
+Summary:	A kdeeduui library
+Summary(pl):	Biblioteka kdeeduui
+Group:		X11/Libraries
+Requires:	kdelibs >= 9:%{version}
+
+%description libkdeeduui
+A kdeeduui library.
+
+%description libkdeeduui -l pl
+Biblioteka kdeeduui.
+
 %prep
-%setup -q
+%setup -q -n %{name}-%{_snap}
+%patch0 -p1
 
 %build
-kde_appsdir="%{_applnkdir}"; export kde_appsdir
-kde_htmldir="%{_htmldir}"; export kde_htmldir
-kde_icondir="%{_pixmapsdir}"; export kde_icondir
 
-for plik in `find ./ -name *.desktop` ; do
-	echo $plik
-	sed -i -e 's/\[nb\]/\[no\]/g' $plik
+for f in `find . -name *.desktop` ; do
+	sed -i 's/\[nb\]/\[no\]/g' $f
 done
 
+%{__make} -f admin/Makefile.common cvs
+
 %configure \
+	--disable-rpath \
 	--enable-final
 
 %{__make}
@@ -247,23 +312,26 @@ done
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR="$RPM_BUILD_ROOT"
+	DESTDIR=$RPM_BUILD_ROOT \
+	kde_htmldir=%{_kdedocdir}
 
-ALD=$RPM_BUILD_ROOT%{_applnkdir}/Edutainment
-mv $ALD/{{Languages,Mathematics,Miscellanous,Science,Tools}/*.desktop,.}
+install -d $RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/actions
 
-cd $RPM_BUILD_ROOT%{_pixmapsdir}
-mv locolor/16x16/actions/*.png crystalsvg/16x16/actions
-mv {locolor,crystalsvg}/16x16/apps/kvoctrain.xpm
-cd -
+mv $RPM_BUILD_ROOT%{_iconsdir}/locolor/16x16/actions/*.png \
+	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/actions
 
-bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
+mv $RPM_BUILD_ROOT%{_iconsdir}/ktouch/hi16-app-ktouch.png \
+	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/apps/ktouch.png
+
+mv $RPM_BUILD_ROOT%{_iconsdir}/ktouch/hi32-app-ktouch.png \
+	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/32x32/apps/ktouch.png
 
 %find_lang flashkard	--with-kde
 %find_lang kalzium	--with-kde
+%find_lang kbruch	--with-kde
 %find_lang keduca	--with-kde
-%find_lang kgeo		--with-kde
 %find_lang khangman	--with-kde
+%find_lang kig		--with-kde
 %find_lang kiten	--with-kde
 %find_lang klettres	--with-kde
 %find_lang kmathtool	--with-kde
@@ -278,114 +346,161 @@ bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f kmathtool.lang
-%defattr(644,root,root,755)
-%doc README*
-%{_libdir}/libkdeeducore.la
-%attr(755,root,root) %{_libdir}/libkdeeducore.so.*
-%{_datadir}/mimelnk/application/x-edu.desktop
-%{_pixmapsdir}/*/*/actions/*
-%{_pixmapsdir}/*/*/apps/edu_*
-%{_pixmapsdir}/hicolor/48x48/apps/*
+%post	libkdeeducore 	-p /sbin/ldconfig
+%postun	libkdeeducore	-p /sbin/ldconfig
+
+%post	libkdeeduplot	-p /sbin/ldconfig
+%postun	libkdeeduplot	-p /sbin/ldconfig
+
+%post	libkdeeduui	-p /sbin/ldconfig
+%postun	libkdeeduui	-p /sbin/ldconfig
 
 %files devel
 %defattr(644,root,root,755)
-%doc README*
+%doc README
 %{_includedir}/*
 %{_libdir}/libkdeeducore.so
+%{_libdir}/libkdeeduplot.so
+%{_libdir}/libkdeeduui.so
 
 %files flashkard -f flashkard.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/flashkard
 %{_datadir}/apps/flashkard
-%{_applnkdir}/Edutainment/flashkard.desktop
-%{_pixmapsdir}/*/*/*/flashkard*
+%{_desktopdir}/kde/flashkard.desktop
+%{_iconsdir}/*/*/apps/flashkard.png
 
 %files kalzium -f kalzium.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kalzium
 %{_datadir}/apps/kalzium
-%{_applnkdir}/Edutainment/kalzium.desktop
-%{_pixmapsdir}/[!l]*/*/*/kalzium*
+%{_desktopdir}/kde/kalzium.desktop
+%{_iconsdir}/[!l]*/*/apps/kalzium.png
+
+%files kbruch -f kbruch.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/kbruch
+%{_datadir}/apps/kbruch
+%{_desktopdir}/kde/kbruch.desktop
+%{_iconsdir}/[!l]*/*/apps/kbruch.png
 
 %files keduca -f keduca.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/keduca
+%attr(755,root,root) %{_bindir}/keducabuilder
 %{_datadir}/apps/keduca
-%{_applnkdir}/Edutainment/keduca*.desktop
-%{_pixmapsdir}/*/*/*/keduca*
-
-%files kgeo -f kgeo.lang
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/kgeo
-%{_datadir}/apps/kgeo
-%{_applnkdir}/Edutainment/kgeo.desktop
-%{_pixmapsdir}/[!l]*/*/*/kgeo*
+%{_datadir}/mimelnk/application/x-edu.desktop
+%{_datadir}/mimelnk/application/x-edugallery.desktop
+%{_desktopdir}/kde/keduca*.desktop
+%{_iconsdir}/*/*/apps/keduca.png
 
 %files khangman -f khangman.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/khangman
 %{_datadir}/apps/khangman
-%{_applnkdir}/Edutainment/khangman.desktop
-%{_pixmapsdir}/[!l]*/*/*/khangman*
+%{_desktopdir}/kde/khangman.desktop
+%{_iconsdir}/[!l]*/*/apps/khangman.png
+%{_iconsdir}/hicolor/48x48/apps/a_acute.png
+%{_iconsdir}/hicolor/48x48/apps/a_circle.png
+%{_iconsdir}/hicolor/48x48/apps/a_grave.png
+%{_iconsdir}/hicolor/48x48/apps/a_tilde.png
+%{_iconsdir}/hicolor/48x48/apps/a_umlaut.png
+%{_iconsdir}/hicolor/48x48/apps/a_withe.png
+%{_iconsdir}/hicolor/48x48/apps/c_cedil.png
+%{_iconsdir}/hicolor/48x48/apps/e_acute.png
+%{_iconsdir}/hicolor/48x48/apps/e_circ.png
+%{_iconsdir}/hicolor/48x48/apps/e_grave.png
+%{_iconsdir}/hicolor/48x48/apps/i_acute.png
+%{_iconsdir}/hicolor/48x48/apps/i_grave.png
+%{_iconsdir}/hicolor/48x48/apps/n_tilde.png
+%{_iconsdir}/hicolor/48x48/apps/o_acute.png
+%{_iconsdir}/hicolor/48x48/apps/o_circ.png
+%{_iconsdir}/hicolor/48x48/apps/o_cross.png
+%{_iconsdir}/hicolor/48x48/apps/o_grave.png
+%{_iconsdir}/hicolor/48x48/apps/o_tilde.png
+%{_iconsdir}/hicolor/48x48/apps/o_umlaut.png
+%{_iconsdir}/hicolor/48x48/apps/sz_lig.png
+%{_iconsdir}/hicolor/48x48/apps/u_acute.png
+%{_iconsdir}/hicolor/48x48/apps/u_umlaut.png
+
+%files kig -f kig.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/kig
+%{_libdir}/kde3/libkigpart.la
+%attr(755,root,root) %{_libdir}/kde3/libkigpart.so
+%{_datadir}/apps/kig*
+%{_datadir}/mimelnk/application/x-kgeo.desktop
+%{_datadir}/mimelnk/application/x-kig.desktop
+%{_datadir}/mimelnk/application/x-kseg.desktop
+%{_datadir}/services/kig_part.desktop
+%{_desktopdir}/kde/kig.desktop
+%{_iconsdir}/[!l]*/*/apps/kig.png
 
 %files kiten -f kiten.lang
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/kiten*
-%{_libdir}/kiten.la
-%attr(755,root,root) %{_libdir}/kiten.so
+%attr(755,root,root) %{_bindir}/kiten
+%attr(755,root,root) %{_bindir}/kitengen
 %{_datadir}/apps/kiten
-%{_applnkdir}/Edutainment/kiten.desktop
-%{_pixmapsdir}/*/*/*/kiten*
+%{_desktopdir}/kde/kiten.desktop
+%{_iconsdir}/*/*/actions/kanjidic.png
+%{_iconsdir}/*/*/actions/edit_*.png
+%{_iconsdir}/*/*/apps/kiten.png
 
 %files klettres -f klettres.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/klettres
 %{_datadir}/apps/klettres
-%{_applnkdir}/Edutainment/klettres.desktop
-%{_pixmapsdir}/[!l]*/*/*/klettres*
+%{_desktopdir}/kde/klettres.desktop
+%{_iconsdir}/[!l]*/*/*/klettres*
+%{_iconsdir}/*/*/apps/grownup.png
+%{_iconsdir}/*/*/apps/kids.png
+%{_iconsdir}/*/*/apps/menubar.png
 
 %files kmessedwords -f kmessedwords.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kmessedwords
 %{_datadir}/apps/kmessedwords
-%{_applnkdir}/Edutainment/kmessedwords.desktop
-%{_pixmapsdir}/[!l]*/*/*/kmessedwords*
+%{_desktopdir}/kde/kmessedwords.desktop
+%{_iconsdir}/[!l]*/*/apps/kmessedwords.png
 
 %files kmplot -f kmplot.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kmplot
 %{_datadir}/apps/kmplot
-%{_applnkdir}/Edutainment/kmplot.desktop
-%{_pixmapsdir}/[!l]*/*/*/kmplot*
+%{_desktopdir}/kde/kmplot.desktop
+%{_iconsdir}/[!l]*/*/apps/kmplot.png
 
 %files kpercentage -f kpercentage.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kpercentage
 %{_datadir}/apps/kpercentage
-%{_applnkdir}/Edutainment/kpercentage.desktop
-%{_pixmapsdir}/[!l]*/*/*/kpercentage*
+%{_desktopdir}/kde/kpercentage.desktop
+%{_iconsdir}/[!l]*/*/apps/kpercentage.png
 
 %files kstars -f kstars.lang
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/celestrongps
+%attr(755,root,root) %{_bindir}/indiserver
 %attr(755,root,root) %{_bindir}/kstars
+%attr(755,root,root) %{_bindir}/lx200generic
 %{_datadir}/apps/kstars
-%{_applnkdir}/Edutainment/kstars.desktop
-%{_pixmapsdir}/[!l]*/*/*/kstars*
+%{_desktopdir}/kde/kstars.desktop
+%{_iconsdir}/[!l]*/*/apps/kstars.png
 
 %files ktouch -f ktouch.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/ktouch
 %{_datadir}/apps/ktouch
-%{_applnkdir}/Edutainment/ktouch.desktop
-%{_pixmapsdir}/*/*/*/ktouch*
+%{_desktopdir}/kde/ktouch.desktop
+%{_iconsdir}/*/*/apps/ktouch.png
 
 %files kverbos -f kverbos.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kverbos
 %{_datadir}/apps/kverbos
-%{_applnkdir}/Edutainment/kverbos.desktop
-%{_pixmapsdir}/*/*/*/kverbos*
+%{_desktopdir}/kde/kverbos.desktop
+%{_iconsdir}/*/*/actions/kverbosuser.png
+%{_iconsdir}/*/*/apps/kverbos.png
 
 %files kvoctrain -f kvoctrain.lang
 %defattr(644,root,root,755)
@@ -393,5 +508,20 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/langen2kvtml
 %attr(755,root,root) %{_bindir}/spotlight2kvtml
 %{_datadir}/apps/kvoctrain
-%{_applnkdir}/Edutainment/kvoctrain.desktop
-%{_pixmapsdir}/[!l]*/*/*/kvoctrain*
+%{_desktopdir}/kde/kvoctrain.desktop
+%{_iconsdir}/*/*/apps/kvoctrain.png
+
+%files libkdeeducore
+%defattr(644,root,root,755)
+%{_libdir}/libkdeeducore.la
+%attr(755,root,root) %{_libdir}/libkdeeducore.so.*.*.*
+
+%files libkdeeduplot
+%defattr(644,root,root,755)
+%{_libdir}/libkdeeduplot.la
+%attr(755,root,root) %{_libdir}/libkdeeduplot.so.*.*.*
+
+%files libkdeeduui
+%defattr(644,root,root,755)
+%{_libdir}/libkdeeduui.la
+%attr(755,root,root) %{_libdir}/libkdeeduui.so.*.*.*

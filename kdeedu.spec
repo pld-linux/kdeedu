@@ -1,12 +1,12 @@
 
 %define		_state		stable
-%define		_ver		3.1
+%define		_ver		3.1.1
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	%{_ver}
-Release:	4
+Release:	0.1
 Epoch:		7
 License:	GPL
 Group:		X11/Applications/Science
@@ -19,6 +19,7 @@ BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
 
 %define		_htmldir	/usr/share/doc/kde/HTML
 

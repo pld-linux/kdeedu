@@ -1,7 +1,7 @@
 
 %define		_state		snapshots
-%define		_ver		3.1.92
-%define		_snap		031024
+%define		_ver		3.1.93
+%define		_snap		031105
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
@@ -13,17 +13,16 @@ License:	GPL
 Group:		X11/Applications/Science
 #Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.bz2
 Source0:	http://www.kernel.pl/~adgor/kde/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	2f8fc684136b87568b95228691b22ed4
+# Source0-md5:	c4c162c76e402a99b5fd6039a7d69692
 Patch0:		%{name}-vcategories.patch
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel >= 9:%{version}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
+BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	sed >= 4.0
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		no_install_post_chrpath		1
 
 %description
 K Desktop Environment - edutainment.
@@ -35,7 +34,7 @@ K Desktop Environment - edukacja i rozrywka.
 Summary:	Header Files
 Summary(pl):	Pliki nag³ówkowe
 Group:		X11/Development/Libraries
-Requires:	%{name}-flashkard = %{epoch}:%{version}-%{release}
+Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
 Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
 Requires:	%{name}-libkdeeduui = %{epoch}:%{version}-%{release}
 
@@ -50,6 +49,7 @@ Summary:	Flash card learning tool for KDE
 Summary(pl):    Narzêdzie do nauki za pomoc± liczmanów
 Group:          X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
+Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
 Obsoletes:	%{name}
 
 %description flashkard
@@ -103,6 +103,7 @@ Summary:	A hangman game
 Summary(pl):	Gra w wisielca
 Group:          X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
+Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
 Obsoletes:      %{name}
 
 %description khangman
@@ -252,29 +253,42 @@ Vocabulary trainer.
 %description kvoctrain -l pl
 Program do æwiczenia s³ownictwa.
 
+%package libkdeeducore
+Summary:	A kdeeducore library
+Summary(pl):	Biblioteka kdeeducore
+Group:		X11/Libraries
+Requires:	kdelibs >= 9:%{version}
+Obsoletes:	%{name}-flashkard < 8:3.1.93.031105-1
+
+%description libkdeeducore
+A kdeeducore library.
+
+%description libkdeeducore -l pl
+Biblioteka kdeeducore.
+
 %package libkdeeduplot
-Summary:	TODO
-Summary(pl):	TODO
+Summary:	A kdeeduplot library
+Summary(pl):	Biblioteka kdeeduplot
 Group:		X11/Libraries
 Requires:	kdelibs >= 9:%{version}
 
 %description libkdeeduplot
-TODO.
+A kdeeduplot library.
 
 %description libkdeeduplot -l pl
-TODO.
+Biblioteka kdeeduplot.
 
 %package libkdeeduui
-Summary:	TODO
-Summary(pl):	TODO
+Summary:	A kdeeduui library
+Summary(pl):	Biblioteka kdeeduui
 Group:		X11/Libraries
 Requires:	kdelibs >= 9:%{version}
 
 %description libkdeeduui
-TODO.
+A kdeeduui library.
 
 %description libkdeeduui -l pl
-TODO.
+Biblioteka kdeeduui.
 
 %prep
 %setup -q -n %{name}-%{_snap}
@@ -289,6 +303,7 @@ done
 %{__make} -f admin/Makefile.common cvs
 
 %configure \
+	--disable-rpath \
 	--enable-final
 
 %{__make}
@@ -298,11 +313,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	kde_htmldir=%{_docdir}/kde/HTML
+	kde_htmldir=%{_kdedocdir}
 
-cd $RPM_BUILD_ROOT%{_iconsdir}
-mv locolor/16x16/actions/*.png crystalsvg/16x16/actions
-cd -
+install -d $RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/actions
+
+mv $RPM_BUILD_ROOT%{_iconsdir}/locolor/16x16/actions/*.png \
+	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/actions
 
 mv $RPM_BUILD_ROOT%{_iconsdir}/ktouch/hi16-app-ktouch.png \
 	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/apps/ktouch.png
@@ -330,23 +346,14 @@ mv $RPM_BUILD_ROOT%{_iconsdir}/ktouch/hi32-app-ktouch.png \
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	flashkard
-/sbin/ldconfig
+%post	libkdeeducore 	-p /sbin/ldconfig
+%postun	libkdeeducore	-p /sbin/ldconfig
 
-%postun	flashkard
-/sbin/ldconfig
+%post	libkdeeduplot	-p /sbin/ldconfig
+%postun	libkdeeduplot	-p /sbin/ldconfig
 
-%post	libkdeeduplot
-/sbin/ldconfig
-
-%postun	libkdeeduplot
-/sbin/ldconfig
-
-%post	libkdeeduui
-/sbin/ldconfig
-
-%postun	libkdeeduui
-/sbin/ldconfig
+%post	libkdeeduui	-p /sbin/ldconfig
+%postun	libkdeeduui	-p /sbin/ldconfig
 
 %files devel
 %defattr(644,root,root,755)
@@ -359,8 +366,6 @@ rm -rf $RPM_BUILD_ROOT
 %files flashkard -f flashkard.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/flashkard
-%{_libdir}/libkdeeducore.la
-%attr(755,root,root) %{_libdir}/libkdeeducore.so.*.*.*
 %{_datadir}/apps/flashkard
 %{_desktopdir}/kde/flashkard.desktop
 %{_iconsdir}/*/*/apps/flashkard.png
@@ -435,8 +440,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kiten
 %attr(755,root,root) %{_bindir}/kitengen
-#%{_libdir}/kde3/kiten.la
-#%attr(755,root,root) %{_libdir}/kde3/kiten.so
 %{_datadir}/apps/kiten
 %{_desktopdir}/kde/kiten.desktop
 %{_iconsdir}/*/*/actions/kanjidic.png
@@ -480,7 +483,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/indiserver
 %attr(755,root,root) %{_bindir}/kstars
 %attr(755,root,root) %{_bindir}/lx200generic
-#%attr(755,root,root) %{_bindir}/wx
 %{_datadir}/apps/kstars
 %{_desktopdir}/kde/kstars.desktop
 %{_iconsdir}/[!l]*/*/apps/kstars.png
@@ -508,6 +510,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kvoctrain
 %{_desktopdir}/kde/kvoctrain.desktop
 %{_iconsdir}/*/*/apps/kvoctrain.png
+
+%files libkdeeducore
+%defattr(644,root,root,755)
+%{_libdir}/libkdeeducore.la
+%attr(755,root,root) %{_libdir}/libkdeeducore.so.*.*.*
 
 %files libkdeeduplot
 %defattr(644,root,root,755)

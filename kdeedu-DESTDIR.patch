@@ -1,0 +1,29 @@
+--- kdeedu-3.0.1/klettres/klettres/Makefile.am.orig	Thu May 30 21:42:31 2002
++++ kdeedu-3.0.1/klettres/klettres/Makefile.am	Thu May 30 21:43:41 2002
+@@ -8,16 +8,16 @@
+ EXTRA_DIST = main.cpp klettres.cpp klettres.h klettres.desktop lo32-app-klettres.png lo16-app-klettres.png klettresdlg.ui khsplash.cpp khsplash.h level1.txt level3.txt 
+ 
+ install-data-local:
+-	$(mkinstalldirs) $(kde_appsdir)/Edutainment/French/
+-	$(INSTALL_DATA) $(srcdir)/klettres.desktop $(kde_appsdir)/Edutainment/French/klettres.desktop
+-#	$(mkinstalldirs) $(kde_icondir)/locolor/32x32/apps/
+-#	$(INSTALL_DATA) $(srcdir)/lo32-app-klettres.png $(kde_icondir)/locolor/32x32/apps/klettres.png
+-#	$(mkinstalldirs) $(kde_icondir)/locolor/16x16/apps/
+-#	$(INSTALL_DATA) $(srcdir)/lo16-app-klettres.png $(kde_icondir)/locolor/16x16/apps/klettres.png
+-	$(mkinstalldirs) $(kde_datadir)/klettres/
+-	$(INSTALL_DATA) $(srcdir)/level1.txt $(kde_datadir)/klettres/level1.txt
+-	$(mkinstalldirs) $(kde_datadir)/klettres/
+-	$(INSTALL_DATA) $(srcdir)/level3.txt $(kde_datadir)/klettres/level3.txt
++	$(mkinstalldirs) $(DESTDIR)$(kde_appsdir)/Edutainment/French/
++	$(INSTALL_DATA) $(srcdir)/klettres.desktop $(DESTDIR)$(kde_appsdir)/Edutainment/French/klettres.desktop
++#	$(mkinstalldirs) $(DESTDIR)$(kde_icondir)/locolor/32x32/apps/
++#	$(INSTALL_DATA) $(srcdir)/lo32-app-klettres.png $(DESTDIR)$(kde_icondir)/locolor/32x32/apps/klettres.png
++#	$(mkinstalldirs) $(DESTDIR)$(kde_icondir)/locolor/16x16/apps/
++#	$(INSTALL_DATA) $(srcdir)/lo16-app-klettres.png $(DESTDIR)$(kde_icondir)/locolor/16x16/apps/klettres.png
++	$(mkinstalldirs) $(DESTDIR)$(kde_datadir)/klettres/
++	$(INSTALL_DATA) $(srcdir)/level1.txt $(DESTDIR)$(kde_datadir)/klettres/level1.txt
++	$(mkinstalldirs) $(DESTDIR)$(kde_datadir)/klettres/
++	$(INSTALL_DATA) $(srcdir)/level3.txt $(DESTDIR)$(kde_datadir)/klettres/level3.txt
+ 
+ uninstall-local:
+ 	-rm -f $(kde_appsdir)/Edutainment/Frenchklettres.desktop

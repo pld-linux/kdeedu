@@ -45,32 +45,32 @@ Header files for kdeedu libraries.
 %description devel -l pl
 Pliki nag³ówkowe bibliotek kdeedu.
 
-%package flashkard
-Summary:	Flash card learning tool for KDE
-Summary(pl):	Narzêdzie do nauki za pomoc± pokazywania kart
-Group:		X11/Applications/Science
-Requires:	kdebase-core >= 9:%{version}
-Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
-Obsoletes:	kdeedu
-
-%description flashkard
-Flash card learning tool for KDE. FlashKard is based on a rather old
-learning method used to teach children facts. The teacher presented a
-number of cards with questions on them, and the pupil wrote the
-answers on the back of the cards. These cards were then checked at the
-end of the round by the teacher. The cards with the correct answers
-were then removed from the pile and the incorrectly-answered questions
-were repeated over and over again, until the answer was "drilled" into
-the pupils memory.
-
-%description flashkard -l pl
-Narzêdzie dla KDE do nauki za pomoc± pokazywania kart. FlashKard jest
-oparty na raczej starej metodzie nauczania dzieci faktów. Nauczyciel
-pokazywa³ zestaw kart z pytaniami, a uczeñ pisa³ odpowiedzi na
-odwrocie tych kart. Karty by³y potem sprawdzane na koñcu rundy przez
-nauczyciela. Karty z poprawnymi odpowiedziami by³y usuwane z puli, a
-pytania, na które pad³y z³e odpowiedzi, by³y powtarzane a¿ do
-wt³oczenia odpowiedzi do pamiêci uczniów.
+#%package flashkard
+#Summary:	Flash card learning tool for KDE
+#Summary(pl):	Narzêdzie do nauki za pomoc± pokazywania kart
+#Group:		X11/Applications/Science
+#Requires:	kdebase-core >= 9:%{version}
+#Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
+#Obsoletes:	kdeedu
+#
+#%description flashkard
+#Flash card learning tool for KDE. FlashKard is based on a rather old
+#learning method used to teach children facts. The teacher presented a
+#number of cards with questions on them, and the pupil wrote the
+#answers on the back of the cards. These cards were then checked at the
+#end of the round by the teacher. The cards with the correct answers
+#were then removed from the pile and the incorrectly-answered questions
+#were repeated over and over again, until the answer was "drilled" into
+#the pupils memory.
+#
+#%description flashkard -l pl
+#Narzêdzie dla KDE do nauki za pomoc± pokazywania kart. FlashKard jest
+#oparty na raczej starej metodzie nauczania dzieci faktów. Nauczyciel
+#pokazywa³ zestaw kart z pytaniami, a uczeñ pisa³ odpowiedzi na
+#odwrocie tych kart. Karty by³y potem sprawdzane na koñcu rundy przez
+#nauczyciela. Karty z poprawnymi odpowiedziami by³y usuwane z puli, a
+#pytania, na które pad³y z³e odpowiedzi, by³y powtarzane a¿ do
+#wt³oczenia odpowiedzi do pamiêci uczniów.
 
 %package kalzium
 Summary:	A Periodic System of Elements database
@@ -593,6 +593,11 @@ done
 
 %{__sed} -i -e 's,appsdir =,#,g' \
 	-e "s,apps_DATA,xdg_apps_DATA,g"  Makefile.am
+for f in `find . -name \*.desktop`; do
+	if grep -q '^Categories=.*[^;]$' $f; then
+		sed -i -e 's/\(^Categories=.*$\)/\1;/' $f
+	fi
+done
 
 %build
 cp %{_datadir}/automake/config.sub admin

@@ -291,11 +291,8 @@ done
 
 %{__make} -f admin/Makefile.common cvs
 
-#%%configure \
-#	--enable-final
-
-%configure
-
+%configure \
+	--enable-final
 %{__make}
 
 %install

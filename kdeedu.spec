@@ -156,13 +156,15 @@ bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT
 # WTF?
 %find_lang khangman --with-kde
 
+cat klatin.lang >> khangman.lang
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%files
+%files -f khangman.lang
 %defattr(644,root,root,755)
 %{_datadir}/mimelnk/application/x-edu.desktop
 %doc README*

@@ -14,6 +14,7 @@ Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_ver}/src/%{name}-%{version}.tar.
 #Source0:	http://ep09.pld-linux.org/~djurban/kde/%{name}-%{version}.tar.bz2
 # Source0-md5:	97174178360396ea50e69097979b8319
 Icon:		kde-edu.xpm
+#Patch100:	%{name}-branch.diff
 Patch0:		%{name}-vcategories.patch
 BuildRequires:	autoconf
 BuildRequires:	unsermake >= 040511
@@ -357,6 +358,7 @@ Biblioteka wspó³dzielona kdeeduui.
 
 %prep
 %setup -q
+#patch100 -p1
 %patch0 -p1
 
 %build
@@ -413,7 +415,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkdeeduui.so
 %{_includedir}/*.h
 
-%files flashkard -f
+%files flashkard
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/flashkard
 %{_datadir}/apps/flashkard
@@ -608,3 +610,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_libdir}/libkdeeduui.la
 %attr(755,root,root) %{_libdir}/libkdeeduui.so.*.*.*
+%{_iconsdir}/*/*/apps/edu_*.*

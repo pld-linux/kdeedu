@@ -26,6 +26,7 @@ BuildRequires:	kdelibs-devel >= 9:%{version}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
+BuildRequires:	sed >= 4.0
 #BuildRequires:	unsermake >= 040805
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -596,9 +597,9 @@ for f in `find . -name \*.desktop`; do
 done
 
 %build
-cp %{_datadir}/automake/config.sub admin
+cp /usr/share/automake/config.sub admin
 
-#export UNSERMAKE=%{_datadir}/unsermake/unsermake
+#export UNSERMAKE=/usr/share/unsermake/unsermake
 
 %{__make} -f admin/Makefile.common cvs
 

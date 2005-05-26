@@ -1,21 +1,21 @@
 
 %define		_state		stable
-%define		_kdever		3.4
-%define		_ver		3.4.0
+%define		_kdever		3.4.1
+%define		_ver		3.4.1
 
-%define         _minlibsevr     9:3.4.0
-%define         _minbaseevr     9:3.4.0
+%define         _minlibsevr     9:3.4.1
+%define         _minbaseevr     9:3.4.1
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	%{_ver}
-Release:	1
+Release:	0.1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_kdever}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	c2aab0c4f6439abb6c0eb09413b6532c
+# Source0-md5:	9fa1db1cf500c0fc594b0f5d291bbf69
 Icon:		kde-edu.xpm
 Patch0:		%{name}-pport.patch
 #Patch100:	%{name}-branch.diff
@@ -665,7 +665,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libkiten.so
 %{_includedir}/libkiten
 %{_includedir}/*.h
-%{_mandir}/man1/flashkard.1*
 
 %files kalzium
 %defattr(644,root,root,755)
@@ -762,6 +761,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/klatin.desktop
 %{_kdedocdir}/en/klatin
 %{_iconsdir}/*/*/apps/klatin*
+%{_mandir}/man1/klatin.1*
 
 %files klettres
 %defattr(644,root,root,755)
@@ -822,6 +822,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config.kcfg/kstars.kcfg
 %{_desktopdir}/kde/kstars.desktop
 %{_iconsdir}/[!l]*/*/apps/kstars*
+%{_mandir}/man1/fliccd.1*
 %{_mandir}/man1/kstars.1*
 %{_mandir}/man1/celestrongps.1*
 %{_mandir}/man1/indiserver.1*
@@ -831,6 +832,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/lx200generic.1*
 %{_mandir}/man1/lx200gps.1*
 %{_kdedocdir}/en/kstars
+%{_mandir}/man1/temma.1*
+%{_mandir}/man1/v4l*.1*
 
 %files ktouch
 %defattr(644,root,root,755)
@@ -851,6 +854,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/kturtle.desktop
 %{_kdedocdir}/en/kturtle
 %{_iconsdir}/*/*/apps/kturtle*
+%{_mandir}/man1/kturtle.1*
 
 %files kverbos
 %defattr(644,root,root,755)
@@ -886,6 +890,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_kdedocdir}/en/kwordquiz
 %{_iconsdir}/[!l]*/*/*/kwordquiz*
 %{_datadir}/mimelnk/application/x-kwordquiz.desktop
+%{_mandir}/man1/kwordquiz.1*
 
 %files libextdate
 %defattr(644,root,root,755)
@@ -893,6 +898,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/test_extdatepicker
 %{_libdir}/libextdate.la
 %attr(755,root,root) %{_libdir}/libextdate.so.1.2.0
+%{_mandir}/man1/test_*.1*
 
 %files libkdeeducore
 %defattr(644,root,root,755)

@@ -1,10 +1,10 @@
 
 %define		_state		stable
-%define		_kdever		3.4.1
-%define		_ver		3.4.1
+%define		_kdever		3.4.2
+%define		_ver		3.4.2
 
-%define         _minlibsevr     9:3.4.1
-%define         _minbaseevr     9:3.4.1
+%define         _minlibsevr     9:3.4.2
+%define         _minbaseevr     9:3.4.2
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
@@ -15,7 +15,7 @@ Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_kdever}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	9fa1db1cf500c0fc594b0f5d291bbf69
+# Source0-md5:	e2c5cc083868dd4c35c1b50e04eb40eb
 Icon:		kde-edu.xpm
 Patch0:		%{name}-pport.patch
 #Patch100:	%{name}-branch.diff

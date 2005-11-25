@@ -1,10 +1,10 @@
 
 %define		_state		stable
-%define		_kdever		3.4.3
-%define		_ver		3.4.3
+%define		_kdever		3.5
+%define		_ver		3.5.0
 
-%define         _minlibsevr     9:3.4.3
-%define         _minbaseevr     9:3.4.3
+%define         _minlibsevr     9:3.5.0
+%define         _minbaseevr     9:3.5.0
 
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
@@ -15,7 +15,7 @@ Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_kdever}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	9f4059beb1c3495973dd80d11bcae462
+# Source0-md5:	ac66cfcc8e23227973596cf62cf78a4c
 Icon:		kde-edu.xpm
 Patch0:		%{name}-pport.patch
 #Patch100:	%{name}-branch.diff
@@ -54,6 +54,14 @@ Header files for kdeedu libraries.
 %description devel -l pl
 Pliki nag³ówkowe bibliotek kdeedu.
 
+%package blinken
+Summary:	KDE version of the well-known game Simon Says
+Group:		X11/Applications/Science
+Requires:	kdebase-core >= 9:%{version}
+
+%description blinken
+KDE version of the well-known game Simon Says.
+
 %package kalzium
 Summary:	A Periodic System of Elements database
 Summary(pl):	Baza danych Uk³adu Okresowego Pierwiastków
@@ -72,6 +80,15 @@ visualizations to show them.
 Baza danych Uk³adu Okresowego Pierwiastków. Kalzium dostarcza wszelkie
 informacje dotycz±ce UOP, informacje o pierwiastkach oraz ich
 wizualizacje.
+
+%package kanagram
+Summary:	Guess anagram game
+Group:		X11/Applications/Science
+Requires:	kdebase-core >= 9:%{version}
+Obsoletes:	kdeedu-kmessedwords
+
+%description kanagram
+Guess anagram game.
 
 %package kbruch
 Summary:	Task generator for calculations with fractions
@@ -110,6 +127,15 @@ Application for creating and revising of form-based tests and exams.
 %description keduca -l pl
 Aplikacja do tworzenia i sprawdzania testów i egzaminów opartych na
 formularzach.
+
+%package kgeography
+Summary:	A geography learning program
+Group:		X11/Applications/Science
+Requires:	kdebase-core >= 9:%{version}
+Obsoletes:	kdeedu
+
+%description kgeography
+A geography learning program.
 
 %package khangman
 Summary:	A hangman game
@@ -262,35 +288,6 @@ KmPlot to narzêdzie do rysowania wykresów funkcji matematycznych dla
 ¶rodowiska KDE. Ma wbudowany potê¿ny parser. Mo¿na rysowaæ ró¿ne
 funkcje jednocze¶nie i ³±czyæ je, aby stworzyæ nowe funkcje.
 
-%package kmessedwords
-Summary:	Simple mind-training game
-Summary(pl):	Prosta ³amig³ówka
-Group:		X11/Applications/Science
-Requires:	kdebase-core >= 9:%{version}
-Obsoletes:	kdeedu
-
-%description kmessedwords
-KMessedWords is the game, that is based on the word/letter puzzles
-that I have played as a child. It is a very simple constructed game,
-with 3 difficulty levels of play, and each level deserves it's value.
-It is fully customizable game, that allows you to write in your own
-words, and set your own "look and feel" of the game. It is aimed for
-children aged 10+, because of the difficulty, but, everyone is welcome
-to try. A word is picked in random, and displayed out in the messed
-order, with difficulty dependant on the chosen level. You have
-unlimited numbers of attempts, and the scores are kept.
-
-%description kmessedwords -l pl
-KMessedWords to gra oparta na ³amig³ówce s³owno-literowej, w któr±
-autor gra³ jako dziecko. Jest to bardzo prosto skonstruowana gra z
-trzema poziomami trudno¶ci gry, a ka¿dy poziom zas³uguje na swoj±
-warto¶æ. Jest to w pe³ni dostosowywalna gra, pozwalaj±ca na wpisywanie
-w³asnych s³ów i ustawianie w³asnego "look and feel". Grup± docelow± s±
-dzieci w wieku od 10 lat ze wzglêdu na trudno¶æ, ale ka¿dy mo¿e
-spróbowaæ. S³owa s± wybierane losowo i wy¶wietlane w pomieszanej
-kolejno¶ci, z trudno¶ci± zale¿n± od wybranego poziomu. Liczba prób nie
-jest ograniczona, a wyniki s± zachowywane.
-
 %package kpercentage
 Summary:	A percentage tutor
 Summary(pl):	Program do nauki procentów
@@ -329,8 +326,9 @@ komputerze. Dostarcza dok³adn± graficzn± reprezentacjê nocnego nieba
 dla dowolnej daty, z dowolnego miejsca na Ziemi. Obraz zawiera 126000
 gwiazd do 9. wielko¶ci (znacznie poza zasiêgiem nieuzbrojonego oka),
 13000 obiektów (katalogi Messiera, NGC i IC), wszystkie planety,
-S³oñce i Ksiê¿yc, setki komet i asteroid, Drogê Mleczn±, 88 konstelacji
-oraz linie prowadz±ce takie jak równik astronomiczny, horyzont i ekliptykê.
+S³oñce i Ksiê¿yc, setki komet i asteroid, Drogê Mleczn±, 88
+konstelacji oraz linie prowadz±ce takie jak równik astronomiczny,
+horyzont i ekliptykê.
 
 %package ktouch
 Summary:	Program for learning touch typing
@@ -583,7 +581,6 @@ done
 ./kiten/kiten.desktop \
 ./klettres/klettres/klettres.desktop \
 ./klatin/klatin/klatin.desktop \
-./kmessedwords/kmessedwords/kmessedwords.desktop \
 ./khangman/khangman/khangman.desktop \
 ./kwordquiz/src/kwordquiz.desktop
 
@@ -638,6 +635,10 @@ mv $RPM_BUILD_ROOT%{_iconsdir}/locolor/16x16/actions/edit_{add,remove}.png \
 mv $RPM_BUILD_ROOT%{_datadir}/applnk/Edutainment/Miscellaneous/kwordquiz.desktop \
 	$RPM_BUILD_ROOT%{_desktopdir}/kde
 
+%find_lang blinken --with-kde
+%find_lang kanagram --with-kde
+%find_lang kgeography --with-kde
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -659,13 +660,22 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %doc README
-%{_libdir}/libextdate.so
-%{_libdir}/libkdeeducore.so
-%{_libdir}/libkdeeduplot.so
-%{_libdir}/libkdeeduui.so
-%{_libdir}/libkiten.so
+%attr(755,root,root) %{_libdir}/libextdate.so
+%attr(755,root,root) %{_libdir}/libkdeeducore.so
+%attr(755,root,root) %{_libdir}/libkdeeduplot.so
+%attr(755,root,root) %{_libdir}/libkdeeduui.so
+%attr(755,root,root) %{_libdir}/libkiten.so
+%{_includedir}/libkdeedu
 %{_includedir}/libkiten
 %{_includedir}/*.h
+
+%files blinken -f blinken.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/blinken
+%{_desktopdir}/kde/blinken.desktop
+%{_datadir}/apps/blinken
+%{_datadir}/config.kcfg/blinken.kcfg
+%{_iconsdir}/[!l]*/*/*/blinken.*
 
 %files kalzium
 %defattr(644,root,root,755)
@@ -676,6 +686,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/[!l]*/*/apps/kalzium*
 %{_mandir}/man1/kalzium.1*
 %{_kdedocdir}/en/kalzium
+
+%files kanagram -f kanagram.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/kanagram
+%{_datadir}/config.kcfg/kanagram.kcfg
+%{_datadir}/apps/kanagram
+%{_desktopdir}/kde/kanagram.desktop
+%{_iconsdir}/[!l]*/*/*/kanagram.*
 
 %files kbruch
 %defattr(644,root,root,755)
@@ -702,6 +720,16 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/apps/keduca.png
 %{_mandir}/man1/keduca*.1*
 %{_kdedocdir}/en/keduca
+
+%files kgeography -f kgeography.lang
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/kgeography
+%{_datadir}/config.kcfg/kgeography.kcfg
+%{_desktopdir}/kde/kgeography.desktop
+%{_datadir}/apps/kgeography
+%{_iconsdir}/[!l]*/*/*/kgeography.*
+%{_iconsdir}/crystalsvg/*/*/kgeography.png
+%{_iconsdir}/crystalsvg/*/*/kgeography.svgz
 
 %files khangman
 %defattr(644,root,root,755)
@@ -775,6 +803,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/klettres.1*
 %{_kdedocdir}/en/klettres
 
+%if 0
 %files kmessedwords
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kmessedwords
@@ -784,6 +813,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/[!l]*/*/apps/kmessedwords*
 %{_mandir}/man1/kmessedwords.1*
 %{_kdedocdir}/en/kmessedwords
+%endif
 
 %files kmplot
 %defattr(644,root,root,755)
@@ -816,8 +846,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/celestrongps
 %attr(755,root,root) %{_bindir}/indiserver
 %attr(755,root,root) %{_bindir}/kstars
-%attr(755,root,root) %{_bindir}/lx200generic
+%attr(755,root,root) %{_bindir}/lx200*
 %attr(755,root,root) %{_bindir}/temma
+%attr(755,root,root) %{_bindir}/apmount
+%attr(755,root,root) %{_bindir}/apogee_ppi
+%attr(755,root,root) %{_bindir}/fliwheel
+%attr(755,root,root) %{_bindir}/meade_lpi
+%attr(755,root,root) %{_bindir}/sbigccd
+%attr(755,root,root) %{_bindir}/skycommander
 %{_datadir}/apps/kstars
 %{_datadir}/config/kstarsrc
 %{_datadir}/config.kcfg/kstars.kcfg
@@ -871,16 +907,19 @@ rm -rf $RPM_BUILD_ROOT
 %files kvoctrain
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kvoctrain
-%attr(755,root,root) %{_bindir}/langen2kvtml
 %attr(755,root,root) %{_bindir}/spotlight2kvtml
 %{_datadir}/apps/kvoctrain
 %{_datadir}/config.kcfg/kvoctrain.kcfg
+%{_datadir}/config.kcfg/languagesettings.kcfg
+%{_datadir}/config.kcfg/presettings.kcfg
+%{_datadir}/config/kvoctrainrc
 %{_desktopdir}/kde/kvoctrain.desktop
 %{_iconsdir}/*/*/apps/kvoctrain*
 %{_mandir}/man1/kvoctrain.1*
 %{_mandir}/man1/langen2kvtml.1*
 %{_mandir}/man1/spotlight2kvtml.1*
 %{_kdedocdir}/en/kvoctrain
+%attr(755,root,root) %{_libdir}/libkvoctraincore.so.*
 
 %files kwordquiz
 %defattr(644,root,root,755)
@@ -892,6 +931,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/[!l]*/*/*/kwordquiz*
 %{_datadir}/mimelnk/application/x-kwordquiz.desktop
 %{_mandir}/man1/kwordquiz.1*
+%{_datadir}/config/kwordquizrc
 
 %files libextdate
 %defattr(644,root,root,755)

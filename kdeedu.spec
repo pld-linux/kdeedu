@@ -56,11 +56,15 @@ Pliki nag³ówkowe bibliotek kdeedu.
 
 %package blinken
 Summary:	KDE version of the well-known game Simon Says
+Summary(pl):	Wersja KDE dobrze znanej gry "Simon Says"
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
 
 %description blinken
 KDE version of the well-known game Simon Says.
+
+%description blinken -l pl
+Wersja KDE dobrze znanej gry "Simon Says".
 
 %package kalzium
 Summary:	A Periodic System of Elements database
@@ -83,12 +87,16 @@ wizualizacje.
 
 %package kanagram
 Summary:	Guess anagram game
+Summary(pl):	Gra w zgadywanie anagramów
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
 Obsoletes:	kdeedu-kmessedwords
 
 %description kanagram
 Guess anagram game.
+
+%description kanagram -l pl
+Gra w zgadywanie anagramów.
 
 %package kbruch
 Summary:	Task generator for calculations with fractions
@@ -130,12 +138,16 @@ formularzach.
 
 %package kgeography
 Summary:	A geography learning program
+Summary(pl):	Program do nauki geografii
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= 9:%{version}
 Obsoletes:	kdeedu
 
 %description kgeography
 A geography learning program.
+
+%description kgeography -l pl
+Program do nauki geografii.
 
 %package khangman
 Summary:	A hangman game

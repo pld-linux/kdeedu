@@ -16,7 +16,6 @@ License:	GPL
 Group:		X11/Applications/Science
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{_kdever}/src/%{name}-%{version}.tar.bz2
 # Source0-md5:	ac66cfcc8e23227973596cf62cf78a4c
-Icon:		kde-edu.xpm
 Patch0:		%{name}-pport.patch
 #Patch100:	%{name}-branch.diff
 BuildRequires:	autoconf

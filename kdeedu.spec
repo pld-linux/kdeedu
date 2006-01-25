@@ -614,7 +614,7 @@ cp /usr/share/automake/config.sub admin
 
 %configure \
 	--disable-rpath \
-	--enable-final \
+	--disable-final \
 	--with-qt-libraries=%{_libdir} \
 %if "%{_lib}" == "lib64"
 	--enable-libsuffix=64 \

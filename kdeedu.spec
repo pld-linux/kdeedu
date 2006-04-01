@@ -56,7 +56,7 @@ Pliki nag³ówkowe bibliotek kdeedu.
 Summary:	KDE version of the well-known game Simon Says
 Summary(pl):	Wersja KDE dobrze znanej gry "Simon Says"
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= 9:%{version}
+Requires:	kdebase-core >= %{_minbaseevr}
 
 %description blinken
 KDE version of the well-known game Simon Says.
@@ -68,7 +68,7 @@ Wersja KDE dobrze znanej gry "Simon Says".
 Summary:	A Periodic System of Elements database
 Summary(pl):	Baza danych Uk³adu Okresowego Pierwiastków
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= 9:%{version}
+Requires:	kdebase-core >= %{_minbaseevr}
 Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
 Obsoletes:	kdeedu
 
@@ -87,7 +87,7 @@ wizualizacje.
 Summary:	Guess anagram game
 Summary(pl):	Gra w zgadywanie anagramów
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= 9:%{version}
+Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu-kmessedwords
 
 %description kanagram
@@ -100,7 +100,7 @@ Gra w zgadywanie anagramów.
 Summary:	Task generator for calculations with fractions
 Summary(pl):	Generator zadañ z obliczeniami na u³amkach
 Group:		X11/Applications
-Requires:	kdebase-core >= 9:%{version}
+Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
 
 %description kbruch
@@ -124,7 +124,7 @@ i/lub mno¿eniem/dzieleniem.
 Summary:	Creation and revision of form-based tests and exams
 Summary(pl):	Tworzenie i sprawdzanie testów i egzaminów
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= 9:%{version}
+Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
 
 %description keduca
@@ -138,7 +138,7 @@ formularzach.
 Summary:	A geography learning program
 Summary(pl):	Program do nauki geografii
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= 9:%{version}
+Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
 
 %description kgeography
@@ -151,7 +151,7 @@ Program do nauki geografii.
 Summary:	A hangman game
 Summary(pl):	Gra w wisielca
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= 9:%{version}
+Requires:	kdebase-core >= %{_minbaseevr}
 Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
 Obsoletes:	kdeedu
 
@@ -174,7 +174,7 @@ lat lub wiêcej.
 Summary:	Interactive Geometry
 Summary(pl):	Interaktywna geometria
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= 9:%{version}
+Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
 
 %description kig
@@ -196,7 +196,7 @@ Kig to aplikacja do interaktywnej geometrii. Ma s³u¿yæ dwóm celom:
 Summary:	KLatin is a program to help revise latin
 Summary(pl):	Klatin s³u¿y do powtarzania ³aciny
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= 9:%{version}
+Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
 
 %description klatin
@@ -233,7 +233,7 @@ biernej" i odpowiada siê bez wielokrotnego wyboru.
 Summary:	A Japanese reference tool
 Summary(pl):	S³ownik angielsko-japoñski
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= 9:%{version}
+Requires:	kdebase-core >= %{_minbaseevr}
 Requires:	%{name}-libkiten = %{epoch}:%{version}-%{release}
 Obsoletes:	kdeedu
 
@@ -253,7 +253,7 @@ po trzecie, jest narzêdziem pomagaj±cym w nauce Kanji.
 Summary:	Helps child to learn alphabet and to read some syllables
 Summary(pl):	Pomoc w nauce alfabetu i sylab dla dzieci
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= 9:%{version}
+Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
 
 %description klettres
@@ -285,7 +285,7 @@ francuski i s³owacki.
 Summary:	Mathematical function plotter
 Summary(pl):	Rysowanie wykresów funkcji matematycznych
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= 9:%{version}
+Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
 
 %description kmplot
@@ -302,7 +302,7 @@ funkcje jednocze¶nie i ³±czyæ je, aby stworzyæ nowe funkcje.
 Summary:	A percentage tutor
 Summary(pl):	Program do nauki procentów
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= 9:%{version}
+Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
 
 %description kpercentage
@@ -315,7 +315,7 @@ Program do nauki procentów.
 Summary:	Desktop planetarium
 Summary(pl):	Planetarium
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= 9:%{version}
+Requires:	kdebase-core >= %{_minbaseevr}
 Requires:	%{name}-libextdate = %{epoch}:%{version}-%{release}
 Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
 Obsoletes:	kdeedu
@@ -344,7 +344,7 @@ horyzont i ekliptykê.
 Summary:	Program for learning touch typing
 Summary(pl):	Program do nauki maszynopisania
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= 9:%{version}
+Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
 
 %description ktouch
@@ -369,7 +369,7 @@ jednostek.
 Summary:	A Logo interpreter for KDE
 Summary(pl):	Interpreter jêzyka Logo dla KDE
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= 9:%{version}
+Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
 Obsoletes:	klogoturtle
 
@@ -420,7 +420,7 @@ Mo¿liwo¶ci KTurtle:
 Summary:	Spanish verb form study application for KDE
 Summary(pl):	Program do nauki form czasowników w jêzyku hiszpañskim
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= 9:%{version}
+Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
 
 %description kverbos
@@ -433,7 +433,7 @@ Program do nauki form czasowników w jêzyku hiszpañskim.
 Summary:	Vocabulary trainer
 Summary(pl):	Program do æwiczenia s³ownictwa
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= 9:%{version}
+Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
 
 %description kvoctrain
@@ -446,7 +446,7 @@ Program do æwiczenia s³ownictwa.
 Summary:	A flashcard and vocabulary learning program
 Summary(pl):	Program do æwiczenia s³ownictwa za pomoc± pokazywania kart
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= 9:%{version}
+Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
 Obsoletes:	kwordquiz
 
@@ -490,7 +490,7 @@ maj± tak¿e specjalny tryb wype³niania luk.
 Summary:	Extensive date support library in KDE
 Summary(pl):	Biblioteka rozszerzonej obs³ugi dat w KDE
 Group:		X11/Libraries
-Requires:	kdelibs >= 9:%{version}
+Requires:	kdelibs >= %{_minlibsevr}
 
 %description libextdate
 This library consists of a group of classes which allow KDE
@@ -515,7 +515,7 @@ zaadoptowano kalendarz gregoriañski) ani pó¼niejszych ni¿ 31 grudnia
 Summary:	KDE educational module core library
 Summary(pl):	Podstawowa biblioteka modu³u edukacyjnego KDE
 Group:		X11/Libraries
-Requires:	kdelibs >= 9:%{version}
+Requires:	kdelibs >= %{_minlibsevr}
 Obsoletes:	kdeedu-flashkard
 
 %description libkdeeducore
@@ -529,7 +529,7 @@ edukacyjne w KDE.
 Summary:	A KDE library for plotting
 Summary(pl):	Biblioteka KDE do rysowania wykresów
 Group:		X11/Libraries
-Requires:	kdelibs >= 9:%{version}
+Requires:	kdelibs >= %{_minlibsevr}
 
 %description libkdeeduplot
 Library with plotting functions for KDE educational applications.
@@ -542,7 +542,7 @@ aplikacje edukacyjne w KDE.
 Summary:	A userf interface library for KDE educational module
 Summary(pl):	Biblioteka interfejsu u¿ytkownika dla modu³u edukacyjnego KDE
 Group:		X11/Libraries
-Requires:	kdelibs >= 9:%{version}
+Requires:	kdelibs >= %{_minlibsevr}
 
 %description libkdeeduui
 A library with user interface functions for KDE educational
@@ -556,7 +556,7 @@ aplikacje edukacyjne w KDE.
 Summary:	Kiten library
 Summary(pl):	Biblioteka Kiten
 Group:		X11/Libraries
-Requires:	kdelibs >= 9:%{version}
+Requires:	kdelibs >= %{_minlibsevr}
 
 %description libkiten
 Kiten library.

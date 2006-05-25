@@ -9,13 +9,13 @@
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
-Version:	3.5.2
+Version:	3.5.3
 Release:	1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	ce62d2e67579280a3e000152fb365bff
+# Source0-md5:	5c9cb7f25c8627772d6de5a3ed550691
 Patch0:		%{name}-pport.patch
 #Patch100:	%{name}-branch.diff
 BuildRequires:	autoconf

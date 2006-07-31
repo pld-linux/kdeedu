@@ -19,13 +19,13 @@ Patch0:		%{name}-pport.patch
 #Patch100:	%{name}-branch.diff
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	boost-python-devel
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel >= %{_minlibsevr}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	sed >= 4.0
-BuildRequires:	boost-python-devel
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -67,8 +67,8 @@ Wersja KDE dobrze znanej gry "Simon Says".
 Summary:	A Periodic System of Elements database
 Summary(pl):	Baza danych Uk³adu Okresowego Pierwiastków
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= %{_minbaseevr}
 Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
+Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
 
 %description kalzium
@@ -150,8 +150,8 @@ Program do nauki geografii.
 Summary:	A hangman game
 Summary(pl):	Gra w wisielca
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= %{_minbaseevr}
 Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
+Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
 
 %description khangman
@@ -232,8 +232,8 @@ biernej" i odpowiada siê bez wielokrotnego wyboru.
 Summary:	A Japanese reference tool
 Summary(pl):	S³ownik angielsko-japoñski
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= %{_minbaseevr}
 Requires:	%{name}-libkiten = %{epoch}:%{version}-%{release}
+Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
 
 %description kiten
@@ -314,9 +314,9 @@ Program do nauki procentów.
 Summary:	Desktop planetarium
 Summary(pl):	Planetarium
 Group:		X11/Applications/Science
-Requires:	kdebase-core >= %{_minbaseevr}
 Requires:	%{name}-libextdate = %{epoch}:%{version}-%{release}
 Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
+Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
 
 %description kstars

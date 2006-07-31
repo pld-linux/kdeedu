@@ -1,7 +1,6 @@
 # TODO
 # - unpackaged (add to kig or add python-kig/kig-python?)
 #  /usr/bin/pykig.py
-
 %define		_state		stable
 %define		_minlibsevr	9:%{version}
 %define		_minbaseevr	9:%{version}
@@ -9,13 +8,13 @@
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
-Version:	3.5.3
+Version:	3.5.4
 Release:	1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	5c9cb7f25c8627772d6de5a3ed550691
+# Source0-md5:	81dfdea2ed6eaaa440ee868a69b8fc7e
 Patch0:		%{name}-pport.patch
 #Patch100:	%{name}-branch.diff
 BuildRequires:	autoconf
@@ -767,6 +766,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/kde3/kfile_kig.la
 %attr(755,root,root) %{_libdir}/kde3/kfile_kig.so
 %{_datadir}/apps/kig*
+%{_datadir}/apps/katepart/syntax/python-kig.xml
 %{_datadir}/config/magic/cabri.magic
 %{_datadir}/config/magic/drgeo.magic
 %{_datadir}/mimelnk/application/x-kgeo.desktop

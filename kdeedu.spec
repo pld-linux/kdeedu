@@ -16,6 +16,7 @@ Group:		X11/Applications/Science
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{name}-%{version}.tar.bz2
 # Source0-md5:	1659863d74a510bee412d0cb404b4542
 Patch0:		%{name}-pport.patch
+Patch1:		kde-ac260-lt.patch
 #Patch100:	%{name}-branch.diff
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -566,6 +567,7 @@ Biblioteka Kiten.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %{__sed} -i -e 's/Categories=.*/Categories=Qt;KDE;Education;Science;Chemistry;/' \
 ./kalzium/src/kalzium.desktop
@@ -626,9 +628,9 @@ mv $RPM_BUILD_ROOT%{_datadir}/applnk/Edutainment/Miscellaneous/kwordquiz.desktop
 # applnk is obsolete, isn't it?
 rm -rf $RPM_BUILD_ROOT%{_datadir}/applnk
 
-%find_lang blinken --with-kde
-%find_lang kanagram --with-kde
-%find_lang kgeography --with-kde
+%find_lang blinken	--with-kde
+%find_lang kanagram	--with-kde
+%find_lang kgeography	--with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT

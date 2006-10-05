@@ -8,13 +8,13 @@
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
-Version:	3.5.4
-Release:	1
+Version:	3.5.5
+Release:	0.1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	81dfdea2ed6eaaa440ee868a69b8fc7e
+# Source0-md5:	1659863d74a510bee412d0cb404b4542
 Patch0:		%{name}-pport.patch
 #Patch100:	%{name}-branch.diff
 BuildRequires:	autoconf
@@ -567,20 +567,6 @@ Biblioteka Kiten.
 %setup -q
 %patch0 -p1
 
-for f in `find . -name *.desktop | xargs grep -l '^Terminal=0'`; do
-	%{__sed} -i -e 's/^Terminal=0/Terminal=false/' $f
-done
-for f in `find . -name *.desktop | xargs grep -l '^Type=Application'`; do
-	if ! grep '^Encoding=' $f >/dev/null; then
-		%{__sed} -i -e '/\[Desktop Entry\]/aEncoding=UTF-8' $f
-	fi
-done
-for f in `find . -name *.desktop`; do
-	if grep -q '\[ven\]' $f; then
-		sed -i -e 's/\[ven\]/[ve]/' $f
-	fi
-done
-
 %{__sed} -i -e 's/Categories=.*/Categories=Qt;KDE;Education;Science;Chemistry;/' \
 ./kalzium/src/kalzium.desktop
 
@@ -597,27 +583,25 @@ done
 ./keduca/resources/keduca.desktop \
 ./keduca/resources/keducabuilder.desktop
 
-for f in `find . -name \*.desktop`; do
-	if grep -q '^Categories=.*[^;]$' $f; then
-		sed -i -e 's/\(^Categories=.*$\)/\1;/' $f
+for f in `find . -name *.desktop`; do
+	if grep -q '\[ven\]' $f; then
+		sed -i -e 's/\[ven\]/[ve]/' $f
 	fi
 done
 
 %build
 cp /usr/share/automake/config.sub admin
 
-#export UNSERMAKE=/usr/share/unsermake/unsermake
-
 %{__make} -f admin/Makefile.common cvs
 
 %configure \
-	--disable-rpath \
+	--%{?debug:en}%{!?debug:dis}able-debug%{?debug:=full} \
+	%{!?debug:--disable-rpath} \
 	--disable-final \
-	--with-qt-libraries=%{_libdir} \
 %if "%{_lib}" == "lib64"
 	--enable-libsuffix=64 \
 %endif
-	--%{?debug:en}%{!?debug:dis}able-debug%{?debug:=full}
+	--with-qt-libraries=%{_libdir}
 
 %{__make}
 
@@ -626,8 +610,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	kde_htmldir=%{_kdedocdir} \
-	kde_libs_htmldir=%{_kdedocdir}
+	kde_htmldir=%{_kdedocdir}
 
 install -d \
 	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/actions \
@@ -646,12 +629,6 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/applnk
 %find_lang blinken --with-kde
 %find_lang kanagram --with-kde
 %find_lang kgeography --with-kde
-
-%if 0
-# Debian manpages
-install -d $RPM_BUILD_ROOT%{_mandir}/man1
-install debian/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
-%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -717,7 +694,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/kbruch.desktop
 %{_iconsdir}/[!l]*/*/*/kbruch*
 %{_kdedocdir}/en/kbruch
-#%{_mandir}/man1/kbruch.1*
 
 %files keduca
 %defattr(644,root,root,755)
@@ -732,7 +708,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/services/keduca_part.desktop
 %{_desktopdir}/kde/keduca*.desktop
 %{_iconsdir}/*/*/apps/keduca.png
-#%{_mandir}/man1/keduca*.1*
 %{_kdedocdir}/en/keduca
 
 %files kgeography -f kgeography.lang
@@ -742,8 +717,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/kgeography.desktop
 %{_datadir}/apps/kgeography
 %{_iconsdir}/[!l]*/*/*/kgeography.*
-#%{_iconsdir}/crystalsvg/*/*/kgeography.png
-#%{_iconsdir}/crystalsvg/*/*/kgeography.svgz
 
 %files khangman
 %defattr(644,root,root,755)
@@ -753,7 +726,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config.kcfg/khangman.kcfg
 %{_desktopdir}/kde/khangman.desktop
 %{_iconsdir}/[!l]*/*/apps/khangman*
-#%{_mandir}/man1/khangman.1*
 %{_kdedocdir}/en/khangman
 
 %files kig
@@ -781,7 +753,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/[!l]*/*/apps/kig*
 %{_iconsdir}/crystalsvg/*/mimetypes/kig_doc.*
 %{_kdedocdir}/en/kig
-#%{_mandir}/man1/kig.1*
 
 %files kiten
 %defattr(644,root,root,755)
@@ -793,8 +764,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/*/*/actions/kanjidic.png
 %{_iconsdir}/*/*/actions/edit_*.png
 %{_iconsdir}/*/*/apps/kiten*
-#%{_mandir}/man1/kiten.1*
-#%{_mandir}/man1/kitengen.1*
 %{_kdedocdir}/en/kiten
 
 %files klatin
@@ -805,7 +774,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/klatin.desktop
 %{_kdedocdir}/en/klatin
 %{_iconsdir}/*/*/apps/klatin*
-#%{_mandir}/man1/klatin.1*
 
 %files klettres
 %defattr(644,root,root,755)
@@ -815,7 +783,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config.kcfg/klettres.kcfg
 %{_desktopdir}/kde/klettres.desktop
 %{_iconsdir}/[!l]*/*/*/klettres*
-#%{_mandir}/man1/klettres.1*
 %{_kdedocdir}/en/klettres
 
 %if 0
@@ -826,7 +793,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config.kcfg/kmessedwords.kcfg
 %{_desktopdir}/kde/kmessedwords.desktop
 %{_iconsdir}/[!l]*/*/apps/kmessedwords*
-#%{_mandir}/man1/kmessedwords.1*
 %{_kdedocdir}/en/kmessedwords
 %endif
 
@@ -841,7 +807,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mimelnk/application/x-kmplot.desktop
 %{_datadir}/services/kmplot_part.desktop
 %{_iconsdir}/[!l]*/*/apps/kmplot*
-#%{_mandir}/man1/kmplot.1*
 %{_kdedocdir}/en/kmplot
 
 %files kpercentage
@@ -850,7 +815,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kpercentage
 %{_desktopdir}/kde/kpercentage.desktop
 %{_iconsdir}/[!l]*/*/apps/kpercentage*
-#%{_mandir}/man1/kpercentage.1*
 %{_kdedocdir}/en/kpercentage
 
 %files kstars
@@ -875,19 +839,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/kstars.desktop
 %{_iconsdir}/[!l]*/*/apps/kstars*
 %{_kdedocdir}/en/kstars
-%if 0
-%{_mandir}/man1/fliccd.1*
-%{_mandir}/man1/kstars.1*
-%{_mandir}/man1/celestrongps.1*
-%{_mandir}/man1/indiserver.1*
-%{_mandir}/man1/lx200_16.1*
-%{_mandir}/man1/lx200autostar.1*
-%{_mandir}/man1/lx200classic.1*
-%{_mandir}/man1/lx200generic.1*
-%{_mandir}/man1/lx200gps.1*
-%{_mandir}/man1/temma.1*
-%{_mandir}/man1/v4l*.1*
-%endif
 
 %files ktouch
 %defattr(644,root,root,755)
@@ -896,7 +847,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config.kcfg/ktouch.kcfg
 %{_desktopdir}/kde/ktouch.desktop
 %{_iconsdir}/*/*/apps/ktouch*
-#%{_mandir}/man1/ktouch.1*
 %{_kdedocdir}/en/ktouch
 
 %files kturtle
@@ -908,7 +858,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/kturtle.desktop
 %{_kdedocdir}/en/kturtle
 %{_iconsdir}/*/*/apps/kturtle*
-#%{_mandir}/man1/kturtle.1*
 
 %files kverbos
 %defattr(644,root,root,755)
@@ -918,7 +867,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/kverbos.desktop
 %{_iconsdir}/*/*/actions/kverbosuser.png
 %{_iconsdir}/*/*/apps/kverbos*
-#%{_mandir}/man1/kverbos.1*
 %{_kdedocdir}/en/kverbos
 
 %files kvoctrain
@@ -935,11 +883,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/kvoctrain.desktop
 %{_iconsdir}/*/*/apps/kvoctrain*
 %{_kdedocdir}/en/kvoctrain
-%if 0
-%{_mandir}/man1/kvoctrain.1*
-%{_mandir}/man1/langen2kvtml.1*
-%{_mandir}/man1/spotlight2kvtml.1*
-%endif
 
 %files kwordquiz
 %defattr(644,root,root,755)
@@ -951,7 +894,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/[!l]*/*/*/kwordquiz*
 %{_datadir}/mimelnk/application/x-kwordquiz.desktop
 %{_datadir}/config/kwordquizrc
-#%{_mandir}/man1/kwordquiz.1*
 
 %files libextdate
 %defattr(644,root,root,755)
@@ -959,7 +901,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/test_extdatepicker
 %{_libdir}/libextdate.la
 %attr(755,root,root) %{_libdir}/libextdate.so.1.2.0
-#%{_mandir}/man1/test_*.1*
 
 %files libkdeeducore
 %defattr(644,root,root,755)

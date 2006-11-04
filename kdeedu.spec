@@ -1,6 +1,4 @@
 # TODO
-# - unpackaged (add to kig or add python-kig/kig-python?)
-#  /usr/bin/pykig.py
 # - odd, doesn't exist in ppc: /usr/share/apps/katepart/syntax/python-kig.xml
 %define		_state		stable
 %define		_minlibsevr	9:%{version}
@@ -736,6 +734,7 @@ rm -rf $RPM_BUILD_ROOT
 %files kig
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kig
+%attr(755,root,root) %{_bindir}/pykig.py
 %{_libdir}/kde3/libkigpart.la
 %attr(755,root,root) %{_libdir}/kde3/libkigpart.so
 %{_libdir}/kde3/kfile_drgeo.la

@@ -1,6 +1,7 @@
 # TODO
 # - unpackaged (add to kig or add python-kig/kig-python?)
 #  /usr/bin/pykig.py
+# - odd, doesn't exist in ppc: /usr/share/apps/katepart/syntax/python-kig.xml
 %define		_state		stable
 %define		_minlibsevr	9:%{version}
 %define		_minbaseevr	9:%{version}
@@ -9,7 +10,7 @@ Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	3.5.5
-Release:	1
+Release:	2
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
@@ -742,7 +743,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/kde3/kfile_kig.la
 %attr(755,root,root) %{_libdir}/kde3/kfile_kig.so
 %{_datadir}/apps/kig*
+%ifnarch ppc
 %{_datadir}/apps/katepart/syntax/python-kig.xml
+%endif
 %{_datadir}/config/magic/cabri.magic
 %{_datadir}/config/magic/drgeo.magic
 %{_datadir}/mimelnk/application/x-kgeo.desktop

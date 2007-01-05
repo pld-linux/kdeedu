@@ -1,5 +1,3 @@
-# TODO
-# - odd, doesn't exist in ppc: /usr/share/apps/katepart/syntax/python-kig.xml
 %define		_state		stable
 %define		_minlibsevr	9:%{version}
 %define		_minbaseevr	9:%{version}
@@ -8,7 +6,7 @@ Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	3.5.5
-Release:	3
+Release:	4
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
@@ -19,9 +17,11 @@ Patch0:		kde-common-PLD.patch
 Patch1:		%{name}-pport.patch
 Patch2:		kde-ac260-lt.patch
 Patch3:		kde-am.patch
+Patch4:		%{name}-python.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	boost-python-devel
+BuildRequires:	python-devel
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel >= %{_minlibsevr}
 BuildRequires:	libjpeg-devel
@@ -573,6 +573,7 @@ Biblioteka Kiten.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %{__sed} -i -e 's/Categories=.*/Categories=Qt;KDE;Education;Science;Chemistry;/' \
 ./kalzium/src/kalzium.desktop
@@ -608,7 +609,9 @@ cp /usr/share/automake/config.sub admin
 %if "%{_lib}" == "lib64"
 	--enable-libsuffix=64 \
 %endif
-	--with-qt-libraries=%{_libdir}
+	--with-qt-libraries=%{_libdir} \
+	--enable-kig-python-scripting \
+	--enable-kig-compressed-files
 
 %{__make}
 
@@ -746,9 +749,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/kde3/kfile_kig.la
 %attr(755,root,root) %{_libdir}/kde3/kfile_kig.so
 %{_datadir}/apps/kig*
-%ifnarch ppc
 %{_datadir}/apps/katepart/syntax/python-kig.xml
-%endif
 %{_datadir}/config/magic/cabri.magic
 %{_datadir}/config/magic/drgeo.magic
 %{_datadir}/mimelnk/application/x-kgeo.desktop

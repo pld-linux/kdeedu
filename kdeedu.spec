@@ -5,19 +5,18 @@
 Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
-Version:	3.5.5
-Release:	4
+Version:	3.5.6
+Release:	1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	1659863d74a510bee412d0cb404b4542
+# Source0-md5:	6017317b133d973e7fc8a279a81f37a1
 #Patch100:	%{name}-branch.diff
 Patch0:		kde-common-PLD.patch
 Patch1:		%{name}-pport.patch
 Patch2:		kde-ac260-lt.patch
-Patch3:		kde-am.patch
-Patch4:		%{name}-python.patch
+Patch3:		%{name}-python.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	boost-python-devel
@@ -573,7 +572,6 @@ Biblioteka Kiten.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
 
 %{__sed} -i -e 's/Categories=.*/Categories=Qt;KDE;Education;Science;Chemistry;/' \
 ./kalzium/src/kalzium.desktop

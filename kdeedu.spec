@@ -6,7 +6,7 @@ Summary:	K Desktop Environment - edutainment
 Summary(pl):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	3.5.6
-Release:	0.1
+Release:	1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science

@@ -3,7 +3,7 @@
 %define		_minbaseevr	9:%{version}
 
 Summary:	K Desktop Environment - edutainment
-Summary(pl.UTF-8):   K Desktop Environment - edukacja i rozrywka
+Summary(pl.UTF-8):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	3.5.6
 Release:	1
@@ -40,7 +40,7 @@ K Desktop Environment - edukacja i rozrywka.
 
 %package devel
 Summary:	Header files for kdeedu libraries
-Summary(pl.UTF-8):   Pliki nagłówkowe bibliotek kdeedu
+Summary(pl.UTF-8):	Pliki nagłówkowe bibliotek kdeedu
 Group:		X11/Development/Libraries
 Requires:	%{name}-libextdate = %{epoch}:%{version}-%{release}
 Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
@@ -56,7 +56,7 @@ Pliki nagłówkowe bibliotek kdeedu.
 
 %package blinken
 Summary:	KDE version of the well-known game Simon Says
-Summary(pl.UTF-8):   Wersja KDE dobrze znanej gry "Simon Says"
+Summary(pl.UTF-8):	Wersja KDE dobrze znanej gry "Simon Says"
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 
@@ -68,7 +68,7 @@ Wersja KDE dobrze znanej gry "Simon Says".
 
 %package kalzium
 Summary:	A Periodic System of Elements database
-Summary(pl.UTF-8):   Baza danych Układu Okresowego Pierwiastków
+Summary(pl.UTF-8):	Baza danych Układu Okresowego Pierwiastków
 Group:		X11/Applications/Science
 Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core >= %{_minbaseevr}
@@ -87,7 +87,7 @@ wizualizacje.
 
 %package kanagram
 Summary:	Guess anagram game
-Summary(pl.UTF-8):   Gra w zgadywanie anagramów
+Summary(pl.UTF-8):	Gra w zgadywanie anagramów
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu-kmessedwords
@@ -100,7 +100,7 @@ Gra w zgadywanie anagramów.
 
 %package kbruch
 Summary:	Task generator for calculations with fractions
-Summary(pl.UTF-8):   Generator zadań z obliczeniami na ułamkach
+Summary(pl.UTF-8):	Generator zadań z obliczeniami na ułamkach
 Group:		X11/Applications
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -124,7 +124,7 @@ i/lub mnożeniem/dzieleniem.
 
 %package keduca
 Summary:	Creation and revision of form-based tests and exams
-Summary(pl.UTF-8):   Tworzenie i sprawdzanie testów i egzaminów
+Summary(pl.UTF-8):	Tworzenie i sprawdzanie testów i egzaminów
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -138,7 +138,7 @@ formularzach.
 
 %package kgeography
 Summary:	A geography learning program
-Summary(pl.UTF-8):   Program do nauki geografii
+Summary(pl.UTF-8):	Program do nauki geografii
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -151,7 +151,7 @@ Program do nauki geografii.
 
 %package khangman
 Summary:	A hangman game
-Summary(pl.UTF-8):   Gra w wisielca
+Summary(pl.UTF-8):	Gra w wisielca
 Group:		X11/Applications/Science
 Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core >= %{_minbaseevr}
@@ -174,7 +174,7 @@ lat lub więcej.
 
 %package kig
 Summary:	Interactive Geometry
-Summary(pl.UTF-8):   Interaktywna geometria
+Summary(pl.UTF-8):	Interaktywna geometria
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -196,7 +196,7 @@ Kig to aplikacja do interaktywnej geometrii. Ma służyć dwóm celom:
 
 %package klatin
 Summary:	KLatin is a program to help revise latin
-Summary(pl.UTF-8):   Klatin służy do powtarzania łaciny
+Summary(pl.UTF-8):	Klatin służy do powtarzania łaciny
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -233,7 +233,7 @@ biernej" i odpowiada się bez wielokrotnego wyboru.
 
 %package kiten
 Summary:	A Japanese reference tool
-Summary(pl.UTF-8):   Słownik angielsko-japoński
+Summary(pl.UTF-8):	Słownik angielsko-japoński
 Group:		X11/Applications/Science
 Requires:	%{name}-libkiten = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core >= %{_minbaseevr}
@@ -253,7 +253,7 @@ po trzecie, jest narzędziem pomagającym w nauce Kanji.
 
 %package klettres
 Summary:	Helps child to learn alphabet and to read some syllables
-Summary(pl.UTF-8):   Pomoc w nauce alfabetu i sylab dla dzieci
+Summary(pl.UTF-8):	Pomoc w nauce alfabetu i sylab dla dzieci
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -285,7 +285,7 @@ francuski i słowacki.
 
 %package kmplot
 Summary:	Mathematical function plotter
-Summary(pl.UTF-8):   Rysowanie wykresów funkcji matematycznych
+Summary(pl.UTF-8):	Rysowanie wykresów funkcji matematycznych
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -302,7 +302,7 @@ funkcje jednocześnie i łączyć je, aby stworzyć nowe funkcje.
 
 %package kpercentage
 Summary:	A percentage tutor
-Summary(pl.UTF-8):   Program do nauki procentów
+Summary(pl.UTF-8):	Program do nauki procentów
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -315,7 +315,7 @@ Program do nauki procentów.
 
 %package kstars
 Summary:	Desktop planetarium
-Summary(pl.UTF-8):   Planetarium
+Summary(pl.UTF-8):	Planetarium
 Group:		X11/Applications/Science
 Requires:	%{name}-libextdate = %{epoch}:%{version}-%{release}
 Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
@@ -344,7 +344,7 @@ horyzont i ekliptykę.
 
 %package ktouch
 Summary:	Program for learning touch typing
-Summary(pl.UTF-8):   Program do nauki maszynopisania
+Summary(pl.UTF-8):	Program do nauki maszynopisania
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -369,7 +369,7 @@ jednostek.
 
 %package kturtle
 Summary:	A Logo interpreter for KDE
-Summary(pl.UTF-8):   Interpreter języka Logo dla KDE
+Summary(pl.UTF-8):	Interpreter języka Logo dla KDE
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -420,7 +420,7 @@ Możliwości KTurtle:
 
 %package kverbos
 Summary:	Spanish verb form study application for KDE
-Summary(pl.UTF-8):   Program do nauki form czasowników w języku hiszpańskim
+Summary(pl.UTF-8):	Program do nauki form czasowników w języku hiszpańskim
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -433,7 +433,7 @@ Program do nauki form czasowników w języku hiszpańskim.
 
 %package kvoctrain
 Summary:	Vocabulary trainer
-Summary(pl.UTF-8):   Program do ćwiczenia słownictwa
+Summary(pl.UTF-8):	Program do ćwiczenia słownictwa
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -446,7 +446,7 @@ Program do ćwiczenia słownictwa.
 
 %package kwordquiz
 Summary:	A flashcard and vocabulary learning program
-Summary(pl.UTF-8):   Program do ćwiczenia słownictwa za pomocą pokazywania kart
+Summary(pl.UTF-8):	Program do ćwiczenia słownictwa za pomocą pokazywania kart
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -490,7 +490,7 @@ mają także specjalny tryb wypełniania luk.
 
 %package libextdate
 Summary:	Extensive date support library in KDE
-Summary(pl.UTF-8):   Biblioteka rozszerzonej obsługi dat w KDE
+Summary(pl.UTF-8):	Biblioteka rozszerzonej obsługi dat w KDE
 Group:		X11/Libraries
 Requires:	kdelibs >= %{_minlibsevr}
 
@@ -515,7 +515,7 @@ zaadoptowano kalendarz gregoriański) ani późniejszych niż 31 grudnia
 
 %package libkdeeducore
 Summary:	KDE educational module core library
-Summary(pl.UTF-8):   Podstawowa biblioteka modułu edukacyjnego KDE
+Summary(pl.UTF-8):	Podstawowa biblioteka modułu edukacyjnego KDE
 Group:		X11/Libraries
 Requires:	kdelibs >= %{_minlibsevr}
 Obsoletes:	kdeedu-flashkard
@@ -529,7 +529,7 @@ edukacyjne w KDE.
 
 %package libkdeeduplot
 Summary:	A KDE library for plotting
-Summary(pl.UTF-8):   Biblioteka KDE do rysowania wykresów
+Summary(pl.UTF-8):	Biblioteka KDE do rysowania wykresów
 Group:		X11/Libraries
 Requires:	kdelibs >= %{_minlibsevr}
 
@@ -542,7 +542,7 @@ aplikacje edukacyjne w KDE.
 
 %package libkdeeduui
 Summary:	A userf interface library for KDE educational module
-Summary(pl.UTF-8):   Biblioteka interfejsu użytkownika dla modułu edukacyjnego KDE
+Summary(pl.UTF-8):	Biblioteka interfejsu użytkownika dla modułu edukacyjnego KDE
 Group:		X11/Libraries
 Requires:	kdelibs >= %{_minlibsevr}
 
@@ -556,7 +556,7 @@ aplikacje edukacyjne w KDE.
 
 %package libkiten
 Summary:	Kiten library
-Summary(pl.UTF-8):   Biblioteka Kiten
+Summary(pl.UTF-8):	Biblioteka Kiten
 Group:		X11/Libraries
 Requires:	kdelibs >= %{_minlibsevr}
 

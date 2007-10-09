@@ -5,13 +5,13 @@
 Summary:	K Desktop Environment - edutainment
 Summary(pl.UTF-8):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
-Version:	3.5.7
-Release:	3
+Version:	3.5.8
+Release:	1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	e2568148df3bf5aecec2ed21c4a0e0a1
+# Source0-md5:	aaae4c6fe82c806eb20942178cadad9e
 #Patch100:	%{name}-branch.diff
 Patch0:		kde-common-PLD.patch
 Patch1:		%{name}-pport.patch
@@ -887,6 +887,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/kvoctrain.desktop
 %{_iconsdir}/*/*/apps/kvoctrain*
 %{_kdedocdir}/en/kvoctrain
+%{_datadir}/mimelnk/text/x-kvtml.desktop
 
 %files kwordquiz
 %defattr(644,root,root,755)

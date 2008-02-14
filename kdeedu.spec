@@ -3,7 +3,7 @@
 %define		_minbaseevr	9:%{version}
 
 Summary:	K Desktop Environment - edutainment
-Summary(pl):	K Desktop Environment - edukacja i rozrywka
+Summary(pl.UTF-8):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
 Version:	3.5.8
 Release:	1
@@ -34,12 +34,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 K Desktop Environment - edutainment.
 
-%description -l pl
+%description -l pl.UTF-8
 K Desktop Environment - edukacja i rozrywka.
 
 %package devel
 Summary:	Header files for kdeedu libraries
-Summary(pl):	Pliki nag³ówkowe bibliotek kdeedu
+Summary(pl.UTF-8):	Pliki nagÅ‚Ã³wkowe bibliotek kdeedu
 Group:		X11/Development/Libraries
 Requires:	%{name}-libextdate = %{epoch}:%{version}-%{release}
 Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
@@ -50,24 +50,24 @@ Requires:	%{name}-libkiten = %{epoch}:%{version}-%{release}
 %description devel
 Header files for kdeedu libraries.
 
-%description devel -l pl
-Pliki nag³ówkowe bibliotek kdeedu.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe bibliotek kdeedu.
 
 %package blinken
 Summary:	KDE version of the well-known game Simon Says
-Summary(pl):	Wersja KDE dobrze znanej gry "Simon Says"
+Summary(pl.UTF-8):	Wersja KDE dobrze znanej gry "Simon Says"
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 
 %description blinken
 KDE version of the well-known game Simon Says.
 
-%description blinken -l pl
+%description blinken -l pl.UTF-8
 Wersja KDE dobrze znanej gry "Simon Says".
 
 %package kalzium
 Summary:	A Periodic System of Elements database
-Summary(pl):	Baza danych Uk³adu Okresowego Pierwiastków
+Summary(pl.UTF-8):	Baza danych UkÅ‚adu Okresowego PierwiastkÃ³w
 Group:		X11/Applications/Science
 Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core >= %{_minbaseevr}
@@ -79,14 +79,14 @@ kind of information about the PSE (Periodic System of Elements.) You
 can lookup lots of information about the elements and also use
 visualizations to show them.
 
-%description kalzium -l pl
-Baza danych Uk³adu Okresowego Pierwiastków. Kalzium dostarcza wszelkie
-informacje dotycz±ce UOP, informacje o pierwiastkach oraz ich
+%description kalzium -l pl.UTF-8
+Baza danych UkÅ‚adu Okresowego PierwiastkÃ³w. Kalzium dostarcza wszelkie
+informacje dotyczÄ…ce UOP, informacje o pierwiastkach oraz ich
 wizualizacje.
 
 %package kanagram
 Summary:	Guess anagram game
-Summary(pl):	Gra w zgadywanie anagramów
+Summary(pl.UTF-8):	Gra w zgadywanie anagramÃ³w
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu-kmessedwords
@@ -94,12 +94,12 @@ Obsoletes:	kdeedu-kmessedwords
 %description kanagram
 Guess anagram game.
 
-%description kanagram -l pl
-Gra w zgadywanie anagramów.
+%description kanagram -l pl.UTF-8
+Gra w zgadywanie anagramÃ³w.
 
 %package kbruch
 Summary:	Task generator for calculations with fractions
-Summary(pl):	Generator zadañ z obliczeniami na u³amkach
+Summary(pl.UTF-8):	Generator zadaÅ„ z obliczeniami na uÅ‚amkach
 Group:		X11/Applications
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -112,18 +112,18 @@ task generation can be adjusted by using different parameters. The
 user can decide if he wants to solve tasks with addition/subtraction
 and/or multiplication/division.
 
-%description kbruch -l pl
-Generator zadañ z obliczeniami na u³amkach. KBruch to ma³y program do
-generowania zadañ z u³amkami. U¿ytkownik ma rozwi±zaæ zadanie poprzez
-wpisanie poprawnej warto¶ci dla licznika i mianownika. Nastêpnie
-program sprawdza poprawno¶æ danych. Generowanie zadañ mo¿na
-dostosowywaæ przy pomocy ró¿nych parametrów. U¿ytkownik mo¿e
-decydowaæ, czy chce rozwi±zywaæ zadania z dodawaniem/odejmowaniem
-i/lub mno¿eniem/dzieleniem.
+%description kbruch -l pl.UTF-8
+Generator zadaÅ„ z obliczeniami na uÅ‚amkach. KBruch to maÅ‚y program do
+generowania zadaÅ„ z uÅ‚amkami. UÅ¼ytkownik ma rozwiÄ…zaÄ‡ zadanie poprzez
+wpisanie poprawnej wartoÅ›ci dla licznika i mianownika. NastÄ™pnie
+program sprawdza poprawnoÅ›Ä‡ danych. Generowanie zadaÅ„ moÅ¼na
+dostosowywaÄ‡ przy pomocy rÃ³Å¼nych parametrÃ³w. UÅ¼ytkownik moÅ¼e
+decydowaÄ‡, czy chce rozwiÄ…zywaÄ‡ zadania z dodawaniem/odejmowaniem
+i/lub mnoÅ¼eniem/dzieleniem.
 
 %package keduca
 Summary:	Creation and revision of form-based tests and exams
-Summary(pl):	Tworzenie i sprawdzanie testów i egzaminów
+Summary(pl.UTF-8):	Tworzenie i sprawdzanie testÃ³w i egzaminÃ³w
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -131,13 +131,13 @@ Obsoletes:	kdeedu
 %description keduca
 Application for creating and revising of form-based tests and exams.
 
-%description keduca -l pl
-Aplikacja do tworzenia i sprawdzania testów i egzaminów opartych na
+%description keduca -l pl.UTF-8
+Aplikacja do tworzenia i sprawdzania testÃ³w i egzaminÃ³w opartych na
 formularzach.
 
 %package kgeography
 Summary:	A geography learning program
-Summary(pl):	Program do nauki geografii
+Summary(pl.UTF-8):	Program do nauki geografii
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -145,12 +145,12 @@ Obsoletes:	kdeedu
 %description kgeography
 A geography learning program.
 
-%description kgeography -l pl
+%description kgeography -l pl.UTF-8
 Program do nauki geografii.
 
 %package khangman
 Summary:	A hangman game
-Summary(pl):	Gra w wisielca
+Summary(pl.UTF-8):	Gra w wisielca
 Group:		X11/Applications/Science
 Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core >= %{_minbaseevr}
@@ -163,17 +163,17 @@ trying a letter after another. Each time you guess a wrong letter, a
 picture of a hangman is drawn. You must guess the word before getting
 hanged! It is aimed for children aged 6+.
 
-%description khangman -l pl
-KHangMan jest gr± opart± na popularnej grze w wisielca. Wybierane jest
-losowe s³owo, którego litery s± ukryte. Trzeba zgadn±æ to s³owo
-podaj±c kolejno litery. Za ka¿dym razem, gdy podana litera nie
-wystêpuje w s³owie, rysowany jest obrazek wisielca. Trzeba odgadn±æ
-s³owo przed powieszeniem! Gra jest przeznaczona dla dzieci w wieku 6
-lat lub wiêcej.
+%description khangman -l pl.UTF-8
+KHangMan jest grÄ… opartÄ… na popularnej grze w wisielca. Wybierane jest
+losowe sÅ‚owo, ktÃ³rego litery sÄ… ukryte. Trzeba zgadnÄ…Ä‡ to sÅ‚owo
+podajÄ…c kolejno litery. Za kaÅ¼dym razem, gdy podana litera nie
+wystÄ™puje w sÅ‚owie, rysowany jest obrazek wisielca. Trzeba odgadnÄ…Ä‡
+sÅ‚owo przed powieszeniem! Gra jest przeznaczona dla dzieci w wieku 6
+lat lub wiÄ™cej.
 
 %package kig
 Summary:	Interactive Geometry
-Summary(pl):	Interaktywna geometria
+Summary(pl.UTF-8):	Interaktywna geometria
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -186,16 +186,16 @@ two purposes:
 - serve as a WYSIWYG tool for drawing mathematical figures and
   including them in other documents.
 
-%description kig -l pl
-Kig to aplikacja do interaktywnej geometrii. Ma s³u¿yæ dwóm celom:
-- umo¿liwiæ uczniom interaktywnie przegl±danie figur i pojêæ
-  matematycznych przy u¿yciu komputera
-- s³u¿yæ jako narzêdzie WYSIWYG do rysowania figur matematycznych i
-  w³±czania ich do innych dokumentów.
+%description kig -l pl.UTF-8
+Kig to aplikacja do interaktywnej geometrii. Ma sÅ‚uÅ¼yÄ‡ dwÃ³m celom:
+- umoÅ¼liwiÄ‡ uczniom interaktywnie przeglÄ…danie figur i pojÄ™Ä‡
+  matematycznych przy uÅ¼yciu komputera
+- sÅ‚uÅ¼yÄ‡ jako narzÄ™dzie WYSIWYG do rysowania figur matematycznych i
+  wÅ‚Ä…czania ich do innych dokumentÃ³w.
 
 %package klatin
 Summary:	KLatin is a program to help revise latin
-Summary(pl):	Klatin s³u¿y do powtarzania ³aciny
+Summary(pl.UTF-8):	Klatin sÅ‚uÅ¼y do powtarzania Å‚aciny
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -215,24 +215,24 @@ In the grammar and verb sections KLatin asks for a particular part of
 a noun or a verb, such as the "ablative singular", or the "1st person
 indicative passive plural", and is not multiple choice.
 
-%description klatin -l pl
-KLatin to program pomagaj±cy przy powtarzaniu ³aciny. S± w nim trzy
-"sekcje", w których mo¿na æwiczyæ ró¿ne aspekty jêzyka. S± to:
-s³ownictwo, gramatyka i sprawdzanie czasowników. Ponadto jest zbiór
+%description klatin -l pl.UTF-8
+KLatin to program pomagajÄ…cy przy powtarzaniu Å‚aciny. SÄ… w nim trzy
+"sekcje", w ktÃ³rych moÅ¼na Ä‡wiczyÄ‡ rÃ³Å¼ne aspekty jÄ™zyka. SÄ… to:
+sÅ‚ownictwo, gramatyka i sprawdzanie czasownikÃ³w. Ponadto jest zbiÃ³r
 uwag przydatnych przy samodzielnym powtarzaniu.
 
-W sekcji s³ownictwa wczytywany jest plik XML zawieraj±cy ró¿ne s³owa i
-ich t³umaczenia na jêzyk lokalny. KLatin zadaje pytania o znaczenie
-ka¿dego z tych s³ów z odpowiedzi± w formie wielokrotnego wyboru.
+W sekcji sÅ‚ownictwa wczytywany jest plik XML zawierajÄ…cy rÃ³Å¼ne sÅ‚owa i
+ich tÅ‚umaczenia na jÄ™zyk lokalny. KLatin zadaje pytania o znaczenie
+kaÅ¼dego z tych sÅ‚Ã³w z odpowiedziÄ… w formie wielokrotnego wyboru.
 
-W sekcjach gramatyki i czasowników KLatin pyta o konkretn± formê
-rzeczownika lub czasownika, tak± jak "narzêdnik liczby pojedynczej"
-czy "pierwsza osoba liczby mnogiej trybu oznajmuj±cego w stronie
-biernej" i odpowiada siê bez wielokrotnego wyboru.
+W sekcjach gramatyki i czasownikÃ³w KLatin pyta o konkretnÄ… formÄ™
+rzeczownika lub czasownika, takÄ… jak "narzÄ™dnik liczby pojedynczej"
+czy "pierwsza osoba liczby mnogiej trybu oznajmujÄ…cego w stronie
+biernej" i odpowiada siÄ™ bez wielokrotnego wyboru.
 
 %package kiten
 Summary:	A Japanese reference tool
-Summary(pl):	S³ownik angielsko-japoñski
+Summary(pl.UTF-8):	SÅ‚ownik angielsko-japoÅ„ski
 Group:		X11/Applications/Science
 Requires:	%{name}-libkiten = %{epoch}:%{version}-%{release}
 Requires:	kdebase-core >= %{_minbaseevr}
@@ -244,15 +244,15 @@ convenient English to Japanese and Japanese to English dictionary;
 secondly, it is a Kanji dictionary, with multiple ways to look up
 specific characters; thirdly, it is a tool to help you learn Kanji.
 
-%description kiten -l pl
+%description kiten -l pl.UTF-8
 Kiten to aplikacja o wielu funkcjach. Po pierwsze, jest wygodnym
-s³ownikiem angielsko-japoñskim i japoñsko-angielskim; po drugie, jest
-s³ownikiem Kanji z wieloma sposobami wyszukiwania okre¶lonych znaków;
-po trzecie, jest narzêdziem pomagaj±cym w nauce Kanji.
+sÅ‚ownikiem angielsko-japoÅ„skim i japoÅ„sko-angielskim; po drugie, jest
+sÅ‚ownikiem Kanji z wieloma sposobami wyszukiwania okreÅ›lonych znakÃ³w;
+po trzecie, jest narzÄ™dziem pomagajÄ…cym w nauce Kanji.
 
 %package klettres
 Summary:	Helps child to learn alphabet and to read some syllables
-Summary(pl):	Pomoc w nauce alfabetu i sylab dla dzieci
+Summary(pl.UTF-8):	Pomoc w nauce alfabetu i sylab dla dzieci
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -270,21 +270,21 @@ keyboard only is needed.
 There are five languages available at the moment: Czech, Danish,
 Dutch, French and Slovak.
 
-%description klettres -l pl
-KLettres to bardzo prosta aplikacja pomagaj±ca dzieciom i doros³ym w
-nauce alfabetu i g³osek we w³asnym lub obcym jêzyku. Program losuje
-literê lub sylabê, a nastêpnie wy¶wietla j± i odgrywa d¼wiêk.
-U¿ytkownik powinien nastêpnie wpisaæ tê literê lub sylabê. Do æwiczeñ
-s³u¿± poziomy, gdzie litera/sylaba nie jest wy¶wietlana, jedynie
-d¼wiêk jest odgrywany. U¿ytkownik nie musi wiedzieæ, jak u¿ywaæ myszy,
+%description klettres -l pl.UTF-8
+KLettres to bardzo prosta aplikacja pomagajÄ…ca dzieciom i dorosÅ‚ym w
+nauce alfabetu i gÅ‚osek we wÅ‚asnym lub obcym jÄ™zyku. Program losuje
+literÄ™ lub sylabÄ™, a nastÄ™pnie wyÅ›wietla jÄ… i odgrywa dÅºwiÄ™k.
+UÅ¼ytkownik powinien nastÄ™pnie wpisaÄ‡ tÄ™ literÄ™ lub sylabÄ™. Do Ä‡wiczeÅ„
+sÅ‚uÅ¼Ä… poziomy, gdzie litera/sylaba nie jest wyÅ›wietlana, jedynie
+dÅºwiÄ™k jest odgrywany. UÅ¼ytkownik nie musi wiedzieÄ‡, jak uÅ¼ywaÄ‡ myszy,
 wymagana jest tylko klawiatura.
 
-Aktualnie dostêpne jest piêæ jêzyków: czeski, duñski, holenderski,
-francuski i s³owacki.
+Aktualnie dostÄ™pne jest piÄ™Ä‡ jÄ™zykÃ³w: czeski, duÅ„ski, holenderski,
+francuski i sÅ‚owacki.
 
 %package kmplot
 Summary:	Mathematical function plotter
-Summary(pl):	Rysowanie wykresów funkcji matematycznych
+Summary(pl.UTF-8):	Rysowanie wykresÃ³w funkcji matematycznych
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -294,14 +294,14 @@ KmPlot is a mathematical function plotter for the KDE Desktop. It has
 a powerful built-in parser. You can plot different functions
 simultaneously and combine them to build new functions.
 
-%description kmplot -l pl
-KmPlot to narzêdzie do rysowania wykresów funkcji matematycznych dla
-¶rodowiska KDE. Ma wbudowany potê¿ny parser. Mo¿na rysowaæ ró¿ne
-funkcje jednocze¶nie i ³±czyæ je, aby stworzyæ nowe funkcje.
+%description kmplot -l pl.UTF-8
+KmPlot to narzÄ™dzie do rysowania wykresÃ³w funkcji matematycznych dla
+Å›rodowiska KDE. Ma wbudowany potÄ™Å¼ny parser. MoÅ¼na rysowaÄ‡ rÃ³Å¼ne
+funkcje jednoczeÅ›nie i Å‚Ä…czyÄ‡ je, aby stworzyÄ‡ nowe funkcje.
 
 %package kpercentage
 Summary:	A percentage tutor
-Summary(pl):	Program do nauki procentów
+Summary(pl.UTF-8):	Program do nauki procentÃ³w
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -309,12 +309,12 @@ Obsoletes:	kdeedu
 %description kpercentage
 A percentage tutor.
 
-%description kpercentage -l pl
-Program do nauki procentów.
+%description kpercentage -l pl.UTF-8
+Program do nauki procentÃ³w.
 
 %package kstars
 Summary:	Desktop planetarium
-Summary(pl):	Planetarium
+Summary(pl.UTF-8):	Planetarium
 Group:		X11/Applications/Science
 Requires:	%{name}-libextdate = %{epoch}:%{version}-%{release}
 Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
@@ -331,19 +331,19 @@ planets, the Sun and Moon, hundreds of comets and asteroids, the Milky
 Way, 88 constellations, and guide lines such as the celestial equator,
 the horizon and the ecliptic.
 
-%description kstars -l pl
-KStars pozwala przegl±daæ nocne niebo z wygod± krzes³a przy
-komputerze. Dostarcza dok³adn± graficzn± reprezentacjê nocnego nieba
+%description kstars -l pl.UTF-8
+KStars pozwala przeglÄ…daÄ‡ nocne niebo z wygodÄ… krzesÅ‚a przy
+komputerze. Dostarcza dokÅ‚adnÄ… graficznÄ… reprezentacjÄ™ nocnego nieba
 dla dowolnej daty, z dowolnego miejsca na Ziemi. Obraz zawiera 126000
-gwiazd do 9. wielko¶ci (znacznie poza zasiêgiem nieuzbrojonego oka),
-13000 obiektów (katalogi Messiera, NGC i IC), wszystkie planety,
-S³oñce i Ksiê¿yc, setki komet i asteroid, Drogê Mleczn±, 88
-konstelacji oraz linie prowadz±ce takie jak równik astronomiczny,
-horyzont i ekliptykê.
+gwiazd do 9. wielkoÅ›ci (znacznie poza zasiÄ™giem nieuzbrojonego oka),
+13000 obiektÃ³w (katalogi Messiera, NGC i IC), wszystkie planety,
+SÅ‚oÅ„ce i KsiÄ™Å¼yc, setki komet i asteroid, DrogÄ™ MlecznÄ…, 88
+konstelacji oraz linie prowadzÄ…ce takie jak rÃ³wnik astronomiczny,
+horyzont i ekliptykÄ™.
 
 %package ktouch
 Summary:	Program for learning touch typing
-Summary(pl):	Program do nauki maszynopisania
+Summary(pl.UTF-8):	Program do nauki maszynopisania
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -357,18 +357,18 @@ with all the fingers without looking at the keys, in an step by step
 way. It is convenient for all ages, and the perfect typing tutor for
 schools, universities and individuals.
 
-%description ktouch -l pl
-KTouch to program do nauki maszynopisania. Dostarcza tekst do æwiczeñ,
-dostosowany do ró¿nych poziomów, zale¿nie od stopnia zaawansowania.
-Mo¿e wy¶wietlaæ, który klawisz trzeba nacisn±æ, i którego palca nale¿y
-u¿yæ. Jest ¶wietnym programem do nauki maszynopisania, uczy pisaæ
+%description ktouch -l pl.UTF-8
+KTouch to program do nauki maszynopisania. Dostarcza tekst do Ä‡wiczeÅ„,
+dostosowany do rÃ³Å¼nych poziomÃ³w, zaleÅ¼nie od stopnia zaawansowania.
+MoÅ¼e wyÅ›wietlaÄ‡, ktÃ³ry klawisz trzeba nacisnÄ…Ä‡, i ktÃ³rego palca naleÅ¼y
+uÅ¼yÄ‡. Jest Å›wietnym programem do nauki maszynopisania, uczy pisaÄ‡
 wszystkimi palcami bez patrzenia na klawisze, krok po kroku. Jest
-wygodny w ka¿dym wieku, jest ¶wietny dla szkó³, uniwersytetów i
+wygodny w kaÅ¼dym wieku, jest Å›wietny dla szkÃ³Å‚, uniwersytetÃ³w i
 jednostek.
 
 %package kturtle
 Summary:	A Logo interpreter for KDE
-Summary(pl):	Interpreter jêzyka Logo dla KDE
+Summary(pl.UTF-8):	Interpreter jÄ™zyka Logo dla KDE
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -395,31 +395,31 @@ KTurtle features:
   German, Latin and Swedish)
 - context help for each Logo command
 
-%description kturtle -l pl
-KTurtle to interpreter jêzyka programowania Logo dla KDE. Jêzyk Logo
-jest bardzo ³atwy, przez co mo¿e byæ u¿ywany przez ma³e dzieci.
-Unikalna jako¶æ Logo polega na tym, ¿e polecenia czy instrukcje mog±
-byæ t³umaczone (proszê zobaczyæ howto dla t³umaczy, aby pomóc przy
-t³umaczeniu na w³asny jêzyk), dziêki czemu "programista" mo¿e
-programowaæ w jêzyku ojczystym. To czyni Logo idealnym do nauki dzieci
-podstaw programowania, matematyki i geometrii. Jednym z powodów, dla
-których wiele dzieci lubi Logo, jest ¿ó³w - programowalna ikona, któr±
-mo¿na przesuwaæ po ekranie prostymi poleceniami i programowaæ do
-rysowania obiektów.
+%description kturtle -l pl.UTF-8
+KTurtle to interpreter jÄ™zyka programowania Logo dla KDE. JÄ™zyk Logo
+jest bardzo Å‚atwy, przez co moÅ¼e byÄ‡ uÅ¼ywany przez maÅ‚e dzieci.
+Unikalna jakoÅ›Ä‡ Logo polega na tym, Å¼e polecenia czy instrukcje mogÄ…
+byÄ‡ tÅ‚umaczone (proszÄ™ zobaczyÄ‡ howto dla tÅ‚umaczy, aby pomÃ³c przy
+tÅ‚umaczeniu na wÅ‚asny jÄ™zyk), dziÄ™ki czemu "programista" moÅ¼e
+programowaÄ‡ w jÄ™zyku ojczystym. To czyni Logo idealnym do nauki dzieci
+podstaw programowania, matematyki i geometrii. Jednym z powodÃ³w, dla
+ktÃ³rych wiele dzieci lubi Logo, jest Å¼Ã³Å‚w - programowalna ikona, ktÃ³rÄ…
+moÅ¼na przesuwaÄ‡ po ekranie prostymi poleceniami i programowaÄ‡ do
+rysowania obiektÃ³w.
 
-Mo¿liwo¶ci KTurtle:
-- zintegrowany interpreter Logo, nie trzeba ¶ci±gaæ ¿adnego innego
+MoÅ¼liwoÅ›ci KTurtle:
+- zintegrowany interpreter Logo, nie trzeba Å›ciÄ…gaÄ‡ Å¼adnego innego
   programu
-- potê¿ny edytor do poleceñ Logo z pod¶wietlaniem sk³adni,
+- potÄ™Å¼ny edytor do poleceÅ„ Logo z podÅ›wietlaniem skÅ‚adni,
   numerowaniem linii itp.
-- ³adne "boisko" dla ¿ó³wia, gdzie wizualizowane s± polecenia
-- t³umaczenia poleceñ Logo (m.in. na jêzyk francuski, holenderski,
-  ³aciñski, niemiecki i szwedzki)
-- pomoc kontekstowa dla ka¿dego polecenia Logo.
+- Å‚adne "boisko" dla Å¼Ã³Å‚wia, gdzie wizualizowane sÄ… polecenia
+- tÅ‚umaczenia poleceÅ„ Logo (m.in. na jÄ™zyk francuski, holenderski,
+  Å‚aciÅ„ski, niemiecki i szwedzki)
+- pomoc kontekstowa dla kaÅ¼dego polecenia Logo.
 
 %package kverbos
 Summary:	Spanish verb form study application for KDE
-Summary(pl):	Program do nauki form czasowników w jêzyku hiszpañskim
+Summary(pl.UTF-8):	Program do nauki form czasownikÃ³w w jÄ™zyku hiszpaÅ„skim
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -427,12 +427,12 @@ Obsoletes:	kdeedu
 %description kverbos
 Spanish verb form study application for KDE.
 
-%description kverbos -l pl
-Program do nauki form czasowników w jêzyku hiszpañskim.
+%description kverbos -l pl.UTF-8
+Program do nauki form czasownikÃ³w w jÄ™zyku hiszpaÅ„skim.
 
 %package kvoctrain
 Summary:	Vocabulary trainer
-Summary(pl):	Program do æwiczenia s³ownictwa
+Summary(pl.UTF-8):	Program do Ä‡wiczenia sÅ‚ownictwa
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -440,12 +440,12 @@ Obsoletes:	kdeedu
 %description kvoctrain
 Vocabulary trainer.
 
-%description kvoctrain -l pl
-Program do æwiczenia s³ownictwa.
+%description kvoctrain -l pl.UTF-8
+Program do Ä‡wiczenia sÅ‚ownictwa.
 
 %package kwordquiz
 Summary:	A flashcard and vocabulary learning program
-Summary(pl):	Program do æwiczenia s³ownictwa za pomoc± pokazywania kart
+Summary(pl.UTF-8):	Program do Ä‡wiczenia sÅ‚ownictwa za pomocÄ… pokazywania kart
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
 Obsoletes:	kdeedu
@@ -469,27 +469,27 @@ KWordQuiz also features Flashcard, Multiple Choice and Question &
 Answer functions. Question & Answer also has a special
 Fill-in-the-blank mode.
 
-%description kwordquiz -l pl
-KWordQuiz to wersja KDE programu WordQuiz s³u¿±cego do nauki
-s³ownictwa za pomoc± pokazywania kart. Jest to narzêdzie do nauki
-s³ownictwa nowego jêzyka. Mo¿na zacz±æ u¿ywaæ jego potencja³u do
-³atwego uczenia siê s³ownictwa.
+%description kwordquiz -l pl.UTF-8
+KWordQuiz to wersja KDE programu WordQuiz sÅ‚uÅ¼Ä…cego do nauki
+sÅ‚ownictwa za pomocÄ… pokazywania kart. Jest to narzÄ™dzie do nauki
+sÅ‚ownictwa nowego jÄ™zyka. MoÅ¼na zaczÄ…Ä‡ uÅ¼ywaÄ‡ jego potencjaÅ‚u do
+Å‚atwego uczenia siÄ™ sÅ‚ownictwa.
 
-S³owniki buduje siê w dwukolumnowej tabeli (lub wczytuje z plików
-.kvtml z kvoctraina). W jednej kolumnie wpisuje siê s³owa lub
-wyra¿enia w jednym jêzyku, a w drugiej kolumnie ich odpowiedniki w
-innym jêzyku. Mo¿na tak¿e u¿ywaæ programu do æwiczenia innych rzeczy,
-je¶li tylko maj± parowaln± relacjê - na przyk³ad terminologii
-medycznej czy prawniczej. Na screenshotach widaæ przyk³ad z ró¿nymi
+SÅ‚owniki buduje siÄ™ w dwukolumnowej tabeli (lub wczytuje z plikÃ³w
+.kvtml z kvoctraina). W jednej kolumnie wpisuje siÄ™ sÅ‚owa lub
+wyraÅ¼enia w jednym jÄ™zyku, a w drugiej kolumnie ich odpowiedniki w
+innym jÄ™zyku. MoÅ¼na takÅ¼e uÅ¼ywaÄ‡ programu do Ä‡wiczenia innych rzeczy,
+jeÅ›li tylko majÄ… parowalnÄ… relacjÄ™ - na przykÅ‚ad terminologii
+medycznej czy prawniczej. Na screenshotach widaÄ‡ przykÅ‚ad z rÃ³Å¼nymi
 stanami USA i ich stolicami.
 
-KWordQuiz zawiera tak¿e funkcje Flashcard (pokazywania kart), testu
-wielokrotnego wyboru oraz pytañ i odpowiedzi. Pytania i odpowiedzi
-maj± tak¿e specjalny tryb wype³niania luk.
+KWordQuiz zawiera takÅ¼e funkcje Flashcard (pokazywania kart), testu
+wielokrotnego wyboru oraz pytaÅ„ i odpowiedzi. Pytania i odpowiedzi
+majÄ… takÅ¼e specjalny tryb wypeÅ‚niania luk.
 
 %package libextdate
 Summary:	Extensive date support library in KDE
-Summary(pl):	Biblioteka rozszerzonej obs³ugi dat w KDE
+Summary(pl.UTF-8):	Biblioteka rozszerzonej obsÅ‚ugi dat w KDE
 Group:		X11/Libraries
 Requires:	kdelibs >= %{_minlibsevr}
 
@@ -503,18 +503,18 @@ recognize dates prior to 14 Oct 1752 (when the Gregorian calendar was
 adopted by England), nor dates after 31 Dec 8000. Both of these limits
 are arbitrary.
 
-%description libextdate -l pl
-Ta biblioteka zawiera grupê klas pozwalaj±cych aplikacjom KDE na
-dostêp do dat spoza zakresu lat narzuconego przez QDate.
+%description libextdate -l pl.UTF-8
+Ta biblioteka zawiera grupÄ™ klas pozwalajÄ…cych aplikacjom KDE na
+dostÄ™p do dat spoza zakresu lat narzuconego przez QDate.
 
 Klasa QDate ma ograniczony zakres dopuszczalnych dat. Nie rozpoznaje
-dat wcze¶niejszych ni¿ 14 pa¼dziernika 1752 (kiedy w Anglii
-zaadoptowano kalendarz gregoriañski) ani pó¼niejszych ni¿ 31 grudnia
-8000. Oba te limity s± samowolne.
+dat wczeÅ›niejszych niÅ¼ 14 paÅºdziernika 1752 (kiedy w Anglii
+zaadoptowano kalendarz gregoriaÅ„ski) ani pÃ³Åºniejszych niÅ¼ 31 grudnia
+8000. Oba te limity sÄ… samowolne.
 
 %package libkdeeducore
 Summary:	KDE educational module core library
-Summary(pl):	Podstawowa biblioteka modu³u edukacyjnego KDE
+Summary(pl.UTF-8):	Podstawowa biblioteka moduÅ‚u edukacyjnego KDE
 Group:		X11/Libraries
 Requires:	kdelibs >= %{_minlibsevr}
 Obsoletes:	kdeedu-flashkard
@@ -522,26 +522,26 @@ Obsoletes:	kdeedu-flashkard
 %description libkdeeducore
 The core library for education applications in KDE.
 
-%description libkdeeducore -l pl
+%description libkdeeducore -l pl.UTF-8
 Podstawowa biblioteka z funkcjami wykorzystywanymi przez aplikacje
 edukacyjne w KDE.
 
 %package libkdeeduplot
 Summary:	A KDE library for plotting
-Summary(pl):	Biblioteka KDE do rysowania wykresów
+Summary(pl.UTF-8):	Biblioteka KDE do rysowania wykresÃ³w
 Group:		X11/Libraries
 Requires:	kdelibs >= %{_minlibsevr}
 
 %description libkdeeduplot
 Library with plotting functions for KDE educational applications.
 
-%description libkdeeduplot -l pl
-Biblioteka z funkcjami do rysowania wykresów, wykorzystywanymi przez
+%description libkdeeduplot -l pl.UTF-8
+Biblioteka z funkcjami do rysowania wykresÃ³w, wykorzystywanymi przez
 aplikacje edukacyjne w KDE.
 
 %package libkdeeduui
 Summary:	A userf interface library for KDE educational module
-Summary(pl):	Biblioteka interfejsu u¿ytkownika dla modu³u edukacyjnego KDE
+Summary(pl.UTF-8):	Biblioteka interfejsu uÅ¼ytkownika dla moduÅ‚u edukacyjnego KDE
 Group:		X11/Libraries
 Requires:	kdelibs >= %{_minlibsevr}
 
@@ -549,20 +549,20 @@ Requires:	kdelibs >= %{_minlibsevr}
 A library with user interface functions for KDE educational
 applications.
 
-%description libkdeeduui -l pl
-Biblioteka z funkcjami interfejsu u¿ytkownika, wykorzystywanymi przez
+%description libkdeeduui -l pl.UTF-8
+Biblioteka z funkcjami interfejsu uÅ¼ytkownika, wykorzystywanymi przez
 aplikacje edukacyjne w KDE.
 
 %package libkiten
 Summary:	Kiten library
-Summary(pl):	Biblioteka Kiten
+Summary(pl.UTF-8):	Biblioteka Kiten
 Group:		X11/Libraries
 Requires:	kdelibs >= %{_minlibsevr}
 
 %description libkiten
 Kiten library.
 
-%description libkiten -l pl
+%description libkiten -l pl.UTF-8
 Biblioteka Kiten.
 
 %prep

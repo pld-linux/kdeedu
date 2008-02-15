@@ -5,13 +5,13 @@
 Summary:	K Desktop Environment - edutainment
 Summary(pl.UTF-8):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
-Version:	3.5.8
-Release:	1
+Version:	3.5.9
+Release:	0.1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	aaae4c6fe82c806eb20942178cadad9e
+# Source0-md5:	cbdabe916ce6fa300f8dab972c5cb4a4
 #Patch100:	%{name}-branch.diff
 Patch0:		kde-common-PLD.patch
 Patch1:		%{name}-pport.patch
@@ -46,6 +46,7 @@ Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
 Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
 Requires:	%{name}-libkdeeduui = %{epoch}:%{version}-%{release}
 Requires:	%{name}-libkiten = %{epoch}:%{version}-%{release}
+Requires:	%{name}-libkvoctrain = %{epoch}:%{version}-%{release}
 
 %description devel
 Header files for kdeedu libraries.
@@ -435,6 +436,7 @@ Summary:	Vocabulary trainer
 Summary(pl.UTF-8):	Program do ćwiczenia słownictwa
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
+Requires:	%{name}-libkvoctrain = %{epoch}:%{version}-%{release}
 Obsoletes:	kdeedu
 
 %description kvoctrain
@@ -565,6 +567,18 @@ Kiten library.
 %description libkiten -l pl.UTF-8
 Biblioteka Kiten.
 
+%package libkvoctrain
+Summary:	Voctrain library
+Summary(pl.UTF-8):	Biblioteka Voctrain
+Group:		X11/Libraries
+Requires:	kdelibs >= %{_minlibsevr}
+
+%description libkvoctrain
+Voctran library.
+
+%description libkiten -l pl.UTF-8
+Biblioteka Voctrain.
+
 %prep
 %setup -q
 %patch0 -p1
@@ -612,22 +626,25 @@ cp /usr/share/automake/config.sub admin
 %{__make}
 
 %install
-rm -rf $RPM_BUILD_ROOT
+if [ ! -f makeinstall.stamp -o ! -d $RPM_BUILD_ROOT ]; then
+	rm -rf makeinstall.stamp installed.stamp $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	kde_htmldir=%{_kdedocdir}
+	%{__make} install \
+		DESTDIR=$RPM_BUILD_ROOT \
+		kde_htmldir=%{_kdedocdir}
+	touch makeinstall.stamp
+fi
 
-install -d \
-	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/actions \
-	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/apps \
-	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/32x32/apps
+if [ ! -f installed.stamp ]; then
+	install -d $RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/actions
 
-mv $RPM_BUILD_ROOT%{_iconsdir}/locolor/16x16/actions/edit_{add,remove}.png \
-	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/actions
+	mv $RPM_BUILD_ROOT%{_iconsdir}/locolor/16x16/actions/edit_{add,remove}.png \
+		$RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/actions
 
-# applnk is obsolete, isn't it?
-rm -rf $RPM_BUILD_ROOT%{_datadir}/applnk
+	# applnk is obsolete, isn't it?
+	rm -rf $RPM_BUILD_ROOT%{_datadir}/applnk
+	touch installed.stamp
+fi
 
 %find_lang blinken	--with-kde
 %find_lang kanagram	--with-kde
@@ -651,6 +668,9 @@ rm -rf $RPM_BUILD_ROOT
 %post	libkiten	-p /sbin/ldconfig
 %postun	libkiten	-p /sbin/ldconfig
 
+%post	libkvoctrain	-p /sbin/ldconfig
+%postun	libkvoctrain	-p /sbin/ldconfig
+
 %files devel
 %defattr(644,root,root,755)
 %doc README
@@ -659,6 +679,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkdeeduplot.so
 %attr(755,root,root) %{_libdir}/libkdeeduui.so
 %attr(755,root,root) %{_libdir}/libkiten.so
+%attr(755,root,root) %{_libdir}/libkvoctraincore.so
 %{_includedir}/libkdeedu
 %{_includedir}/libkiten
 %{_includedir}/*.h
@@ -877,8 +898,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kvoctrain
 %attr(755,root,root) %{_bindir}/spotlight2kvtml
-%attr(755,root,root) %{_libdir}/libkvoctraincore.so.*
-%{_libdir}/libkvoctraincore.la
 %{_datadir}/apps/kvoctrain
 %{_datadir}/config.kcfg/kvoctrain.kcfg
 %{_datadir}/config.kcfg/languagesettings.kcfg
@@ -905,24 +924,35 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/test_extdate
 %attr(755,root,root) %{_bindir}/test_extdatepicker
 %{_libdir}/libextdate.la
-%attr(755,root,root) %{_libdir}/libextdate.so.1.2.0
+%attr(755,root,root) %{_libdir}/libextdate.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libextdate.so.1
 
 %files libkdeeducore
 %defattr(644,root,root,755)
 %{_libdir}/libkdeeducore.la
 %attr(755,root,root) %{_libdir}/libkdeeducore.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libkdeeducore.so.1
 
 %files libkdeeduplot
 %defattr(644,root,root,755)
 %{_libdir}/libkdeeduplot.la
 %attr(755,root,root) %{_libdir}/libkdeeduplot.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libkdeeduplot.so.1
 
 %files libkdeeduui
 %defattr(644,root,root,755)
 %{_libdir}/libkdeeduui.la
 %attr(755,root,root) %{_libdir}/libkdeeduui.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libkdeeduui.so.3
 
 %files libkiten
 %defattr(644,root,root,755)
 %{_libdir}/libkiten.la
 %attr(755,root,root) %{_libdir}/libkiten.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libkiten.so.1
+
+%files libkvoctrain
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/libkvoctraincore.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libkvoctraincore.so.0
+%{_libdir}/libkvoctraincore.la

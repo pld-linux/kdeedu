@@ -5,13 +5,13 @@
 Summary:	K Desktop Environment - edutainment
 Summary(pl.UTF-8):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
-Version:	3.5.8
-Release:	1
+Version:	3.5.9
+Release:	2
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	aaae4c6fe82c806eb20942178cadad9e
+# Source0-md5:	cbdabe916ce6fa300f8dab972c5cb4a4
 #Patch100:	%{name}-branch.diff
 Patch0:		kde-common-PLD.patch
 Patch1:		%{name}-pport.patch
@@ -46,6 +46,7 @@ Requires:	%{name}-libkdeeducore = %{epoch}:%{version}-%{release}
 Requires:	%{name}-libkdeeduplot = %{epoch}:%{version}-%{release}
 Requires:	%{name}-libkdeeduui = %{epoch}:%{version}-%{release}
 Requires:	%{name}-libkiten = %{epoch}:%{version}-%{release}
+Requires:	%{name}-libkvoctrain = %{epoch}:%{version}-%{release}
 
 %description devel
 Header files for kdeedu libraries.
@@ -435,6 +436,7 @@ Summary:	Vocabulary trainer
 Summary(pl.UTF-8):	Program do ćwiczenia słownictwa
 Group:		X11/Applications/Science
 Requires:	kdebase-core >= %{_minbaseevr}
+Requires:	%{name}-libkvoctrain = %{epoch}:%{version}-%{release}
 Obsoletes:	kdeedu
 
 %description kvoctrain
@@ -565,6 +567,18 @@ Kiten library.
 %description libkiten -l pl.UTF-8
 Biblioteka Kiten.
 
+%package libkvoctrain
+Summary:	Voctrain library
+Summary(pl.UTF-8):	Biblioteka Voctrain
+Group:		X11/Libraries
+Requires:	kdelibs >= %{_minlibsevr}
+
+%description libkvoctrain
+Voctran library.
+
+%description libkiten -l pl.UTF-8
+Biblioteka Voctrain.
+
 %prep
 %setup -q
 %patch0 -p1
@@ -612,22 +626,28 @@ cp /usr/share/automake/config.sub admin
 %{__make}
 
 %install
-rm -rf $RPM_BUILD_ROOT
+if [ ! -f makeinstall.stamp -o ! -d $RPM_BUILD_ROOT ]; then
+	rm -rf makeinstall.stamp installed.stamp $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	kde_htmldir=%{_kdedocdir}
+	%{__make} install \
+		DESTDIR=$RPM_BUILD_ROOT \
+		kde_htmldir=%{_kdedocdir}
+	touch makeinstall.stamp
+fi
 
-install -d \
-	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/actions \
-	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/apps \
-	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/32x32/apps
+if [ ! -f installed.stamp ]; then
+	install -d $RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/actions
 
-mv $RPM_BUILD_ROOT%{_iconsdir}/locolor/16x16/actions/edit_{add,remove}.png \
-	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/actions
+	mv $RPM_BUILD_ROOT%{_iconsdir}/locolor/16x16/actions/edit_{add,remove}.png \
+		$RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/actions
 
-# applnk is obsolete, isn't it?
-rm -rf $RPM_BUILD_ROOT%{_datadir}/applnk
+	# unsupported
+	rm -rf $RPM_BUILD_ROOT%{_iconsdir}/locolor
+
+	# applnk is obsolete, isn't it?
+	rm -rf $RPM_BUILD_ROOT%{_datadir}/applnk
+	touch installed.stamp
+fi
 
 %find_lang blinken	--with-kde
 %find_lang kanagram	--with-kde
@@ -651,6 +671,9 @@ rm -rf $RPM_BUILD_ROOT
 %post	libkiten	-p /sbin/ldconfig
 %postun	libkiten	-p /sbin/ldconfig
 
+%post	libkvoctrain	-p /sbin/ldconfig
+%postun	libkvoctrain	-p /sbin/ldconfig
+
 %files devel
 %defattr(644,root,root,755)
 %doc README
@@ -659,6 +682,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkdeeduplot.so
 %attr(755,root,root) %{_libdir}/libkdeeduui.so
 %attr(755,root,root) %{_libdir}/libkiten.so
+%attr(755,root,root) %{_libdir}/libkvoctraincore.so
 %{_includedir}/libkdeedu
 %{_includedir}/libkiten
 %{_includedir}/*.h
@@ -669,7 +693,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/blinken.desktop
 %{_datadir}/apps/blinken
 %{_datadir}/config.kcfg/blinken.kcfg
-%{_iconsdir}/[!l]*/*/*/blinken.*
+%{_iconsdir}/hicolor/*/*/blinken.*
 
 %files kalzium
 %defattr(644,root,root,755)
@@ -677,7 +701,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kalzium
 %{_datadir}/config.kcfg/kalzium.kcfg
 %{_desktopdir}/kde/kalzium.desktop
-%{_iconsdir}/[!l]*/*/apps/kalzium*
+%{_iconsdir}/hicolor/*/apps/kalzium.*
 #%{_mandir}/man1/kalzium.1*
 %{_kdedocdir}/en/kalzium
 
@@ -687,7 +711,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config.kcfg/kanagram.kcfg
 %{_datadir}/apps/kanagram
 %{_desktopdir}/kde/kanagram.desktop
-%{_iconsdir}/[!l]*/*/*/kanagram.*
+%{_iconsdir}/hicolor/*/*/kanagram.*
 
 %files kbruch
 %defattr(644,root,root,755)
@@ -695,7 +719,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kbruch
 %{_datadir}/config.kcfg/kbruch.kcfg
 %{_desktopdir}/kde/kbruch.desktop
-%{_iconsdir}/[!l]*/*/*/kbruch*
+%{_iconsdir}/hicolor/*/*/kbruch.*
+%{_iconsdir}/crystalsvg/*/actions/kbruch_*.png
 %{_kdedocdir}/en/kbruch
 
 %files keduca
@@ -719,7 +744,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config.kcfg/kgeography.kcfg
 %{_desktopdir}/kde/kgeography.desktop
 %{_datadir}/apps/kgeography
-%{_iconsdir}/[!l]*/*/*/kgeography.*
+%{_iconsdir}/hicolor/*/*/kgeography.*
+%{_iconsdir}/crystalsvg/*/*/kgeography.*
 
 %files khangman
 %defattr(644,root,root,755)
@@ -728,7 +754,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config/khangmanrc
 %{_datadir}/config.kcfg/khangman.kcfg
 %{_desktopdir}/kde/khangman.desktop
-%{_iconsdir}/[!l]*/*/apps/khangman*
+%{_iconsdir}/hicolor/*/apps/khangman.*
 %{_kdedocdir}/en/khangman
 
 %files kig
@@ -742,7 +768,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/kde3/kfile_kig.la
 %attr(755,root,root) %{_libdir}/kde3/kfile_kig.so
 %{_datadir}/apps/kig*
-%{_datadir}/apps/katepart/syntax/python-kig.xml
+#%{_datadir}/apps/katepart/syntax/python-kig.xml
 %{_datadir}/config/magic/cabri.magic
 %{_datadir}/config/magic/drgeo.magic
 %{_datadir}/mimelnk/application/x-kgeo.desktop
@@ -754,7 +780,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/services/kfile_drgeo.desktop
 %{_datadir}/services/kfile_kig.desktop
 %{_desktopdir}/kde/kig.desktop
-%{_iconsdir}/[!l]*/*/apps/kig*
+%{_iconsdir}/hicolor/*/apps/kig.*
 %{_iconsdir}/crystalsvg/*/mimetypes/kig_doc.*
 %{_kdedocdir}/en/kig
 
@@ -767,7 +793,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/kiten.desktop
 %{_iconsdir}/*/*/actions/kanjidic.png
 %{_iconsdir}/*/*/actions/edit_*.png
-%{_iconsdir}/*/*/apps/kiten*
+%{_iconsdir}/*/*/apps/kiten.*
 %{_kdedocdir}/en/kiten
 
 %files klatin
@@ -777,7 +803,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/klatin
 %{_desktopdir}/kde/klatin.desktop
 %{_kdedocdir}/en/klatin
-%{_iconsdir}/*/*/apps/klatin*
+%{_iconsdir}/*/*/apps/klatin.*
 
 %files klettres
 %defattr(644,root,root,755)
@@ -786,7 +812,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config/klettresrc
 %{_datadir}/config.kcfg/klettres.kcfg
 %{_desktopdir}/kde/klettres.desktop
-%{_iconsdir}/[!l]*/*/*/klettres*
+%{_iconsdir}/hicolor/*/*/klettres.*
 %{_kdedocdir}/en/klettres
 
 %if 0
@@ -796,7 +822,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kmessedwords
 %{_datadir}/config.kcfg/kmessedwords.kcfg
 %{_desktopdir}/kde/kmessedwords.desktop
-%{_iconsdir}/[!l]*/*/apps/kmessedwords*
+%{_iconsdir}/hicolor/*/apps/kmessedwords.*
 %{_kdedocdir}/en/kmessedwords
 %endif
 
@@ -810,7 +836,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/kde/kmplot.desktop
 %{_datadir}/mimelnk/application/x-kmplot.desktop
 %{_datadir}/services/kmplot_part.desktop
-%{_iconsdir}/[!l]*/*/apps/kmplot*
+%{_iconsdir}/hicolor/*/apps/kmplot.*
 %{_kdedocdir}/en/kmplot
 
 %files kpercentage
@@ -818,7 +844,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kpercentage
 %{_datadir}/apps/kpercentage
 %{_desktopdir}/kde/kpercentage.desktop
-%{_iconsdir}/[!l]*/*/apps/kpercentage*
+%{_iconsdir}/hicolor/*/apps/kpercentage.*
 %{_kdedocdir}/en/kpercentage
 
 %files kstars
@@ -841,7 +867,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config/kstarsrc
 %{_datadir}/config.kcfg/kstars.kcfg
 %{_desktopdir}/kde/kstars.desktop
-%{_iconsdir}/[!l]*/*/apps/kstars*
+%{_iconsdir}/hicolor/*/apps/kstars.*
 %{_kdedocdir}/en/kstars
 
 %files ktouch
@@ -850,7 +876,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/ktouch
 %{_datadir}/config.kcfg/ktouch.kcfg
 %{_desktopdir}/kde/ktouch.desktop
-%{_iconsdir}/*/*/apps/ktouch*
+%{_iconsdir}/*/*/apps/ktouch.*
 %{_kdedocdir}/en/ktouch
 
 %files kturtle
@@ -861,7 +887,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config.kcfg/kturtle.kcfg
 %{_desktopdir}/kde/kturtle.desktop
 %{_kdedocdir}/en/kturtle
-%{_iconsdir}/*/*/apps/kturtle*
+%{_iconsdir}/*/*/apps/kturtle.*
 
 %files kverbos
 %defattr(644,root,root,755)
@@ -870,22 +896,20 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config.kcfg/kverbos.kcfg
 %{_desktopdir}/kde/kverbos.desktop
 %{_iconsdir}/*/*/actions/kverbosuser.png
-%{_iconsdir}/*/*/apps/kverbos*
+%{_iconsdir}/*/*/apps/kverbos.*
 %{_kdedocdir}/en/kverbos
 
 %files kvoctrain
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kvoctrain
 %attr(755,root,root) %{_bindir}/spotlight2kvtml
-%attr(755,root,root) %{_libdir}/libkvoctraincore.so.*
-%{_libdir}/libkvoctraincore.la
 %{_datadir}/apps/kvoctrain
 %{_datadir}/config.kcfg/kvoctrain.kcfg
 %{_datadir}/config.kcfg/languagesettings.kcfg
 %{_datadir}/config.kcfg/presettings.kcfg
 %{_datadir}/config/kvoctrainrc
 %{_desktopdir}/kde/kvoctrain.desktop
-%{_iconsdir}/*/*/apps/kvoctrain*
+%{_iconsdir}/*/*/apps/kvoctrain.*
 %{_kdedocdir}/en/kvoctrain
 %{_datadir}/mimelnk/text/x-kvtml.desktop
 
@@ -896,7 +920,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/config.kcfg/kwordquiz.kcfg
 %{_desktopdir}/kde/kwordquiz.desktop
 %{_kdedocdir}/en/kwordquiz
-%{_iconsdir}/[!l]*/*/*/kwordquiz*
+%{_iconsdir}/hicolor/*/*/kwordquiz.*
+%{_iconsdir}/crystalsvg/*/*/kwordquiz_doc.*
 %{_datadir}/mimelnk/application/x-kwordquiz.desktop
 %{_datadir}/config/kwordquizrc
 
@@ -905,24 +930,35 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/test_extdate
 %attr(755,root,root) %{_bindir}/test_extdatepicker
 %{_libdir}/libextdate.la
-%attr(755,root,root) %{_libdir}/libextdate.so.1.2.0
+%attr(755,root,root) %{_libdir}/libextdate.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libextdate.so.1
 
 %files libkdeeducore
 %defattr(644,root,root,755)
 %{_libdir}/libkdeeducore.la
 %attr(755,root,root) %{_libdir}/libkdeeducore.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libkdeeducore.so.1
 
 %files libkdeeduplot
 %defattr(644,root,root,755)
 %{_libdir}/libkdeeduplot.la
 %attr(755,root,root) %{_libdir}/libkdeeduplot.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libkdeeduplot.so.1
 
 %files libkdeeduui
 %defattr(644,root,root,755)
 %{_libdir}/libkdeeduui.la
 %attr(755,root,root) %{_libdir}/libkdeeduui.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libkdeeduui.so.3
 
 %files libkiten
 %defattr(644,root,root,755)
 %{_libdir}/libkiten.la
 %attr(755,root,root) %{_libdir}/libkiten.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libkiten.so.1
+
+%files libkvoctrain
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/libkvoctraincore.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libkvoctraincore.so.0
+%{_libdir}/libkvoctraincore.la

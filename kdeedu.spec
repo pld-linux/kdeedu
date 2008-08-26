@@ -5,13 +5,13 @@
 Summary:	K Desktop Environment - edutainment
 Summary(pl.UTF-8):	K Desktop Environment - edukacja i rozrywka
 Name:		kdeedu
-Version:	3.5.9
+Version:	3.5.10
 Release:	1
 Epoch:		8
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	cbdabe916ce6fa300f8dab972c5cb4a4
+# Source0-md5:	1b1466bf4cb0a59b1abd8613a2588142
 #Patch100:	%{name}-branch.diff
 Patch0:		kde-common-PLD.patch
 Patch1:		%{name}-pport.patch
@@ -19,10 +19,17 @@ Patch2:		kde-ac260-lt.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	boost-python-devel
+# TODO: missing packages in cvs repo
+# BuildRequires:	ocaml-facile - now present
+# BuildRequires:	nova-devel
+# BuildRequires:	sbig-devel
+BuildRequires:	boost-python-devel
+BuildRequires:	openbabel-devel
 BuildRequires:	python-devel
 BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel >= %{_minlibsevr}
 BuildRequires:	libjpeg-devel
+BuildRequires:	libusb-devel
 BuildRequires:	libpng-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	sed >= 4.0
@@ -927,8 +934,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files libextdate
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/test_extdate
-%attr(755,root,root) %{_bindir}/test_extdatepicker
 %{_libdir}/libextdate.la
 %attr(755,root,root) %{_libdir}/libextdate.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libextdate.so.1

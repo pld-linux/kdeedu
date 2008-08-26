@@ -20,7 +20,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	boost-python-devel
 # TODO: missing packages in cvs repo
-# BuildRequires:	libfacile-devel - http://www.recherche.enac.fr/log/facile/
+# BuildRequires:	ocaml-facile - now present
 # BuildRequires:	nova-devel
 # BuildRequires:	sbig-devel
 BuildRequires:	boost-python-devel

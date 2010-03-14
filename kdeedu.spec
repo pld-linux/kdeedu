@@ -631,6 +631,7 @@ cp /usr/share/automake/config.sub admin
 	--enable-kig-compressed-files
 
 %{__make}
+rm -f makeinstall.stamp
 
 %install
 if [ ! -f makeinstall.stamp -o ! -d $RPM_BUILD_ROOT ]; then

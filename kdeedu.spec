@@ -583,7 +583,7 @@ Requires:	kdelibs >= %{_minlibsevr}
 %description libkvoctrain
 Voctran library.
 
-%description libkiten -l pl.UTF-8
+%description libkvoctrain -l pl.UTF-8
 Biblioteka Voctrain.
 
 %prep

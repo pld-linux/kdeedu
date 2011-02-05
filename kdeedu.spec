@@ -823,17 +823,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*/*/klettres.*
 %{_kdedocdir}/en/klettres
 
-%if 0
-%files kmessedwords
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/kmessedwords
-%{_datadir}/apps/kmessedwords
-%{_datadir}/config.kcfg/kmessedwords.kcfg
-%{_desktopdir}/kde/kmessedwords.desktop
-%{_iconsdir}/hicolor/*/apps/kmessedwords.*
-%{_kdedocdir}/en/kmessedwords
-%endif
-
 %files kmplot
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kmplot

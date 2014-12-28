@@ -26,7 +26,7 @@ BuildRequires:	boost-python-devel
 BuildRequires:	boost-python-devel
 BuildRequires:	openbabel-devel >= 2.2.0
 BuildRequires:	python-devel
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	kdelibs-devel >= %{_minlibsevr}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libusb-devel
